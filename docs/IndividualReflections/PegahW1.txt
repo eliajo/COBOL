@@ -1,0 +1,65 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2577
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}
+{\list\listtemplateid2\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid101\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid2}
+{\list\listtemplateid3\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid201\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid3}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}{\listoverride\listid3\listoverridecount0\ls3}}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs28 \cf2 Pegah Amanzadeh\
+\pard\pardeftab720\partightenfactor0
+
+\fs22 \cf2 				\
+ 			\
+				
+\fs28 Individual Reflections - Week 1\
+\
+\
+\
+\
+- What do I want to learn and understand better?\
+\
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf2 I want to learn and understand better how to work in an agil team and how to be more 		efficient in my team and help them to achieve our gol which is developing an app. I also want to understand 	better how to use Scrum methods in team and se how it can impact on our job.\
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf2 \
+\pard\tx20\tx305\pardeftab720\li305\fi-306\partightenfactor0
+\ls1\ilvl0
+\fs33\fsmilli16800 \cf2 {\listtext	-	}
+\fs28 How can I help someone else, or the entire team, to learn something new?\
+\pard\pardeftab720\partightenfactor0
+\cf2  \
+\pard\pardeftab720\partightenfactor0
+
+\fs26 \cf2 I could contribute with my idea this week. I think helping each other can make a team to learn new things and helping the team to go forward.\
+\
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf2 \
+\pard\tx20\tx305\pardeftab720\li305\fi-306\partightenfactor0
+\ls2\ilvl0
+\fs33\fsmilli16800 \cf2 {\listtext	-	}
+\fs28 What is my contribution towards the teams Use of Scrum?\
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+\pard\pardeftab720\partightenfactor0
+
+\fs26 \cf2 I can help my team by following scrum methods, like reflecting previous sprint and planning the next sprint and try to help my team to work better and go forward.
+\fs28 \
+\
+\pard\tx20\tx305\pardeftab720\li305\fi-306\partightenfactor0
+\ls3\ilvl0
+\fs33\fsmilli16800 \cf2 {\listtext	-	}
+\fs28 What is my contribution towards the teams deliveries?\
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+\pard\pardeftab720\partightenfactor0
+
+\fs26 \cf2 I could contribute with my idea about our project and feedbacks to other team members
+\fs24 .}
