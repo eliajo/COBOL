@@ -1,0 +1,36 @@
+
+
+what do I want to learn or understand better?
+
+Right now I feel like I have a basic understanding of Scrum theory-wise but I am not as confident when it comes to putting it into practice. In the last course we used it to some extent
+but it felt more like a hindrance than something that improved our software development process. This was almost certainly due to our lack of knowledge about it.
+To remedy this I will try to look into tips
+online to see some ideas about how to make it work better than the last time.
+
+
+how can I help someone else, or the entire team, to learn something new?
+
+Some of the members of the group lack a knowledge of git due to the fact that they never have used it. 
+I and the other group members have started a kind of tutorial to help them learn the basics. 
+This is something that will continue to some extent during the course. I also hope to be of assistance to those who are unfamiliar
+with working in a software project since it can be a bit overwhelming at first. To do this I will try to reassure them that it is ok to make mistakes
+and it is an excellent way to improve ones confidence when it comes to programming.
+
+
+what is my contribution towards the team’s use of Scrum?
+
+At the time of writing we have not really started using scrum since we really have not started our development yet, altough some planning has been done
+,but I hope that my experience of scrum from an earlier course will be some help to those that are new to the concept. One thing that we that had experience in Scrum prepared for later was a Trello board that 
+will be useful for user stories and "slicing the cake" later on, which to some extent is a preparation for Scrum.
+
+what is my contribution towards the team’s deliveries?
+
+We have done our group contract and established a github repo and started discussing our project.
+ I've tried to take an active role in creating such things as a Github repository.  
+I will try to be as proactive as possible
+and continue with this with the motivation that I think it will be beneficial to our teams productivity if we get such things done as soon as possible 
+without any procrastination. A personal improvement here is to prepare these things before meetings to not miss out on some discussions when I try to set it up. 
+In the discussion of the project so far my main objective has been to try to make sure that the choosen scope seems resonable for
+the time we should spend on it. It is my hope that my previous project experience, albeit limited, can help the group stray away from mistakes that 
+I previously have made. To do this I will try to encourage the group, and remind myself, to think things through and not rush things, which can be the cause of many problems down the line.
+
