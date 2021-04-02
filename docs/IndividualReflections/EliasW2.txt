@@ -1,0 +1,55 @@
+
+what do I want to learn or understand better?
+I have learned quite a lot about how scrum works in practice the last week thanks to
+the Minetest exercise. There still some questions marks left but I will try to use
+the free time during easter to fix this. I don't know if we will use 
+continous integration during our project such as travis but I still want to understand
+it better if we decide to use it. The same thing applies to gradle since we will need
+to use it if we use android studio, which we probably will. I would also 
+like to understand the concept of a business model canvas a bit better. It is a 
+concept that is entirely new to me. It does seem quite intuitive to me and to understand it better
+I will try to look for some video describing how it works. Our external stakeholder also
+recommended us to get a basic understanding of schizophrenia to further understand the target audience of our app. 
+I will try to to look for rescources online for that and we are supposed to recieve a pamphlet that further explains it.
+
+how can I help someone else, or the entire team, to learn something new?
+
+This week we have not really done that much that I specifically have experience in
+so I have not been able to help people learn something new in any significant manner.
+The only real thing is maybe that I gave some clarifactions on user stories at a point. 
+I suspect this will change
+when we get the project rolling and I will try to, as mentioned get more familiar with
+gradle and potentially travis. These tools can be quite confusing to work with, atleast
+in my experience so I am ready to take some responsibility to set them up and also try to
+explain atleast the basics. The same applies to Android studio (and the entire Android framework), 
+which we almost certainly will work in
+to some extent. To make sure that everyone gains atleast a basic understanding of the
+tools we use I will try to be patient and try to explain how they work to the best of 
+my ability. I will also try to encourage other group members that are new to these tools
+to look them up online and maybe point them in the right direction. We will also have a session
+next week where we try to use the android framework together.
+
+
+
+what is my contribution towards the team’s use of Scrum?
+I have had a part in discussing in our group how we should use Scrum but 
+also I brought up that we should choose a product owner for our group. 
+My goal with this course is to get a good understanding of Scrum and also its
+pros and cons. At the time of writing Scrum has not really been used for our project
+so there might be some difficulties that I'm unaware of at the time of writing.
+Therefore I will try, to a resonable degree, make sure that we
+follow the fundamental processes of scrum. For example have our meetings 
+and fulfill our
+commitments. This is ofcourse only if it is really needed and I have no intention
+of undermining the scrum master, only to support them in their role.
+
+what is my contribution towards the team’s deliveries?
+I wrote some parts of the discussion, most of us(including me) made
+our own simple mockups of the GUI for our program that we then merged together.
+I've played a minor role in the business model canvas. I and all of the group also attended a meeting
+with our external stakeholder, which we all participated actively in and directly affected some GUI decisions.
+I think my personal contribution
+will increase when we start programming which I really believe is my strength. A lot of
+the deliverables that have been done are not really something I believe I am very good at.
+Such as GUI-building or the business model canvas. Still ofcourse I will try to continue to do my
+best at doing them. 
