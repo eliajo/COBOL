@@ -1,0 +1,14 @@
+What do I want to learn or understand better?
+I want to learn how to build an application using Android Studio, I don’t have any previous experience using this development environment and to make it easier for next week I plan to wash tutorials and try to get comfortable using this  tool during Easter week. I also wanna refresh my knowledge about user experience and design since it’s very important for us to adapt the app and make it as simple as possible for our users. I also wanna learn more about the kind of patients we are building the app for and get a better understanding of their diagnosis, for this we all in the group will read a summary of this kind of disease provided by our external partner.
+
+
+How can I help someone else, or the entire team, to learn something new?
+I can try to help the group to  understand what functionality or questions are most useful to have in our app since I have a more direct contact to our extern partner. 
+
+
+What is my contribution towards the team’s use of Scrum?
+We are still discussing the roles in our team but it seems like I will act as the product owner given that I have a more direct connection with our external partner and that I have some understanding of the disease. I will contribute by expressing to the group what the app should be to be of most use to our costumers.
+
+What is my contribution towards the team’s deliveries?
+This week I participated in the exercise section and lecture. I also had a first meeting with our external partner where I got a better understanding of what they are expecting from our app, what parameters are important to look at for following a patient with this disease, and how we can best show this data for the doctors in a way that helps them improve their diagnosis and treatment.  I shared this information with the rest of the group and also organised a second meeting where the whole group could participate. Additionally I contacted other physicians that  could give us valuable feedback later on in our development process. 
+I also worked together with the group on the business model, description and mockup.
