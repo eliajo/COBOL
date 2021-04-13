@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+View for MainActivity
+@author William Hugo
+-->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,6 +11,7 @@
     tools:context=".ControlView.MainActivity">
 
 
+    <!--The navigation bar used to swap between our main pages-->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/nav_bar"
         android:layout_width="match_parent"
@@ -17,8 +22,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/navigation_menu"/>
 
+    <!--Window where the main pages will be shown-->
     <fragment
-        android:id="@+id/fragment"
+        android:id="@+id/main_pages_fragment"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
