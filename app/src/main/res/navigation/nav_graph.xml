@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+View for Navigation Graph
+@author Edenia Isaac
+-->
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/questions2">
+
+    <fragment
+        android:id="@+id/questions2"
+        android:name="com.example.agileproject.ControlView.Questions2"
+        android:label="fragment_questions2"
+        tools:layout="@layout/fragment_questions2" >
+        <action
+            android:id="@+id/action_questions2_to_questions3"
+            app:destination="@id/questions3" />
+    </fragment>
+    <fragment
+        android:id="@+id/questions3"
+        android:name="com.example.agileproject.ControlView.Questions3"
+        android:label="fragment_questions3"
+        tools:layout="@layout/fragment_questions3" />
+</navigation>
