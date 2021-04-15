@@ -15,12 +15,18 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
  */
 public class MainActivity extends AppCompatActivity {
 
+    RecyclerView ContactRecycleView;
+
+
     String s1[], s2[];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        s1 = getResources().getStringArray(R.array.Contacts);
+        s2 = getResources().getStringArray(R.array.Telefonenumber);
 
         //This code connects the navigation bar to the fragment for our four main pages
         BottomNavigationView bottomNavigationView = findViewById(R.id.nav_bar);
