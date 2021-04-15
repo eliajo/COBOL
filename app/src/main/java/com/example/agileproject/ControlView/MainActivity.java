@@ -30,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
         s1 = getResources().getStringArray(R.array.Contacts);
         s2 = getResources().getStringArray(R.array.Telefonenumber);
 
+        ContactAdapter contactAdapter = new ContactAdapter(this, s1,s2);
+
         //This code connects the navigation bar to the fragment for our four main pages
         BottomNavigationView bottomNavigationView = findViewById(R.id.nav_bar);
         NavController navController = Navigation.findNavController(this, R.id.main_pages_fragment);
