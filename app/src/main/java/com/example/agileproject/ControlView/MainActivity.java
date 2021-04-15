@@ -27,8 +27,8 @@ public class MainActivity extends AppCompatActivity {
 
         ContactRecycleView = findViewById(R.id.ContactRecycleView);
 
-        s1 = getResources().getStringArray(R.array.Contacts);
-        s2 = getResources().getStringArray(R.array.Telefonenumber);
+        s1 = getResources().getStringArray(R.array.Contact);
+        s2 = getResources().getStringArray(R.array.Telephonenumber);
 
         ContactAdapter contactAdapter = new ContactAdapter(this, s1,s2);
 
