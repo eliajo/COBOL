@@ -1,7 +1,7 @@
 package com.example.agileproject;
 
 import com.example.agileproject.Model.Answer;
-import com.example.agileproject.Model.FileFormatter;
+import com.example.agileproject.Utils.FileFormatter;
 
 import org.junit.Test;
 
