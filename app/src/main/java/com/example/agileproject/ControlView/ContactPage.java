@@ -3,10 +3,13 @@ package com.example.agileproject.ControlView;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import com.example.agileproject.ControlView.ContactAdapter;
 
 import com.example.agileproject.R;
 
@@ -62,10 +65,29 @@ public class ContactPage extends Fragment {
                              Bundle savedInstanceState) {
 
 
+
+
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_contact_page, container, false);
 
-        
+
+
+        String s1[], s2[];
+        RecyclerView contactRecycleView = v.findViewById(R.id.ContactRecycleView);
+
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this.getContext());
+        contactRecycleView.setLayoutManager(layoutManager);
+
+
+        s1 = getResources().getStringArray(R.array.Contact);
+        s2 = getResources().getStringArray(R.array.Telephonenumber);
+
+        ContactAdapter c = new ContactAdapter(getContext(), s1, s2);
+
+        contactRecycleView.setAdapter(c);
+
+
+
 
         return v;
     }

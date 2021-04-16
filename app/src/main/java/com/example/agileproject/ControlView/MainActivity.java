@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
@@ -15,12 +16,14 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
  */
 public class MainActivity extends AppCompatActivity {
 
-    String s1[], s2[];
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
 
         //This code connects the navigation bar to the fragment for our four main pages
         BottomNavigationView bottomNavigationView = findViewById(R.id.nav_bar);
