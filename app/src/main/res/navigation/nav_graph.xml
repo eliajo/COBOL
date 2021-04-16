@@ -7,7 +7,7 @@ View for Navigation Graph
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/questions2">
+    app:startDestination="@id/question1">
 
     <fragment
         android:id="@+id/questions2"
@@ -22,5 +22,35 @@ View for Navigation Graph
         android:id="@+id/questions3"
         android:name="com.example.agileproject.ControlView.Questions3"
         android:label="fragment_questions3"
-        tools:layout="@layout/fragment_questions3" />
+        tools:layout="@layout/fragment_questions3" >
+        <action
+            android:id="@+id/action_questions3_to_question4"
+            app:destination="@id/question4" />
+    </fragment>
+    <fragment
+        android:id="@+id/question1"
+        android:name="com.example.agileproject.ControlView.Question1"
+        android:label="fragment_question1"
+        tools:layout="@layout/fragment_question1" >
+        <action
+            android:id="@+id/action_question1_to_questions2"
+            app:destination="@id/questions2" />
+    </fragment>
+    <fragment
+        android:id="@+id/question4"
+        android:name="com.example.agileproject.ControlView.Question4"
+        android:label="fragment_question4"
+        tools:layout="@layout/fragment_question4" >
+        <action
+            android:id="@+id/action_question4_to_questions3"
+            app:destination="@id/questions3" />
+        <action
+            android:id="@+id/action_question4_to_doneQuestions"
+            app:destination="@id/doneQuestions" />
+    </fragment>
+    <fragment
+        android:id="@+id/doneQuestions"
+        android:name="com.example.agileproject.ControlView.DoneQuestions"
+        android:label="fragment_done_questions"
+        tools:layout="@layout/fragment_done_questions" />
 </navigation>

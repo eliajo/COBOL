@@ -15,12 +15,15 @@ import android.view.ViewGroup;
 import com.example.agileproject.R;
 
 /**
- * A simple {@link Fragment} subclass.
- * Use the {@link Questions3#newInstance} factory method to
- * create an instance of this fragment.
- * @author Edenia
+ * @author Pegah Amanzadeh
  */
-public class Questions3 extends Fragment {
+
+/**
+ * A simple {@link Fragment} subclass.
+ * Use the {@link Question4#newInstance} factory method to
+ * create an instance of this fragment.
+ */
+public class Question4 extends Fragment {
     NavController navController;
 
     // TODO: Rename parameter arguments, choose names that match
@@ -32,7 +35,7 @@ public class Questions3 extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public Questions3() {
+    public Question4() {
         // Required empty public constructor
     }
 
@@ -42,11 +45,11 @@ public class Questions3 extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment Questions3.
+     * @return A new instance of fragment Question4.
      */
     // TODO: Rename and change types and number of parameters
-    public static Questions3 newInstance(String param1, String param2) {
-        Questions3 fragment = new Questions3();
+    public static Question4 newInstance(String param1, String param2) {
+        Question4 fragment = new Question4();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -67,17 +70,28 @@ public class Questions3 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_questions3, container, false);
+        return inflater.inflate(R.layout.fragment_question4, container, false);
     }
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
-        view.findViewById(R.id.next_button_questions3).setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.saveButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                navController.navigate(R.id.action_questions3_to_question4);
+                navController.navigate(R.id.action_question4_to_doneQuestions);
+
+
+            }
+        });
+
+        view.findViewById(R.id.back_Tobutton_question3).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navController.navigate(R.id.action_question4_to_questions3);
+
             }
         });
     }
+
 }
