@@ -1,8 +1,10 @@
 package com.example.agileproject.ControlView;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import com.example.agileproject.R;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -22,7 +24,10 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.MyViewHo
     @NonNull
     @Override
     public ContactAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return null;
+        LayoutInflater inflater = LayoutInflater.from(context);
+        View view = inflater.inflate(R.layout.my_row, parent, false);
+
+        return new ContactAdapter.MyViewHolder(view);
     }
 
     @Override
@@ -33,6 +38,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.MyViewHo
 
     @Override
     public int getItemCount() {
+
         return 0;
     }
 
@@ -42,5 +48,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.MyViewHo
             super(itemView);
         }
     }
+
+
 
 }

@@ -3,15 +3,15 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string-array name="Contact">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>Elin</item>
+        <item>Alva</item>
+        <item>William</item>
+        <item>Elias</item>
+        <item>Klara</item>
     </string-array>
 
     <string-array name="Telephonenumber">
-        <item></item>
+        <item>0768614634</item>
         <item></item>
         <item></item>
         <item></item>

@@ -33,8 +33,8 @@
         android:layout_width="66dp"
         android:layout_height="59dp"
         app:srcCompat="@drawable/ic_baseline_person_24"
-        tools:layout_editor_absoluteX="94dp"
-        tools:layout_editor_absoluteY="127dp" />
+        tools:layout_editor_absoluteX="44dp"
+        tools:layout_editor_absoluteY="93dp" />
 
     <TextView
         android:id="@+id/Contact_txt"
@@ -43,8 +43,8 @@
         android:text="Contact:"
         android:textSize="16sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="171dp"
-        tools:layout_editor_absoluteY="127dp" />
+        tools:layout_editor_absoluteX="124dp"
+        tools:layout_editor_absoluteY="93dp" />
 
     <TextView
         android:id="@+id/Telephonenumber_txt"
@@ -53,6 +53,6 @@
         android:text="Telephonenumber:"
         android:textSize="16sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="171dp"
-        tools:layout_editor_absoluteY="164dp" />
+        tools:layout_editor_absoluteX="124dp"
+        tools:layout_editor_absoluteY="130dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
