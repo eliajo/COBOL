@@ -4,6 +4,9 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+
 import com.example.agileproject.R;
 
 import androidx.annotation.NonNull;
@@ -32,6 +35,8 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.MyViewHo
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+        holder.myText1.setText(data1[position]);
+        holder.myText2.setText(data2[position]);
 
     }
 
@@ -39,13 +44,18 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.MyViewHo
     @Override
     public int getItemCount() {
 
-        return 0;
+        return data1.length;
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
 
+        TextView myText1, myText2;
+
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
+            myText1 = itemView.findViewById(R.id.text1);
+            myText2 = itemView.findViewById(R.id.text2);
+
         }
     }
 

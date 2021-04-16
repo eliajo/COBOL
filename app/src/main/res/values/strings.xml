@@ -2,6 +2,7 @@
     <string name="app_name">Agile Project</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="telephonenumber">Telephonenumber:</string>
     <string-array name="Contact">
         <item>Elin</item>
         <item>Alva</item>
