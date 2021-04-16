@@ -1,0 +1,29 @@
+what do I want to learn or understand better?
+Generally being better at managing multiple things at once. I have never had the role of the scrum master or had that kind of responsibility before.
+I feel I need to become better at delegating tasks than I am at the moment. Apart from that I'd like to become better at breaking down user stories. I generally feel 
+like I can become more consistent in the estimation of the tasks, altough I suspect that comes from my lack of experience in software development. To adress these things
+I will try to reflect more about the things that are not directly associated with programming, maybe even take some time from development to achieve this. Software wise, next sprint we will
+choose an API for graphing and that is the thing I will focus on understanding.    
+
+
+how can I help someone else, or the entire team, to learn something new?
+During this past week I have taken upon myself the informal role of a "technical helper" for the group since I have some experience in Android development. It is something
+that takes a bit of time but I am sure that it will help our project in the long term. This next sprint we will start using some form of graph API and since I think
+I'm resonable good at understanding documentation I suspect that I will play some role in trying to help the team understand it. But of course this is just speculation
+and I might be the one having to be taught it.  
+
+
+what is my contribution towards the team’s use of Scrum?
+During this sprint I took the role as the scrum master. I have tried to make the team and myself follow the agile practices but it is really quite hard 
+to manage all the different things you got to do. Write reports, update and divide user stories into tasks, have meetings and still manage to create a working application.
+I think it is one of the things you get better at with experience. I also think it is one of the things that I will get better at as the course continues.
+I also spend quite a lot of time discussing some potential improvements in our agile processes
+with William who will probably become the next Scrum Master. This is something that I think will improve our teams productivity overall in the future but of course it has
+to be discussed with the entire group.
+ 
+
+what is my contribution towards the team’s deliveries?
+I've written quite a lot of code, focusing on how the program should save, store and retrieve data. I have also spent quite a lot of time on breaking down 
+user stories into tasks for the team. I have wrote a big part of the team reflection and tried to make sure that we answered and reflected on everything we could.
+To make sure things get done with a certain acceptable quality I will continue to try to be proactive and make sure that things are done in a timely manner and also
+try to, a greater extent, make sure that the group spends a little more time on some of the deliverables beacuse for example we could have spent a little more time on the team reflection.  
