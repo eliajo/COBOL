@@ -20,7 +20,7 @@ public class FileFormatter {
         StringBuilder sb = new StringBuilder();
 
         sb.append(data);
-        sb.append("###---###---###");
+        sb.append("###---###---###"); //End of date
 
         return sb.toString();
 
@@ -30,10 +30,11 @@ public class FileFormatter {
     @RequiresApi(api = Build.VERSION_CODES.O)
     public String format(List<Answer> answers){
         StringBuilder sb = new StringBuilder();
-        sb.append(LocalDate.now());
         for (Answer a:answers) {
+            //sb.append(LocalDate.now());
+            //sb.append("|"); //Makes it easy to split a question into date and answer
             sb.append(a.getData());
-            sb.append("@@@---@@@---@@@");
+            sb.append("@@@---@@@---@@@"); //End of question
         }
         return endFile(sb.toString());
 
