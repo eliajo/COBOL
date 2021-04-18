@@ -36,7 +36,6 @@ public class FileFormatter {
             sb.append(a.getData());
             sb.append("@@@---@@@---@@@"); //End of question
         }
-        return endFile(sb.toString());
-
+        return sb.toString();
     }
 }

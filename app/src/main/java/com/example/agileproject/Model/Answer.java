@@ -33,13 +33,13 @@ public class Answer {
 
     public String getData() {
         if (type == 0) {
-            return text + "$$$$$$$" + questionId + "$$$$$$$" + date + "$$$$$$$" + type;
+            return text + "###---###---###" + questionId + "###---###---###" + date + "###---###---###" + type;
         }
         if (type == 1) {
-            return num + "$$$$$$$" + questionId + "$$$$$$$" + date + "$$$$$$$" + type;
+            return num + "###---###---###" + questionId + "###---###---###" + date + "###---###---###" + type;
         }
         if (type == 2) {
-            return bool + "$$$$$$$" + questionId + "$$$$$$$" + date + "$$$$$$$" + type;
+            return bool + "###---###---###" + questionId + "###---###---###" + date + "###---###---###" + type;
         }
         throw new IllegalArgumentException("Objected failed to be created properly");
     }
