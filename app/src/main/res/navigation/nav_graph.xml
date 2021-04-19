@@ -22,7 +22,7 @@ View for Navigation Graph
         android:id="@+id/questions3"
         android:name="com.example.agileproject.ControlView.Questions3"
         android:label="fragment_questions3"
-        tools:layout="@layout/fragment_questions3" >
+        tools:layout="@layout/fragment_question3" >
         <action
             android:id="@+id/action_questions3_to_question4"
             app:destination="@id/question4" />
