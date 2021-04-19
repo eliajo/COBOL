@@ -1,7 +1,8 @@
 package com.example.agileproject.Model;
 
-import java.time.LocalDate;
-
+/**
+ * @author William Hugo, Elias Johansson
+ */
 public class Answer {
     private int num;
     private String text;

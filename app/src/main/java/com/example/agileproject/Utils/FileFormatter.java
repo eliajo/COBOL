@@ -10,6 +10,9 @@ import java.time.LocalDate;
 
 import java.util.List;
 
+/**
+ * @author William Hugo, Elias Johansson
+ */
 public class FileFormatter {
 
     public FileFormatter(){
