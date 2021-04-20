@@ -1,6 +1,8 @@
 package com.example.agileproject.Model;
 
 /**
+ * A class that stores and keep tracks of answers,
+ * the question it was an answer for by an id, and the date the answer was made.
  * @author William Hugo, Elias Johansson
  */
 public class Answer {
@@ -11,28 +13,33 @@ public class Answer {
     private String date;
     private final int type;
 
-    public Answer(String text, int questionId, String date) {
+    public Answer(String text, int questionId, String date) { // Used if the question is a String
         this.text = text;
         this.questionId = questionId;
         this.date = date;
         this.type = 0;
     }
 
-    public Answer(int num, int questionId, String date) {
+    public Answer(int num, int questionId, String date) { // Used if the question is an int
         this.num = num;
         this.questionId = questionId;
         this.date = date;
         this.type = 1;
     }
 
-    public Answer(boolean bool, int questionId, String date) {
+    public Answer(boolean bool, int questionId, String date) { // Used if the question is a boolean
         this.bool = bool;
         this.questionId = questionId;
         this.date = date;
         this.type = 2;
     }
 
-    public String getData() {
+    /**
+     * Turns answer's different parameters into a String.
+     * Used to format the String so that the answer can be saved in a text file.
+     * @return String containing all parameters of an answer
+     */
+    public String getData() { // Turns the question into
         if (type == 0) {
             return text + "###---###---###" + questionId + "###---###---###" + date + "###---###---###" + type;
         }

@@ -11,6 +11,8 @@ import java.time.LocalDate;
 import java.util.List;
 
 /**
+ * A class that takes a list of answers and puts them all into one single String.
+ * Used to format the String so that the list of answers can be saved in a text file.
  * @author William Hugo, Elias Johansson
  */
 public class FileFormatter {
@@ -19,23 +21,10 @@ public class FileFormatter {
 
     }
 
-    private String endFile(String data){
-        StringBuilder sb = new StringBuilder();
-
-        sb.append(data);
-        sb.append("###---###---###"); //End of date
-
-        return sb.toString();
-
-    }
-
-
     @RequiresApi(api = Build.VERSION_CODES.O)
     public String format(List<Answer> answers){
         StringBuilder sb = new StringBuilder();
         for (Answer a:answers) {
-            //sb.append(LocalDate.now());
-            //sb.append("|"); //Makes it easy to split a question into date and answer
             sb.append(a.getData());
             sb.append("@@@---@@@---@@@"); //End of question
         }
