@@ -7,8 +7,8 @@ import java.util.HashMap;
 import java.util.List;
 
 /**
- * Converts string from file into question objects stored in hashmaps
- *
+ * Converts string from file into question objects stored in HashMaps.
+ * There's two functions to get the answers, either by date or by question.
  * @author William Hugo, Elias Johansson
  */
 public class FileConverter {
