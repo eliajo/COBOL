@@ -1,6 +1,9 @@
 package com.example.agileproject;
 
-import com.example.agileproject.Model.Answer;
+import com.example.agileproject.Model.Answerable;
+import com.example.agileproject.Model.BooleanAnswer;
+import com.example.agileproject.Model.NumberAnswer;
+import com.example.agileproject.Model.TextAnswer;
 import com.example.agileproject.Utils.FileConverter;
 import com.example.agileproject.Utils.FileFormatter;
 
@@ -18,14 +21,14 @@ public class FileConverterTest {
 
     @Test
     public void checkIfStoredAnswersAreConvertedCorrectlyByDate() { //Also tests if boolean and string works
-        Answer a = new Answer(3,20,"2021-04-19");
-        Answer b = new Answer("Test if strings work",30,"2021-04-18");
-        Answer c = new Answer(false,40,"2021-04-19");
-        Answer d = new Answer(8,20,"2021-04-17");
-        Answer e = new Answer("Hello!",30,"2021-04-17");
-        Answer f = new Answer(true,40,"2021-04-18");
+        NumberAnswer a = new NumberAnswer(3,20,"2021-04-19");
+        TextAnswer b = new TextAnswer("Test if strings work",30,"2021-04-18");
+        BooleanAnswer c = new BooleanAnswer(false,40,"2021-04-19");
+        NumberAnswer d = new NumberAnswer(8,20,"2021-04-17");
+        TextAnswer e = new TextAnswer("Hello!",30,"2021-04-17");
+        BooleanAnswer f = new BooleanAnswer(true,40,"2021-04-18");
 
-        List<Answer> answers = new ArrayList<>();
+        List<Answerable> answers = new ArrayList<>();
 
         answers.add(a);
         answers.add(b);
@@ -39,10 +42,10 @@ public class FileConverterTest {
         FileConverter fc = new FileConverter();
         fc.convert(res);
 
-        String expected = b.getData() + f.getData();
+        String expected = b.getInfoToWrite() + f.getInfoToWrite();
         StringBuilder result = new StringBuilder();
-        for (Answer ans: fc.getAnswersByDate("2021-04-18")) {
-            result.append(ans.getData());
+        for (Answerable ans: fc.getAnswersByDate("2021-04-18")) {
+            result.append(ans.getInfoToWrite());
         }
 
         assertEquals(expected, result.toString());
@@ -51,14 +54,14 @@ public class FileConverterTest {
 
     @Test
     public void checkIfStoredAnswersAreConvertedCorrectlyByQuestionID() { //Also tests if int works
-        Answer a = new Answer(3,20,"2021-04-19");
-        Answer b = new Answer("Test if strings work",30,"2021-04-18");
-        Answer c = new Answer(false,40,"2021-04-19");
-        Answer d = new Answer(8,20,"2021-04-17");
-        Answer e = new Answer("Hello!",30,"2021-04-17");
-        Answer f = new Answer(true,40,"2021-04-18");
+        NumberAnswer a = new NumberAnswer(3,20,"2021-04-19");
+        TextAnswer b = new TextAnswer("Test if strings work",30,"2021-04-18");
+        BooleanAnswer c = new BooleanAnswer(false,40,"2021-04-19");
+        NumberAnswer d = new NumberAnswer(8,20,"2021-04-17");
+        TextAnswer e = new TextAnswer("Hello!",30,"2021-04-17");
+        BooleanAnswer f = new BooleanAnswer(true,40,"2021-04-18");
 
-        List<Answer> answers = new ArrayList<>();
+        List<Answerable> answers = new ArrayList<>();
 
         answers.add(a);
         answers.add(b);
@@ -72,10 +75,10 @@ public class FileConverterTest {
         FileConverter fc = new FileConverter();
         fc.convert(res);
 
-        String expected = a.getData() + d.getData();
+        String expected = a.getInfoToWrite() + d.getInfoToWrite();
         StringBuilder result = new StringBuilder();
-        for (Answer ans: fc.getAnswersByQuestionID(20)) {
-            result.append(ans.getData());
+        for (Answerable ans: fc.getAnswersByQuestionID(20)) {
+            result.append(ans.getInfoToWrite());
         }
 
         assertEquals(expected, result.toString());
