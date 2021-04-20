@@ -8,8 +8,23 @@ View for Navigation Graph
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
+
     tools:context=".ControlView.Questions2">
 
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="227dp"
+        android:layout_height="240dp"
+        android:layout_marginStart="180dp"
+        android:layout_marginLeft="180dp"
+        android:src="@drawable/sun"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.871"
+        tools:visibility="visible" />
 
     <com.google.android.material.chip.ChipGroup
         android:id="@+id/sleeptHoursDayTime"
@@ -330,16 +345,7 @@ View for Navigation Graph
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <View
-        android:id="@+id/view"
-        android:layout_width="192dp"
-        android:layout_height="235dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="52dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:background="@drawable/ic_sun_2"/>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
