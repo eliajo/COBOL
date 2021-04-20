@@ -1,0 +1,9 @@
+What do I want to learn or understand better? 
+To keep on learning working in android studio and getting more confident while coding.
+How can I help someone else, or the entire team, to learn something new? 
+By bringing new ideas and perspectives to the group’s discussions.
+What is my contribution towards the team’s use of Scrum? 
+I have contributed with some user stories with acceptance criteria’s, and I work with Trello and GitHub in the way that our group decided to best work with Scrum.
+What is my contribution towards the team’s deliveries? 
+This week, Alva, Elin, and I have worked with finishing a mock-up in Figma. This took a bit longer time than expected but I am satisfied with the result and the things we learnt on the way. Also, the three of us have done a Recycler view in the app for our contact page. This required help from Elias and William, and together with some help from YouTube we figured out how to do and also got experience from working in android studio.
+
