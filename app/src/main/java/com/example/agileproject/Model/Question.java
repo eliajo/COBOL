@@ -1,4 +1,4 @@
-package com.example.agileproject;
+package com.example.agileproject.Model;
 
 /**
  * Class that acts as a data storage for a question. Might be useful for View related checks.
