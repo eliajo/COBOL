@@ -3,7 +3,10 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="telephonenumber">Telephonenumber:</string>
-    <string-array name="Contact">
+    <Contact-array name="Contacts">
+        <Contact>Klara, 0735241742</Contact>
+    </Contact-array>
+    <string-array name="ContactName">
         <item>Elin</item>
         <item>Alva</item>
         <item>William</item>
