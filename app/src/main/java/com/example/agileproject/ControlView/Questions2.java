@@ -85,5 +85,11 @@ public class Questions2 extends Fragment {
                  navController.navigate(R.id.action_questions2_to_questions3);
              }
          });
+         view.findViewById(R.id.NoSleepButton).setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 navController.navigate(R.id.action_questions2_to_complementaryQuestion24);
+             }
+         });
     }
 }
