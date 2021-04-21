@@ -1,15 +1,19 @@
 package com.example.agileproject.ControlView;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.example.agileproject.ControlView.ContactAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 
 import com.example.agileproject.R;
 
@@ -64,13 +68,8 @@ public class ContactPage extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-
-
-
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_contact_page, container, false);
-
-
 
         String s1[], s2[];
         RecyclerView contactRecycleView = v.findViewById(R.id.ContactRecycleView);
@@ -86,9 +85,27 @@ public class ContactPage extends Fragment {
 
         contactRecycleView.setAdapter(c);
 
-
-
+        Button add = v.findViewById(R.id.addButton);
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // switch page here.
+            }
+        });
 
         return v;
     }
+    public void addContact(View view) {
+        EditText etContactName = view.findViewById(R.id.etContactName);
+        EditText etContactNumber = view.findViewById(R.id.etContactNumber );
+        String name = etContactName.getText().toString() ;
+        String phone = etContactNumber.getText().toString() ;
+        Intent contactIntent = new Intent(ContactsContract.Intents.Insert.ACTION ) ;
+        contactIntent.setType(ContactsContract.RawContacts.CONTENT_TYPE ) ;
+        contactIntent
+                .putExtra(ContactsContract.Intents.Insert.NAME, name)
+                .putExtra(ContactsContract.Intents.Insert.PHONE, phone) ;
+        startActivityForResult(contactIntent, 1 ) ;
+    }
+
 }
