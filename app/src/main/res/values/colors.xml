@@ -10,6 +10,8 @@
     <color name="mediumGray">#D1D1D1</color>
     <color name="LightBlue">#2D9CDB</color>
     <color name="whiteAlpha">#10FFFFFF</color>
+    <color name="LightGray">#F2F2F2</color>
+
 
     <color name="colorPrimary">#752D9CDB</color>
     <color name="colorPrimaryDark">#3700B3</color>

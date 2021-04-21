@@ -17,6 +17,9 @@ View for Navigation Graph
         <action
             android:id="@+id/action_questions2_to_questions3"
             app:destination="@id/questions3" />
+        <action
+            android:id="@+id/action_questions2_to_complementaryQuestion22"
+            app:destination="@id/complementaryQuestion22" />
     </fragment>
     <fragment
         android:id="@+id/questions3"
@@ -53,4 +56,8 @@ View for Navigation Graph
         android:name="com.example.agileproject.ControlView.DoneQuestions"
         android:label="fragment_done_questions"
         tools:layout="@layout/fragment_done_questions" />
+    <fragment
+        android:id="@+id/complementaryQuestion22"
+        android:name="com.example.agileproject.ControlView.ComplementaryQuestion2"
+        android:label="ComplementaryQuestion2" />
 </navigation>
