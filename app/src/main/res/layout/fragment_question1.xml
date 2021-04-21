@@ -7,8 +7,7 @@ View for Navigation Graph
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ControlView.Question1">
+    android:layout_height="match_parent">
 
     <Button
         android:id="@+id/next_button_question1"
@@ -29,10 +28,10 @@ View for Navigation Graph
 
     <TextView
         android:id="@+id/textView6"
-        android:layout_width="145dp"
-        android:layout_height="37dp"
-        android:layout_marginStart="124dp"
-        android:layout_marginLeft="124dp"
+        android:layout_width="187dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="112dp"
+        android:layout_marginLeft="112dp"
         android:layout_marginTop="28dp"
         android:text="Sidan 1 av 4"
         android:textColor="#176693"
@@ -43,15 +42,15 @@ View for Navigation Graph
 
     <TextView
         android:id="@+id/textViewQ1"
-        android:layout_width="280dp"
-        android:layout_height="0dp"
+        android:layout_width="278dp"
+        android:layout_height="23dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="103dp"
-        android:text="1.Uppskatta din energinivå idag"
+        android:layout_marginTop="92dp"
+        android:text="1.Uppskatta din energinivå idag *"
         android:textColor="#176693"
         android:textColorHint="#176693"
-        android:textSize="12sp"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -61,46 +60,47 @@ View for Navigation Graph
         android:layout_height="22dp"
         android:layout_marginStart="24dp"
         android:layout_marginLeft="24dp"
-        android:text="4.Har du haft ångest?"
+        android:text="4.Har du haft ångest? *"
         android:textColor="#176693"
-        android:textSize="12sp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.733" />
+        app:layout_constraintVertical_bias="0.746" />
 
     <TextView
         android:id="@+id/textView13"
-        android:layout_width="222dp"
-        android:layout_height="19dp"
+        android:layout_width="292dp"
+        android:layout_height="23dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:text="2.Har du haft Hallucinationer idag?"
+        android:text="2.Har du haft Hallucinationer idag? *"
         android:textColor="#176693"
-        android:textSize="12sp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/chipGroup3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewQ1"
-        app:layout_constraintVertical_bias="0.923" />
+        app:layout_constraintVertical_bias="0.879" />
 
     <TextView
         android:id="@+id/textView14"
         android:layout_width="0dp"
         android:layout_height="26dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:text="3.Har du haft vanföreställningar idag?"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:text="3.Har du haft vanföreställningar idag? *"
         android:textColor="#176693"
-        android:textSize="12sp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.563" />
+        app:layout_constraintVertical_bias="0.548" />
 
     <com.google.android.material.chip.ChipGroup
         android:id="@+id/chipGroup3"
-        android:layout_width="141dp"
-        android:layout_height="67dp"
+        style="@style/OneToTenChipStyle"
+        android:layout_width="120dp"
+        android:layout_height="61dp"
         android:layout_marginStart="2dp"
         android:layout_marginLeft="2dp"
         android:layout_marginEnd="2dp"
@@ -108,13 +108,17 @@ View for Navigation Graph
         android:layout_marginBottom="321dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/textView14"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.061"
         app:layout_constraintStart_toStartOf="@+id/textView14"
         app:layout_constraintTop_toBottomOf="@+id/textViewQ1"
-        app:layout_constraintVertical_bias="0.866">
+        app:layout_constraintVertical_bias="0.8"
+        app:singleLine="true"
+        app:singleSelection="true">
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip9"
+
+            style="@style/YesOrNowChipStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Ja"
@@ -124,6 +128,7 @@ View for Navigation Graph
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip10"
+            style="@style/YesOrNowChipStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Nej"
@@ -132,17 +137,21 @@ View for Navigation Graph
 
     <com.google.android.material.chip.ChipGroup
         android:id="@+id/chipGroup4"
-        android:layout_width="122dp"
-        android:layout_height="65dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
+
+        android:layout_width="132dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginLeft="28dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewQ1"
-        app:layout_constraintVertical_bias="0.809">
+        app:layout_constraintVertical_bias="0.818"
+        app:singleLine="true"
+        app:singleSelection="true">
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip11"
+            style="@style/YesOrNowChipStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Ja"
@@ -150,6 +159,7 @@ View for Navigation Graph
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip12"
+            style="@style/YesOrNowChipStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Nej"
@@ -158,17 +168,20 @@ View for Navigation Graph
 
     <com.google.android.material.chip.ChipGroup
         android:id="@+id/chipGroup5"
-        android:layout_width="141dp"
-        android:layout_height="64dp"
+        android:layout_width="131dp"
+        android:layout_height="53dp"
         android:layout_marginStart="24dp"
         android:layout_marginLeft="24dp"
         app:layout_constraintBottom_toTopOf="@+id/textView12"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView14"
-        app:layout_constraintVertical_bias="0.523">
+        app:layout_constraintVertical_bias="0.238"
+        app:singleLine="true"
+        app:singleSelection="true">
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip13"
+            style="@style/YesOrNowChipStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Ja"
@@ -176,97 +189,110 @@ View for Navigation Graph
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip14"
+            style="@style/YesOrNowChipStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Nej"
             android:textColor="#2D9CDB" />
     </com.google.android.material.chip.ChipGroup>
 
-    <HorizontalScrollView
-        android:id="@+id/horizontalScrollView"
-        android:layout_width="367dp"
-        android:layout_height="50dp"
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chipGroup2"
+        style="@style/CustomChipStyle"
+        android:layout_width="288dp"
+        android:layout_height="103dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="456dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.131"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.225">
+        app:singleSelection="true">
 
-
-        <com.google.android.material.chip.ChipGroup
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip39"
+            style="@style/CustomChipStyle"
             android:layout_width="wrap_content"
-            android:layout_height="83dp">
+            android:layout_height="wrap_content"
+            android:text="1"
+            android:textColor="#2D9CDB" />
 
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chip43"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="0"
-                android:textColor="#2D9CDB" />
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip40"
+            style="@style/CustomChipStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2"
+            android:textColor="#2D9CDB" />
 
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chip42"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="1" />
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip41"
+            style="@style/CustomChipStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3"
+            android:textColor="#2D9CDB" />
 
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chip41"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="2" />
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip42"
+            style="@style/CustomChipStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4"
+            android:textColor="#2D9CDB" />
 
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chip40"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="3" />
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip43"
+            style="@style/CustomChipStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="5"
+            android:textColor="#2D9CDB" />
 
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chip39"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="4" />
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip44"
+            style="@style/CustomChipStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="6"
+            android:textColor="#2D9CDB" />
 
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chip38"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="5" />
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip45"
+            style="@style/CustomChipStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="7"
+            android:textColor="#2D9CDB" />
 
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chip37"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="6" />
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip46"
+            style="@style/CustomChipStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="8"
+            android:textColor="#2D9CDB" />
 
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chip36"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="7" />
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip47"
+            style="@style/CustomChipStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="9"
+            android:textColor="#2D9CDB" />
 
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chip35"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="8" />
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip48"
+            style="@style/CustomChipStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10"
+            android:textColor="#2D9CDB" />
 
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chip34"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="9" />
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chip33"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="10" />
-        </com.google.android.material.chip.ChipGroup>
-
-    </HorizontalScrollView>
+    </com.google.android.material.chip.ChipGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
