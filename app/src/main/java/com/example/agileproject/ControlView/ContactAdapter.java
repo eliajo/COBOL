@@ -11,15 +11,16 @@ import com.example.agileproject.R;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.List;
+
 public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.MyViewHolder>{
 
-    String data1[], data2[];
+    List<Contact> contactList;
     Context context;
 
-    public ContactAdapter(Context ct, String s1[], String s2[]){
+    public ContactAdapter(Context ct, List<Contact> cl){
         context = ct ;
-        data1 = s1;
-        data2 = s2;
+        contactList = cl;
     }
 
     @NonNull
@@ -33,16 +34,14 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.MyViewHo
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.myText1.setText(data1[position]);
-        holder.myText2.setText(data2[position]);
-
+        holder.myText1.setText((CharSequence) contactList.get(position));
     }
 
 
     @Override
     public int getItemCount() {
 
-        return data1.length;
+        return contactList.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
