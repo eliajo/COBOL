@@ -3,15 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_contact_page"
-    app:startDestination="@id/contactPage2">
-
+    app:startDestination="@id/contactPage3">
+    <fragment
+        android:id="@+id/contactPage3"
+        android:name="com.example.agileproject.ControlView.ContactPage"
+        android:label="fragment_contact_page"
+        tools:layout="@layout/fragment_contact_page"
+        app:startDestination="@id/switch_contact_page">
+        <action
+            android:id="@+id/switch_contact_page"
+            app:destination="@id/addContactPage"
+            app:popUpTo="@id/addContactPage" />
+    </fragment>
     <fragment
         android:id="@+id/addContactPage"
         android:name="com.example.agileproject.ControlView.AddContactPage"
         android:label="fragment_add_contact"
         tools:layout="@layout/fragment_add_contact" />
-    <fragment
-        android:id="@+id/contactPage2"
-        android:name="com.example.agileproject.ControlView.ContactPage"
-        android:label="ContactPage" />
 </navigation>
