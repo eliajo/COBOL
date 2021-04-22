@@ -8,9 +8,13 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
+import android.os.TestLooperManager;
+import android.transition.TransitionManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.agileproject.R;
 /**
@@ -26,6 +30,11 @@ import com.example.agileproject.R;
 public class Question1 extends Fragment {
 
     NavController navController;
+
+    TextView textViewInvisible;
+    Button YesButtont;
+    Button chipGroup;
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -77,6 +86,30 @@ public class Question1 extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
+
+
+
+
+
+        /*YesButtont.findViewById(R.id.chip9).setOnClickListener(new View.OnClickListener() {
+            boolean visible;
+            @Override
+            public void onClick(View v) {
+                //TransitionManager.beginDelayedTransition();
+                //visible=!visible;
+                textViewInvisible.findViewById(R.id.textView15).setVisibility( View.VISIBLE);
+                chipGroup.findViewById(R.id.chipGroup9).setVisibility(View.VISIBLE);
+
+            }
+        });
+        
+         */
+
+
+
+
+
+
         view.findViewById(R.id.next_button_question1).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
