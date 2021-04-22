@@ -9,6 +9,7 @@ import com.example.agileproject.Utils.FileFormatter;
 
 import org.junit.Test;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,7 +40,7 @@ public class FileConverterTest {
 
         FileFormatter ff = new FileFormatter();
         String res = ff.format(answers);
-        FileConverter fc = new FileConverter();
+        FileConverter fc = FileConverter.getInstance();
         fc.convert(res);
 
         String expected = b.getInfoToWrite() + f.getInfoToWrite();
@@ -72,7 +73,7 @@ public class FileConverterTest {
 
         FileFormatter ff = new FileFormatter();
         String res = ff.format(answers);
-        FileConverter fc = new FileConverter();
+        FileConverter fc = FileConverter.getInstance();
         fc.convert(res);
 
         String expected = a.getInfoToWrite() + d.getInfoToWrite();

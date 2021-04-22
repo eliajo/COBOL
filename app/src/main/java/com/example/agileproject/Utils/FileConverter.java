@@ -23,9 +23,18 @@ public class FileConverter {
     private int dateIndex = 2;
     private int typeIndex = 3;
 
-    public FileConverter(){
+    private static FileConverter fileConverter;
+
+    private FileConverter(){
         dateMap = new HashMap<>();
         questionMap = new HashMap<>();
+    }
+
+    public static FileConverter getInstance(){
+        if(fileConverter == null){
+            fileConverter = new FileConverter();
+        }
+        return fileConverter;
     }
 
     public void convert(String data) {
