@@ -80,7 +80,7 @@ public class AddContactPage extends Fragment {
         view.findViewById(R.id.addContactButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                navController.navigate(R.id.action_global_contactPage);
+             //  navController.navigate(R.id.switch_contact_page);
             }
         });
     }

@@ -104,10 +104,13 @@ public class ContactPage extends Fragment {
                 switchContactPage();
             }
             public void switchContactPage() {
-              //  Intent intent = new Intent(this, ContactAdapter.class);
+                //  Intent intent = new Intent(this, ContactAdapter.class);
                 //startActivity(intent);
+                navController.navigate(R.id.switch_contact_page);
             }
+
         });
+
 
         return v;
     }

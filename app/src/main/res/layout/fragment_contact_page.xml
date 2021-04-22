@@ -5,7 +5,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    tools:context=".ControlView.ContactPage">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/ContactRecycleView"
@@ -21,7 +22,7 @@
         android:layout_marginLeft="680dp"
         android:layout_marginTop="1150dp"
         android:clickable="true"
-        android:onClick="switchPage"
+
         app:backgroundTint="#2D9CDB"
         app:backgroundTintMode="add"
         app:layout_constraintBottom_toTopOf="@+id/cardView"
