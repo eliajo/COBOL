@@ -8,8 +8,8 @@
     <fragment
         android:id="@+id/fragment_contact"
         android:name="com.example.agileproject.ControlView.ContactPage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="406dp"
+        android:layout_height="298dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:navGraph="@navigation/nav_contact_page" />

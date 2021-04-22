@@ -92,7 +92,7 @@ public class ContactPage extends Fragment {
         s1 = getResources().getStringArray(R.array.ContactName);
         s2 = getResources().getStringArray(R.array.Telephonenumber);
 
-        ContactAdapter c = new ContactAdapter(getContext(), s1, s2);
+        ContactAdapter c = new ContactAdapter(getContext(), contactList);
 
         contactRecycleView.setAdapter(c);
 
