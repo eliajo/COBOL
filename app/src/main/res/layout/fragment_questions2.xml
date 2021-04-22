@@ -38,7 +38,8 @@ View for Navigation Graph
         app:layout_constraintHorizontal_bias="0.407"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintVertical_bias="0.0"
+        app:singleSelection="true">
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip1.0"
@@ -173,8 +174,8 @@ View for Navigation Graph
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="5.Uppskatta hur många timmar du sov inatt"
-        android:textColor="#2196F3"
-        android:textSize="16sp"
+        android:textColor="#176693"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.166"
@@ -192,7 +193,8 @@ View for Navigation Graph
         app:layout_constraintHorizontal_bias="0.407"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.297">
+        app:layout_constraintVertical_bias="0.297"
+        app:singleSelection="true">
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip0"
@@ -314,8 +316,8 @@ View for Navigation Graph
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="7.Sov du bra inatt?"
-        android:textColor="#2196F3"
-        android:textSize="16sp"
+        android:textColor="#176693"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.057"
@@ -329,10 +331,11 @@ View for Navigation Graph
         android:layout_marginTop="36dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.084"
+        app:layout_constraintHorizontal_bias="0.078"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintVertical_bias="0.0"
+        app:singleSelection="true">
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip19"
@@ -343,7 +346,7 @@ View for Navigation Graph
             android:text="Ja " />
 
         <com.google.android.material.chip.Chip
-            android:id="@+id/chip18"
+            android:id="@+id/NoSleepButton"
             style="@style/YesOrNowChipStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -356,15 +359,15 @@ View for Navigation Graph
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:text="6.Uppskatta ur många timmar sov du dagtid"
-        android:textColor="#2196F3"
-        android:textSize="16sp"
+        android:text="6.Uppskatta hur många timmar du sov dagtid*"
+        android:textColor="#176693"
+        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/textView6"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.102"
+        app:layout_constraintHorizontal_bias="0.261"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sleeptHours"
-        app:layout_constraintVertical_bias="0.005" />
+        app:layout_constraintVertical_bias="0.029" />
 
     <TextView
         android:id="@+id/textView8"
