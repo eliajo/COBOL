@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_contact_page"
+    app:startDestination="@id/contactPage">
+
+    <fragment
+        android:id="@+id/contactPage"
+        android:name="com.example.agileproject.ControlView.ContactPage"
+        android:label="fragment_add_contact"
+        tools:layout="@layout/fragment_add_contact" />
+    <action
+        android:id="@+id/action_global_contactPage"
+        app:destination="@id/contactPage"
+        app:popUpTo="@id/contactPage"
+        app:popUpToInclusive="true" />
+</navigation>

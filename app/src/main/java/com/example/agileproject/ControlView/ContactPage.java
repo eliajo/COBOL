@@ -4,7 +4,11 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -32,6 +36,8 @@ public class ContactPage extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    NavController navController;
 
     public ContactPage() {
         // Required empty public constructor
@@ -78,7 +84,7 @@ public class ContactPage extends Fragment {
         contactRecycleView.setLayoutManager(layoutManager);
 
 
-        s1 = getResources().getStringArray(R.array.Contact);
+        s1 = getResources().getStringArray(R.array.ContactName);
         s2 = getResources().getStringArray(R.array.Telephonenumber);
 
         ContactAdapter c = new ContactAdapter(getContext(), s1, s2);
@@ -90,6 +96,11 @@ public class ContactPage extends Fragment {
             @Override
             public void onClick(View v) {
                 // switch page here.
+                switchContactPage();
+            }
+            public void switchContactPage() {
+              //  Intent intent = new Intent(this, ContactAdapter.class);
+                //startActivity(intent);
             }
         });
 
@@ -107,5 +118,16 @@ public class ContactPage extends Fragment {
                 .putExtra(ContactsContract.Intents.Insert.PHONE, phone) ;
         startActivityForResult(contactIntent, 1 ) ;
     }
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        navController = Navigation.findNavController(view);
+        view.findViewById(R.id.addButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navController.navigate(R.id.action_global_contactPage);
+            }
+        });
+    }
+
 
 }
