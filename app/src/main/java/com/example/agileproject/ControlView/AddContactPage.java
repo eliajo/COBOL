@@ -44,12 +44,11 @@ public class AddContactPage extends Fragment {
         List<Contact> contactList = new ArrayList<>();
         contactList.add(new Contact("Klara", "0735241742"));
 
-        Button add = v.findViewById(R.id.addButton);
+        Button add = v.findViewById(R.id.addContactButton);
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // switch page here.
-                switchContactPage();
+
             }
             public void switchContactPage() {
                 //  Intent intent = new Intent(this, ContactAdapter.class);
