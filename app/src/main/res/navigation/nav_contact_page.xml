@@ -10,6 +10,11 @@
         android:name="com.example.agileproject.ControlView.ContactPage"
         android:label="fragment_add_contact"
         tools:layout="@layout/fragment_add_contact" />
+    <fragment
+        android:id="@+id/addContactPage"
+        android:name="com.example.agileproject.ControlView.AddContactPage"
+        android:label="fragment_add_contact"
+        tools:layout="@layout/fragment_add_contact" />
     <action
         android:id="@+id/action_global_contactPage"
         app:destination="@id/contactPage"
