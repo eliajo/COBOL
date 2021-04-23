@@ -1,0 +1,32 @@
+what do I want to learn or understand better?
+This week i have focused on learning the graph api that we are using. I now understand the basics but lack sufficent knowledge to
+implement something of real value. To understand the api better I will try to spend some free time to read through the documentation.
+Another thing I want to understand better is how to build modular systems. I have had that as my main programming goal during this project
+and it has worked resonably well. It is just that I'm wondering if I got lucky with the implementation or if I have developed as a programmer
+to the extent that the quality of the code is much better. I do feel though that I have been able to spend quite a lot of time thinking about
+implementation details so maybe it is the first option. Another code related thing I want to improve upon is knowing the famous design patterns better. 
+I know the most basic ones but I really feel I would improve quite a lot if I familiarized myself with them more. I'll try to do this if I find the time.
+
+
+how can I help someone else, or the entire team, to learn something new?
+During this sprint and some of the last I spend some time pair programming with William. It went quite well and it was very helpful during substantial
+implementation decisions to have a direct second opinion. This is something that is planned to continue and I hope we can get a better understanding of the
+graphing API together. I think pair programming made us more efficient in our task but I am doubtful
+if we would not have done more seperately if we worked on separate tasks.
+This of course both a good and a bad thing since I believe it is really a question of quality versus quantity.
+I have also spent some time helping group members with bugs and implementation details. This is something I plan to continue doing since it
+it is beneficial to our productivity. 
+
+what is my contribution towards the team’s use of Scrum?
+I've tried to remind people in the group of things like peer reviews as often as I remember it. I myself did a peer review on the code of the contact information
+page in our app and I think I gave some good constructive criticism. I have also done my best to make the meetings more efficient. I also led the 
+last sprint review (beginning of this week) which went quite well, even though it is quite weird to have the product owner be one of the developers. I also tried to remind the group members
+to look through the DoD and make sure that all the criteria of it are met at the end of the sprint since last sprint some features did not meet DoD even though they were "finished". My plan is to continue
+to push so things are done in an agile way so that the focus is not only on pure development.  
+
+what is my contribution towards the team’s deliveries?
+I have implemented and refactored our save and loading system. (A bit of it last week but I forgot to write about it). I also spend some time making a simple
+graph demo and the functionality for that, such as getting data for an interval of dates. I have not spent as much time coding as last week (as of now) but I will do my very
+best to make sure that the functionality I'm working with (the graphing) is working at a complete demo level so we can show our demo next week, with all the functionality as
+expected. I have also written a substantial part of the team reflection, formulating the teams thought into sentences. In general to be a bit more efficient I plan to
+be more strict with how I dedicate my time during the week and try to plan things out better. Still I have pretty much spent the time that is expected of me but I would like to get more done. 
