@@ -16,7 +16,7 @@ import static org.junit.Assert.*;
 
 /**
  * Instrumented test, which will execute on an Android device.
- * @author elias
+ * @author Elias Johansson
  * Tests for read, write functionality for files.
  *
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
