@@ -7,21 +7,6 @@
     android:layout_height="wrap_content"
     tools:context=".ControlView.ContactPage">
 
-    <fragment
-        android:id="@+id/fragment2"
-        android:name="androidx.navigation.fragment.NavHostFragment"
-        android:layout_width="143dp"
-        android:layout_height="190dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginEnd="411dp"
-        android:layout_marginRight="411dp"
-        app:defaultNavHost="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:navGraph="@navigation/nav_contact_page" />
-
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/addButton"
         android:layout_width="wrap_content"
@@ -34,7 +19,6 @@
         android:layout_marginBottom="50dp"
         android:clickable="true"
         android:contentDescription="TODO"
-        android:onClick=""
         android:visibility="visible"
         app:backgroundTint="#2D9CDB"
         app:backgroundTintMode="add"

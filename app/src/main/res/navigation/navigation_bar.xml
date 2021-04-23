@@ -25,4 +25,16 @@
         android:name="com.example.agileproject.ControlView.ContactPage"
         android:label="fragment_contact_page"
         tools:layout="@layout/fragment_contact_page" />
+    <fragment
+        android:id="@+id/addContactPage2"
+        android:name="com.example.agileproject.ControlView.AddContactPage"
+        android:label="fragment_add_contact"
+        tools:layout="@layout/fragment_add_contact" />
+    <action
+        android:id="@+id/switch_contact_page22"
+        app:destination="@id/addContactPage2" />
+    <action
+        android:id="@+id/switch_back_contact"
+        app:destination="@id/contact_page" />
+
 </navigation>

@@ -97,7 +97,7 @@ public class ContactPage extends Fragment {
 
         contactRecycleView.setAdapter(c);
 
-        navController = Navigation.findNavController(v);
+        navController = Navigation.findNavController(this.getActivity(), R.id.main_pages_fragment);
 
         FloatingActionButton add = v.findViewById(R.id.addButton);
         add.setOnClickListener(new View.OnClickListener() {
@@ -110,7 +110,7 @@ public class ContactPage extends Fragment {
                 //  Intent intent = new Intent(this, ContactAdapter.class);
                 //startActivity(intent);
 
-                navController.navigate(R.id.switch_contact_page);
+                navController.navigate(R.id.switch_contact_page22);
             }
 
         });
