@@ -38,6 +38,9 @@ View for Navigation Graph
         <action
             android:id="@+id/action_question1_to_questions2"
             app:destination="@id/questions2" />
+        <action
+            android:id="@+id/action_question1_to_complementaryQuestion1"
+            app:destination="@id/complementaryQuestion1" />
     </fragment>
     <fragment
         android:id="@+id/question4"
@@ -63,5 +66,31 @@ View for Navigation Graph
         <action
             android:id="@+id/action_complementaryQuestion24_to_questions3"
             app:destination="@id/questions3" />
+    </fragment>
+    <fragment
+        android:id="@+id/complementaryQuestion1"
+        android:name="com.example.agileproject.ControlView.ComplementaryQuestion1"
+        android:label="ComplementaryQuestion1" >
+        <action
+            android:id="@+id/action_complementaryQuestion1_to_delusionsQuestionInQ1"
+            app:destination="@id/delusionsQuestionInQ1" />
+    </fragment>
+    <fragment
+        android:id="@+id/delusionsQuestionInQ1"
+        android:name="com.example.agileproject.ControlView.DelusionsQuestionInQ1"
+        android:label="fragment_delusions_question_in_q1"
+        tools:layout="@layout/fragment_delusions_question_in_q1" >
+        <action
+            android:id="@+id/action_delusionsQuestionInQ1_to_anxietyQuestionInQ1"
+            app:destination="@id/anxietyQuestionInQ1" />
+    </fragment>
+    <fragment
+        android:id="@+id/anxietyQuestionInQ1"
+        android:name="com.example.agileproject.ControlView.AnxietyQuestionInQ1"
+        android:label="fragment_anxiety_question_in_q1"
+        tools:layout="@layout/fragment_anxiety_question_in_q1" >
+        <action
+            android:id="@+id/action_anxietyQuestionInQ1_to_questions2"
+            app:destination="@id/questions2" />
     </fragment>
 </navigation>

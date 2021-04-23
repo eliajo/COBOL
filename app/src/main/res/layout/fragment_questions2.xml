@@ -271,7 +271,7 @@ View for Navigation Graph
             android:elevation="4dp"/>
 
         <com.google.android.material.chip.Chip
-            android:id="@+id/chip9"
+            android:id="@+id/chip9Ja"
             style="@style/CustomChipStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -287,7 +287,7 @@ View for Navigation Graph
             android:elevation="4dp"/>
 
         <com.google.android.material.chip.Chip
-            android:id="@+id/chip11"
+            android:id="@+id/chip11Ja"
             style="@style/CustomChipStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -303,7 +303,7 @@ View for Navigation Graph
             android:elevation="4dp"/>
 
         <com.google.android.material.chip.Chip
-            android:id="@+id/chip13"
+            android:id="@+id/chip13Ja"
             style="@style/CustomChipStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

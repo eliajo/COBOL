@@ -213,7 +213,7 @@ View for Navigation Graph
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
 
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView9"
         app:singleLine="true"
