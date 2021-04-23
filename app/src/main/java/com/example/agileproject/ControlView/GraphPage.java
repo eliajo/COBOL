@@ -5,6 +5,8 @@ import android.os.Bundle;
 
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,14 +18,12 @@ import com.example.agileproject.Model.NumberAnswer;
 import com.example.agileproject.R;
 import com.example.agileproject.Utils.FileConverter;
 import com.example.agileproject.Utils.FileFormatter;
-import com.example.agileproject.Utils.FileHandler;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 
-import java.security.KeyStore;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -55,7 +55,7 @@ public class GraphPage extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_graph_page, container, false);
-        LineChart chart = v.findViewById(R.id.chart);
+     /*   LineChart chart = v.findViewById(R.id.chart);
         List<Answerable> answerableList = new ArrayList<>();
         NumberAnswer na1 = new NumberAnswer(5,10,"2021-01-01");
         NumberAnswer na2 = new NumberAnswer(6,10,"2021-01-02");
@@ -98,7 +98,16 @@ public class GraphPage extends Fragment {
         chart.setData(lineData);
         chart.fitScreen();
         chart.invalidate();
+*/
 
+        RecyclerView recyclerView = v.findViewById(R.id.graph_recycler);
+
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this.getContext());
+        recyclerView.setLayoutManager(layoutManager);
+
+        GraphAdapter graphAdapter = new GraphAdapter(getContext());
+
+        recyclerView.setAdapter(graphAdapter);
 
         return v;
     }
