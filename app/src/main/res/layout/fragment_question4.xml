@@ -116,6 +116,7 @@ View for Navigation Graph
         android:textColor="#176693"
         android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.631"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -240,70 +241,80 @@ View for Navigation Graph
             style="@style/OneToTenChipStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="1" />
+            android:text="1"
+            app:singleSelection="true"/>
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip27"
             style="@style/OneToTenChipStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="2" />
+            android:text="2"
+            app:singleSelection="true"/>
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip33"
             style="@style/OneToTenChipStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="3" />
+            android:text="3"
+            app:singleSelection="true"/>
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip51"
             style="@style/OneToTenChipStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="4" />
+            android:text="4"
+            app:singleSelection="true"/>
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip52"
             style="@style/OneToTenChipStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="5" />
+            android:text="5"
+            app:singleSelection="true"/>
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip53"
             style="@style/OneToTenChipStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="6" />
+            android:text="6"
+            app:singleSelection="true"/>
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip54"
             style="@style/OneToTenChipStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="7" />
+            android:text="7"
+            app:singleSelection="true"/>
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip55"
             style="@style/OneToTenChipStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="8" />
+            android:text="8"
+            app:singleSelection="true"/>
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip56"
             style="@style/OneToTenChipStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="9" />
+            android:text="9"
+            app:singleSelection="true"/>
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip57"
             style="@style/OneToTenChipStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="10" />
+            android:text="10"
+            app:singleSelection="true"/>
     </com.google.android.material.chip.ChipGroup>
 
     <Button
