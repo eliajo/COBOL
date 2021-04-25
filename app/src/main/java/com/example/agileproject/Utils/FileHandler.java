@@ -11,7 +11,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 /**
- * @author elias
+ * @author Elias Johansson
  * Class that handles saving data to a file and reading data from a file.
  */
 public class FileHandler {
