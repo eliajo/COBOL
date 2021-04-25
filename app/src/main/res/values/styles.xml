@@ -16,6 +16,14 @@
 
      </style>
 
+     <style name="SideEffectsShip" parent="Widget.MaterialComponents.Chip.Filter">
+          <item name="chipBackgroundColor">@color/chip_background_color</item>
+          <item name="android:textColor">@color/chip_text_color</item>
+          <item name="rippleColor">@color/whiteAlpha</item>
+          <item name="android:textSize">16dp</item>
+
+     </style>
+
      <style name="YesOrNowChipStyle" parent="Widget.MaterialComponents.Chip.Choice">
           <item name="chipMinHeight">56dp</item>
           <item name="chipStartPadding">4dp</item>

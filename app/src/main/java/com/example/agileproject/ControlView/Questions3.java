@@ -79,5 +79,11 @@ public class Questions3 extends Fragment {
                 navController.navigate(R.id.action_questions3_to_question4);
             }
         });
+        view.findViewById(R.id.chipYesSideEffects).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navController.navigate(R.id.action_questions3_to_complementaryQuestion3);
+            }
+        });
     }
 }
