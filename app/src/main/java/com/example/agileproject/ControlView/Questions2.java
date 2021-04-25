@@ -15,7 +15,6 @@ import androidx.navigation.Navigation;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import com.example.agileproject.R;
 
@@ -85,11 +84,18 @@ public class Questions2 extends Fragment {
                  navController.navigate(R.id.action_questions2_to_questions3);
              }
          });
-         view.findViewById(R.id.NoSleepButton).setOnClickListener(new View.OnClickListener() {
+         view.findViewById(R.id.chipJa).setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View v) {
                  navController.navigate(R.id.action_questions2_to_complementaryQuestion24);
              }
          });
+
+        view.findViewById(R.id.back_to_q1).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navController.navigate(R.id.action_questions2_to_question1);
+            }
+        });
     }
 }

@@ -20,6 +20,9 @@ View for Navigation Graph
         <action
             android:id="@+id/action_questions2_to_complementaryQuestion24"
             app:destination="@id/complementaryQuestion24" />
+        <action
+            android:id="@+id/action_questions2_to_question1"
+            app:destination="@id/question1" />
     </fragment>
     <fragment
         android:id="@+id/questions3"
@@ -29,6 +32,9 @@ View for Navigation Graph
         <action
             android:id="@+id/action_questions3_to_question4"
             app:destination="@id/question4" />
+        <action
+            android:id="@+id/action_questions3_to_questions2"
+            app:destination="@id/questions2" />
     </fragment>
     <fragment
         android:id="@+id/question1"
@@ -66,6 +72,12 @@ View for Navigation Graph
         <action
             android:id="@+id/action_complementaryQuestion24_to_questions3"
             app:destination="@id/questions3" />
+        <action
+            android:id="@+id/action_complementaryQuestion24_to_complementaryQuestion1"
+            app:destination="@id/complementaryQuestion1" />
+        <action
+            android:id="@+id/action_complementaryQuestion24_to_question1"
+            app:destination="@id/question1" />
     </fragment>
     <fragment
         android:id="@+id/complementaryQuestion1"
@@ -92,5 +104,16 @@ View for Navigation Graph
         <action
             android:id="@+id/action_anxietyQuestionInQ1_to_questions2"
             app:destination="@id/questions2" />
+    </fragment>
+    <fragment
+        android:id="@+id/complementaryQuestion3"
+        android:name="com.example.agileproject.ControlView.ComplementaryQuestion3"
+        android:label="ComplementaryQuestion3" >
+        <action
+            android:id="@+id/action_complementaryQuestion3_to_questions2"
+            app:destination="@id/questions2" />
+        <action
+            android:id="@+id/action_complementaryQuestion3_to_complementaryQuestion24"
+            app:destination="@id/complementaryQuestion24" />
     </fragment>
 </navigation>
