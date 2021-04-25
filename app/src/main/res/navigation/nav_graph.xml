@@ -47,6 +47,9 @@ View for Navigation Graph
         <action
             android:id="@+id/action_question1_to_complementaryQuestion1"
             app:destination="@id/complementaryQuestion1" />
+        <action
+            android:id="@+id/action_question1_to_complementaryQuestion24"
+            app:destination="@id/complementaryQuestion24" />
     </fragment>
     <fragment
         android:id="@+id/question4"
@@ -86,6 +89,9 @@ View for Navigation Graph
         <action
             android:id="@+id/action_complementaryQuestion1_to_delusionsQuestionInQ1"
             app:destination="@id/delusionsQuestionInQ1" />
+        <action
+            android:id="@+id/action_complementaryQuestion1_to_questions2"
+            app:destination="@id/questions2" />
     </fragment>
     <fragment
         android:id="@+id/delusionsQuestionInQ1"

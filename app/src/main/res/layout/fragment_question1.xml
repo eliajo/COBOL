@@ -40,14 +40,14 @@ View for Navigation Graph
 
     <TextView
         android:id="@+id/textView6"
-        android:layout_width="187dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="112dp"
-        android:layout_marginLeft="112dp"
-        android:layout_marginTop="28dp"
+        android:layout_width="227dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginLeft="76dp"
+        android:layout_marginTop="16dp"
         android:text="Sidan 1 av 4"
         android:textColor="#176693"
-        android:textSize="30sp"
+        android:textSize="40sp"
 
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

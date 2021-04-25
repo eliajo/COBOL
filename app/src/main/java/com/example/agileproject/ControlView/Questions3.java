@@ -80,11 +80,11 @@ public class Questions3 extends Fragment {
             }
         });
 
-        //view.findViewById(R.id.back_to_q2).setOnClickListener(new View.OnClickListener() {
-           // @Override
-            //public void onClick(View v) {
-                //navController.navigate(R.id.action_questions3_to_questions2);
-            //}
-        //});
+        view.findViewById(R.id.back_to_q2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navController.navigate(R.id.action_questions3_to_questions2);
+            }
+        });
     }
 }

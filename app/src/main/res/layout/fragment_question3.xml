@@ -44,12 +44,13 @@ View for Navigation Graph
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="20dp"
         android:text="Sida 3 av 4"
         android:textColor="#176693"
         android:textSize="40dp"
         app:layout_constraintBottom_toTopOf="@+id/textView9"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.435"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -113,12 +114,12 @@ View for Navigation Graph
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="112dp"
+        android:layout_marginTop="92dp"
         android:text="10.Uppskata din irritation/ilska *"
         android:textColor="#176693"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.087"
+        app:layout_constraintHorizontal_bias="0.07"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -247,7 +248,7 @@ View for Navigation Graph
 
     </com.google.android.material.chip.ChipGroup>
 
-    <!-- <Button
+    <Button
          android:id="@+id/back_to_q2"
          android:layout_width="118dp"
          android:layout_height="48dp"
@@ -262,7 +263,7 @@ View for Navigation Graph
          app:layout_constraintEnd_toStartOf="@+id/imageView2"
          app:layout_constraintHorizontal_bias="0.0"
          app:layout_constraintStart_toStartOf="parent" />
-         -->
+
 
 
  </androidx.constraintlayout.widget.ConstraintLayout>

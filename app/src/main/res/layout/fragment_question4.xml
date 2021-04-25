@@ -109,12 +109,12 @@ View for Navigation Graph
 
     <TextView
         android:id="@+id/textView10"
-        android:layout_width="177dp"
-        android:layout_height="39dp"
+        android:layout_width="248dp"
+        android:layout_height="51dp"
         android:layout_marginTop="16dp"
         android:text="Sida 4 av 4"
         android:textColor="#176693"
-        android:textSize="30sp"
+        android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
