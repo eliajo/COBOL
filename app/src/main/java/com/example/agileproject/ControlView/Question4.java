@@ -76,6 +76,7 @@ public class Question4 extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
+
         view.findViewById(R.id.saveButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -85,6 +86,14 @@ public class Question4 extends Fragment {
             }
         });
 
+
+
+
+
+
+
+
     }
 
 }
+

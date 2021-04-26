@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.agileproject.R;
 /**
@@ -27,6 +28,11 @@ import com.example.agileproject.R;
 public class Question1 extends Fragment {
 
     NavController navController;
+
+    TextView textViewInvisible;
+    Button YesButtont;
+    Button chipGroup;
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -78,11 +84,29 @@ public class Question1 extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
-        view.findViewById(R.id.next_button_question1).setOnClickListener(new View.OnClickListener() {
+
+        view.findViewById(R.id.chip9Ja).setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                navController.navigate(R.id.action_question1_to_complementaryQuestion1);
+
+            }
+        });
+        view.findViewById(R.id.chip13Ja).setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                navController.navigate(R.id.action_question1_to_complementaryQuestion1);
+
+            }
+        });
+
+
+        view.findViewById(R.id.next_button_anxietyToQuestion2).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 navController.navigate(R.id.action_question1_to_questions2);
-
             }
         });
     }

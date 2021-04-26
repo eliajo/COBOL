@@ -1,9 +1,5 @@
 package com.example.agileproject.ControlView;
 
-/**
- * @author Edenia Isaac
- */
-
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -20,11 +16,10 @@ import com.example.agileproject.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link Questions2#newInstance} factory method to
+ * Use the {@link DelusionsQuestionInQ1#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Questions2 extends Fragment {
-
+public class DelusionsQuestionInQ1 extends Fragment {
     NavController navController;
 
     // TODO: Rename parameter arguments, choose names that match
@@ -36,7 +31,7 @@ public class Questions2 extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public Questions2() {
+    public DelusionsQuestionInQ1() {
         // Required empty public constructor
     }
 
@@ -46,11 +41,11 @@ public class Questions2 extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment BlankFragment.
+     * @return A new instance of fragment DelusionsQuestionInQ1.
      */
     // TODO: Rename and change types and number of parameters
-    public static Questions2 newInstance(String param1, String param2) {
-        Questions2 fragment = new Questions2();
+    public static DelusionsQuestionInQ1 newInstance(String param1, String param2) {
+        DelusionsQuestionInQ1 fragment = new DelusionsQuestionInQ1();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -71,31 +66,27 @@ public class Questions2 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_questions2, container, false);
+        return inflater.inflate(R.layout.fragment_delusions_question_in_q1, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-         navController = Navigation.findNavController(view);
-         view.findViewById(R.id.next_button_questions2).setOnClickListener(new View.OnClickListener() {
-             @Override
-             public void onClick(View v) {
-                 navController.navigate(R.id.action_questions2_to_questions3);
-             }
-         });
-         view.findViewById(R.id.chipJa).setOnClickListener(new View.OnClickListener() {
-             @Override
-             public void onClick(View v) {
-                 navController.navigate(R.id.action_questions2_to_complementaryQuestion24);
-             }
-         });
+        navController = Navigation.findNavController(view);
 
-        view.findViewById(R.id.back_to_q1).setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.chip11Ja).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                navController.navigate(R.id.action_questions2_to_question1);
+                navController.navigate(R.id.action_delusionsQuestionInQ1_to_anxietyQuestionInQ1);
             }
         });
-    }
+
+
+    view.findViewById(R.id.chip11Ja).setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            navController.navigate(R.id.action_delusionsQuestionInQ1_to_anxietyQuestionInQ1);
+        }
+    });
+}
 }
