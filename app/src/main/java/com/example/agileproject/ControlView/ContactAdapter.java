@@ -27,14 +27,16 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.MyViewHo
     @Override
     public ContactAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.fragment_contact_page, parent, false);
+        View view = inflater.inflate(R.layout.contact_card, parent, false);
 
         return new ContactAdapter.MyViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.myText1.setText((CharSequence) contactList.get(position));
+
+        holder.myText1.setText(contactList.get(position).name);
+        holder.myText2.setText(contactList.get(position).contactWay);
     }
 
 

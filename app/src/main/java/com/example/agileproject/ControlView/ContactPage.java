@@ -20,6 +20,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.agileproject.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -96,7 +97,9 @@ public class ContactPage extends Fragment {
 
         contactRecycleView.setAdapter(c);
 
-        Button add = v.findViewById(R.id.addButton);
+        navController = Navigation.findNavController(this.getActivity(), R.id.main_pages_fragment);
+
+        FloatingActionButton add = v.findViewById(R.id.addButton);
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -106,7 +109,8 @@ public class ContactPage extends Fragment {
             public void switchContactPage() {
                 //  Intent intent = new Intent(this, ContactAdapter.class);
                 //startActivity(intent);
-                navController.navigate(R.id.switch_contact_page);
+
+                navController.navigate(R.id.switch_contact_page22);
             }
 
         });

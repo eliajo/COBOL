@@ -8,12 +8,10 @@
         android:id="@+id/contactPage3"
         android:name="com.example.agileproject.ControlView.ContactPage"
         android:label="fragment_contact_page"
-        tools:layout="@layout/fragment_contact_page"
-        app:startDestination="@id/switch_contact_page">
+        tools:layout="@layout/fragment_contact_page">
         <action
             android:id="@+id/switch_contact_page"
-            app:destination="@id/addContactPage"
-            app:popUpTo="@id/addContactPage" />
+            app:destination="@id/addContactPage" />
     </fragment>
     <fragment
         android:id="@+id/addContactPage"
