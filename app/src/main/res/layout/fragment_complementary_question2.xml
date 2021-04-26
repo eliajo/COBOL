@@ -339,90 +339,45 @@ View for Navigation Graph
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="28dp"
         android:text="8.Varför sov du inte bra?"
         android:textColor="#176693"
+
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/radioGroup"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.042"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.046"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sleeptHoursDayTime" />
 
     <RadioGroup
         android:id="@+id/radioGroup"
-        android:layout_width="160dp"
-        android:layout_height="176dp"
+        android:layout_width="333dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <RadioButton
-            android:id="@+id/radioButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Jag vaknade tidigt och kunde int somna om"
-            android:textColor="@color/LightBlue"/>
-
-        <RadioButton
-            android:id="@+id/radioButton2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Jag vaknade många gånger under natten"
-            android:textColor="@color/LightBlue"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView10">
 
         <RadioButton
             android:id="@+id/radioButton3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Jag kunde inte somna "
-            android:textColor="@color/LightBlue"/>
+            android:textColor="@color/LightBlue" />
+
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Jag vaknade många gånger under natten"
+            android:textColor="@color/LightBlue" />
+
+        <RadioButton
+            android:id="@+id/radioButton"
+            android:layout_width="match_parent"
+            android:layout_height="62dp"
+            android:text="Jag vaknade tidigt och kunde int somna om"
+            android:textColor="@color/LightBlue" />
     </RadioGroup>
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="7.Sov du bra inatt?"
-        android:textColor="#176693"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.037"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sleeptHours"
-        app:layout_constraintVertical_bias="0.408" />
-
-    <com.google.android.material.chip.ChipGroup
-        android:layout_width="126dp"
-        android:layout_height="57dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="224dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-
-        app:layout_constraintHorizontal_bias="0.035"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6"
-        app:layout_constraintVertical_bias="0.769"
-        app:singleSelection="true">
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip19"
-            style="@style/YesOrNowChipStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:elevation="4dp"
-            android:text="Ja "
-            android:textSize="18dp" />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/NoSleepButton"
-            style="@style/YesOrNowChipStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:elevation="4dp"
-            android:text="Nej"
-            android:textSize="18dp" />
-    </com.google.android.material.chip.ChipGroup>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
