@@ -6,6 +6,7 @@ import com.example.agileproject.Model.NumberAnswer;
 import com.example.agileproject.Model.TextAnswer;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
@@ -108,10 +109,15 @@ public class FileConverter {
     }
 
     public List<Answerable> getAnswersByDate(String date) {
-        return dateMap.get(date);
+        ArrayList<Answerable> safeCopy = new ArrayList<>();
+        safeCopy.addAll(dateMap.get(date));
+        return safeCopy;
+
     }
 
     public List<Answerable> getAnswersByQuestionID(int questionID) {
-        return questionMap.get(questionID);
+        ArrayList<Answerable> safeCopy = new ArrayList<>();
+        safeCopy.addAll(questionMap.get(questionID));
+        return safeCopy;
     }
 }
