@@ -15,16 +15,12 @@ View for Navigation Graph
         android:id="@+id/imageView2"
         android:layout_width="0dp"
         android:layout_height="265dp"
-        android:layout_marginStart="172dp"
-        android:layout_marginLeft="172dp"
         android:layout_marginEnd="14dp"
         android:layout_marginRight="14dp"
         android:layout_marginBottom="48dp"
         android:src="@drawable/sun"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/back_to_q3"
-        app:layout_constraintStart_toStartOf="parent"
         tools:visibility="visible" />
 
     <Button
@@ -52,16 +48,13 @@ View for Navigation Graph
         android:layout_marginTop="71dp"
         android:layout_marginEnd="45dp"
         android:layout_marginRight="45dp"
-        android:layout_marginBottom="562dp"
         android:text="13.Har du druckit alkohol? "
         android:textColor="#176693"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/back_to_q3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView3"
@@ -316,23 +309,6 @@ View for Navigation Graph
             android:text="10"
             app:singleSelection="true"/>
     </com.google.android.material.chip.ChipGroup>
-
-    <Button
-        android:id="@+id/back_to_q3"
-
-        android:layout_width="118dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginEnd="38dp"
-        android:layout_marginRight="38dp"
-        android:layout_marginBottom="16dp"
-        android:text="Tilllbaka"
-        app:backgroundTint="#2196F3"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageView2"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

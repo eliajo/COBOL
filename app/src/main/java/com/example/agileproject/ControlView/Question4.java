@@ -86,12 +86,7 @@ public class Question4 extends Fragment {
             }
         });
 
-        view.findViewById(R.id.back_to_q3).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                navController.navigate(R.id.action_question4_to_questions3);
-            }
-        });
+
 
 
 
