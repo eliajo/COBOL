@@ -82,12 +82,12 @@ public class ComplementaryQuestion3 extends Fragment {
             }
         });
 
-        view.findViewById(R.id.back_toComplementary_q2).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                navController.navigate(R.id.action_complementaryQuestion3_to_complementaryQuestion24);
-            }
-        });
+        //view.findViewById(R.id.back_toComplementary_q2).setOnClickListener(new View.OnClickListener() {
+            //@Override
+            //public void onClick(View v) {
+                //navController.navigate(R.id.action_complementaryQuestion3_to_complementaryQuestion24);
+            //}
+        //});
 
 
     }

@@ -24,7 +24,7 @@ View for Navigation Graph
         tools:visibility="visible" />
 
     <Button
-        android:id="@+id/next_button_anxietyToQuestion2"
+        android:id="@+id/next_button_q2"
         style="@style/Widget.AppCompat.Button"
         android:layout_width="124dp"
         android:layout_height="57dp"

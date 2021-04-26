@@ -15,52 +15,13 @@ import android.view.ViewGroup;
 import com.example.agileproject.R;
 
 /**
- * A simple {@link Fragment} subclass.
- * Use the {@link AnxietyQuestionInQ1#newInstance} factory method to
- * create an instance of this fragment.
- */
+  @author Pegah Amanzadeh
+        */
+// Create complementary question to q4 in fragment 1
+
 public class AnxietyQuestionInQ1 extends Fragment {
     NavController navController;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public AnxietyQuestionInQ1() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment AnxietyQuestionInQ1.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static AnxietyQuestionInQ1 newInstance(String param1, String param2) {
-        AnxietyQuestionInQ1 fragment = new AnxietyQuestionInQ1();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -73,7 +34,10 @@ public class AnxietyQuestionInQ1 extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
 
-        view.findViewById(R.id.next_button_anxietyToQuestion2).setOnClickListener(new View.OnClickListener() {
+
+        // By clicking on this button  user can navigate to fragment 2
+
+        view.findViewById(R.id.next_button_q2).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 navController.navigate(R.id.action_anxietyQuestionInQ1_to_questions2);
