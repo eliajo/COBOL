@@ -120,4 +120,11 @@ public class FileConverter {
         safeCopy.addAll(questionMap.get(questionID));
         return safeCopy;
     }
+
+    public List<String> getAllDates() {
+        List<String> safeCopy = new ArrayList();
+        safeCopy.addAll(dateMap.keySet());
+        return safeCopy;
+    }
+
 }
