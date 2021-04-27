@@ -223,8 +223,8 @@ View for Navigation Graph
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/textInputSideEffects"
-        android:layout_width="372dp"
-        android:layout_height="41dp"
+        android:layout_width="444dp"
+        android:layout_height="82dp"
         android:layout_marginBottom="12dp"
         android:hint="Beskriv dina biverkningar här..."
         android:visibility="gone"
@@ -305,22 +305,5 @@ View for Navigation Graph
 
     </com.google.android.material.chip.ChipGroup>
 
-     <Button
-         android:id="@+id/back_toComplementary_q2"
-         android:layout_width="118dp"
-         android:layout_height="48dp"
-         android:layout_marginStart="20dp"
-         android:layout_marginLeft="20dp"
-         android:layout_marginEnd="38dp"
-         android:layout_marginRight="38dp"
-         android:layout_marginBottom="16dp"
-         android:text="Tilllbaka"
-         app:backgroundTint="#2196F3"
-         app:layout_constraintBottom_toBottomOf="parent"
-         app:layout_constraintEnd_toStartOf="@+id/imageView2"
-         app:layout_constraintHorizontal_bias="0.0"
-         app:layout_constraintStart_toStartOf="parent" />
 
-
-
- </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
