@@ -17,6 +17,7 @@ import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
+import com.github.mikephil.charting.interfaces.datasets.IDataSet;
 
 import java.util.List;
 
@@ -101,7 +102,7 @@ public class GraphAdapter extends RecyclerView.Adapter<GraphAdapter.GraphHolder>
         public GraphHolder(@NonNull View itemView) {
             super(itemView);
         }
-        abstract Chart<LineData> getGraph();
+        abstract ViewGroup getGraph();
 
         abstract TextView getMainLabel();
     }
