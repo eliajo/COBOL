@@ -20,7 +20,7 @@ import com.example.agileproject.R;
 // Fragment 1 in QuizActivity
 
 
-public class Fragment1_in_QuizActivity extends Fragment {
+public class Question1 extends Fragment {
 
     NavController navController;
 
@@ -30,7 +30,7 @@ public class Fragment1_in_QuizActivity extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_fragment1, container, false);
+        return inflater.inflate(R.layout.fragment_question1, container, false);
     }
 
 
