@@ -2,13 +2,12 @@ package com.example.agileproject.ControlView;
 
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.agileproject.R;
 import com.example.agileproject.Utils.FileConverter;
@@ -25,6 +24,7 @@ import java.util.List;
  * @author William Hugo, Klara Jakobsson
  */
 public class CalendarPage extends Fragment {
+
 
     public CalendarPage() {
         // Required empty public constructor
