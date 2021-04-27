@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/LineChartTextView"
+        android:id="@+id/PieChartTextView"
         android:layout_width="303dp"
         android:layout_height="63dp"
         app:layout_constraintStart_toStartOf="parent"
