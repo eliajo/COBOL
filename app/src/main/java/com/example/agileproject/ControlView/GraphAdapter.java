@@ -127,6 +127,11 @@ public class GraphAdapter extends RecyclerView.Adapter<GraphAdapter.GraphHolder>
         }
 
     }
+    /**
+     * Creates a holder for PieChart
+     *
+     * @author Alva och Elin
+     */
     public class PieGraphHolder extends GraphHolder{
         private PieChart chart;
         private TextView mainLabel;
