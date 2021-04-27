@@ -16,9 +16,8 @@ import java.util.Calendar;
 
 
 /**
- * A simple {@link Fragment} subclass.
- * Use the {@link CalendarPage#newInstance} factory method to
- * create an instance of this fragment.
+ * Page for viewing calendar which shows dates the quiz was done on
+ * @author William Hugo, Klara Jakobsson
  */
 public class CalendarPage extends Fragment {
 
@@ -41,6 +40,7 @@ public class CalendarPage extends Fragment {
         Calendar cal = Calendar.getInstance();
         args.putInt(CaldroidFragment.MONTH, cal.get(Calendar.MONTH) + 1);
         args.putInt(CaldroidFragment.YEAR, cal.get(Calendar.YEAR));
+        args.putInt(CaldroidFragment.START_DAY_OF_WEEK, CaldroidFragment.MONDAY);
         caldroidFragment.setArguments(args);
 
         FragmentTransaction t = getFragmentManager().beginTransaction();
