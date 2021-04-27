@@ -1,5 +1,7 @@
 package com.example.agileproject.ControlView;
 
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -13,6 +15,8 @@ import com.example.agileproject.R;
 import com.roomorama.caldroid.CaldroidFragment;
 
 import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
 
 
 /**
@@ -42,6 +46,11 @@ public class CalendarPage extends Fragment {
         args.putInt(CaldroidFragment.YEAR, cal.get(Calendar.YEAR));
         args.putInt(CaldroidFragment.START_DAY_OF_WEEK, CaldroidFragment.MONDAY);
         caldroidFragment.setArguments(args);
+
+        //ColorDrawable green = new ColorDrawable(getResources().getColor(R.color.green));
+        //Date date = new Date(2021-1900,3,25);
+        //caldroidFragment.setBackgroundDrawableForDate(green, date);
+        //caldroidFragment.refreshView();
 
         FragmentTransaction t = getFragmentManager().beginTransaction();
         t.replace(R.id.calendarView, caldroidFragment);
