@@ -19,6 +19,7 @@ import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.interfaces.datasets.IDataSet;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -59,8 +60,11 @@ public class GraphAdapter extends RecyclerView.Adapter<GraphAdapter.GraphHolder>
         //Not nice, if someone knows a better way feel free to fix it.
         //Think it should work though. This is because lineDataSet needs an Entry but
         //we still need questionId from AnswerEntry
-        List<? extends Entry> converterList = entries.get(position);
-        LineDataSet lineDataSet = new LineDataSet((List<Entry>) converterList, "Dagar");
+        //List<? extends Entry> converterList = entries.get(position);
+
+        //Safer solution but but takes O(n) time. Might have to discuss this.
+        List<Entry> converterList = new ArrayList<>(entries.get(position));
+        LineDataSet lineDataSet = new LineDataSet(converterList, "Dagar");
 
         //Temporary code to show graph
 
