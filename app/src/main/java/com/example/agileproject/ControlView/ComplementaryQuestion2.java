@@ -74,7 +74,7 @@ public class ComplementaryQuestion2 extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
-        view.findViewById(R.id.next_button_ComplementaryQuestions2).setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.next_button_ComplementaryQuestions3).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 navController.navigate(R.id.action_complementaryQuestion24_to_questions3);
