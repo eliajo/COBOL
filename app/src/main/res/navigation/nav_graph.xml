@@ -20,6 +20,9 @@ View for Navigation Graph
         <action
             android:id="@+id/action_questions2_to_complementaryQuestion24"
             app:destination="@id/complementaryQuestion24" />
+        <action
+            android:id="@+id/action_questions2_to_question1"
+            app:destination="@id/question1" />
     </fragment>
     <fragment
         android:id="@+id/questions3"
@@ -32,9 +35,9 @@ View for Navigation Graph
     </fragment>
     <fragment
         android:id="@+id/question1"
-        android:name="com.example.agileproject.ControlView.Question1"
+        android:name="com.example.agileproject.ControlView.Fragment1_in_QuizActivity"
         android:label="fragment_question1"
-        tools:layout="@layout/fragment_question1" >
+        tools:layout="@layout/fragment_fragment1" >
         <action
             android:id="@+id/action_question1_to_questions2"
             app:destination="@id/questions2" />
@@ -50,9 +53,9 @@ View for Navigation Graph
     </fragment>
     <fragment
         android:id="@+id/question4"
-        android:name="com.example.agileproject.ControlView.Question4"
+        android:name="com.example.agileproject.ControlView.Fragment4_in_QuizActivity"
         android:label="fragment_question4"
-        tools:layout="@layout/fragment_question4" >
+        tools:layout="@layout/fragment_fragment4" >
         <action
             android:id="@+id/action_question4_to_questions3"
             app:destination="@id/questions3" />
@@ -78,7 +81,7 @@ View for Navigation Graph
     </fragment>
     <fragment
         android:id="@+id/complementaryQuestion1"
-        android:name="com.example.agileproject.ControlView.ComplementaryQuestion1"
+        android:name="com.example.agileproject.ControlView.Complementaryquestion2_in_fragment1"
         android:label="ComplementaryQuestion1" >
         <action
             android:id="@+id/action_complementaryQuestion1_to_delusionsQuestionInQ1"
@@ -89,9 +92,9 @@ View for Navigation Graph
     </fragment>
     <fragment
         android:id="@+id/delusionsQuestionInQ1"
-        android:name="com.example.agileproject.ControlView.DelusionsQuestionInQ1"
+        android:name="com.example.agileproject.ControlView.DelusionsComplementaryquestion3_in_fragment1"
         android:label="fragment_delusions_question_in_q1"
-        tools:layout="@layout/fragment_delusions_question_in_q1" >
+        tools:layout="@layout/fragment_delusions_question_in_fragment1" >
         <action
             android:id="@+id/action_delusionsQuestionInQ1_to_anxietyQuestionInQ1"
             app:destination="@id/anxietyQuestionInQ1" />
@@ -101,9 +104,9 @@ View for Navigation Graph
     </fragment>
     <fragment
         android:id="@+id/anxietyQuestionInQ1"
-        android:name="com.example.agileproject.ControlView.AnxietyQuestionInQ1"
+        android:name="com.example.agileproject.ControlView.AnxietyComlementaryquestion4_in_fragment1"
         android:label="fragment_anxiety_question_in_q1"
-        tools:layout="@layout/fragment_anxiety_question_in_q1" >
+        tools:layout="@layout/fragment_anxiety_question_in_fragment1" >
         <action
             android:id="@+id/action_anxietyQuestionInQ1_to_questions2"
             app:destination="@id/questions2" />

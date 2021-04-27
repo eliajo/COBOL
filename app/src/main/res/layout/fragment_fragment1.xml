@@ -40,14 +40,14 @@ View for Navigation Graph
 
     <TextView
         android:id="@+id/textView6"
-        android:layout_width="227dp"
-        android:layout_height="53dp"
+        android:layout_width="190dp"
+        android:layout_height="46dp"
         android:layout_marginStart="76dp"
         android:layout_marginLeft="76dp"
         android:layout_marginTop="16dp"
         android:text="Sidan 1 av 4"
         android:textColor="#176693"
-        android:textSize="40sp"
+        android:textSize="30sp"
 
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -58,7 +58,7 @@ View for Navigation Graph
         android:layout_height="23dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="92dp"
+        android:layout_marginTop="80dp"
         android:text="1.Uppskatta din energinivå idag *"
         android:textColor="#176693"
         android:textColorHint="#176693"
@@ -84,15 +84,15 @@ View for Navigation Graph
         android:id="@+id/textView13"
         android:layout_width="292dp"
         android:layout_height="23dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginLeft="28dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         android:text="2.Har du haft Hallucinationer idag? *"
         android:textColor="#176693"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/chipGroup3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewQ1"
-        app:layout_constraintVertical_bias="0.845" />
+        app:layout_constraintVertical_bias="0.831" />
 
     <TextView
         android:id="@+id/textView14"
@@ -111,18 +111,18 @@ View for Navigation Graph
     <com.google.android.material.chip.ChipGroup
         android:id="@+id/chipGroup3"
         style="@style/OneToTenChipStyle"
-        android:layout_width="120dp"
-        android:layout_height="61dp"
+        android:layout_width="136dp"
+        android:layout_height="68dp"
         android:layout_marginStart="2dp"
         android:layout_marginLeft="2dp"
 
 
-        android:layout_marginBottom="28dp"
+        android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toTopOf="@+id/textView14"
 
         app:layout_constraintEnd_toEndOf="parent"
 
-        app:layout_constraintHorizontal_bias="0.089"
+        app:layout_constraintHorizontal_bias="0.08"
         app:layout_constraintStart_toStartOf="parent"
         app:singleLine="true"
         app:singleSelection="true">
@@ -221,7 +221,7 @@ View for Navigation Graph
         android:layout_height="103dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
 
         android:layout_marginRight="16dp"

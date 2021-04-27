@@ -17,11 +17,22 @@ import com.example.agileproject.R;
  * @author Pegah Amanzadeh
  */
 
+// Fragment 1 in QuizActivity
 
 
-public class Question1 extends Fragment {
+public class Fragment1_in_QuizActivity extends Fragment {
 
     NavController navController;
+
+
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_fragment1, container, false);
+    }
+
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -30,7 +41,7 @@ public class Question1 extends Fragment {
 
 
 
-        // when user click on button chip9Ja it will show the complementary question which belong to this question
+        // when user click on button chip9Ja it will show the complementary question to question 2
 
         view.findViewById(R.id.chip9Ja).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,7 +51,7 @@ public class Question1 extends Fragment {
             }
         });
 
-        // when user click on button chip11a it will show comlementary question to this question
+        // when user click on button chip11a it will show comlementary to question4
 
         view.findViewById(R.id.chip11Ja).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,7 +61,7 @@ public class Question1 extends Fragment {
             }
         });
 
-        // when user click on button chip13Ja it will show comlementary question to this question
+        // when user click on button chip13Ja it will show comlementary to question 3
 
         view.findViewById(R.id.chip13Ja).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,7 +73,7 @@ public class Question1 extends Fragment {
 
 
 
-            // switching fragment to fragment 2
+            // switching to fragment 2
 
         view.findViewById(R.id.next_button_q2).setOnClickListener(new View.OnClickListener() {
             @Override
