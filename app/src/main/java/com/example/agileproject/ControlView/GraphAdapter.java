@@ -127,4 +127,25 @@ public class GraphAdapter extends RecyclerView.Adapter<GraphAdapter.GraphHolder>
         }
 
     }
+    public class PieGraphHolder extends GraphHolder{
+        private PieChart chart;
+        private TextView mainLabel;
+
+        public PieGraphHolder(@NonNull View itemView) {
+            super(itemView);
+            this.chart = itemView.findViewById(R.id.piechart);
+            this.mainLabel = itemView.findViewById(R.id.PieChartTextView);
+        }
+
+        @Override
+        Chart<LineData> getGraph() {
+            return chart;
+        }
+
+        @Override
+        TextView getMainLabel() {
+            return mainLabel;
+        }
+
+    }
 }
