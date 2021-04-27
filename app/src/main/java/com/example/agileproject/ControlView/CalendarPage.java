@@ -3,6 +3,8 @@ package com.example.agileproject.ControlView;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
@@ -37,6 +39,16 @@ public class CalendarPage extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        CaldroidFragment caldroidFragment = new CaldroidFragment();
+        Bundle args = new Bundle();
+        Calendar cal = Calendar.getInstance();
+        args.putInt(CaldroidFragment.MONTH, cal.get(Calendar.MONTH) + 1);
+        args.putInt(CaldroidFragment.YEAR, cal.get(Calendar.YEAR));
+        caldroidFragment.setArguments(args);
+
+        FragmentTransaction t = getFragmentManager().beginTransaction();
+        t.replace(R.id.calendarView, caldroidFragment);
+        t.commit();
     }
 
     @Override
