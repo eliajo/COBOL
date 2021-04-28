@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.agileproject.Model.AnswerEntry;
+import com.example.agileproject.Model.Question;
 import com.example.agileproject.R;
 import com.github.mikephil.charting.charts.Chart;
 import com.github.mikephil.charting.charts.LineChart;
@@ -32,6 +33,8 @@ import java.util.List;
  */
 public class GraphAdapter extends RecyclerView.Adapter<GraphAdapter.GraphHolder> {
 
+    private static final int linechartID = 1;
+    private static final int piechartID = 2;
 
     private Context context;
     private List<List<AnswerEntry>> entries;
@@ -48,6 +51,34 @@ public class GraphAdapter extends RecyclerView.Adapter<GraphAdapter.GraphHolder>
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.linegraph, parent, false);
         return new GraphAdapter.LineGraphHolder(view);
+        if (viewType == linechartID) {
+            view = LayoutInflater.from(context).inflate(R.layout.linegraph, parent, false);
+            return new GraphHolder(view) {
+                @Override
+                ViewGroup getGraph() {
+                    return null;
+                }
+
+                @Override
+                TextView getMainLabel() {
+                    return null;
+                }
+            };
+        } else if (viewType == piechartID) {
+            view = LayoutInflater.from(context)
+                    .inflate(R.layout.piegraph, parent, false);
+            return new GraphHolder(view) {
+                @Override
+                ViewGroup getGraph() {
+                    return null;
+                }
+
+                @Override
+                TextView getMainLabel() {
+                    return null;
+                }
+            };
+        }
     }
 
     @Override
@@ -55,9 +86,15 @@ public class GraphAdapter extends RecyclerView.Adapter<GraphAdapter.GraphHolder>
       //if(viewtype == linechartid (For later))
         graphDrawer.drawLineChart(entries,holder,position);
 
-
     }
-
+ // getting the questiontype from the position
+    @Override
+    public int getItemViewType(int position) {
+        Integer id = entries.get(position).get(0).getQuestionId();
+        if (id = ) {
+            return linechartID;
+        } else return piechartID;
+    }
 
 
     @Override
