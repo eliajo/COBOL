@@ -6,7 +6,6 @@ import com.example.agileproject.Model.NumberAnswer;
 import com.example.agileproject.Model.TextAnswer;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
