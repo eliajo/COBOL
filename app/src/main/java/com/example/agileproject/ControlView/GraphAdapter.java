@@ -49,49 +49,33 @@ public class GraphAdapter extends RecyclerView.Adapter<GraphAdapter.GraphHolder>
     @Override
     public GraphAdapter.GraphHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.linegraph, parent, false);
-        return new GraphAdapter.LineGraphHolder(view);
+        View view ;
         if (viewType == linechartID) {
             view = LayoutInflater.from(context).inflate(R.layout.linegraph, parent, false);
-            return new GraphHolder(view) {
-                @Override
-                ViewGroup getGraph() {
-                    return null;
-                }
-
-                @Override
-                TextView getMainLabel() {
-                    return null;
-                }
-            };
+            return new LineGraphHolder(view);
         } else if (viewType == piechartID) {
             view = LayoutInflater.from(context)
                     .inflate(R.layout.piegraph, parent, false);
-            return new GraphHolder(view) {
-                @Override
-                ViewGroup getGraph() {
-                    return null;
-                }
-
-                @Override
-                TextView getMainLabel() {
-                    return null;
-                }
-            };
+            return new PieGraphHolder(view);
         }
+        else throw new IllegalArgumentException("No valid viewtype");
     }
 
     @Override
     public void onBindViewHolder(@NonNull GraphHolder holder, int position) {
       //if(viewtype == linechartid (For later))
-        graphDrawer.drawLineChart(entries,holder,position);
+        if(holder.getItemViewType()==linechartID) {
+            graphDrawer.drawLineChart(entries, holder, position);
+        }
+        else graphDrawer.drawPieChart(entries,holder, position);
 
     }
+
  // getting the questiontype from the position
     @Override
     public int getItemViewType(int position) {
         Integer id = entries.get(position).get(0).getQuestionId();
-        if (id = ) {
+        if (id == 10) {
             return linechartID;
         } else return piechartID;
     }
