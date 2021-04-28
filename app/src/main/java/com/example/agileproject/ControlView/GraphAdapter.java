@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,11 +14,15 @@ import com.example.agileproject.Model.AnswerEntry;
 import com.example.agileproject.R;
 import com.github.mikephil.charting.charts.Chart;
 import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
+import com.github.mikephil.charting.data.PieData;
+import com.github.mikephil.charting.interfaces.datasets.IDataSet;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -30,9 +35,11 @@ public class GraphAdapter extends RecyclerView.Adapter<GraphAdapter.GraphHolder>
 
     private Context context;
     private List<List<AnswerEntry>> entries;
+    private GraphDrawer graphDrawer;
     public GraphAdapter(Context context,List<List<AnswerEntry>> entries){
         this.context = context;
         this.entries = entries;
+        this.graphDrawer = new GraphDrawer();
     }
 
     @NonNull
@@ -46,44 +53,9 @@ public class GraphAdapter extends RecyclerView.Adapter<GraphAdapter.GraphHolder>
     @Override
     public void onBindViewHolder(@NonNull GraphHolder holder, int position) {
       //if(viewtype == linechartid (For later))
+        graphDrawer.drawLineChart(entries,holder,position);
 
-        LineChart chart = (LineChart) holder.getGraph();
 
-
-        if ((entries.get(position).get(0).getQuestionId()==10)){
-
-            holder.getMainLabel().setText("Hur du har rankat ditt välmående");
-        }
-
-        //Not nice, if someone knows a better way feel free to fix it.
-        //Think it should work though. This is because lineDataSet needs an Entry but
-        //we still need questionId from AnswerEntry
-        List<? extends Entry> converterList = entries.get(position);
-        LineDataSet lineDataSet = new LineDataSet((List<Entry>) converterList, "Dagar");
-
-        //Temporary code to show graph
-
-        LineData lineData = new LineData(lineDataSet);
-        chart.getAxisRight().setEnabled(false);
-        chart.getXAxis().setAxisMaximum(entries.get(position).size());
-        chart.getXAxis().setAxisMinimum(0f);
-        chart.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);
-        //chart.setVisibleXRange(entries.size()-1,entries.size()-1);
-        chart.getAxisLeft().setAxisMaximum(10);
-        chart.getAxisLeft().setAxisMinimum(0);
-
-        chart.getAxisLeft().setGranularity(1f);
-
-        chart.getAxisLeft().setDrawGridLines(false);
-
-        chart.getXAxis().setGranularity(1f);
-        chart.getXAxis().setDrawGridLines(false);
-
-        //chart.setVisibleXRangeMinimum(0);
-        //chart.setVisibleXRangeMaximum(10);
-        chart.setData(lineData);
-        chart.fitScreen();
-        chart.invalidate();
     }
 
 
@@ -101,7 +73,7 @@ public class GraphAdapter extends RecyclerView.Adapter<GraphAdapter.GraphHolder>
         public GraphHolder(@NonNull View itemView) {
             super(itemView);
         }
-        abstract Chart<LineData> getGraph();
+        abstract ViewGroup getGraph();
 
         abstract TextView getMainLabel();
     }
@@ -114,6 +86,24 @@ public class GraphAdapter extends RecyclerView.Adapter<GraphAdapter.GraphHolder>
             super(itemView);
             this.chart = itemView.findViewById(R.id.linechart);
             this.mainLabel = itemView.findViewById(R.id.LineChartTextView);
+            Button oneWeek = (Button) itemView.findViewById(R.id.lineOneWeek);
+            oneWeek.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    // Add one week worth of data to the linegraph
+                }
+            });
+            Button oneMonth = (Button) itemView.findViewById(R.id.lineOneMonth);
+            oneMonth.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    // Add one month worth of data to the linegraph
+                }
+            });
+            Button sinceBeginning = (Button) itemView.findViewById(R.id.lineSinceBeginning);
+            sinceBeginning.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    // Since beginning linegraph
+                }
+            });
         }
 
         @Override
@@ -127,6 +117,11 @@ public class GraphAdapter extends RecyclerView.Adapter<GraphAdapter.GraphHolder>
         }
 
     }
+    /**
+     * Creates a holder for PieChart
+     *
+     * @author Alva och Elin
+     */
     public class PieGraphHolder extends GraphHolder{
         private PieChart chart;
         private TextView mainLabel;
@@ -135,11 +130,31 @@ public class GraphAdapter extends RecyclerView.Adapter<GraphAdapter.GraphHolder>
             super(itemView);
             this.chart = itemView.findViewById(R.id.piechart);
             this.mainLabel = itemView.findViewById(R.id.PieChartTextView);
+
+            Button oneWeek = (Button) itemView.findViewById(R.id.pieOneWeek);
+            oneWeek.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    // Add one week worth of data to the piegraph
+                }
+            });
+
+            Button oneMonth = (Button) itemView.findViewById(R.id.pieOneMonth);
+            oneMonth.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    // Add one month worth of data to the piegraph
+                }
+            });
+
+            Button sinceBeginning = (Button) itemView.findViewById(R.id.pieSinceBeginning);
+            sinceBeginning.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    // Since beginning graph
+                }
+            });
         }
 
         @Override
-        Chart<LineData> getGraph() {
-            return chart;
+        Chart<PieData> getGraph() { return chart;
         }
 
         @Override
