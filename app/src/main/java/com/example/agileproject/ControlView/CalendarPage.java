@@ -12,6 +12,7 @@ import androidx.fragment.app.FragmentTransaction;
 import com.example.agileproject.R;
 import com.example.agileproject.Utils.FileConverter;
 import com.roomorama.caldroid.CaldroidFragment;
+import com.roomorama.caldroid.CaldroidListener;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -57,12 +58,40 @@ public class CalendarPage extends Fragment {
         FragmentTransaction t = getFragmentManager().beginTransaction();
         t.replace(R.id.calendarView, caldroid);
         t.commit();
+
+        List<Date> dates = fetchDatesAndFormat();
+        dates.add(new Date(2021-1900,4-1,25)); //this is a test to try existing dates, remove later
+        final CaldroidListener listener = new CaldroidListener() {
+
+            @Override
+            public void onSelectDate(Date date, View view) {
+
+                if(dateExists(date, dates)) {
+                    System.out.println("THIS DATE EXISTS!!!");
+                } else {
+                    System.out.println("---------------------------------------------");
+                }
+
+                System.out.println("TEST " + date.toString());
+                System.out.println("");
+            }
+        };
+        caldroid.setCaldroidListener(listener);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_calendar_page, container, false);
+    }
+
+    private boolean dateExists(Date date, List<Date> dateList) {
+        for(Date d : dateList) {
+            if((d.toString()).equals(date.toString())) {
+                return true;
+            }
+        }
+        return false;
     }
 
     private void addAllEvents(CaldroidFragment cal) {
