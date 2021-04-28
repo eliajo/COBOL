@@ -11,6 +11,7 @@ import androidx.navigation.Navigation;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
 import com.example.agileproject.R;
 
@@ -36,6 +37,7 @@ public class Fragment4_in_QuizActivity extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
+        EditText editText=(EditText) view.findViewById(R.id.textInputExercise);
 
 
         // Switching to fragment  doneQuestion
@@ -46,6 +48,13 @@ public class Fragment4_in_QuizActivity extends Fragment {
                 navController.navigate(R.id.action_question4_to_doneQuestions);
 
 
+            }
+        });
+
+        view.findViewById(R.id.chipYesExercise).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editText.setVisibility(View.VISIBLE);
             }
         });
 
