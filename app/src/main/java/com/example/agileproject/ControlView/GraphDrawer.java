@@ -16,7 +16,6 @@ public class GraphDrawer {
     public void drawLineChart(List<List<AnswerEntry>> entries, GraphAdapter.GraphHolder holder, int position){
         LineChart chart = (LineChart) holder.getGraph();
 
-
         if ((entries.get(position).get(0).getQuestionId()==10)){
 
             holder.getMainLabel().setText("Hur du har rankat ditt välmående");

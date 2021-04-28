@@ -13,10 +13,12 @@ import com.example.agileproject.Model.AnswerEntry;
 import com.example.agileproject.R;
 import com.github.mikephil.charting.charts.Chart;
 import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
+import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.interfaces.datasets.IDataSet;
 
 import java.util.ArrayList;
@@ -112,8 +114,7 @@ public class GraphAdapter extends RecyclerView.Adapter<GraphAdapter.GraphHolder>
         }
 
         @Override
-        Chart<LineData> getGraph() {
-            return chart;
+        Chart<PieData> getGraph() { return chart;
         }
 
         @Override
