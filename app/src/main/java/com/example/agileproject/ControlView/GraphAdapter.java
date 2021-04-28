@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -85,6 +86,24 @@ public class GraphAdapter extends RecyclerView.Adapter<GraphAdapter.GraphHolder>
             super(itemView);
             this.chart = itemView.findViewById(R.id.linechart);
             this.mainLabel = itemView.findViewById(R.id.LineChartTextView);
+            Button oneWeek = (Button) itemView.findViewById(R.id.lineOneWeek);
+            oneWeek.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    // Add one week worth of data to the linegraph
+                }
+            });
+            Button oneMonth = (Button) itemView.findViewById(R.id.lineOneMonth);
+            oneMonth.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    // Add one month worth of data to the linegraph
+                }
+            });
+            Button sinceBeginning = (Button) itemView.findViewById(R.id.lineSinceBeginning);
+            sinceBeginning.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    // Since beginning linegraph
+                }
+            });
         }
 
         @Override
@@ -111,6 +130,27 @@ public class GraphAdapter extends RecyclerView.Adapter<GraphAdapter.GraphHolder>
             super(itemView);
             this.chart = itemView.findViewById(R.id.piechart);
             this.mainLabel = itemView.findViewById(R.id.PieChartTextView);
+
+            Button oneWeek = (Button) itemView.findViewById(R.id.pieOneWeek);
+            oneWeek.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    // Add one week worth of data to the piegraph
+                }
+            });
+
+            Button oneMonth = (Button) itemView.findViewById(R.id.pieOneMonth);
+            oneMonth.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    // Add one month worth of data to the piegraph
+                }
+            });
+
+            Button sinceBeginning = (Button) itemView.findViewById(R.id.pieSinceBeginning);
+            sinceBeginning.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    // Since beginning graph
+                }
+            });
         }
 
         @Override
