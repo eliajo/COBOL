@@ -1,14 +1,29 @@
 package com.example.agileproject.ControlView;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 
 import com.example.agileproject.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,6 +40,8 @@ public class ContactPage extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    NavController navController;
 
     public ContactPage() {
         // Required empty public constructor
@@ -60,7 +77,48 @@ public class ContactPage extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_contact_page, container, false);
+        View v = inflater.inflate(R.layout.fragment_contact_page, container, false);
+
+        String s1[], s2[];
+        RecyclerView contactRecycleView = v.findViewById(R.id.ContactRecycleView);
+
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this.getContext());
+        contactRecycleView.setLayoutManager(layoutManager);
+
+        List<Contact> contactList = new ArrayList<>();
+        contactList.add(new Contact("Klara", "0735241742"));
+
+        s1 = getResources().getStringArray(R.array.ContactName);
+        s2 = getResources().getStringArray(R.array.Telephonenumber);
+
+        ContactAdapter c = new ContactAdapter(getContext(), contactList);
+
+        contactRecycleView.setAdapter(c);
+
+        navController = Navigation.findNavController(this.getActivity(), R.id.main_pages_fragment);
+
+        FloatingActionButton add = v.findViewById(R.id.addButton);
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // switch page here.
+                switchContactPage();
+            }
+            public void switchContactPage() {
+                //  Intent intent = new Intent(this, ContactAdapter.class);
+                //startActivity(intent);
+
+                navController.navigate(R.id.switch_contact_page22);
+            }
+
+        });
+
+
+        return v;
     }
+
+
+
 }
