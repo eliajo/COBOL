@@ -1,8 +1,11 @@
 package com.example.agileproject.ControlView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 
 import com.example.agileproject.Model.Answerable;
 import com.example.agileproject.R;
@@ -19,6 +22,7 @@ public class QuizActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
+
     }
 
     public static class AnswerHolder{
@@ -27,4 +31,7 @@ public class QuizActivity extends AppCompatActivity {
 
 
     }
+
+
+
 }
