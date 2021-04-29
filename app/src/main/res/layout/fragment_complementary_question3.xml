@@ -43,23 +43,24 @@ View for Navigation Graph
 
     <TextView
         android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
+        android:layout_width="160dp"
+        android:layout_height="36dp"
+        android:layout_marginBottom="8dp"
         android:text="Sida 3 av 4"
         android:textColor="#176693"
         android:textSize="30dp"
         app:layout_constraintBottom_toTopOf="@+id/textView9"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.398"
         app:layout_constraintStart_toStartOf="parent" />
+
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="8.Har du tagit din medicin idag?"
+        android:layout_marginTop="4dp"
+        android:text="10.Har du tagit din medicin idag?"
         android:textColor="#176693"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -69,13 +70,13 @@ View for Navigation Graph
 
     <com.google.android.material.chip.ChipGroup
         android:id="@+id/chipGroup2"
-        android:layout_width="181dp"
-        android:layout_height="62dp"
+        android:layout_width="119dp"
+        android:layout_height="65dp"
         android:layout_margin="24dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="4dp"
         app:chipSpacingHorizontal="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.056"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:singleSelection="true">
@@ -104,12 +105,12 @@ View for Navigation Graph
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:text="10.Uppskata din irritation/ilska *"
+        android:layout_marginTop="44dp"
+        android:text="8.Uppskata din irritation/ilska *"
         android:textColor="#176693"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.083"
+        app:layout_constraintHorizontal_bias="0.09"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -118,9 +119,9 @@ View for Navigation Graph
         style="@style/CustomChipStyle"
         android:layout_width="309dp"
         android:layout_height="106dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.235"
+        app:layout_constraintHorizontal_bias="0.205"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView9"
         app:singleSelection="true">
@@ -208,17 +209,16 @@ View for Navigation Graph
 
     </com.google.android.material.chip.ChipGroup>
 
-
     <TextView
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="10.Vilka biverkningar har du upplevt?"
+        android:layout_marginTop="4dp"
+        android:text="11.Vilka biverkningar har du upplevt?"
         android:textColor="#176693"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.133"
+        app:layout_constraintHorizontal_bias="0.125"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/chipGroup2" />
 
@@ -235,14 +235,15 @@ View for Navigation Graph
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/side_effects" />
 
+
     <com.google.android.material.chip.ChipGroup
         android:id="@+id/side_effects"
         style="@style/SideEffectsShip"
-        android:layout_width="383dp"
-        android:layout_height="193dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="401dp"
+        android:layout_height="140dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView11"
         app:selectionRequired="true">
@@ -306,17 +307,16 @@ View for Navigation Graph
 
     </com.google.android.material.chip.ChipGroup>
 
-
     <TextView
         android:id="@+id/textView17"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="8.Uppskatta ditt mående*"
+        android:layout_marginTop="4dp"
+        android:text="9.Uppskatta ditt mående*"
         android:textColor="#176693"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.091"
+        app:layout_constraintHorizontal_bias="0.076"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sleeptHoursDayTime" />
 

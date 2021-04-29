@@ -11,8 +11,11 @@ import androidx.navigation.Navigation;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.agileproject.R;
+import com.google.android.material.chip.ChipGroup;
+
 /**
  * @author Pegah Amanzadeh
  */
@@ -23,6 +26,7 @@ import com.example.agileproject.R;
 public class Fragment1_in_QuizActivity extends Fragment {
 
     NavController navController;
+
 
 
 
@@ -39,40 +43,6 @@ public class Fragment1_in_QuizActivity extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
 
-
-
-        // when user click on button chip9Ja it will show the complementary question to question 2
-
-        view.findViewById(R.id.chip9Ja).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                navController.navigate(R.id.action_question1_to_complementaryQuestion1);
-
-            }
-        });
-
-        // when user click on button chip11a it will show comlementary to question4
-
-        view.findViewById(R.id.chip11Ja).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                navController.navigate(R.id.action_question1_to_anxietyQuestionInQ1);
-
-            }
-        });
-
-        // when user click on button chip13Ja it will show comlementary to question 3
-
-        view.findViewById(R.id.chip13Ja).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                navController.navigate(R.id.action_question1_to_delusionsQuestionInQ1);
-
-            }
-        });
-
-
-
             // switching to fragment 2
 
         view.findViewById(R.id.next_button_q2).setOnClickListener(new View.OnClickListener() {
@@ -81,6 +51,7 @@ public class Fragment1_in_QuizActivity extends Fragment {
                 navController.navigate(R.id.action_question1_to_questions2);
             }
         });
+
 
 
     }
