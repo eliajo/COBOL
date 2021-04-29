@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<!-- The activity for the contact pages
+    @author Elin Berthag, Alva Leufstedt, Klara Jakobsson -->
 
-    <fragment
-        android:id="@+id/fragment_contact"
-        android:name="com.example.agileproject.ControlView.ContactPage"
-        android:layout_width="406dp"
-        android:layout_height="298dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:navGraph="@navigation/nav_contact_page" />
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent">
+
+  <fragment
+      android:id="@+id/fragment_contact"
+      android:name="com.example.agileproject.ControlView.ContactPage"
+      android:layout_width="406dp"
+      android:layout_height="298dp"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:navGraph="@navigation/nav_contact_page" />
 </androidx.constraintlayout.widget.ConstraintLayout>

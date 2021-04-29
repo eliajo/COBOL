@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- The layout fragment for the add contact page.
+    @author Elin Berthag, Alva Leufstedt, Klara Jakobsson
+-->
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
