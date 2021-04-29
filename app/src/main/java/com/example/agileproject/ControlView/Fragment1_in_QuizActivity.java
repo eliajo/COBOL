@@ -42,42 +42,6 @@ public class Fragment1_in_QuizActivity extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
-        ChipGroup chips=(ChipGroup) view.findViewById(R.id.chipGroupInvisible);
-        TextView text=(TextView) view.findViewById(R.id.textViewInvisibel);
-
-
-
-        // when user click on button chip9Ja it will show the complementary question to question 2
-
-        //view.findViewById(R.id.chip9Ja).setOnClickListener(new View.OnClickListener() {
-            //@Override
-            //public void onClick(View v) {
-                //navController.navigate(R.id.action_question1_to_complementaryQuestion1);
-
-            //}
-        //});
-
-        // when user click on button chip11a it will show comlementary to question4
-
-        //view.findViewById(R.id.chip11Ja).setOnClickListener(new View.OnClickListener() {
-            //@Override
-            //public void onClick(View v) {
-                //navController.navigate(R.id.action_question1_to_anxietyQuestionInQ1);
-
-            //}
-       // });
-
-        // when user click on button chip13Ja it will show comlementary to question 3
-
-        //view.findViewById(R.id.chip13Ja).setOnClickListener(new View.OnClickListener() {
-            //@Override
-            //public void onClick(View v) {
-                //navController.navigate(R.id.action_question1_to_delusionsQuestionInQ1);
-
-            //}
-        //});
-
-
 
             // switching to fragment 2
 
@@ -88,25 +52,7 @@ public class Fragment1_in_QuizActivity extends Fragment {
             }
         });
 
-        view.findViewById(R.id.chip9Ja).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                chips.setVisibility(View.VISIBLE);
-                text.setVisibility(View.VISIBLE);
 
-
-            }
-        });
-
-        view.findViewById(R.id.chip10No).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                chips.setVisibility(View.GONE);
-                text.setVisibility(View.GONE);
-
-
-            }
-        });
 
     }
 }
