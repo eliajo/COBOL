@@ -1,6 +1,9 @@
 package com.example.agileproject.ControlView;
 
 import android.graphics.Color;
+import android.os.Build;
+
+import androidx.annotation.RequiresApi;
 
 import com.example.agileproject.Model.AnswerEntry;
 import com.example.agileproject.R;
@@ -22,6 +25,7 @@ import java.util.List;
 public class GraphDrawer {
 
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public void drawLineChart(List<List<AnswerEntry>> entries, GraphAdapter.GraphHolder holder, int position){
         LineChart chart = (LineChart) holder.getGraph();
 
@@ -61,12 +65,26 @@ public class GraphDrawer {
         chart.setData(lineData);
         chart.fitScreen();
         chart.invalidate();
+        lineData.setDrawValues(false);
+        chart.setDrawMarkers(false);
+        lineDataSet.setHighlightEnabled(true);
+        lineDataSet.setLineWidth(2);
+        lineDataSet.setColor(Color.BLUE);
+        lineDataSet.setCircleColor(Color.GREEN);
+        lineDataSet.setCircleRadius(6);
+        lineDataSet.setCircleHoleRadius(3);
+        lineDataSet.setDrawHighlightIndicators(true);
+        lineDataSet.setHighLightColor(Color.RED);
+        lineDataSet.setValueTextSize(12);
+        lineDataSet.setValueTextColor(Color.DKGRAY);
+
 
     }
 
     public void drawPieChart(List<List<AnswerEntry>> entries, GraphAdapter.GraphHolder holder, int position) {
         PieChart pieChart = (PieChart) holder.getGraph();
-        PieData pieData;
+        PieData pieData ;
+
         List<PieEntry> pieEntryList = new ArrayList<>(entries.get(position));
 
             pieChart = pieChart.findViewById(R.id.piechart);
@@ -80,6 +98,7 @@ public class GraphDrawer {
             pieEntryList.add(new PieEntry(1,"Nej"));
             pieEntryList.add(new PieEntry(2,"Ja"));
             pieChart.setDrawHoleEnabled(false);
+            pieData.setDrawValues(false);
 
     }
 
