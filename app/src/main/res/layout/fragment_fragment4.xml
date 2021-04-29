@@ -45,7 +45,7 @@ View for Navigation Graph
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="12dp"
         android:text="13.Har du druckit alkohol? "
         android:textColor="#176693"
         android:textSize="18sp"
@@ -58,7 +58,7 @@ View for Navigation Graph
         android:layout_height="40dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="20dp"
         android:text="14.Har du haft tvångstankar? "
         android:textColor="#176693"
         android:textSize="18sp"
@@ -67,14 +67,14 @@ View for Navigation Graph
 
     <TextView
         android:id="@+id/textView10"
-        android:layout_width="229dp"
-        android:layout_height="56dp"
+        android:layout_width="162dp"
+        android:layout_height="42dp"
         android:layout_marginTop="16dp"
         android:text="Sida 4 av 4"
         android:textColor="#176693"
-        android:textSize="40dp"
+        android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.427"
+        app:layout_constraintHorizontal_bias="0.401"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -121,13 +121,14 @@ View for Navigation Graph
             android:textColor="#2D9CDB" />
     </com.google.android.material.chip.ChipGroup>
 
+
     <com.google.android.material.chip.ChipGroup
         android:id="@+id/chipGroup8"
         android:layout_width="142dp"
         android:layout_height="69dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="12dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
         app:singleLine="true"
@@ -158,7 +159,7 @@ View for Navigation Graph
         android:layout_height="26dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="20dp"
         android:text="17.Har du gjort någon fysisk aktivitet? "
         android:textColor="#176693"
 
@@ -175,11 +176,10 @@ View for Navigation Graph
         android:layout_height="60dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="20dp"
         android:hint="Beskriv här..."
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView16" />
-
 
     <TextView
         android:id="@+id/textView16"
@@ -200,9 +200,10 @@ View for Navigation Graph
         android:layout_height="59dp"
         android:layout_marginStart="24dp"
         android:layout_marginLeft="24dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9">
+        app:layout_constraintTop_toBottomOf="@+id/textView9"
+        app:singleSelection="true">
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chipYesExercise"

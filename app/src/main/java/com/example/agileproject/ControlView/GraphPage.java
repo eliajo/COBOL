@@ -1,4 +1,4 @@
-/*package com.example.agileproject.ControlView;
+package com.example.agileproject.ControlView;
 
 import android.os.Build;
 import android.os.Bundle;
@@ -32,7 +32,7 @@ import java.util.List;
  * Use the {@link GraphPage#newInstance} factory method to
  * create an instance of this fragment.
  */
-/*
+
 public class GraphPage extends Fragment {
 
     public GraphPage() {
@@ -104,4 +104,3 @@ public class GraphPage extends Fragment {
         return v;
     }
 }
-*/
