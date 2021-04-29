@@ -16,6 +16,7 @@ import com.example.agileproject.Model.Answerable;
 import com.example.agileproject.Model.AnswerEntry;
 import com.example.agileproject.Model.GraphHelper;
 import com.example.agileproject.Model.NumberAnswer;
+import com.example.agileproject.Model.Storable;
 import com.example.agileproject.R;
 import com.example.agileproject.Utils.FileConverter;
 import com.example.agileproject.Utils.FileFormatter;
@@ -53,7 +54,7 @@ public class GraphPage extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_graph_page, container, false);
 
-        List<Answerable> answerableList = new ArrayList<>();
+        List<Storable> answerableList = new ArrayList<>();
 
 
         //All this is just demo functionality for now

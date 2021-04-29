@@ -39,7 +39,8 @@ public class FileConverter {
     }
 
     public void convert(String data) {
-
+    dateMap.clear();
+    questionMap.clear();
         String[] questionsStrings = data.split("@@@---@@@---@@@"); //Split by question
 
         for (String question:questionsStrings) {
