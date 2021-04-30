@@ -22,6 +22,7 @@ public class ContactConverter {
     }
 
     public void convert(String data) {
+        contactList.clear();
         String[] contactStrings = data.split("@@@---@@@---@@@");
 
         for (String contact : contactStrings) {
