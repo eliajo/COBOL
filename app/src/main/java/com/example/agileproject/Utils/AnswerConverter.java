@@ -40,6 +40,9 @@ public class AnswerConverter {
     public void convert(String data) {
     dateMap.clear();
     questionMap.clear();
+    if (data.length()==0){
+        return;
+    }
         String[] questionsStrings = data.split("@@@---@@@---@@@"); //Split by question
 
         for (String question:questionsStrings) {
