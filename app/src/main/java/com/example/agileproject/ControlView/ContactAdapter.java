@@ -13,6 +13,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+/**
+ * Adapter-class for the contact page.
+ *
+ * @author Elin Berthag, Alva Leufstedt, Klara Jakobsson
+ */
+
 public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.MyViewHolder>{
 
     List<Contact> contactList;
