@@ -69,8 +69,8 @@ public class GraphDrawer {
         chart.setDrawMarkers(false);
         lineDataSet.setHighlightEnabled(true);
         lineDataSet.setLineWidth(2);
-        lineDataSet.setColor(Color.BLUE);
-        lineDataSet.setCircleColor(Color.GREEN);
+        lineDataSet.setColor(Color.parseColor("#87cefa"));
+        lineDataSet.setCircleColor(Color.parseColor("#66cdaa"));
         lineDataSet.setCircleRadius(6);
         lineDataSet.setCircleHoleRadius(3);
         lineDataSet.setDrawHighlightIndicators(true);
@@ -95,8 +95,8 @@ public class GraphDrawer {
             pieData = new PieData(pieDataSet);
             pieChart.setData(pieData);
             pieChart.invalidate();
-            pieEntryList.add(new PieEntry(1,"Nej"));
-            pieEntryList.add(new PieEntry(2,"Ja"));
+            pieEntryList.add(new PieEntry(70,"Nej"));
+            pieEntryList.add(new PieEntry(30,"Ja"));
             pieChart.setDrawHoleEnabled(false);
             pieData.setDrawValues(false);
 
