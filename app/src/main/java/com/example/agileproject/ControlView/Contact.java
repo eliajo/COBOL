@@ -1,7 +1,9 @@
 package com.example.agileproject.ControlView;
 
 /**
- * @author Elin, Alva, Klara
+ *  Class for defining how to construct contacts in other classes.
+ *
+ *  @author Elin Berthag, Alva Leufstedt, Klara Jakobsson
  */
 public class Contact {
     //A contact consist of a name and one or two ways of contact (phone number and/or email).
