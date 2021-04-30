@@ -12,6 +12,9 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
+/**
+ * @author Elias Johansson
+ */
 public class ContactConverterTest {
 
     @Test

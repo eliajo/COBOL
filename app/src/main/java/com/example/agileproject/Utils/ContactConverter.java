@@ -5,7 +5,13 @@ import com.example.agileproject.ControlView.Contact;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class that converts a given String into a Contact. Stores the Contacts in a list.
+ * Singleton.
+ * @author Elias Johansson
+ */
 public class ContactConverter {
+
 
     private static ContactConverter contactConverter;
     private List<Contact> contactList;
@@ -14,6 +20,10 @@ public class ContactConverter {
         contactList = new ArrayList();
     }
 
+    /**
+     * returns the instance of the class, creates it if it does not exist.
+     * @return The instance of the class
+     */
     public static ContactConverter getInstance() {
         if (contactConverter == null) {
             contactConverter = new ContactConverter();
@@ -21,6 +31,10 @@ public class ContactConverter {
         return contactConverter;
     }
 
+    /**
+     * Converts a string into Contact objects. Throws exception if data can not be formatted.
+     * @param data The string containing the data from the contact file.
+     */
     public void convert(String data) {
         contactList.clear();
         String[] contactStrings = data.split("@@@---@@@---@@@");
@@ -41,6 +55,10 @@ public class ContactConverter {
 
     }
 
+    /**
+     * Getter for the list that stores the Contacts
+     * @return A copy of the list that stores the Contacts
+     */
     public List<Contact> getContactList() {
         List<Contact> safeCopy = new ArrayList<>();
         safeCopy.addAll(contactList);

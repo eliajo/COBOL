@@ -25,5 +25,9 @@ public interface Answerable {
      */
     String getDate();
 
+    /**
+     * Getter for the type of the answerable
+     * @return an int corresponding to which type it is.
+     */
     int getType();
 }

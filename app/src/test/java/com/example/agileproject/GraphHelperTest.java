@@ -16,6 +16,9 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
+/**
+ * @author Elias Johansson
+ */
 public class GraphHelperTest {
     @Test
     public void checkIfGraphHelperReturnsCorrectElements() {

@@ -24,11 +24,9 @@ public class FileFormatter {
         StringBuilder sb = new StringBuilder();
 
         for (Storable s:storables) {
-            //sb.append(LocalDate.now());
-            //sb.append("|"); //Makes it easy to split a question into date and answer
             sb.append(s.getInfoToWrite());
 
-            sb.append("@@@---@@@---@@@"); //End of question
+            sb.append("@@@---@@@---@@@"); //End of question or contact
         }
         return sb.toString();
     }
