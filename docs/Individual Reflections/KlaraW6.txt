@@ -1,0 +1,8 @@
+What do I want to learn or understand better? 
+I want to learn more about how different classes and xml-files communicate and how different views inflate, also more about the navigation. Right now, I know how to handle these parts while coding, but I am not sure why different parts of the code must be there and how they communicate while the app is running. To learn more about this, I will read more documentation about these functions and discuss it with the people from IT in my group.
+How can I help someone else, or the entire team, to learn something new? 
+I can help the team learning new things by challenging their ideas and giving new inputs that make them must search for how to solve things in other ways than they have tried before. Also, I believe that we from the I-program have learned different things than the ones from IT, which we can share with each other by discussing different parts. When pair-programming with someone from IT, the IT student have been more comfortable with writing code, but I can help by asking a lot of questions that force the student to reflect about if it is the best solution or not. Also giving new ideas when being stuck.
+What is my contribution towards the team’s use of Scrum? 
+I am attending all the daily scrum meetings and being positive about having them but keeping them short and effective. I could improve by being better in breaking down tasks to smaller tasks.
+What is my contribution towards the team’s deliveries? 
+This week I have worked with the calendar together with William and I am impressed over my contribution since I thought I would understand less than I did. Also, I have worked with complementing code from before with more comments and removing unused parts.
