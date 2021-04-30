@@ -18,7 +18,7 @@ import static org.junit.Assert.assertEquals;
 /**
  * @author William Hugo, Elias Johansson
  */
-public class FileConverterTest {
+public class AnswerConverterTest {
 
     @Test
     public void checkIfStoredAnswersAreConvertedCorrectlyByDate() { //Also tests if boolean and string works
