@@ -29,6 +29,7 @@ import java.util.List;
  * Use the {@link GraphPage#newInstance} factory method to
  * create an instance of this fragment.
  */
+
 public class GraphPage extends Fragment {
 
     public GraphPage() {

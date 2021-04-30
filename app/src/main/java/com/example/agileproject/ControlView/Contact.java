@@ -3,7 +3,9 @@ package com.example.agileproject.ControlView;
 import com.example.agileproject.Model.Storable;
 
 /**
- * @author Elin, Alva, Klara
+ *  Class for defining how to construct contacts in other classes.
+ *
+ *  @author Elin Berthag, Alva Leufstedt, Klara Jakobsson
  */
 public class Contact implements Storable {
     //A contact consist of a name and one or two ways of contact (phone number and/or email).
