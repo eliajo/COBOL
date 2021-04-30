@@ -20,6 +20,9 @@ View for Navigation Graph
         <action
             android:id="@+id/action_questions2_to_complementaryQuestion24"
             app:destination="@id/complementaryQuestion24" />
+        <action
+            android:id="@+id/action_questions2_to_question12"
+            app:destination="@id/question1" />
     </fragment>
     <fragment
         android:id="@+id/questions3"
