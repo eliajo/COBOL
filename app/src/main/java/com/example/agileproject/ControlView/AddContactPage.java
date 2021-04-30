@@ -17,7 +17,11 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.agileproject.Model.Storable;
 import com.example.agileproject.R;
+import com.example.agileproject.Utils.ContactConverter;
+import com.example.agileproject.Utils.FileFormatter;
+import com.example.agileproject.Utils.FileHandler;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +29,10 @@ import java.util.List;
 public class AddContactPage extends Fragment {
 
     NavController navController;
+
+    private EditText etContactName;
+
+    private EditText etContactNumber;
 
     public AddContactPage() {
 
@@ -35,13 +43,35 @@ public class AddContactPage extends Fragment {
 
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_add_contact, container, false);
-
+        navController=Navigation.findNavController(this.getActivity(), R.id.main_pages_fragment);
+         etContactName = v.findViewById(R.id.etContactName);
+         etContactNumber = v.findViewById(R.id.etContactNumber );
         Button add = v.findViewById(R.id.addContactButton);
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int i = 0;
-                i = 1/i;
+
+
+                String name = etContactName.getText().toString();
+                String phoneNumber = etContactNumber.getText().toString();
+
+                Contact contact = new Contact(name,phoneNumber);
+                FileFormatter fileFormatter = new FileFormatter();
+
+                //Hack that is going to be changed. No use having a list for one contact.
+                List<Storable> storableList = new ArrayList<>();
+                storableList.add(contact);
+                String formattedContact = fileFormatter.format(storableList);
+
+                FileHandler fileHandler = new FileHandler();
+                fileHandler.write(formattedContact,getContext(),"Contacts.txt");
+
+                String readContact = fileHandler.read(getContext(),"Contacts.txt");
+
+                ContactConverter.getInstance().convert(readContact);
+
+
+
                 navController.navigate(R.id.switch_back_contact);
             }
         });
@@ -63,14 +93,5 @@ public class AddContactPage extends Fragment {
     }
 
 
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        navController = Navigation.findNavController(view);
-        view.findViewById(R.id.addContactButton).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-             //  navController.navigate(R.id.switch_contact_page);
-            }
-        });
-    }
+
 }

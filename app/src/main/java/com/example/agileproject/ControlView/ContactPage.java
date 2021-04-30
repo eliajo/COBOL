@@ -20,6 +20,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.agileproject.R;
+import com.example.agileproject.Utils.ContactConverter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
@@ -87,8 +88,8 @@ public class ContactPage extends Fragment {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this.getContext());
         contactRecycleView.setLayoutManager(layoutManager);
 
-        List<Contact> contactList = new ArrayList<>();
-        contactList.add(new Contact("Klara", "0735241742"));
+        List<Contact> contactList = ContactConverter.getInstance().getContactList();
+        //contactList.add(new Contact("Klara", "0735241742"));
 
         s1 = getResources().getStringArray(R.array.ContactName);
         s2 = getResources().getStringArray(R.array.Telephonenumber);
