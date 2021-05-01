@@ -62,7 +62,6 @@ public class CalendarPage extends Fragment {
         t.commit();
 
         List<Date> dates = fetchDatesAndFormat();
-        dates.add(new Date(2021-1900,4-1,25)); //this is a test to try existing dates, remove later
 
         Toast toast = new Toast(getContext());
         toast.setText("Inget quiz sparat för denna dag");
@@ -119,6 +118,7 @@ public class CalendarPage extends Fragment {
             String[] array = s.split("-"); //splits the dateString into an array of three strings, [0] = year, [1] = month, [2] = day
             dates.add(new Date(Integer.parseInt(array[0])-1900,Integer.parseInt(array[1])-1,Integer.parseInt(array[2])));
         }
+        dates.add(new Date(2021-1900,4-1,25)); //this row is a test to try existing dates (NOT COLORING!), remove later
         return dates;
     }
 
