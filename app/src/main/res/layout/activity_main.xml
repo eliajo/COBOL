@@ -35,14 +35,4 @@ View for MainActivity
         app:layout_constraintTop_toTopOf="parent"
         app:navGraph="@navigation/navigation_bar" />
 
-    <Button
-        android:id="@+id/quiz_button"
-        android:layout_width="wrap_content"
-        android:layout_height="75dp"
-        android:text="STARTA TESTET"
-        app:backgroundTint="#2196F3"
-        app:layout_constraintBottom_toTopOf="@+id/nav_bar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/main_pages_fragment" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -24,7 +24,6 @@ import java.io.File;
  */
 public class MainActivity extends AppCompatActivity {
 
-    private Button startQuiz;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,24 +35,12 @@ public class MainActivity extends AppCompatActivity {
 
         AnswerConverter.getInstance().convert(answers);
         ContactConverter.getInstance().convert(contacts);
+
         //This code connects the navigation bar to the fragment for our four main pages
         BottomNavigationView bottomNavigationView = findViewById(R.id.nav_bar);
         NavController navController = Navigation.findNavController(this, R.id.main_pages_fragment);
         NavigationUI.setupWithNavController(bottomNavigationView, navController);
 
-        //Code to connect mainActivity to QuizActivity
-        startQuiz = findViewById(R.id.quiz_button);
-        startQuiz.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-               changeActivity();
-            }
-        });
-    }
-
-    private void changeActivity(){
-        Intent intent = new Intent(this,QuizActivity.class);
-        startActivity(intent);
     }
 
 }
