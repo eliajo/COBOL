@@ -70,6 +70,8 @@ public class AddContactPage extends Fragment {
 
                 ContactConverter.getInstance().convert(readContact);
 
+               ;
+
 
 
                 navController.navigate(R.id.switch_back_contact);

@@ -23,6 +23,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.MyViewHo
 
     List<Contact> contactList;
     Context context;
+    int index = 0;
 
     public ContactAdapter(Context ct, List<Contact> cl){
         context = ct ;
@@ -43,6 +44,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.MyViewHo
 
         holder.myText1.setText(contactList.get(position).name);
         holder.myText2.setText(contactList.get(position).contactWay);
+        index++;
     }
 
 

@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 
 import com.example.agileproject.R;
 import com.example.agileproject.Utils.ContactConverter;
+import com.example.agileproject.Utils.FileHandler;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
@@ -57,7 +58,6 @@ public class ContactPage extends Fragment {
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this.getContext());
         contactRecycleView.setLayoutManager(layoutManager);
-
 
         List<Contact> contactList = ContactConverter.getInstance().getContactList();
         //contactList.add(new Contact("Klara", "0735241742"));
