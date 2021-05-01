@@ -10,7 +10,6 @@ import android.widget.Toast;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.example.agileproject.Model.Answerable;
 import com.example.agileproject.R;
 import com.example.agileproject.Utils.AnswerConverter;
 import com.roomorama.caldroid.CaldroidFragment;
