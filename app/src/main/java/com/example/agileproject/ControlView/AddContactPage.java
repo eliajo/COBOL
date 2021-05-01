@@ -26,6 +26,10 @@ import com.example.agileproject.Utils.FileHandler;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class that represents the view for adding a contacts
+ * @author Elias Johansson ...
+ */
 public class AddContactPage extends Fragment {
 
     NavController navController;
@@ -51,7 +55,7 @@ public class AddContactPage extends Fragment {
             @Override
             public void onClick(View v) {
 
-
+                //gets the info from inputboxes
                 String name = etContactName.getText().toString();
                 String phoneNumber = etContactNumber.getText().toString();
 
@@ -59,18 +63,22 @@ public class AddContactPage extends Fragment {
                 FileFormatter fileFormatter = new FileFormatter();
 
                 //Hack that is going to be changed. No use having a list for one contact.
+                //Converts the contact into a saveable string
                 List<Storable> storableList = new ArrayList<>();
                 storableList.add(contact);
                 String formattedContact = fileFormatter.format(storableList);
 
+                //Saves the contact
                 FileHandler fileHandler = new FileHandler();
                 fileHandler.write(formattedContact,getContext(),"Contacts.txt");
 
+                //Reads the contact from harddrive
                 String readContact = fileHandler.read(getContext(),"Contacts.txt");
 
+                //Converts all contacts again, maybe more obtimized to add a separate method for this
                 ContactConverter.getInstance().convert(readContact);
 
-               ;
+
 
 
 
