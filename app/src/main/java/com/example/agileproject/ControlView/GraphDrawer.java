@@ -77,7 +77,8 @@ public class GraphDrawer {
         lineDataSet.setHighLightColor(Color.RED);
         lineDataSet.setValueTextSize(12);
         lineDataSet.setValueTextColor(Color.DKGRAY);
-
+        lineDataSet.setDrawFilled(true);
+        lineDataSet.setFillColor(Color.parseColor("#add8e6"));
 
     }
 
