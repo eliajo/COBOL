@@ -5,7 +5,7 @@ package com.example.agileproject.Model;
  * @author Elias Johansson William Hugo
  */
 
-public class BooleanAnswer implements Answerable {
+public class BooleanAnswer implements Answerable, Storable {
 
     private boolean bool;
     private int questionId;
@@ -36,6 +36,11 @@ public class BooleanAnswer implements Answerable {
     @Override
     public String getDate() {
         return date;
+    }
+
+    @Override
+    public int getType() {
+        return type;
     }
 
 }

@@ -5,12 +5,13 @@ import android.os.Build;
 import androidx.annotation.RequiresApi;
 
 import com.example.agileproject.Model.Answerable;
+import com.example.agileproject.Model.Storable;
 
 import java.util.List;
 
 /**
- * A class that takes a list of answers and puts them all into one single String.
- * Used to format the String so that the list of answers can be saved in a text file.
+ * A class that takes a list of storables and puts them all into one single String.
+ * Used to format the String so that the list of storables can be saved in a text file.
  * @author William Hugo, Elias Johansson
  */
 public class FileFormatter {
@@ -19,16 +20,13 @@ public class FileFormatter {
 
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    public String format(List<Answerable> answers){
+    public String format(List<Storable> storables){
         StringBuilder sb = new StringBuilder();
 
-        for (Answerable a:answers) {
-            //sb.append(LocalDate.now());
-            //sb.append("|"); //Makes it easy to split a question into date and answer
-            sb.append(a.getInfoToWrite());
+        for (Storable s:storables) {
+            sb.append(s.getInfoToWrite());
 
-            sb.append("@@@---@@@---@@@"); //End of question
+            sb.append("@@@---@@@---@@@"); //End of question or contact
         }
         return sb.toString();
     }

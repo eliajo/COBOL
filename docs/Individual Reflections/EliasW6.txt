@@ -1,0 +1,37 @@
+what do I want to learn or understand better?
+
+Like last reflection I want to understand design patterns better and more specifically see instinctively when to use what design pattern. I did not find time to study them this last sprint
+and might not the next but I believe it would improve code quality dramatically. I also would like to understand scrum better, mostly really how much of an improvement in software quality
+and value the method produces in comparison with other more coding focused approaches. The differences are not really a part of the course, atleast from my understanding,
+so I will not focus on it but it is something I have started to think about since scrum, 
+especially with short sprints, demands quite a lot of time for non code related tasks. 
+I will still try to read more about scrum if I find the time to really get a better grasp of the advantages of it it.
+
+how can I help someone else, or the entire team, to learn something new?
+
+I spent a sizeable amount of time helping the team with various bugs and implementation decisions. This is something that they told me helped them understand things better. I still
+think I can improve in this regard by maybe being less focused on bugs and more focused on making them understand why things don't work (or work). We also had a discussion about teaming up
+the more experienced developers with the developers with less experience to further improve learning. I have not done this yet personally but it is something that is probably going to
+happen next sprint. 
+
+what is my contribution towards the team’s use of Scrum?
+
+I have been a part of every daily scrum meeting this week. I also helped with dividing tasks for different group members.
+I feel like I also have done a good job in reminding the team of things that need to be done, for example user stories break downs, effort estimation or reminding the team that we don't 
+determine value,
+if it was forgotten by the rest of the team. This is something I plan to continue doing but it seems to me that I don't need to do it as often as I used to anymore
+since the team is getting more used to scrum.
+One thing which I still struggle with is breaking down user stories to tasks, but I am starting to become better at that now especially since we noticed that our velocity was not that telling
+due to inconsistencies in how big our tasks were. 
+To improve on this more I aim to spend a little more time looking at our scrum board to make sure that the tasks I work on are quite small so that our velocity becomes more telling.
+
+what is my contribution towards the team’s deliveries?
+
+I have worked on the graphing functionality, mainly the design of the graphs that we will use. I also refactored some earlier code that was not type safe. I have also worked on
+the functionality to save contacts to a file and read that info back to the program. This also required a bit of rework. I feel like I have not been as productive as I should have this week
+coding wise. I think it might be because I have pretty much spent every day coding on this app since the beginning of the project. I think it is going to be easier to maintain productivity
+in the future because the rest of the team have started to understand the android framework to an extent that makes them work quite efficently now,
+ which will make me having to spend less time helping others and contemplating implementation decisions. 
+I also actively contributed to the team reflection, both by adding my own thoughts but also discussing others. I feel like we as a group have improved quite a bit when it comes to this.
+In the beginning I feel like people were a litte afraid, maybe me included, to criticize how the team has worked. Still I feel that some group members could voice their opinions a bit more
+but I think it will continue to improve like it has done.

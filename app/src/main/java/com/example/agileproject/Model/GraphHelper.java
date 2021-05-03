@@ -1,6 +1,6 @@
 package com.example.agileproject.Model;
 
-import com.example.agileproject.Utils.FileConverter;
+import com.example.agileproject.Utils.AnswerConverter;
 
 
 import java.text.ParseException;
@@ -32,7 +32,7 @@ public class GraphHelper {
         List<Answerable> byIdList;
         List<Answerable> byDateList;
 
-        FileConverter fileConverter = FileConverter.getInstance();
+        AnswerConverter fileConverter = AnswerConverter.getInstance();
 
 
         try {

@@ -5,11 +5,7 @@ package com.example.agileproject.Model;
  * @author Elias Johansson William Hugo
  */
 public interface Answerable {
-    /**
-     * Method to get the info needed to write and load from file
-     * @return String that holds information about object
-     */
-    String getInfoToWrite();
+
 
     /**
      *Returns the primary data for the object, for example Boolean. Note all are subclasses of Object so no primitive types
@@ -29,4 +25,9 @@ public interface Answerable {
      */
     String getDate();
 
+    /**
+     * Getter for the type of the answerable
+     * @return an int corresponding to which type it is.
+     */
+    int getType();
 }

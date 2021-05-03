@@ -4,8 +4,9 @@ import com.example.agileproject.Model.Answerable;
 import com.example.agileproject.Model.BooleanAnswer;
 import com.example.agileproject.Model.GraphHelper;
 import com.example.agileproject.Model.NumberAnswer;
+import com.example.agileproject.Model.Storable;
 import com.example.agileproject.Model.TextAnswer;
-import com.example.agileproject.Utils.FileConverter;
+import com.example.agileproject.Utils.AnswerConverter;
 import com.example.agileproject.Utils.FileFormatter;
 
 import org.junit.Test;
@@ -15,6 +16,9 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
+/**
+ * @author Elias Johansson
+ */
 public class GraphHelperTest {
     @Test
     public void checkIfGraphHelperReturnsCorrectElements() {
@@ -25,7 +29,7 @@ public class GraphHelperTest {
         TextAnswer e = new TextAnswer("Hello!",30,"2021-04-17");
         BooleanAnswer f = new BooleanAnswer(true,40,"2021-04-18");
 
-        List<Answerable> answers = new ArrayList<>();
+        List<Storable> answers = new ArrayList<>();
 
         answers.add(a);
         answers.add(b);
@@ -36,13 +40,13 @@ public class GraphHelperTest {
 
         FileFormatter ff = new FileFormatter();
         String res = ff.format(answers);
-        FileConverter fc = FileConverter.getInstance();
+        AnswerConverter fc = AnswerConverter.getInstance();
         fc.convert(res);
         GraphHelper g = new GraphHelper();
         List<Answerable> answerableList =g.getDataFromDateToDate("2021-04-17","2021-04-19",20);
         StringBuilder result = new StringBuilder();
-        for (Answerable answerable:answerableList) {
-            result.append(answerable.getInfoToWrite());
+        for (Answerable ans:answerableList) {
+            result.append(ans.getData()+"###---###---###"+ans.getQuestionId() + "###---###---###" + ans.getDate() + "###---###---###" + ans.getType());
         }
         String expected = d.getInfoToWrite() + a.getInfoToWrite();
         assertEquals(expected, result.toString());
