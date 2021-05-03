@@ -70,7 +70,7 @@ public class GraphDrawer {
         lineDataSet.setHighlightEnabled(true);
         lineDataSet.setLineWidth(2);
         lineDataSet.setColor(Color.parseColor("#87cefa"));
-        lineDataSet.setCircleColor(Color.parseColor("#66cdaa"));
+        lineDataSet.setCircleColor(Color.parseColor("#4682b4"));
         lineDataSet.setCircleRadius(6);
         lineDataSet.setCircleHoleRadius(3);
         lineDataSet.setDrawHighlightIndicators(true);
