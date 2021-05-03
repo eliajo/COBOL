@@ -13,6 +13,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.agileproject.R;
+import com.example.agileproject.Utils.ContactConverter;
+import com.example.agileproject.Utils.FileHandler;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
@@ -25,9 +27,7 @@ import java.util.List;
  */
 public class ContactPage extends Fragment {
 
-    // the fragment initialization parameters
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+
 
     NavController navController;
 
@@ -38,10 +38,7 @@ public class ContactPage extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            getArguments().getString(ARG_PARAM1);
-            getArguments().getString(ARG_PARAM2);
-        }
+
     }
 
     @Override
@@ -51,18 +48,13 @@ public class ContactPage extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_contact_page, container, false);
 
-        String s1[], s2[];
         RecyclerView contactRecycleView = v.findViewById(R.id.ContactRecycleView);
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this.getContext());
         contactRecycleView.setLayoutManager(layoutManager);
 
-        // A list with an example contact (test)
-        List<Contact> contactList = new ArrayList<>();
-        contactList.add(new Contact("Klara", "0735241742"));
-
-        s1 = getResources().getStringArray(R.array.ContactName);
-        s2 = getResources().getStringArray(R.array.Telephonenumber);
+        //Gets the contacts that are already loaded in (either at startup or after contact addition)
+        List<Contact> contactList = ContactConverter.getInstance().getContactList();
 
         ContactAdapter c = new ContactAdapter(getContext(), contactList);
         contactRecycleView.setAdapter(c);

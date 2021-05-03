@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.agileproject.R;
-import com.example.agileproject.Utils.FileConverter;
+import com.example.agileproject.Utils.AnswerConverter;
 import com.roomorama.caldroid.CaldroidFragment;
 import com.roomorama.caldroid.CaldroidListener;
 
@@ -61,7 +61,6 @@ public class CalendarPage extends Fragment {
         t.commit();
 
         List<Date> dates = fetchDatesAndFormat();
-        dates.add(new Date(2021-1900,4-1,25)); //this is a test to try existing dates, remove later
 
         Toast toast = new Toast(getContext());
         toast.setText("Inget quiz sparat för denna dag");
@@ -112,12 +111,13 @@ public class CalendarPage extends Fragment {
      * Fetches all the dates of answered quizzes from FileConverter and formats the dates into the right format for the calendar
      */
     private List<Date> fetchDatesAndFormat() {
-        List<String> stringDates = FileConverter.getInstance().getAllDates();
+        List<String> stringDates = AnswerConverter.getInstance().getAllDates();
         List<Date> dates = new ArrayList<>();
         for(String s : stringDates) {
             String[] array = s.split("-"); //splits the dateString into an array of three strings, [0] = year, [1] = month, [2] = day
             dates.add(new Date(Integer.parseInt(array[0])-1900,Integer.parseInt(array[1])-1,Integer.parseInt(array[2])));
         }
+        dates.add(new Date(2021-1900,4-1,25)); //this row is a test to try existing dates (NOT COLORING!), remove later
         return dates;
     }
 
