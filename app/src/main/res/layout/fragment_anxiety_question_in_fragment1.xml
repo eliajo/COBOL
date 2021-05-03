@@ -83,7 +83,7 @@ View for Navigation Graph
         app:layout_constraintTop_toBottomOf="@+id/chipGroup13" />
 
     <com.google.android.material.chip.ChipGroup
-        android:id="@+id/chipGroup2"
+        android:id="@+id/EnergyLevel"
         style="@style/CustomChipStyle"
         android:layout_width="288dp"
         android:layout_height="103dp"
@@ -205,7 +205,7 @@ View for Navigation Graph
         android:textColor="#176693"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chipGroup2" />
+        app:layout_constraintTop_toBottomOf="@+id/EnergyLevel" />
 
     <com.google.android.material.chip.ChipGroup
         android:id="@+id/chipGroup6"

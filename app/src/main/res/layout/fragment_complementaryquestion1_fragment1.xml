@@ -158,7 +158,7 @@ View for Navigation Graph
     </com.google.android.material.chip.ChipGroup>
 
     <com.google.android.material.chip.ChipGroup
-        android:id="@+id/chipGroup2"
+        android:id="@+id/EnergyLevel"
         style="@style/CustomChipStyle"
         android:layout_width="288dp"
         android:layout_height="103dp"

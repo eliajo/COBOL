@@ -69,7 +69,7 @@ View for Navigation Graph
         app:layout_constraintTop_toBottomOf="@+id/chipGroup14" />
 
     <com.google.android.material.chip.ChipGroup
-        android:id="@+id/chipGroup2"
+        android:id="@+id/EnergyLevel"
         android:layout_width="119dp"
         android:layout_height="65dp"
         android:layout_margin="24dp"
@@ -220,7 +220,7 @@ View for Navigation Graph
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.125"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chipGroup2" />
+        app:layout_constraintTop_toBottomOf="@+id/EnergyLevel" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/textInputSideEffects"

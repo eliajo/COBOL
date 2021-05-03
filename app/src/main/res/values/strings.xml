@@ -22,8 +22,7 @@
     <string name="n_sta">Nästa</string>
     <string name="_0">0</string>
     <string name="_10">10</string>
-
-
+    <string name="error_label">Du måste svara på alla frågor</string>
 
 
 </resources>
