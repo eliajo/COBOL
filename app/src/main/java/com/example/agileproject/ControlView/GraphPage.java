@@ -16,10 +16,10 @@ import com.example.agileproject.Model.Answerable;
 import com.example.agileproject.Model.AnswerEntry;
 import com.example.agileproject.Model.GraphHelper;
 import com.example.agileproject.Model.NumberAnswer;
+import com.example.agileproject.Model.Storable;
 import com.example.agileproject.R;
-import com.example.agileproject.Utils.FileConverter;
+import com.example.agileproject.Utils.AnswerConverter;
 import com.example.agileproject.Utils.FileFormatter;
-import com.github.mikephil.charting.data.Entry;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,7 +54,7 @@ public class GraphPage extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_graph_page, container, false);
 
-        List<Answerable> answerableList = new ArrayList<>();
+        List<Storable> answerableList = new ArrayList<>();
 
 
         //All this is just demo functionality for now
@@ -82,7 +82,7 @@ public class GraphPage extends Fragment {
         FileFormatter ff = new FileFormatter();
         String save =ff.format(answerableList);
 
-        FileConverter fileConverter = FileConverter.getInstance();
+        AnswerConverter fileConverter = AnswerConverter.getInstance();
         fileConverter.convert(save);
 
         GraphHelper graphHelper = new GraphHelper();

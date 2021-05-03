@@ -320,6 +320,7 @@ View for Navigation Graph
         android:text="7.Sov du bra inatt?"
         android:textColor="#176693"
         android:textSize="18sp"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.06"
         app:layout_constraintStart_toStartOf="parent"
@@ -330,6 +331,7 @@ View for Navigation Graph
         android:layout_width="221dp"
         android:layout_height="61dp"
         android:layout_marginTop="20dp"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.084"
         app:layout_constraintStart_toStartOf="parent"
@@ -345,7 +347,7 @@ View for Navigation Graph
             android:text="Ja " />
 
         <com.google.android.material.chip.Chip
-            android:id="@+id/chipJa"
+            android:id="@+id/chipNo"
             style="@style/YesOrNowChipStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -392,6 +394,67 @@ View for Navigation Graph
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/imageView2"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="34dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginBottom="36dp"
+        android:src="@drawable/back_arrow"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/chipGroup"
+        android:layout_width="258dp"
+        android:layout_height="170dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView10">
+
+
+        <RadioButton
+            android:id="@+id/radioButton3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Jag kunde inte somna "
+            android:textColor="@color/LightBlue" />
+
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Jag vaknade många gånger under natten"
+            android:textColor="@color/LightBlue" />
+
+        <RadioButton
+            android:id="@+id/radioButton"
+            android:layout_width="match_parent"
+            android:layout_height="62dp"
+            android:text="Jag vaknade tidigt och kunde int somna om"
+            android:textColor="@color/LightBlue" />
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="8.Varför sov du inte bra?"
+        android:textColor="#176693"
+        android:textSize="18sp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.046"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sleeptHoursDayTime" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
