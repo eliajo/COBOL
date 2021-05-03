@@ -4,19 +4,23 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.agileproject.Model.AnswerEntry;
+import com.example.agileproject.Model.Question;
 import com.example.agileproject.R;
 import com.github.mikephil.charting.charts.Chart;
 import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
+import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.interfaces.datasets.IDataSet;
 
 import java.util.ArrayList;
@@ -29,6 +33,8 @@ import java.util.List;
  */
 public class GraphAdapter extends RecyclerView.Adapter<GraphAdapter.GraphHolder> {
 
+    private static final int linechartID = 1;
+    private static final int piechartID = 2;
 
     private Context context;
     private List<List<AnswerEntry>> entries;
@@ -43,18 +49,36 @@ public class GraphAdapter extends RecyclerView.Adapter<GraphAdapter.GraphHolder>
     @Override
     public GraphAdapter.GraphHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.linegraph, parent, false);
-        return new GraphAdapter.LineGraphHolder(view);
+        View view ;
+        if (viewType == linechartID) {
+            view = LayoutInflater.from(context).inflate(R.layout.linegraph, parent, false);
+            return new LineGraphHolder(view);
+        } else if (viewType == piechartID) {
+            view = LayoutInflater.from(context)
+                    .inflate(R.layout.piegraph, parent, false);
+            return new PieGraphHolder(view);
+        }
+        else throw new IllegalArgumentException("No valid viewtype");
     }
 
     @Override
     public void onBindViewHolder(@NonNull GraphHolder holder, int position) {
       //if(viewtype == linechartid (For later))
-        graphDrawer.drawLineChart(entries,holder,position);
-
+        if(holder.getItemViewType()==linechartID) {
+            graphDrawer.drawLineChart(entries, holder, position);
+        }
+        else graphDrawer.drawPieChart(entries,holder, position);
 
     }
 
+ // getting the questiontype from the position
+    @Override
+    public int getItemViewType(int position) {
+        Integer id = entries.get(position).get(0).getQuestionId();
+        if (id == 10) {
+            return linechartID;
+        } else return piechartID;
+    }
 
 
     @Override
@@ -83,11 +107,75 @@ public class GraphAdapter extends RecyclerView.Adapter<GraphAdapter.GraphHolder>
             super(itemView);
             this.chart = itemView.findViewById(R.id.linechart);
             this.mainLabel = itemView.findViewById(R.id.LineChartTextView);
+            Button oneWeek = (Button) itemView.findViewById(R.id.lineOneWeek);
+            oneWeek.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    // Add one week worth of data to the linegraph
+                }
+            });
+            Button oneMonth = (Button) itemView.findViewById(R.id.lineOneMonth);
+            oneMonth.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    // Add one month worth of data to the linegraph
+                }
+            });
+            Button sinceBeginning = (Button) itemView.findViewById(R.id.lineSinceBeginning);
+            sinceBeginning.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    // Since beginning linegraph
+                }
+            });
         }
 
         @Override
         Chart<LineData> getGraph() {
             return chart;
+        }
+
+        @Override
+        TextView getMainLabel() {
+            return mainLabel;
+        }
+
+    }
+    /**
+     * Creates a holder for PieChart
+     *
+     * @author Alva och Elin
+     */
+    public class PieGraphHolder extends GraphHolder{
+        private PieChart chart;
+        private TextView mainLabel;
+
+        public PieGraphHolder(@NonNull View itemView) {
+            super(itemView);
+            this.chart = itemView.findViewById(R.id.piechart);
+            this.mainLabel = itemView.findViewById(R.id.PieChartTextView);
+
+            Button oneWeek = (Button) itemView.findViewById(R.id.pieOneWeek);
+            oneWeek.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    // Add one week worth of data to the piegraph
+                }
+            });
+
+            Button oneMonth = (Button) itemView.findViewById(R.id.pieOneMonth);
+            oneMonth.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    // Add one month worth of data to the piegraph
+                }
+            });
+
+            Button sinceBeginning = (Button) itemView.findViewById(R.id.pieSinceBeginning);
+            sinceBeginning.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    // Since beginning graph
+                }
+            });
+        }
+
+        @Override
+        Chart<PieData> getGraph() { return chart;
         }
 
         @Override
