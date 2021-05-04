@@ -1,6 +1,7 @@
 package com.example.agileproject.ControlView;
 
 import android.content.Context;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.agileproject.Model.AnswerEntry;
@@ -61,6 +63,7 @@ public class GraphAdapter extends RecyclerView.Adapter<GraphAdapter.GraphHolder>
         else throw new IllegalArgumentException("No valid viewtype");
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onBindViewHolder(@NonNull GraphHolder holder, int position) {
       //if(viewtype == linechartid (For later))
@@ -75,11 +78,26 @@ public class GraphAdapter extends RecyclerView.Adapter<GraphAdapter.GraphHolder>
     @Override
     public int getItemViewType(int position) {
         Integer id = entries.get(position).get(0).getQuestionId();
-        if (id == 10) {
-            return linechartID;
-        } else return piechartID;
+        switch (id) {
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+            case 6:
+            case 8:
+            case 9:
+                return linechartID;
+            case 7:
+            case 10:
+            case 11:
+            case 13:
+            case 14:
+            case 17:
+                return piechartID;
+            default: throw new IllegalArgumentException("No valid questionID");
+        }
     }
-
 
     @Override
     public int getItemCount() {
