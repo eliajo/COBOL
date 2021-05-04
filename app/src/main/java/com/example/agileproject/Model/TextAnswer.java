@@ -4,7 +4,7 @@ package com.example.agileproject.Model;
  * @author Elias Johansson William Hugo
  */
 
-public class TextAnswer implements Answerable {
+public class TextAnswer implements Answerable, Storable {
     private String text;
     private int questionId;
     private String date;
@@ -33,6 +33,10 @@ public class TextAnswer implements Answerable {
     @Override
     public String getDate() {
         return date;
+    }
+    @Override
+    public int getType() {
+        return type;
     }
 
 }
