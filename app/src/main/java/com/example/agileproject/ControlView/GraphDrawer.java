@@ -28,11 +28,36 @@ public class GraphDrawer {
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void drawLineChart(List<List<AnswerEntry>> entries, GraphAdapter.GraphHolder holder, int position){
         LineChart chart = (LineChart) holder.getGraph();
-
-        if ((entries.get(position).get(0).getQuestionId()==10)){
-
-            holder.getMainLabel().setText("Hur du har rankat ditt välmående");
+        Integer id = entries.get(position).get(0).getQuestionId();
+        Integer id = entries.get(position).get(0).getQuestionId();
+        switch (id) {
+            case 1:
+                holder.getMainLabel().setText("Hur din energinivå har varit");
+                break;
+            case 2:
+                holder.getMainLabel().setText("Hur mycket hallucinationer du haft");
+                break;
+            case 3:
+                holder.getMainLabel().setText("Hur mycket vanföreställningar du haft");
+                break;
+            case 4:
+                holder.getMainLabel().setText("Hur mycket ångest du haft");
+                break;
+            case 5:
+                holder.getMainLabel().setText("Hur mycket du sovit på nattid");
+                break;
+            case 6:
+                holder.getMainLabel().setText("Hur mycket du sovit på dagtid");
+                break;
+            case 8:
+                holder.getMainLabel().setText("Hur mycket ilska du haft");
+                break;
+            case 9:
+                holder.getMainLabel().setText("Hur ditt mående har varit");
+                break;
+            default: throw new IllegalArgumentException("No valid questionID");
         }
+
         //Not nice, if someone knows a better way feel free to fix it.
         //Think it should work though. This is because lineDataSet needs an Entry but
         //we still need questionId from AnswerEntry
@@ -85,7 +110,29 @@ public class GraphDrawer {
     public void drawPieChart(List<List<AnswerEntry>> entries, GraphAdapter.GraphHolder holder, int position) {
         PieChart pieChart = (PieChart) holder.getGraph();
         PieData pieData ;
+        Integer id = entries.get(position).get(0).getQuestionId();
 
+        switch(id) {
+            case 7:
+                holder.getMainLabel().setText("Hur du har sovit");
+                break;
+            case 10:
+                holder.getMainLabel().setText("Hur ofta du tagit din medicin");
+                break;
+            case 11:
+                holder.getMainLabel().setText("Hur ofta du haft biverkningar");
+                break;
+            case 13:
+                holder.getMainLabel().setText("Hur ofta du druckit alkohol");
+                break;
+            case 14:
+                holder.getMainLabel().setText("Hur ofta du har haft tvångstankar");
+                break;
+            case 17:
+                holder.getMainLabel().setText("Hur ofta du har gjort någon fysisk aktivitet");
+                break;
+            default: throw new IllegalArgumentException("No valid questionID");
+        }
         List<PieEntry> pieEntryList = new ArrayList<>(entries.get(position));
 
             pieChart = pieChart.findViewById(R.id.piechart);
