@@ -20,6 +20,8 @@ import static org.junit.Assert.assertEquals;
  */
 public class AnswerConverterTest {
 
+   
+
     @Test
     public void checkIfStoredAnswersAreConvertedCorrectlyByDate() { //Also tests if boolean and string works
         NumberAnswer a = new NumberAnswer(3,20,"2021-04-19");
@@ -85,5 +87,9 @@ public class AnswerConverterTest {
         assertEquals(expected, result.toString());
 
     }
+
+
+
+
 
 }

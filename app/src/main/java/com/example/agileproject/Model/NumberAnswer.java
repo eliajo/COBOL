@@ -4,7 +4,7 @@ package com.example.agileproject.Model;
  * Class for answers of type numbers
  * @author Elias Johansson William Hugo
  */
-public class NumberAnswer implements Answerable, Storable {
+public class NumberAnswer implements Answerable {
     private int num;
     private int questionId;
     private String date;

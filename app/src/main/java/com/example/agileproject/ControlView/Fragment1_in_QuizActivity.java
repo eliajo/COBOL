@@ -25,6 +25,8 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalDate;
 import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.List;
 
 /**
  * @author Pegah Amanzadeh
@@ -36,13 +38,14 @@ import java.time.LocalDate;
 public class Fragment1_in_QuizActivity extends Fragment {
 
     NavController navController;
-    ChipGroup EnerigiLevel;
-    Chip selectedChip;
-    private NumberAnswer question1;
-    private NumberAnswer question2;
-    private NumberAnswer question3;
-    private NumberAnswer question4;
-
+    ChipGroup EnergiLevel;
+    ChipGroup Hallucinations;
+    ChipGroup Delusions;
+    ChipGroup Anxiety;
+   // private NumberAnswer question1;
+   // private NumberAnswer question2;
+   // private NumberAnswer question3;
+   // private NumberAnswer question4;
 
 
 
@@ -58,7 +61,10 @@ public class Fragment1_in_QuizActivity extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
-        EnerigiLevel = view.findViewById(R.id.chipGroupEnergiLevel);
+        EnergiLevel = view.findViewById(R.id.chipGroupEnergiLevel);
+        Hallucinations = view.findViewById(R.id.chipGroupHallucinations);
+        Delusions = view.findViewById(R.id.chipGroupDelusion);
+        Anxiety = view.findViewById(R.id.chipGroupAnxiety);
 
             // switching to fragment 2
 
@@ -69,14 +75,60 @@ public class Fragment1_in_QuizActivity extends Fragment {
             }
         });
 
-        EnerigiLevel.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
+        EnergiLevel.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onCheckedChanged(ChipGroup group, int checkedId) {
+                Chip selectedChip;
                 selectedChip = view.findViewById(group.getCheckedChipId());
-             question1 = new NumberAnswer( Integer.valueOf(selectedChip.getText().toString()),1, LocalDate.now().toString());
-
+            NumberAnswer question1 = new NumberAnswer( Integer.valueOf(selectedChip.getText().toString()),1, LocalDate.now().toString());
+             AddingToList(question1);
             }
         });
+
+        Hallucinations.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
+            @Override
+            public void onCheckedChanged(ChipGroup group, int checkedId) {
+                Chip selectedChip;
+                selectedChip = view.findViewById(group.getCheckedChipId());
+              NumberAnswer  question2 = new NumberAnswer(Integer.valueOf(selectedChip.getText().toString()),2, LocalDate.now().toString());
+                AddingToList(question2);
+            }
+        });
+
+        Delusions.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
+            @Override
+            public void onCheckedChanged(ChipGroup group, int checkedId) {
+                Chip selectedChip;
+                selectedChip = view.findViewById(group.getCheckedChipId());
+              NumberAnswer  question3 = new NumberAnswer(Integer.valueOf(selectedChip.getText().toString()),3,LocalDate.now().toString());
+                AddingToList(question3);
+            }
+        });
+
+        Anxiety.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
+            @Override
+            public void onCheckedChanged(ChipGroup group, int checkedId) {
+                Chip selectedChip;
+                selectedChip = view.findViewById(group.getCheckedChipId());
+             NumberAnswer question4 = new NumberAnswer(Integer.valueOf(selectedChip.getText().toString()),4,LocalDate.now().toString());
+                AddingToList(question4);
+            }
+        });
+
     }
+
+    private void AddingToList(Answerable answerable){
+        for(Answerable answers: QuizActivity.AnswerHolder.QuizAnswers ){
+            if(answers.getQuestionId() == answerable.getQuestionId()){
+                QuizActivity.AnswerHolder.QuizAnswers.remove(answers);
+            }
+            QuizActivity.AnswerHolder.QuizAnswers.add(answerable);
+        }
+
+    }
+
 }

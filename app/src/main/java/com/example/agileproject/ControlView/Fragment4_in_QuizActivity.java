@@ -1,9 +1,11 @@
 package com.example.agileproject.ControlView;
 
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -13,7 +15,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 
+import com.example.agileproject.Model.Answerable;
 import com.example.agileproject.R;
+import com.example.agileproject.Utils.FileFormatter;
+import com.example.agileproject.Utils.FileHandler;
+
 
 /**
  * @author Pegah Amanzadeh
@@ -24,8 +30,8 @@ import com.example.agileproject.R;
 
 public class Fragment4_in_QuizActivity extends Fragment {
     NavController navController;
-
-
+    FileFormatter fileFormatter = new FileFormatter();
+    FileHandler fileHandler = new FileHandler();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -43,9 +49,11 @@ public class Fragment4_in_QuizActivity extends Fragment {
         // Switching to fragment  doneQuestion
 
         view.findViewById(R.id.saveButton).setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {
-                navController.navigate(R.id.action_question4_to_doneQuestions);
+            String allQuizAnswers = fileFormatter.format(QuizActivity.AnswerHolder.QuizAnswers);
+            fileHandler.write(allQuizAnswers,getContext(),"Answers.txt");
 
 
             }
