@@ -116,7 +116,9 @@ public class GraphAdapter extends RecyclerView.Adapter<GraphAdapter.GraphHolder>
 
         abstract TextView getMainLabel();
     }
-
+    /**
+     * Creates a holder for LineChart
+     */
     public class LineGraphHolder extends GraphHolder{
           private LineChart chart;
           private TextView mainLabel;
