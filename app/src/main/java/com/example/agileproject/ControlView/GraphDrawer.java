@@ -92,7 +92,7 @@ public class GraphDrawer {
             pieChart.setUsePercentValues(true);
             PieDataSet pieDataSet = new PieDataSet(pieEntryList,"Ja");
             pieDataSet.setLabel("");
-            pieDataSet.setColors(ColorTemplate.JOYFUL_COLORS);
+            pieDataSet.setColors(ColorTemplate.LIBERTY_COLORS);
             pieData = new PieData(pieDataSet);
             pieChart.setData(pieData);
             pieChart.invalidate();
