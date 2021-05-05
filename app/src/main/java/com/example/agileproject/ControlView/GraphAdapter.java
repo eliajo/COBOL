@@ -182,7 +182,7 @@ public class GraphAdapter extends RecyclerView.Adapter<GraphAdapter.GraphHolder>
             Button oneMonth = (Button) itemView.findViewById(R.id.pieOneMonth);
             oneMonth.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
-                    // Add one month worth of data to the piegraph
+                    // Add one month worth of data to the list
                 }
             });
 

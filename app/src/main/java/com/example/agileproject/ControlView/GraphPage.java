@@ -62,7 +62,6 @@ public class GraphPage extends Fragment {
         NumberAnswer na4 = new NumberAnswer(5,10,"2021-01-04");
         NumberAnswer na5 = new NumberAnswer(6,10,"2021-01-05");
         NumberAnswer na6 = new NumberAnswer(7,10,"2021-01-06");
-
         NumberAnswer s1 = new NumberAnswer(3,20,"2021-01-01");
         NumberAnswer s2 = new NumberAnswer(3,20,"2021-01-02");
         NumberAnswer s3 = new NumberAnswer(3,20,"2021-01-03");
