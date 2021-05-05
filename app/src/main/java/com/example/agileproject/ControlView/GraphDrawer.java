@@ -28,7 +28,7 @@ public class GraphDrawer {
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void drawLineChart(List<List<AnswerEntry>> entries, GraphAdapter.GraphHolder holder, int position){
         LineChart chart = (LineChart) holder.getGraph();
-        Integer id = entries.get(position).get(0).getQuestionId();
+        int id = entries.get(position).get(0).getQuestionId();
         switch (id) {
             case 1:
                 holder.getMainLabel().setText("Hur din energinivå har varit");
@@ -109,7 +109,7 @@ public class GraphDrawer {
     public void drawPieChart(List<List<AnswerEntry>> entries, GraphAdapter.GraphHolder holder, int position) {
         PieChart pieChart = (PieChart) holder.getGraph();
         PieData pieData ;
-        Integer id = entries.get(position).get(0).getQuestionId();
+        int id = entries.get(position).get(0).getQuestionId();
         switch(id) {
             case 7:
                 holder.getMainLabel().setText("Hur du har sovit");

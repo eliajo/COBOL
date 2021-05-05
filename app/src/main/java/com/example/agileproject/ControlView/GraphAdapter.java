@@ -77,7 +77,7 @@ public class GraphAdapter extends RecyclerView.Adapter<GraphAdapter.GraphHolder>
  // getting the questiontype from the position
     @Override
     public int getItemViewType(int position) {
-        Integer id = entries.get(position).get(0).getQuestionId();
+        int id = entries.get(position).get(0).getQuestionId();
         switch (id) {
             case 1:
             case 2:
