@@ -13,6 +13,7 @@ import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.agileproject.Model.AnswerEntry;
+import com.example.agileproject.Model.GraphHelper;
 import com.example.agileproject.Model.Question;
 import com.example.agileproject.R;
 import com.github.mikephil.charting.charts.Chart;
@@ -25,7 +26,9 @@ import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.interfaces.datasets.IDataSet;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -69,8 +72,12 @@ public class GraphAdapter extends RecyclerView.Adapter<GraphAdapter.GraphHolder>
       //if(viewtype == linechartid (For later))
         if(holder.getItemViewType()==linechartID) {
             graphDrawer.drawLineChart(entries, holder, position);
+            holder.setPosition(position);
         }
-        else graphDrawer.drawPieChart(entries,holder, position);
+        else {
+            graphDrawer.drawPieChart(entries,holder, position);
+            holder.setPosition(position);
+        }
 
     }
 
@@ -113,7 +120,7 @@ public class GraphAdapter extends RecyclerView.Adapter<GraphAdapter.GraphHolder>
             super(itemView);
         }
         abstract ViewGroup getGraph();
-
+        abstract void setPosition(int position);
         abstract TextView getMainLabel();
     }
     /**
@@ -122,6 +129,11 @@ public class GraphAdapter extends RecyclerView.Adapter<GraphAdapter.GraphHolder>
     public class LineGraphHolder extends GraphHolder{
           private LineChart chart;
           private TextView mainLabel;
+          private int position;
+
+        public void setPosition(int position) {
+            this.position = position;
+        }
 
         public LineGraphHolder(@NonNull View itemView) {
             super(itemView);
@@ -166,6 +178,7 @@ public class GraphAdapter extends RecyclerView.Adapter<GraphAdapter.GraphHolder>
     public class PieGraphHolder extends GraphHolder{
         private PieChart chart;
         private TextView mainLabel;
+        private int position;
 
         public PieGraphHolder(@NonNull View itemView) {
             super(itemView);
@@ -174,28 +187,39 @@ public class GraphAdapter extends RecyclerView.Adapter<GraphAdapter.GraphHolder>
 
             Button oneWeek = (Button) itemView.findViewById(R.id.pieOneWeek);
             oneWeek.setOnClickListener(new View.OnClickListener() {
+                @RequiresApi(api = Build.VERSION_CODES.O)
                 public void onClick(View v) {
-                    // Add one week worth of data to the piegraph
+                    LocalDate endDate = LocalDate.now();
+                    LocalDate startDate = endDate.minusWeeks(1);
+                    GraphHelper graphHelper = new GraphHelper();
+                    int id = entries.get(position).get(0).getQuestionId();
+                    entries.get(position) = graphHelper.getDataFromDateToDate(startDate.toString(), endDate.toString(), id);  // Add one week worth of data to the piegraph
+
                 }
             });
 
             Button oneMonth = (Button) itemView.findViewById(R.id.pieOneMonth);
             oneMonth.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
-                    // Add one month worth of data to the list
+                    entries.get(position) ; // Add one month worth of data to the list
                 }
             });
 
             Button sinceBeginning = (Button) itemView.findViewById(R.id.pieSinceBeginning);
             sinceBeginning.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
-                    // Since beginning graph
+                    entries.get(position) ;  // Since beginning graph
                 }
             });
         }
 
         @Override
         Chart<PieData> getGraph() { return chart;
+        }
+
+        @Override
+        public void setPosition(int position) {
+            this.position = position;
         }
 
         @Override

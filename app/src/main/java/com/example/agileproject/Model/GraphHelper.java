@@ -19,26 +19,26 @@ public class GraphHelper {
     /**
      *
      * @param startingDate String for starting date (formatted yyyy-MM-dd)
-     * @param Enddate      String for end date (formatted yyyy-MM-dd)
+     * @param endDate      String for end date (formatted yyyy-MM-dd)
      * @param questionId   The id of the question
      * @return List<Answerable> The answers that have the questionId during that interval of time.
      *
      * This method returns a list that represents the answers for a given question during a period of time.
      * The list will be ordered by date.
      */
-    public List<Answerable> getDataFromDateToDate(String startingDate, String Enddate, int questionId) {
+    public List<AnswerEntry> getDataFromDateToDate(String startingDate, String endDate, int questionId) {
 
         List<Answerable> answerableList = new ArrayList<>();
         List<Answerable> byIdList;
         List<Answerable> byDateList;
-
+        List<AnswerEntry> answerEntries = new ArrayList<>();
         FileConverter fileConverter = FileConverter.getInstance();
 
 
         try {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd"); //Used to convert strings to dates
             Date date1 = simpleDateFormat.parse(startingDate); //converting
-            Date date2 = simpleDateFormat.parse(Enddate);
+            Date date2 = simpleDateFormat.parse(endDate);
             long difference_In_Time = date2.getTime() - date1.getTime(); //The difference in days
             long difference_In_Days = (difference_In_Time / (1000 * 60 * 60 * 24)) % 365;
 
@@ -61,7 +61,11 @@ public class GraphHelper {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-
-return answerableList;
+        int index = 0;
+        for (Answerable answerable:answerableList
+             ) {
+            answerEntries.add(new AnswerEntry(index, (Float) answerable.getData(), questionId));
+        }
+return answerEntries;
     }
 }

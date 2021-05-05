@@ -83,6 +83,9 @@ public class GraphDrawer {
 
         chart.getXAxis().setGranularity(1f);
         chart.getXAxis().setDrawGridLines(false);
+        chart.setClickable(false);
+        chart.setTouchEnabled(false);
+        chart.setPinchZoom(false);
 
         //chart.setVisibleXRangeMinimum(0);
         //chart.setVisibleXRangeMaximum(10);
