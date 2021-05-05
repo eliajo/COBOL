@@ -237,7 +237,6 @@ public class GraphAdapter extends RecyclerView.Adapter<GraphAdapter.GraphHolder>
                     GraphHelper graphHelper = new GraphHelper();
                     int id = entries.get(position).get(0).getQuestionId();
                     entries.set(position,graphHelper.getDataFromDateToDate(startDate.toString(), endDate.toString(), id));  // Add one week worth of data to the piegraph
-
                 }
             });
         }
