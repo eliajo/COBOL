@@ -141,20 +141,38 @@ public class GraphAdapter extends RecyclerView.Adapter<GraphAdapter.GraphHolder>
             this.mainLabel = itemView.findViewById(R.id.LineChartTextView);
             Button oneWeek = (Button) itemView.findViewById(R.id.lineOneWeek);
             oneWeek.setOnClickListener(new View.OnClickListener() {
+                @RequiresApi(api = Build.VERSION_CODES.O)
                 public void onClick(View v) {
                     // Add one week worth of data to the linegraph
+                    LocalDate endDate = LocalDate.now();
+                    LocalDate startDate = endDate.minusWeeks(1);
+                    GraphHelper graphHelper = new GraphHelper();
+                    int id = entries.get(position).get(0).getQuestionId();
+                    entries.set(position, graphHelper.getDataFromDateToDate(startDate.toString(), endDate.toString(), id));
                 }
             });
             Button oneMonth = (Button) itemView.findViewById(R.id.lineOneMonth);
             oneMonth.setOnClickListener(new View.OnClickListener() {
+                @RequiresApi(api = Build.VERSION_CODES.O)
                 public void onClick(View v) {
                     // Add one month worth of data to the linegraph
+                    LocalDate endDate = LocalDate.now();
+                    LocalDate startDate = endDate.minusMonths(1);
+                    GraphHelper graphHelper = new GraphHelper();
+                    int id = entries.get(position).get(0).getQuestionId();
+                    entries.set(position, graphHelper.getDataFromDateToDate(startDate.toString(), endDate.toString(), id));
                 }
             });
             Button sinceBeginning = (Button) itemView.findViewById(R.id.lineSinceBeginning);
             sinceBeginning.setOnClickListener(new View.OnClickListener() {
+                @RequiresApi(api = Build.VERSION_CODES.O)
                 public void onClick(View v) {
-                    // Since beginning linegraph
+                    // Since beginning graph
+                    LocalDate endDate = LocalDate.now();
+                    LocalDate startDate = endDate.minusYears(1);
+                    GraphHelper graphHelper = new GraphHelper();
+                    int id = entries.get(position).get(0).getQuestionId();
+                    entries.set(position,graphHelper.getDataFromDateToDate(startDate.toString(), endDate.toString(), id));  // Add one week worth of data to the piegraph
                 }
             });
         }
@@ -193,22 +211,33 @@ public class GraphAdapter extends RecyclerView.Adapter<GraphAdapter.GraphHolder>
                     LocalDate startDate = endDate.minusWeeks(1);
                     GraphHelper graphHelper = new GraphHelper();
                     int id = entries.get(position).get(0).getQuestionId();
-                    entries.get(position) = graphHelper.getDataFromDateToDate(startDate.toString(), endDate.toString(), id);  // Add one week worth of data to the piegraph
-
+                    entries.set(position, graphHelper.getDataFromDateToDate(startDate.toString(), endDate.toString(), id));  // Add one week worth of data to the piegraph
                 }
             });
 
             Button oneMonth = (Button) itemView.findViewById(R.id.pieOneMonth);
             oneMonth.setOnClickListener(new View.OnClickListener() {
+                @RequiresApi(api = Build.VERSION_CODES.O)
                 public void onClick(View v) {
-                    entries.get(position) ; // Add one month worth of data to the list
+                    LocalDate endDate = LocalDate.now();
+                    LocalDate startDate = endDate.minusMonths(1);
+                    GraphHelper graphHelper = new GraphHelper();
+                    int id = entries.get(position).get(0).getQuestionId();
+                    entries.set(position, graphHelper.getDataFromDateToDate(startDate.toString(), endDate.toString(), id));  // Add one week worth of data to the piegraph
+
                 }
             });
 
             Button sinceBeginning = (Button) itemView.findViewById(R.id.pieSinceBeginning);
             sinceBeginning.setOnClickListener(new View.OnClickListener() {
+                @RequiresApi(api = Build.VERSION_CODES.O)
                 public void onClick(View v) {
-                    entries.get(position) ;  // Since beginning graph
+                    LocalDate endDate = LocalDate.now();
+                    LocalDate startDate = endDate.minusYears(1);
+                    GraphHelper graphHelper = new GraphHelper();
+                    int id = entries.get(position).get(0).getQuestionId();
+                    entries.set(position,graphHelper.getDataFromDateToDate(startDate.toString(), endDate.toString(), id));  // Add one week worth of data to the piegraph
+
                 }
             });
         }
