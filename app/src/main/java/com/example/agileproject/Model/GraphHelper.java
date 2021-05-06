@@ -61,6 +61,9 @@ public class GraphHelper {
         } catch (ParseException e) {
             e.printStackTrace();
         }
+        if (answerableList.size()==0){
+            return answerEntries;
+        }
         int index = 0;
         if (answerableList.get(0).getType()==1) {
             for (Answerable answerable : answerableList

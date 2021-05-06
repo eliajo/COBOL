@@ -29,7 +29,7 @@ public class GraphDrawer {
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void drawLineChart(List<List<AnswerEntry>> entries, GraphAdapter.GraphHolder holder, int position){
         LineChart chart = (LineChart) holder.getGraph();
-        int id = entries.get(position).get(0).getQuestionId();
+        int id = holder.getQuestionId();
         switch (id) {
             case 1:
                 holder.getMainLabel().setText("Hur din energinivå har varit");
@@ -64,8 +64,14 @@ public class GraphDrawer {
         //List<? extends Entry> converterList = entries.get(position);
 
         //Safer solution but but takes O(n) time. Might have to discuss this.
-        List<Entry> converterList = new ArrayList<>(entries.get(position));
-        LineDataSet lineDataSet = new LineDataSet(converterList, "Dagar");
+        LineDataSet lineDataSet;
+        List<Entry> converterList;
+        if(entries.get(position).get(0).getQuestionId()==1000||entries.get(position).get(0).getQuestionId()==2000){
+            converterList = new ArrayList<>();
+        }
+        else {
+        converterList = new ArrayList<>(entries.get(position));}
+        lineDataSet = new LineDataSet(converterList, "Dagar");
 
         //Temporary code to show graph
 
@@ -113,7 +119,7 @@ public class GraphDrawer {
     public void drawPieChart(List<List<AnswerEntry>> entries, GraphAdapter.GraphHolder holder, int position) {
         PieChart pieChart = (PieChart) holder.getGraph();
         PieData pieData ;
-        int id = entries.get(position).get(0).getQuestionId();
+        int id = holder.getQuestionId();
         switch(id) {
             case 7:
                 holder.getMainLabel().setText("Hur du har sovit");

@@ -44,7 +44,8 @@ public class GraphAdapter extends RecyclerView.Adapter<GraphAdapter.GraphHolder>
     private Context context;
     private List<List<AnswerEntry>> entries;
     private GraphDrawer graphDrawer;
-    public GraphAdapter(Context context,List<List<AnswerEntry>> entries){
+
+    public GraphAdapter(Context context, List<List<AnswerEntry>> entries) {
         this.context = context;
         this.entries = entries;
         this.graphDrawer = new GraphDrawer();
@@ -54,7 +55,7 @@ public class GraphAdapter extends RecyclerView.Adapter<GraphAdapter.GraphHolder>
     @Override
     public GraphAdapter.GraphHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view ;
+        View view;
         if (viewType == linechartID) {
             view = LayoutInflater.from(context).inflate(R.layout.linegraph, parent, false);
             return new LineGraphHolder(view);
@@ -62,28 +63,30 @@ public class GraphAdapter extends RecyclerView.Adapter<GraphAdapter.GraphHolder>
             view = LayoutInflater.from(context)
                     .inflate(R.layout.piegraph, parent, false);
             return new PieGraphHolder(view);
-        }
-        else throw new IllegalArgumentException("No valid viewtype");
+        } else throw new IllegalArgumentException("No valid viewtype");
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onBindViewHolder(@NonNull GraphHolder holder, int position) {
-      //if(viewtype == linechartid (For later))
-        if(holder.getItemViewType()==linechartID) {
+        //if(viewtype == linechartid (For later))
+        if (!holder.isInitialized()){
+            holder.setQuestionId(entries.get(position).get(0).getQuestionId());
+        }
+        if (holder.getItemViewType() == linechartID) {
             graphDrawer.drawLineChart(entries, holder, position);
             holder.setPosition(position);
-        }
-        else {
-            graphDrawer.drawPieChart(entries,holder, position);
+        } else {
+            graphDrawer.drawPieChart(entries, holder, position);
             holder.setPosition(position);
         }
 
     }
 
- // getting the questiontype from the position
+    // getting the questiontype from the position
     @Override
     public int getItemViewType(int position) {
+
         int id = entries.get(position).get(0).getQuestionId();
         switch (id) {
             case 1:
@@ -94,6 +97,8 @@ public class GraphAdapter extends RecyclerView.Adapter<GraphAdapter.GraphHolder>
             case 6:
             case 8:
             case 9:
+                //Needed if no data exists to avoid crash and show empty graph
+            case 1000:
                 return linechartID;
             case 7:
             case 10:
@@ -101,8 +106,11 @@ public class GraphAdapter extends RecyclerView.Adapter<GraphAdapter.GraphHolder>
             case 13:
             case 14:
             case 17:
+                //Needed if no data exists to avoid crash and show empty graph
+            case 2000:
                 return piechartID;
-            default: throw new IllegalArgumentException("No valid questionID");
+            default:
+                throw new IllegalArgumentException("No valid questionID");
         }
     }
 
@@ -114,22 +122,73 @@ public class GraphAdapter extends RecyclerView.Adapter<GraphAdapter.GraphHolder>
     /**
      * Inheritence structure to make sure that the adapter can show different types of graphs.
      */
-    public abstract class GraphHolder extends RecyclerView.ViewHolder{
+    public abstract class GraphHolder extends RecyclerView.ViewHolder {
 
         public GraphHolder(@NonNull View itemView) {
             super(itemView);
         }
+
         abstract ViewGroup getGraph();
+
         abstract void setPosition(int position);
+
         abstract TextView getMainLabel();
+
+        abstract int getQuestionId();
+
+        abstract void setQuestionId(int questionId);
+
+        abstract boolean isInitialized();
+
+        @RequiresApi(api = Build.VERSION_CODES.O)
+        public void getNewDataWeek(int position, int questionId, int mockQuestionId){
+            LocalDate endDate = LocalDate.now();
+            LocalDate startDate = endDate.minusWeeks(1);
+            GraphHelper graphHelper = new GraphHelper();
+            List<AnswerEntry> subEntries = graphHelper.getDataFromDateToDate(startDate.toString(), endDate.toString(), questionId);
+            if (subEntries.size()==0){
+                subEntries.add(new AnswerEntry(0,0,mockQuestionId));
+            }
+            entries.set(position,subEntries);
+
+        }
+        @RequiresApi(api = Build.VERSION_CODES.O)
+        public void getNewDataMonth(int position, int questionId, int mockQuestionId){
+            LocalDate endDate = LocalDate.now();
+            LocalDate startDate = endDate.minusMonths(1);
+            GraphHelper graphHelper = new GraphHelper();
+            List<AnswerEntry> subEntries = graphHelper.getDataFromDateToDate(startDate.toString(), endDate.toString(), questionId);
+            if (subEntries.size()==0){
+                subEntries.add(new AnswerEntry(0,0,mockQuestionId));
+            }
+            entries.set(position,subEntries);
+
+        }
+        @RequiresApi(api = Build.VERSION_CODES.O)
+        public void getNewDataYear(int position, int questionId, int mockQuestionId){
+            LocalDate endDate = LocalDate.now();
+            LocalDate startDate = endDate.minusYears(1);
+            GraphHelper graphHelper = new GraphHelper();
+            List<AnswerEntry> subEntries = graphHelper.getDataFromDateToDate(startDate.toString(), endDate.toString(), questionId);
+            if (subEntries.size()==0){
+                subEntries.add(new AnswerEntry(0,0,mockQuestionId));
+            }
+            entries.set(position,subEntries);
+
+        }
     }
+
     /**
      * Creates a holder for LineChart
      */
-    public class LineGraphHolder extends GraphHolder{
-          private LineChart chart;
-          private TextView mainLabel;
-          private int position;
+    public class LineGraphHolder extends GraphHolder {
+        private LineChart chart;
+        private TextView mainLabel;
+        private int position;
+        private int questionId;
+        private boolean initialized;
+        private static final int lineGraphMockId  = 1000;
+        private LineGraphHolder instance;
 
         public void setPosition(int position) {
             this.position = position;
@@ -140,15 +199,21 @@ public class GraphAdapter extends RecyclerView.Adapter<GraphAdapter.GraphHolder>
             this.chart = itemView.findViewById(R.id.linechart);
             this.mainLabel = itemView.findViewById(R.id.LineChartTextView);
             Button oneWeek = (Button) itemView.findViewById(R.id.lineOneWeek);
+            this.initialized = false;
+            this.instance=this;
             oneWeek.setOnClickListener(new View.OnClickListener() {
                 @RequiresApi(api = Build.VERSION_CODES.O)
                 public void onClick(View v) {
                     // Add one week worth of data to the linegraph
-                    LocalDate endDate = LocalDate.now();
-                    LocalDate startDate = endDate.minusWeeks(1);
-                    GraphHelper graphHelper = new GraphHelper();
-                    int id = entries.get(position).get(0).getQuestionId();
-                    entries.set(position, graphHelper.getDataFromDateToDate(startDate.toString(), endDate.toString(), id));
+
+                    if (!initialized) {
+                        questionId = entries.get(position).get(0).getQuestionId();
+                        initialized = true;
+                    }
+                    getNewDataWeek(position,questionId,lineGraphMockId);
+                    GraphDrawer g = new GraphDrawer();
+                    g.drawLineChart(entries,instance,position);
+
                 }
             });
             Button oneMonth = (Button) itemView.findViewById(R.id.lineOneMonth);
@@ -156,11 +221,14 @@ public class GraphAdapter extends RecyclerView.Adapter<GraphAdapter.GraphHolder>
                 @RequiresApi(api = Build.VERSION_CODES.O)
                 public void onClick(View v) {
                     // Add one month worth of data to the linegraph
-                    LocalDate endDate = LocalDate.now();
-                    LocalDate startDate = endDate.minusMonths(1);
-                    GraphHelper graphHelper = new GraphHelper();
-                    int id = entries.get(position).get(0).getQuestionId();
-                    entries.set(position, graphHelper.getDataFromDateToDate(startDate.toString(), endDate.toString(), id));
+                    if (!initialized) {
+                        questionId = entries.get(position).get(0).getQuestionId();
+                        initialized = true;
+                    }
+                    getNewDataMonth(position,questionId,lineGraphMockId);
+                    GraphDrawer g = new GraphDrawer();
+                    g.drawLineChart(entries,instance,position);
+
                 }
             });
             Button sinceBeginning = (Button) itemView.findViewById(R.id.lineSinceBeginning);
@@ -168,11 +236,13 @@ public class GraphAdapter extends RecyclerView.Adapter<GraphAdapter.GraphHolder>
                 @RequiresApi(api = Build.VERSION_CODES.O)
                 public void onClick(View v) {
                     // Since beginning graph
-                    LocalDate endDate = LocalDate.now();
-                    LocalDate startDate = endDate.minusYears(1);
-                    GraphHelper graphHelper = new GraphHelper();
-                    int id = entries.get(position).get(0).getQuestionId();
-                    entries.set(position,graphHelper.getDataFromDateToDate(startDate.toString(), endDate.toString(), id));  // Add one week worth of data to the piegraph
+                    if (!initialized) {
+                        questionId = entries.get(position).get(0).getQuestionId();
+                        initialized = true;
+                    }
+                    getNewDataYear(position,questionId,lineGraphMockId);
+                    GraphDrawer g = new GraphDrawer();
+                    g.drawLineChart(entries,instance,position);
                 }
             });
         }
@@ -187,31 +257,55 @@ public class GraphAdapter extends RecyclerView.Adapter<GraphAdapter.GraphHolder>
             return mainLabel;
         }
 
+        @Override
+        int getQuestionId() {
+            return questionId;
+        }
+
+        @Override
+        void setQuestionId(int questionId) {
+            this.questionId=questionId;
+            initialized=true;
+        }
+
+        @Override
+        boolean isInitialized() {
+            return initialized;
+        }
+
     }
+
     /**
      * Creates a holder for PieChart
      *
      * @author Alva och Elin
      */
-    public class PieGraphHolder extends GraphHolder{
+    public class PieGraphHolder extends GraphHolder {
         private PieChart chart;
         private TextView mainLabel;
         private int position;
+        private int questionId;
+        private boolean initialized;
+        private static final int pieGraphMockId  = 2000;
+        private PieGraphHolder instance;
 
         public PieGraphHolder(@NonNull View itemView) {
             super(itemView);
             this.chart = itemView.findViewById(R.id.piechart);
             this.mainLabel = itemView.findViewById(R.id.PieChartTextView);
-
+            initialized = false;
+            this.instance=this;
             Button oneWeek = (Button) itemView.findViewById(R.id.pieOneWeek);
             oneWeek.setOnClickListener(new View.OnClickListener() {
                 @RequiresApi(api = Build.VERSION_CODES.O)
                 public void onClick(View v) {
-                    LocalDate endDate = LocalDate.now();
-                    LocalDate startDate = endDate.minusWeeks(1);
-                    GraphHelper graphHelper = new GraphHelper();
-                    int id = entries.get(position).get(0).getQuestionId();
-                    entries.set(position, graphHelper.getDataFromDateToDate(startDate.toString(), endDate.toString(), id));  // Add one week worth of data to the piegraph
+                    if (!initialized) {
+                        questionId = entries.get(position).get(0).getQuestionId();
+                        initialized = true;
+                    }
+                    getNewDataWeek(position,questionId,pieGraphMockId);
+                    GraphDrawer g = new GraphDrawer();
+                    g.drawPieChart(entries,instance,position);
                 }
             });
 
@@ -219,12 +313,13 @@ public class GraphAdapter extends RecyclerView.Adapter<GraphAdapter.GraphHolder>
             oneMonth.setOnClickListener(new View.OnClickListener() {
                 @RequiresApi(api = Build.VERSION_CODES.O)
                 public void onClick(View v) {
-                    LocalDate endDate = LocalDate.now();
-                    LocalDate startDate = endDate.minusMonths(1);
-                    GraphHelper graphHelper = new GraphHelper();
-                    int id = entries.get(position).get(0).getQuestionId();
-                    entries.set(position, graphHelper.getDataFromDateToDate(startDate.toString(), endDate.toString(), id));  // Add one week worth of data to the piegraph
-
+                    if (!initialized) {
+                        questionId = entries.get(position).get(0).getQuestionId();
+                        initialized = true;
+                    }
+                    getNewDataMonth(position,questionId,pieGraphMockId);
+                    GraphDrawer g = new GraphDrawer();
+                    g.drawPieChart(entries,instance,position);
                 }
             });
 
@@ -232,17 +327,20 @@ public class GraphAdapter extends RecyclerView.Adapter<GraphAdapter.GraphHolder>
             sinceBeginning.setOnClickListener(new View.OnClickListener() {
                 @RequiresApi(api = Build.VERSION_CODES.O)
                 public void onClick(View v) {
-                    LocalDate endDate = LocalDate.now();
-                    LocalDate startDate = endDate.minusYears(1);
-                    GraphHelper graphHelper = new GraphHelper();
-                    int id = entries.get(position).get(0).getQuestionId();
-                    entries.set(position,graphHelper.getDataFromDateToDate(startDate.toString(), endDate.toString(), id));  // Add one week worth of data to the piegraph
+                    if (!initialized) {
+                        questionId = entries.get(position).get(0).getQuestionId();
+                        initialized = true;
+                    }
+                    getNewDataYear(position,questionId,pieGraphMockId);
+                    GraphDrawer g = new GraphDrawer();
+                    g.drawPieChart(entries,instance,position);
                 }
             });
         }
 
         @Override
-        Chart<PieData> getGraph() { return chart;
+        Chart<PieData> getGraph() {
+            return chart;
         }
 
         @Override
@@ -253,6 +351,21 @@ public class GraphAdapter extends RecyclerView.Adapter<GraphAdapter.GraphHolder>
         @Override
         TextView getMainLabel() {
             return mainLabel;
+        }
+
+        @Override
+        int getQuestionId() {
+            return questionId;
+        }
+
+        @Override
+        void setQuestionId(int questionId) {
+            this.questionId=questionId;
+        }
+
+        @Override
+        boolean isInitialized() {
+            return initialized;
         }
 
     }
