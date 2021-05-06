@@ -34,4 +34,6 @@ View for MainActivity
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:navGraph="@navigation/navigation_bar" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

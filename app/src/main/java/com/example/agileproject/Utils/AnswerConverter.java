@@ -6,7 +6,6 @@ import com.example.agileproject.Model.NumberAnswer;
 import com.example.agileproject.Model.TextAnswer;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
@@ -15,7 +14,7 @@ import java.util.List;
  * There's two functions to get the answers, either by date or by question.
  * @author William Hugo, Elias Johansson
  */
-public class FileConverter {
+public class AnswerConverter {
 
     private HashMap<String, List<Answerable>> dateMap;
     private HashMap<Integer, List<Answerable>> questionMap;
@@ -24,22 +23,26 @@ public class FileConverter {
     private int dateIndex = 2;
     private int typeIndex = 3;
 
-    private static FileConverter fileConverter;
+    private static AnswerConverter fileConverter;
 
-    private FileConverter(){
+    private AnswerConverter(){
         dateMap = new HashMap<>();
         questionMap = new HashMap<>();
     }
 
-    public static FileConverter getInstance(){
+    public static AnswerConverter getInstance(){
         if(fileConverter == null){
-            fileConverter = new FileConverter();
+            fileConverter = new AnswerConverter();
         }
         return fileConverter;
     }
 
     public void convert(String data) {
-
+    dateMap.clear();
+    questionMap.clear();
+    if (data.length()==0){
+        return;
+    }
         String[] questionsStrings = data.split("@@@---@@@---@@@"); //Split by question
 
         for (String question:questionsStrings) {
@@ -110,8 +113,13 @@ public class FileConverter {
 
     public List<Answerable> getAnswersByDate(String date) {
         ArrayList<Answerable> safeCopy = new ArrayList<>();
-        safeCopy.addAll(dateMap.get(date));
-        return safeCopy;
+        if(dateMap.get(date) != null) {
+            safeCopy.addAll(dateMap.get(date));
+            return safeCopy;
+        }
+        else {
+            throw new IllegalArgumentException("No valid date");
+        }
 
     }
 
@@ -120,4 +128,11 @@ public class FileConverter {
         safeCopy.addAll(questionMap.get(questionID));
         return safeCopy;
     }
+
+    public List<String> getAllDates() {
+        List<String> safeCopy = new ArrayList();
+        safeCopy.addAll(dateMap.keySet());
+        return safeCopy;
+    }
+
 }

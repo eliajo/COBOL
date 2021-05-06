@@ -16,6 +16,7 @@ import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
+import com.github.mikephil.charting.formatter.PercentFormatter;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
@@ -134,18 +135,26 @@ public class GraphDrawer {
                 break;
             default: throw new IllegalArgumentException("No valid questionID");
         }
-        List<PieEntry> pieEntryList = new ArrayList<>(entries.get(position));
+    //   List<PieEntry> pieEntryList = new ArrayList<>(entries.get(position));
+
+
+
+  //     (entries.get(position));
+        List<PieEntry> pieEntryList = new ArrayList<>();
 
             pieChart = pieChart.findViewById(R.id.piechart);
-            pieChart.setUsePercentValues(true);
-            PieDataSet pieDataSet = new PieDataSet(pieEntryList,"Ja");
+        pieEntryList.add(new PieEntry(100,"Nej"));
+        pieEntryList.add(new PieEntry(100,"Ja"));
+       // pieEntryList.add(new PieEntry(30,"Ja"));
+            PieDataSet pieDataSet = new PieDataSet(pieEntryList,"Procent");
             pieDataSet.setLabel("");
             pieDataSet.setColors(ColorTemplate.LIBERTY_COLORS);
             pieData = new PieData(pieDataSet);
+            //pieData.setValueFormatter(new PercentFormatter());
             pieChart.setData(pieData);
+            //pieChart.setUsePercentValues(true);
             pieChart.invalidate();
-            pieEntryList.add(new PieEntry(70,"Nej"));
-            pieEntryList.add(new PieEntry(30,"Ja"));
+
             pieChart.setDrawHoleEnabled(false);
             pieData.setDrawValues(false);
 

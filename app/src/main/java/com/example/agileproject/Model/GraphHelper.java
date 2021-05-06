@@ -1,6 +1,6 @@
 package com.example.agileproject.Model;
 
-import com.example.agileproject.Utils.FileConverter;
+import com.example.agileproject.Utils.AnswerConverter;
 
 
 import java.text.ParseException;
@@ -32,7 +32,7 @@ public class GraphHelper {
         List<Answerable> byIdList;
         List<Answerable> byDateList;
         List<AnswerEntry> answerEntries = new ArrayList<>();
-        FileConverter fileConverter = FileConverter.getInstance();
+        AnswerConverter fileConverter = AnswerConverter.getInstance();
 
 
         try {
@@ -62,9 +62,25 @@ public class GraphHelper {
             e.printStackTrace();
         }
         int index = 0;
-        for (Answerable answerable:answerableList
-             ) {
-            answerEntries.add(new AnswerEntry(index, (Float) answerable.getData(), questionId));
+        if (answerableList.get(0).getType()==1) {
+            for (Answerable answerable : answerableList
+            ) {
+                answerEntries.add(new AnswerEntry(index, (Integer) answerable.getData()*1.0f, questionId));
+            }
+        }
+        if (answerableList.get(0).getType()==2) {
+            for (Answerable answerable : answerableList
+            ) {
+                float bool;
+                if ((Boolean) answerable.getData()==true) {
+                     bool = 1;
+                }
+                else {
+                     bool = 0;
+                }
+                answerEntries.add(new AnswerEntry(index, bool, questionId));
+
+            }
         }
 return answerEntries;
     }

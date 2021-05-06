@@ -4,7 +4,7 @@ package com.example.agileproject.Model;
  * Class for answers of type numbers
  * @author Elias Johansson William Hugo
  */
-public class NumberAnswer implements Answerable {
+public class NumberAnswer implements Answerable, Storable {
     private int num;
     private int questionId;
     private String date;
@@ -33,5 +33,9 @@ public class NumberAnswer implements Answerable {
     @Override
     public String getDate() {
         return date;
+    }
+    @Override
+    public int getType() {
+        return type;
     }
 }
