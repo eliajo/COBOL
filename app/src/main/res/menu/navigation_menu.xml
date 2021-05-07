@@ -22,7 +22,7 @@
         android:icon="@drawable/ic_baseline_person_24"/>
     <item
         android:id="@+id/medication_page"
-        android:title="Mina mediciner"
+        android:title="Mediciner"
         android:icon="@drawable/ic_baseline_person_24"/>
 
 </menu>
