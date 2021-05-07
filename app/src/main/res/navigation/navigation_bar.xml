@@ -26,6 +26,11 @@
         android:label="fragment_contact_page"
         tools:layout="@layout/fragment_contact_page" />
     <fragment
+        android:id="@+id/medicationPage"
+        android:name="com.example.agileproject.ControlView.MedicationPage"
+        android:label="fragment_medication_page"
+        tools:layout="@layout/fragment_medication_page" />
+    <fragment
         android:id="@+id/addContactPage2"
         android:name="com.example.agileproject.ControlView.AddContactPage"
         android:label="fragment_add_contact"
@@ -36,5 +41,6 @@
     <action
         android:id="@+id/switch_back_contact"
         app:destination="@id/contact_page" />
+
 
 </navigation>
