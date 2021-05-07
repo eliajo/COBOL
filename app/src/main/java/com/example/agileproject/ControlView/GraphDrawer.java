@@ -1,9 +1,12 @@
 package com.example.agileproject.ControlView;
 
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.os.Build;
+import android.view.View;
 
 import androidx.annotation.RequiresApi;
+import androidx.core.content.ContextCompat;
 
 import com.example.agileproject.Model.AnswerEntry;
 import com.example.agileproject.R;
@@ -19,12 +22,12 @@ import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.formatter.PercentFormatter;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
 public class GraphDrawer {
-
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void drawLineChart(List<List<AnswerEntry>> entries, GraphAdapter.GraphHolder holder, int position){
@@ -83,7 +86,6 @@ public class GraphDrawer {
         //chart.setVisibleXRange(entries.size()-1,entries.size()-1);
         chart.getAxisLeft().setAxisMaximum(10);
         chart.getAxisLeft().setAxisMinimum(0);
-
         chart.getAxisLeft().setGranularity(1f);
 
         chart.getAxisLeft().setDrawGridLines(false);
@@ -113,9 +115,17 @@ public class GraphDrawer {
         lineDataSet.setValueTextColor(Color.DKGRAY);
         lineDataSet.setDrawFilled(true);
         lineDataSet.setFillColor(Color.parseColor("#add8e6"));
+        lineDataSet.setGradientColor( Color.parseColor("#ffffff"), Color.parseColor("#add8e6"));
+
+        holder.getMainLabel().setTextColor(Color.parseColor("#4682b4"));
+        holder.getMainLabel().setTextSize(22f);
+        holder.getMainLabel().setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+        chart.getDescription().setText("");
+        chart.getLegend().setEnabled(false);
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
     public void drawPieChart(List<List<AnswerEntry>> entries, GraphAdapter.GraphHolder holder, int position) {
         PieChart pieChart = (PieChart) holder.getGraph();
         PieData pieData;
@@ -163,6 +173,17 @@ public class GraphDrawer {
 
             pieChart.setDrawHoleEnabled(false);
             pieData.setDrawValues(false);
+            pieChart.setTouchEnabled(false);
+            pieChart.setClickable(false);
+            pieChart.setDrawEntryLabels(true);
+            pieChart.setEntryLabelColor(Color.parseColor("#4682b4"));
+            pieChart.setEntryLabelTextSize(25f);
+            holder.getMainLabel().setTextColor(Color.parseColor("#4682b4"));
+            holder.getMainLabel().setTextSize(22f);
+            pieChart.getDescription().setText("");
+            pieChart.getLegend().setTextSize(16f);
+            pieChart.getLegend().setTextColor(Color.parseColor("#4682b4"));
+
 
     }
 
