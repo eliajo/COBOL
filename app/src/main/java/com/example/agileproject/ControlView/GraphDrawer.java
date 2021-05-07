@@ -119,7 +119,6 @@ public class GraphDrawer {
 
         holder.getMainLabel().setTextColor(Color.parseColor("#4682b4"));
         holder.getMainLabel().setTextSize(22f);
-        holder.getMainLabel().setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
         chart.getDescription().setText("");
         chart.getLegend().setEnabled(false);
 
