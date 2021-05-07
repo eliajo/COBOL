@@ -1,68 +1,74 @@
 package com.example.agileproject.ControlView;
-// A class for the page where you can add your medicines and follow when you started with them in the graphs.
-// Also, your doctor can log for which personal levels of different answers you should be notified to contact your doctor.
-// @author Klara Jakobsson
+/** A class for the page where you can add your medicines and follow when you started with them in the graphs.
+ * Also, your doctor can log for which personal levels of different answers you should be notified to contact your doctor.
+ * @author Klara Jakobsson
+ */
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.example.agileproject.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link com.example.agileproject.ControlView.MedicationPage#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class MedicationPage extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    NavController navController;
 
     public MedicationPage() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment MedicationPage.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static com.example.agileproject.ControlView.MedicationPage newInstance(String param1, String param2) {
-        com.example.agileproject.ControlView.MedicationPage fragment = new com.example.agileproject.ControlView.MedicationPage();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_medication_page, container, false);
+        // Inflate the layout for this fragment and set it to the View called v
+        View v = inflater.inflate(R.layout.fragment_medication_page, container, false);
+
+        RecyclerView medicationRecyclerView = v.findViewById(R.id.MedicationRecyclerView);
+
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this.getContext());
+        medicationRecyclerView.setLayoutManager(layoutManager);
+
+        // Set the buttons for this fragment
+        Button addMedication = v.findViewById(R.id.addMedicationButton);
+        Button addSign = v.findViewById(R.id.addSignButton);
+
+        // main_pages_fragment defines the navigation between pages.
+        navController = Navigation.findNavController(this.getActivity(), R.id.main_pages_fragment);
+
+        // when clicking on add medication this will happen....
+        addMedication.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // switch to other page TODO:navigation to new page (that is not yet created) for this operation
+               // navController.navigate(R.id.switch_contact_page22);
+            }
+        });
+
+        // when clicking on add sign this will happen....
+        addSign.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // switch to other page TODO:navigation to new page (that is not yet created) for this operation
+               // navController.navigate(R.id.switch_contact_page22);
+            }
+        });
+
+        return v;
     }
 }

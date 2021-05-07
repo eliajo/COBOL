@@ -16,6 +16,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/MedicationRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <Button
             android:id="@+id/addMedicationButton"
             android:layout_width="218dp"
@@ -30,7 +39,7 @@
             tools:ignore="MissingConstraints" />
 
         <Button
-            android:id="@+id/addSignesButton"
+            android:id="@+id/addSignButton"
             android:layout_width="288dp"
             android:layout_height="78dp"
             android:layout_marginTop="28dp"
