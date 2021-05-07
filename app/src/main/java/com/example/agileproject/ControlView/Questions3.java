@@ -40,9 +40,7 @@ public class Questions3 extends Fragment {
     NumberAnswer question8;
     BooleanAnswer question9;
     BooleanAnswer question10;
-    TextAnswer question10EditText;
-    TextAnswer question10YesComplementary;
-
+    
 
 
     public Questions3() {
@@ -67,24 +65,24 @@ public class Questions3 extends Fragment {
         view.findViewById(R.id.next_button_questions3).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(selectedChip==view.findViewById(R.id.chipYesSideEffects)) {
-                    if (!(question8 == null || question9 == null || question10 == null || question10YesComplementary == null)) {
+                //if(selectedChip==view.findViewById(R.id.chipYesSideEffects)) {
+                    //if (!(question8 == null || question9 == null || question10 == null || question10YesComplementary == null)) {
 
-                        navController.navigate(R.id.action_questions3_to_question4);
-                    }
-                }
-                if(selectedChip==view.findViewById(R.id.otherSideEffectsChip)){
-                    if(!(question8==null ||  question9==null ||  question10==null || question10YesComplementary==null || question10EditText==null)){
+                        //navController.navigate(R.id.action_questions3_to_question4);
+                   // }
+                //}
+                //if(selectedChip==view.findViewById(R.id.otherSideEffectsChip)){
+                    //if(!(question8==null ||  question9==null ||  question10==null || question10YesComplementary==null || question10EditText==null)){
 
-                        navController.navigate(R.id.action_questions3_to_question4);
-                    }
-                }
-                if(selectedChip==view.findViewById(R.id.chip2)) {
+                        //navController.navigate(R.id.action_questions3_to_question4);
+                    //}
+               // }
+                //if(selectedChip==view.findViewById(R.id.chip2)) {
                     if (!(question8 == null || question9 == null || question10 == null)) {
 
                         navController.navigate(R.id.action_questions3_to_question4);
-                    }
-                }
+                   //}
+               }
                 else{
                     errorText.setVisibility(View.VISIBLE);
 
@@ -171,7 +169,7 @@ public class Questions3 extends Fragment {
 
         //question10YesComplementary is null!!!!!!!!!!!!!!
 
-        ChipGroup sideEffectsComplementary=(ChipGroup) view.findViewById(R.id.side_effects);
+        /*ChipGroup sideEffectsComplementary=(ChipGroup) view.findViewById(R.id.side_effects);
         sideEffectsComplementary.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
@@ -185,9 +183,11 @@ public class Questions3 extends Fragment {
             }
         });
 
+         */
 
 
-        editText.addTextChangedListener(new TextWatcher() {
+
+        /*editText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -205,6 +205,8 @@ public class Questions3 extends Fragment {
 
             }
         });
+
+         */
 
     }
 
