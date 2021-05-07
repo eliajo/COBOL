@@ -8,6 +8,8 @@ View for Navigation Graph
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:clickable="true"
+    android:focusable="true"
     tools:context=".ControlView.Fragment4_in_QuizActivity">
 
     <ImageView
@@ -46,7 +48,7 @@ View for Navigation Graph
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="12dp"
-        android:text="12.Har du druckit alkohol? "
+        android:text="11.Har du druckit alkohol? "
         android:textColor="#176693"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -59,7 +61,7 @@ View for Navigation Graph
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="20dp"
-        android:text="13.Har du haft tvångstankar? "
+        android:text="12.Har du haft tvångstankar? "
         android:textColor="#176693"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -160,7 +162,7 @@ View for Navigation Graph
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="20dp"
-        android:text="14.Har du gjort någon fysisk aktivitet? "
+        android:text="13.Har du gjort någon fysisk aktivitet? "
         android:textColor="#176693"
 
         android:textSize="18sp"
@@ -178,6 +180,7 @@ View for Navigation Graph
         android:layout_marginLeft="16dp"
         android:layout_marginTop="20dp"
         android:hint="Beskriv här..."
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
@@ -188,7 +191,7 @@ View for Navigation Graph
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="24dp"
-        android:text="15. Har det hänt något allvarig? beskriv"
+        android:text="14. Har det hänt något allvarig? beskriv"
         android:textColor="#176693"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -223,6 +226,17 @@ View for Navigation Graph
             android:text="Nej"
             android:textColor="#2D9CDB" />
     </com.google.android.material.chip.ChipGroup>
+
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="0dp"
+        android:layout_height="41dp"
+        android:text="Svara gärna på alla frågor"
+        android:textColor="#FF5722"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/saveButton"
+        app:layout_constraintEnd_toEndOf="@+id/saveButton"
+        app:layout_constraintStart_toStartOf="@+id/saveButton" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

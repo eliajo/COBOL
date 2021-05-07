@@ -24,15 +24,15 @@ View for Navigation Graph
         android:src="@drawable/sun"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/tillbaka"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.871"
         tools:visibility="visible" />
 
-
     <com.google.android.material.chip.ChipGroup
-        android:id="@+id/sleeptHoursDayTime"
+        android:id="@+id/sleepHourDay"
         style="@style/CustomChipStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -154,7 +154,7 @@ View for Navigation Graph
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:elevation="4dp"
-            android:text="12+" />
+            android:text="13+" />
     </com.google.android.material.chip.ChipGroup>
 
     <Button
@@ -164,7 +164,7 @@ View for Navigation Graph
         android:layout_height="65dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="4dp"
         android:width="1dip"
         android:radius="15dip"
         android:text="Nästa Sida"
@@ -309,7 +309,7 @@ View for Navigation Graph
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:elevation="4dp"
-            android:text="12+" />
+            android:text="13+" />
     </com.google.android.material.chip.ChipGroup>
 
     <TextView
@@ -324,7 +324,7 @@ View for Navigation Graph
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.06"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sleeptHoursDayTime" />
+        app:layout_constraintTop_toBottomOf="@+id/sleepHourDay" />
 
     <com.google.android.material.chip.ChipGroup
         android:id="@+id/chipGroup3"
@@ -408,7 +408,7 @@ View for Navigation Graph
         app:layout_constraintStart_toStartOf="parent" />
 
     <RadioGroup
-        android:id="@+id/chipGroup"
+        android:id="@+id/sideeffectsRadiobutton"
         android:layout_width="258dp"
         android:layout_height="170dp"
         android:layout_marginStart="8dp"
@@ -447,14 +447,31 @@ View for Navigation Graph
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
-        android:text="8.Varför sov du inte bra?"
+        android:text="7.1 Varför sov du inte bra?"
         android:textColor="#176693"
         android:textSize="18sp"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.046"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sleeptHoursDayTime" />
+        app:layout_constraintTop_toBottomOf="@+id/sleepHourDay" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="99dp"
+        android:layout_height="82dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginLeft="33dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="8dp"
+        android:text="Du måste svara på alla frågor för att kunna fortsätta !"
+        android:textColor="#C30C0C"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/next_button_questions2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/next_button_questions2" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

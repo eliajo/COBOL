@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -74,13 +75,18 @@ public class Fragment1_in_QuizActivity extends Fragment {
 
             }
         });
+
         ChipGroup EnergyLevel = (ChipGroup) view.findViewById(R.id.EnergyLevel);
         EnergyLevel.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onCheckedChanged(ChipGroup chipGroup, int checkedId) {
-             selectedChip = view.findViewById(chipGroup.getCheckedChipId());
-               question1=new NumberAnswer(Integer.valueOf(selectedChip.getText().toString()),1, LocalDateTime.now().toString());
+                selectedChip = view.findViewById(chipGroup.getCheckedChipId());
+                if (selectedChip == null) {
+
+                } else
+                    question1 = new NumberAnswer(Integer.valueOf(selectedChip.getText().toString()), 1, LocalDateTime.now().toString());
+
 
             }
         });
@@ -90,7 +96,10 @@ public class Fragment1_in_QuizActivity extends Fragment {
             @Override
             public void onCheckedChanged(ChipGroup chipGroup, int checkedId) {
                 selectedChip=view.findViewById(chipGroup.getCheckedChipId());
-                question2=new NumberAnswer(Integer.valueOf(selectedChip.getText().toString()),1, LocalDateTime.now().toString());
+                if ((selectedChip==null)){
+
+                }else
+                question2=new NumberAnswer(Integer.valueOf(selectedChip.getText().toString()),2, LocalDateTime.now().toString());
 
             }
         });
@@ -100,7 +109,10 @@ public class Fragment1_in_QuizActivity extends Fragment {
             @Override
             public void onCheckedChanged(ChipGroup chipGroup, int checkedId) {
                 selectedChip=view.findViewById(chipGroup.getCheckedChipId());
-                question3=new NumberAnswer(Integer.valueOf(selectedChip.getText().toString()),1, LocalDateTime.now().toString());
+                if(selectedChip==null){
+
+                }else
+                question3=new NumberAnswer(Integer.valueOf(selectedChip.getText().toString()),3, LocalDateTime.now().toString());
 
             }
         });
@@ -110,7 +122,10 @@ public class Fragment1_in_QuizActivity extends Fragment {
             @Override
             public void onCheckedChanged(ChipGroup chipGroup, int checkedId) {
                 selectedChip=view.findViewById(chipGroup.getCheckedChipId());
-                question4=new NumberAnswer(Integer.valueOf(selectedChip.getText().toString()),1, LocalDateTime.now().toString());
+                if(selectedChip==null){
+
+                }else
+                question4=new NumberAnswer(Integer.valueOf(selectedChip.getText().toString()),4, LocalDateTime.now().toString());
 
 
             }

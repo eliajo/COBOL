@@ -19,11 +19,13 @@ public class QuizActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
+
     }
 
     public static class AnswerHolder{
 
        static List<Answerable> QuizAnswers = new ArrayList<>();
+
 
 
     }
