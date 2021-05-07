@@ -118,7 +118,7 @@ public class GraphDrawer {
 
     public void drawPieChart(List<List<AnswerEntry>> entries, GraphAdapter.GraphHolder holder, int position) {
         PieChart pieChart = (PieChart) holder.getGraph();
-        PieData pieData ;
+        PieData pieData;
         int id = holder.getQuestionId();
         switch(id) {
             case 7:
