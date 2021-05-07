@@ -1,5 +1,5 @@
 package com.example.agileproject.ControlView;
-/** A class for the page where you can add your medicines and follow when you started with them in the graphs.
+/** A class for the page where you can add your medicines and follow when you started taking them in the graphs.
  * Also, your doctor can log for which personal levels of different answers you should be notified to contact your doctor.
  * @author Klara Jakobsson
  */
