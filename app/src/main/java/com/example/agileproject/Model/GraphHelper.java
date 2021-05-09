@@ -16,6 +16,8 @@ import java.util.List;
  */
 public class GraphHelper {
 
+    public enum TimePeriod  {WEEK,MONTH,YEAR};
+
     /**
      *
      * @param startingDate String for starting date (formatted yyyy-MM-dd)
@@ -40,15 +42,21 @@ public class GraphHelper {
             Date date1 = simpleDateFormat.parse(startingDate); //converting
             Date date2 = simpleDateFormat.parse(endDate);
             long difference_In_Time = date2.getTime() - date1.getTime(); //The difference in days
-            long difference_In_Days = (difference_In_Time / (1000 * 60 * 60 * 24)) % 365;
-
+            long difference_In_Days;
+            if (difference_In_Time>=1000*60*60*24){
+             difference_In_Days=365;
+            }
+            else {
+                difference_In_Days = (difference_In_Time / (1000 * 60 * 60 * 24)) % 365;
+            }
 
             //For every day, check if there is an answer for that date with the given questionId
             for(int i=0;i<=difference_In_Days;i++){
                 Calendar calendar = Calendar.getInstance();
                 calendar.setTime(date1);
                 calendar.add(Calendar.DAY_OF_YEAR, i);
-               byDateList= fileConverter.getAnswersByDate(simpleDateFormat.format(calendar.getTime()));
+                String time = simpleDateFormat.format(calendar.getTime());
+               byDateList= fileConverter.getAnswersByDate(time);
                byIdList = fileConverter.getAnswersByQuestionID(questionId);
 
                byDateList.retainAll(byIdList); //Basically a union of the two lists.
@@ -69,8 +77,10 @@ public class GraphHelper {
             for (Answerable answerable : answerableList
             ) {
                 answerEntries.add(new AnswerEntry(index, (Integer) answerable.getData()*1.0f, questionId));
+                index++;
             }
         }
+        index=0;
         if (answerableList.get(0).getType()==2) {
             for (Answerable answerable : answerableList
             ) {
@@ -81,6 +91,7 @@ public class GraphHelper {
                 else {
                      bool = 0;
                 }
+                index++;
                 answerEntries.add(new AnswerEntry(index, bool, questionId));
 
             }
