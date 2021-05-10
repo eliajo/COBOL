@@ -42,10 +42,6 @@ public class Questions3 extends Fragment {
   // MultipleTextAnswer question101;
 
 
-
-
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -57,12 +53,12 @@ public class Questions3 extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
         EditText editText=(EditText) view.findViewById(R.id.textInputSideEffects);
+
         Anger = view.findViewById(R.id.Anger);
         Medicine = view.findViewById(R.id.chipGroup2);
         SideEffectsYesOrNo = view.findViewById(R.id.chipGroup);
         SideEffects = view.findViewById(R.id.side_effects);
         OtherSideEffects = view.findViewById(R.id.textInputSideEffects);
-
 
         view.findViewById(R.id.next_button_questions3).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,6 +76,26 @@ public class Questions3 extends Fragment {
                view.findViewById(R.id.side_effects).setVisibility(View.VISIBLE);
                view.findViewById(R.id.imageView3).setVisibility(View.VISIBLE);
                //navController.navigate(R.id.action_questions3_to_complementaryQuestion3);
+
+           }
+       });
+
+       view.findViewById(R.id.otherSideEffectsChip).setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               editText.setVisibility(View.VISIBLE);
+           }
+       });
+
+       view.findViewById(R.id.imageView3).setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               view.findViewById(R.id.textView11).setVisibility(View.GONE);
+               view.findViewById(R.id.side_effects).setVisibility(View.GONE);
+               view.findViewById(R.id.imageView3).setVisibility(View.GONE);
+               view.findViewById(R.id.textView2).setVisibility(View.VISIBLE);
+               view.findViewById(R.id.chipGroup).setVisibility(View.VISIBLE);
+
            }
        });
 
@@ -184,6 +200,7 @@ public class Questions3 extends Fragment {
 
     }
 
+
     private boolean getBooleanValue(String answer){
         Boolean YesOrNo = false;
         String Yes = "Ja ";
@@ -192,5 +209,6 @@ public class Questions3 extends Fragment {
         }
         return YesOrNo;
     }
+
 
 }
