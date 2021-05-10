@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.example.agileproject.Model.NumberAnswer;
@@ -96,7 +97,7 @@ public class Fragment1_in_QuizActivity extends Fragment {
             @Override
             public void onCheckedChanged(ChipGroup chipGroup, int checkedId) {
                 selectedChip=view.findViewById(chipGroup.getCheckedChipId());
-                if ((selectedChip==null)){
+                if (selectedChip==null){
 
                 }else
                 question2=new NumberAnswer(Integer.valueOf(selectedChip.getText().toString()),2, LocalDateTime.now().toString());
@@ -130,6 +131,17 @@ public class Fragment1_in_QuizActivity extends Fragment {
 
             }
         });
+        //Chip questionmark1=(Chip) view.findViewById(R.id.chip1questionmark);
+        //questionmark1.setOnClickListener(new View.OnClickListener() {
+            //@Override
+            //public void onClick(View v) {
+                //Toast.makeText(getActivity(),"Set Text",Toast.LENGTH_LONG).show();
+            //}
+        //});
+
+
+
+
 
 
 

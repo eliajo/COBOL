@@ -7,25 +7,17 @@ View for Navigation Graph
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#0FFFFFFF">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" />
-
-    </ScrollView>
     <Button
         android:id="@+id/next_button_q2"
         style="@style/Widget.AppCompat.Button"
         android:layout_width="115dp"
         android:layout_height="65dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
         android:layout_marginBottom="4dp"
         android:width="1dip"
         android:radius="15dip"
@@ -33,29 +25,33 @@ View for Navigation Graph
         app:backgroundTint="#2196F3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="227dp"
-        android:layout_height="240dp"
-        android:layout_marginStart="180dp"
-        android:layout_marginLeft="180dp"
+        android:layout_width="156dp"
+        android:layout_height="101dp"
+        android:layout_marginBottom="92dp"
         android:src="@drawable/sun"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.976"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.871"
         tools:visibility="visible" />
-
 
     <TextView
         android:id="@+id/textView6"
-        android:layout_width="172dp"
+        android:layout_width="0dp"
         android:layout_height="38dp"
+        android:layout_marginStart="102dp"
+        android:layout_marginLeft="102dp"
         android:layout_marginTop="4dp"
+        android:layout_marginEnd="84dp"
+        android:layout_marginRight="84dp"
         android:text="Sidan 1 av 4"
         android:textColor="#176693"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/chip13"
         app:layout_constraintHorizontal_bias="0.426"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -92,7 +88,7 @@ View for Navigation Graph
 
     <TextView
         android:id="@+id/textView13"
-        android:layout_width="292dp"
+        android:layout_width="0dp"
         android:layout_height="23dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
@@ -222,8 +218,8 @@ View for Navigation Graph
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:elevation="4dp"
-            android:textColor="#2D9CDB"
-            android:text="+4" />
+            android:text="+4"
+            android:textColor="#2D9CDB" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip64"
@@ -231,8 +227,8 @@ View for Navigation Graph
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:elevation="4dp"
-            android:textColor="#2D9CDB"
-            android:text="+5" />
+            android:text="+5"
+            android:textColor="#2D9CDB" />
 
     </com.google.android.material.chip.ChipGroup>
 
@@ -541,8 +537,30 @@ View for Navigation Graph
         app:layout_constraintHorizontal_bias="0.636"
         app:layout_constraintStart_toStartOf="@+id/next_button_q2" />
 
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chip13"
+        android:layout_width="49dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginRight="6dp"
+        android:text="?"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/textViewQ1"
+        app:layout_constraintTop_toTopOf="parent" />
 
-
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chip14"
+        android:layout_width="52dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginTop="100dp"
+        android:text="?"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView13"
+        app:layout_constraintTop_toBottomOf="@+id/chip13" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
