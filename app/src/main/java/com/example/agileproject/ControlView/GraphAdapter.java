@@ -41,6 +41,8 @@ public class GraphAdapter extends RecyclerView.Adapter<GraphAdapter.GraphHolder>
     private static final int linechartID = 1;
     private static final int piechartID = 2;
 
+
+
     private Context context;
     private List<List<AnswerEntry>> entries;
     private GraphDrawer graphDrawer;
@@ -74,7 +76,8 @@ public class GraphAdapter extends RecyclerView.Adapter<GraphAdapter.GraphHolder>
             holder.setQuestionId(entries.get(position).get(0).getQuestionId());
         }
         if (holder.getItemViewType() == linechartID) {
-            graphDrawer.drawLineChart(entries, holder, position);
+            //Only called once.
+            graphDrawer.drawLineChart(entries, holder, position, GraphHelper.TimePeriod.WEEK);
             holder.setPosition(position);
         } else {
             graphDrawer.drawPieChart(entries, holder, position);
@@ -139,6 +142,8 @@ public class GraphAdapter extends RecyclerView.Adapter<GraphAdapter.GraphHolder>
         abstract void setQuestionId(int questionId);
 
         abstract boolean isInitialized();
+
+
 
         @RequiresApi(api = Build.VERSION_CODES.O)
         public void getNewDataWeek(int position, int questionId, int mockQuestionId){
@@ -212,7 +217,7 @@ public class GraphAdapter extends RecyclerView.Adapter<GraphAdapter.GraphHolder>
                     }
                     getNewDataWeek(position,questionId,lineGraphMockId);
                     GraphDrawer g = new GraphDrawer();
-                    g.drawLineChart(entries,instance,position);
+                    g.drawLineChart(entries,instance,position,GraphHelper.TimePeriod.WEEK);
 
                 }
             });
@@ -227,7 +232,7 @@ public class GraphAdapter extends RecyclerView.Adapter<GraphAdapter.GraphHolder>
                     }
                     getNewDataMonth(position,questionId,lineGraphMockId);
                     GraphDrawer g = new GraphDrawer();
-                    g.drawLineChart(entries,instance,position);
+                    g.drawLineChart(entries,instance,position,GraphHelper.TimePeriod.MONTH);
 
                 }
             });
@@ -242,7 +247,7 @@ public class GraphAdapter extends RecyclerView.Adapter<GraphAdapter.GraphHolder>
                     }
                     getNewDataYear(position,questionId,lineGraphMockId);
                     GraphDrawer g = new GraphDrawer();
-                    g.drawLineChart(entries,instance,position);
+                    g.drawLineChart(entries,instance,position,GraphHelper.TimePeriod.YEAR);
                 }
             });
         }

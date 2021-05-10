@@ -9,6 +9,7 @@ import androidx.annotation.RequiresApi;
 import androidx.core.content.ContextCompat;
 
 import com.example.agileproject.Model.AnswerEntry;
+import com.example.agileproject.Model.GraphHelper;
 import com.example.agileproject.R;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.charts.PieChart;
@@ -30,8 +31,9 @@ import java.util.List;
 public class GraphDrawer {
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public void drawLineChart(List<List<AnswerEntry>> entries, GraphAdapter.GraphHolder holder, int position){
+    public void drawLineChart(List<List<AnswerEntry>> entries, GraphAdapter.GraphHolder holder, int position, GraphHelper.TimePeriod timePeriod){
         LineChart chart = (LineChart) holder.getGraph();
+        chart.clear();
         int id = holder.getQuestionId();
         switch (id) {
             case 1:
@@ -80,7 +82,15 @@ public class GraphDrawer {
 
         LineData lineData = new LineData(lineDataSet);
         chart.getAxisRight().setEnabled(false);
-        chart.getXAxis().setAxisMaximum(entries.get(position).size());
+        switch (timePeriod){
+            case WEEK: chart.getXAxis().setAxisMaximum(7);
+            break;
+            //Not really 30 days a month so might need to fix this
+            case MONTH: chart.getXAxis().setAxisMaximum(30);
+            break;
+            case YEAR: chart.getXAxis().setAxisMaximum(365);
+        }
+
         chart.getXAxis().setAxisMinimum(0f);
         chart.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);
         //chart.setVisibleXRange(entries.size()-1,entries.size()-1);
@@ -127,7 +137,9 @@ public class GraphDrawer {
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
     public void drawPieChart(List<List<AnswerEntry>> entries, GraphAdapter.GraphHolder holder, int position) {
         PieChart pieChart = (PieChart) holder.getGraph();
-        PieData pieData;
+        pieChart.clear();
+        PieData pieData ;
+
         int id = holder.getQuestionId();
         switch(id) {
             case 7:

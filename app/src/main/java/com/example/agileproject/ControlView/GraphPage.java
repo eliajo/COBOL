@@ -60,15 +60,15 @@ public class GraphPage extends Fragment {
 
 
         //All this is just demo functionality for now
-        NumberAnswer na1 = new NumberAnswer(5,10,"2021-01-01");
-        NumberAnswer na2 = new NumberAnswer(6,10,"2021-01-02");
-        NumberAnswer na3 = new NumberAnswer(7,10,"2021-01-03");
-        NumberAnswer na4 = new NumberAnswer(5,10,"2021-01-04");
-        NumberAnswer na5 = new NumberAnswer(6,10,"2021-01-05");
-        NumberAnswer na6 = new NumberAnswer(7,10,"2021-01-06");
-        NumberAnswer s1 = new NumberAnswer(3,5,"2021-01-01");
-        NumberAnswer s2 = new NumberAnswer(3,5,"2021-01-02");
-        NumberAnswer s3 = new NumberAnswer(3,5,"2021-01-03");
+        NumberAnswer na1 = new NumberAnswer(5,5,"2021-05-03");
+        NumberAnswer na2 = new NumberAnswer(6,5,"2021-05-04");
+        NumberAnswer na3 = new NumberAnswer(7,5,"2021-05-05");
+        NumberAnswer na4 = new NumberAnswer(5,5,"2021-05-06");
+        NumberAnswer na5 = new NumberAnswer(6,5,"2021-05-07");
+        NumberAnswer na6 = new NumberAnswer(7,5,"2021-05-08");
+        NumberAnswer s1 = new NumberAnswer(3,10,"2021-01-01");
+        NumberAnswer s2 = new NumberAnswer(3,10,"2021-01-02");
+        NumberAnswer s3 = new NumberAnswer(3,10,"2021-01-03");
 
 
         answerableList.add(na1);
@@ -89,14 +89,16 @@ public class GraphPage extends Fragment {
         GraphHelper graphHelper = new GraphHelper();
         List<AnswerEntry> wellBeingList = new ArrayList<>();
         List<AnswerEntry> sleepList = new ArrayList<>();
-        wellBeingList = graphHelper.getDataFromDateToDate("2021-01-01","2021-01-06",10);
-        sleepList = graphHelper.getDataFromDateToDate("2021-01-01","2021-01-03",5);
+        wellBeingList = graphHelper.getDataFromDateToDate("2021-05-03","2021-05-09",5);
+        sleepList = graphHelper.getDataFromDateToDate("2021-01-01","2021-01-03",10);
 
         List<List<AnswerEntry>> entries = new ArrayList<>();
 
-
+        //Order is very important here...
         entries.add(wellBeingList);
         entries.add(sleepList);
+
+
 
 
         RecyclerView recyclerView = v.findViewById(R.id.graph_recycler);
