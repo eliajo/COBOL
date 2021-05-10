@@ -67,12 +67,16 @@ public class Questions2 extends Fragment {
          SleepHoursDay = view.findViewById(R.id.sleeptHoursDayTime);
          SleptWell = view.findViewById(R.id.chipGroup3);
          Reasons = view.findViewById(R.id.chipGroup);
-         view.findViewById(R.id.next_button_questions2).setOnClickListener(new View.OnClickListener() {
+
+
+
+         view.findViewById(R.id.next_button_2).setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View v) {
                  navController.navigate(R.id.action_questions2_to_questions3);
              }
          });
+
          view.findViewById(R.id.chipNo).setOnClickListener(new View.OnClickListener() {
 
              @Override

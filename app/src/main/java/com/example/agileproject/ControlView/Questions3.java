@@ -56,7 +56,7 @@ public class Questions3 extends Fragment {
         Anger = view.findViewById(R.id.Anger);
         Medicine = view.findViewById(R.id.chipGroup2);
         SideEffectsYesOrNo = view.findViewById(R.id.chipGroup);
-        SideEffects = view.findViewById(R.id.side_effects);
+        SideEffects = view.findViewById(R.id.Side_Effects);
         OtherSideEffects = view.findViewById(R.id.textInputSideEffects);
 
 
