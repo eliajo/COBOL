@@ -1,6 +1,5 @@
 package com.example.agileproject.ControlView;
 
-import android.annotation.SuppressLint;
 import android.os.Build;
 import android.os.Bundle;
 
@@ -11,13 +10,10 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
-import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 
 import com.example.agileproject.Model.NumberAnswer;
@@ -61,18 +57,18 @@ public class Fragment1_in_QuizActivity extends Fragment {
         navController = Navigation.findNavController(view);
 
         // switching to fragment 2 if the user have answered to all mandatory questions
-        TextView ErrorText=(TextView) view.findViewById(R.id.errorText);
+        TextView ErrorText = (TextView) view.findViewById(R.id.errorText);
 
         view.findViewById(R.id.next_button_q2).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if( !(question1==null || question2==null || question3==null || question4==null) ) {
+                if (!(question1 == null || question2 == null || question3 == null || question4 == null)) {
                     navController.navigate(R.id.action_question1_to_questions2);
-                }else{
+                } else {
                     //Toast.makeText(Fragment1_in_QuizActivity.this, R.string.error_label,Toast.LENGTH_LONG).show();
                     ErrorText.setVisibility(View.VISIBLE);
 
-                    }
+                }
 
             }
         });
@@ -91,56 +87,74 @@ public class Fragment1_in_QuizActivity extends Fragment {
 
             }
         });
-        ChipGroup Hallucination= (ChipGroup) view.findViewById(R.id.chipGroup10);
+        ChipGroup Hallucination = (ChipGroup) view.findViewById(R.id.chipGroup10);
         Hallucination.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onCheckedChanged(ChipGroup chipGroup, int checkedId) {
-                selectedChip=view.findViewById(chipGroup.getCheckedChipId());
-                if (selectedChip==null){
+                selectedChip = view.findViewById(chipGroup.getCheckedChipId());
+                if (selectedChip == null) {
 
-                }else
-                question2=new NumberAnswer(Integer.valueOf(selectedChip.getText().toString()),2, LocalDateTime.now().toString());
+                } else
+                    question2 = new NumberAnswer(Integer.valueOf(selectedChip.getText().toString()), 2, LocalDateTime.now().toString());
 
             }
         });
-        ChipGroup Delusions=(ChipGroup) view.findViewById(R.id.chipGroup15);
+        ChipGroup Delusions = (ChipGroup) view.findViewById(R.id.chipGroup15);
         Delusions.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onCheckedChanged(ChipGroup chipGroup, int checkedId) {
-                selectedChip=view.findViewById(chipGroup.getCheckedChipId());
-                if(selectedChip==null){
+                selectedChip = view.findViewById(chipGroup.getCheckedChipId());
+                if (selectedChip == null) {
 
-                }else
-                question3=new NumberAnswer(Integer.valueOf(selectedChip.getText().toString()),3, LocalDateTime.now().toString());
+                } else
+                    question3 = new NumberAnswer(Integer.valueOf(selectedChip.getText().toString()), 3, LocalDateTime.now().toString());
 
             }
         });
-        ChipGroup Anxiety=(ChipGroup) view.findViewById(R.id.chipGroup16);
+        ChipGroup Anxiety = (ChipGroup) view.findViewById(R.id.chipGroup16);
         Anxiety.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onCheckedChanged(ChipGroup chipGroup, int checkedId) {
-                selectedChip=view.findViewById(chipGroup.getCheckedChipId());
-                if(selectedChip==null){
+                selectedChip = view.findViewById(chipGroup.getCheckedChipId());
+                if (selectedChip == null) {
 
-                }else
-                question4=new NumberAnswer(Integer.valueOf(selectedChip.getText().toString()),4, LocalDateTime.now().toString());
+                } else
+                    question4 = new NumberAnswer(Integer.valueOf(selectedChip.getText().toString()), 4, LocalDateTime.now().toString());
 
 
             }
         });
-        Chip questionmark1=(Chip) view.findViewById(R.id.chip1questionmark);
+        Chip questionmark1 = (Chip) view.findViewById(R.id.chip1questionmark);
         questionmark1.setOnClickListener(new Chip.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity(),"Set Text",Toast.LENGTH_LONG).show();
+
+                openDialog();
+
+            }
+        });
+        Chip questionmark2=(Chip) view.findViewById(R.id.chip2questionmark);
+        questionmark2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openDialog2();
             }
         });
 
 
+    }
 
+    public void openDialog() {
+        PopUpDialog d = new PopUpDialog();
+        d.show(getFragmentManager(), "kdkdkjfj");
+
+    }
+    public void openDialog2(){
+        PopUpDialog2 d2=new PopUpDialog2();
+        d2.show(getFragmentManager(),"Diagol2");
 
 
 
@@ -149,4 +163,9 @@ public class Fragment1_in_QuizActivity extends Fragment {
 
 
 }
+
+
+
+
+
 

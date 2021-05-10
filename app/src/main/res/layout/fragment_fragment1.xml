@@ -528,13 +528,13 @@ View for Navigation Graph
         android:layout_marginLeft="20dp"
         android:layout_marginEnd="9dp"
         android:layout_marginRight="9dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="20dp"
         android:text="Du måste svara på alla frågor för att kunna fortsätta !"
         android:textColor="#C30C0C"
         android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@+id/next_button_q2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.636"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/next_button_q2" />
 
     <com.google.android.material.chip.Chip
@@ -544,14 +544,14 @@ View for Navigation Graph
         android:layout_marginTop="40dp"
         android:layout_marginEnd="6dp"
         android:layout_marginRight="6dp"
-        android:text="q"
+        android:text="?"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/textViewQ1"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.chip.Chip
-        android:id="@+id/chip14"
+        android:id="@+id/chip2questionmark"
         android:layout_width="49dp"
         android:layout_height="39dp"
         android:layout_marginTop="96dp"
@@ -572,7 +572,7 @@ View for Navigation Graph
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/textView14"
-        app:layout_constraintTop_toBottomOf="@+id/chip14" />
+        app:layout_constraintTop_toBottomOf="@+id/chip2questionmark" />
 
     <com.google.android.material.chip.Chip
         android:id="@+id/chip25"
