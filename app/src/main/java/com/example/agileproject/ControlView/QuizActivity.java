@@ -56,6 +56,26 @@ public class QuizActivity extends AppCompatActivity {
 
        static List<Answerable> QuizAnswers = new ArrayList<>();
 
+        public static void AddingToList(Answerable answerable) {
+            List<Answerable> answerables = new ArrayList<>(QuizActivity.AnswerHolder.QuizAnswers);
+
+            for (Answerable a : answerables) {
+                if (a.getQuestionId() == answerable.getQuestionId()) {
+                    QuizActivity.AnswerHolder.QuizAnswers.remove(a);
+                }
+            }
+            QuizActivity.AnswerHolder.QuizAnswers.add(answerable);
+        }
+
+
+    public static boolean getBooleanValue(String answer){
+            Boolean YesOrNo = false;
+            String Yes = "Ja ";
+            if(answer.equals(Yes)){
+                YesOrNo = true;
+            }
+            return YesOrNo;
+        }
 
 
     }

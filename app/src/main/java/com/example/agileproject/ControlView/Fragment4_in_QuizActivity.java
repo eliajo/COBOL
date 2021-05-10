@@ -40,7 +40,7 @@ import com.google.android.material.chip.ChipGroup;
 
 
 /**
- * @author Pegah Amanzadeh
+ * @author Pegah Amanzadeh, Edenia Isaac
  */
 
 // Fragment 4 in QuizActivity
@@ -56,9 +56,6 @@ public class Fragment4_in_QuizActivity extends Fragment {
     EditText Events;
     EditText Exercise;
     TextAnswer question131;
-
-    ChipGroup ChipGroupAlcohol;
-
 
 
 
@@ -78,9 +75,6 @@ public class Fragment4_in_QuizActivity extends Fragment {
         chipGroupObsession = view.findViewById(R.id.chipGroup7);
         chipGroupExercise = view.findViewById(R.id.chipGroup11);
 
-
-
-
                 // Switching to fragment  doneQuestion
 
         view.findViewById(R.id.saveButton).setOnClickListener(new View.OnClickListener() {
@@ -90,12 +84,12 @@ public class Fragment4_in_QuizActivity extends Fragment {
                 String ExerciseText  = Exercise.getText().toString();
                 if(!ExerciseText.equals("")){
                     question131 = new TextAnswer(ExerciseText,131,LocalDate.now().toString());
-                    AddingToList(question131);
+                   QuizActivity.AnswerHolder.AddingToList(question131);
                 }
                 String text =   Events.getText().toString();
                 if(!text.equals("")){
                     TextAnswer question14 = new TextAnswer(text,14,LocalDate.now().toString());
-                    AddingToList(question14);
+                 QuizActivity.AnswerHolder.AddingToList(question14);
                 }
             String allQuizAnswers = fileFormatter.format(QuizActivity.AnswerHolder.QuizAnswers);
             fileHandler.write(allQuizAnswers,getContext(),"Answers.txt");
@@ -105,34 +99,18 @@ public class Fragment4_in_QuizActivity extends Fragment {
             }
         });
 
-        view.findViewById(R.id.chipYesExercise).setOnClickListener(new View.OnClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.O)
-            @Override
-            public void onClick(View v) {
-                Exercise.setVisibility(View.VISIBLE);
-             /*  question131 = new TextAnswer(Exercise.getText().toString(),131,LocalDate.now().toString());
-                AddingToList(question131);*/
-            }
-        });
 
-        view.findViewById(R.id.chipNoExercise).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Exercise.setVisibility(View.GONE);
-                RemoveComplementaryQuestion();
-
-
-            }
-        });
 
        chipGroupAlcohol.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
            @RequiresApi(api = Build.VERSION_CODES.O)
            @Override
            public void onCheckedChanged(ChipGroup group, int checkedId) {
                Chip selectedChip = view.findViewById(group.getCheckedChipId());
-               Boolean YesOrNo = getBooleanValue(selectedChip.getText().toString());
-               BooleanAnswer question11 = new BooleanAnswer(YesOrNo,11, LocalDate.now().toString());
-               AddingToList(question11);
+               if(selectedChip != null) {
+                   Boolean YesOrNo = QuizActivity.AnswerHolder.getBooleanValue(selectedChip.getText().toString());
+                   BooleanAnswer question11 = new BooleanAnswer(YesOrNo, 11, LocalDate.now().toString());
+                 QuizActivity.AnswerHolder. AddingToList(question11);
+               }
            }
        });
 
@@ -142,9 +120,12 @@ public class Fragment4_in_QuizActivity extends Fragment {
            @Override
            public void onCheckedChanged(ChipGroup group, int checkedId) {
                Chip selectedChip = view.findViewById(group.getCheckedChipId());
-               Boolean YesOrNo = getBooleanValue(selectedChip.getText().toString());
-               BooleanAnswer question12 = new BooleanAnswer(YesOrNo,12, LocalDate.now().toString());
-               AddingToList(question12);
+               if(selectedChip != null) {
+                   Boolean YesOrNo = QuizActivity.AnswerHolder.getBooleanValue(selectedChip.getText().toString());
+                   BooleanAnswer question12 = new BooleanAnswer(YesOrNo, 12, LocalDate.now().toString());
+                 QuizActivity.AnswerHolder.AddingToList(question12);
+
+               }
            }
        });
 
@@ -153,40 +134,24 @@ public class Fragment4_in_QuizActivity extends Fragment {
            @Override
            public void onCheckedChanged(ChipGroup group, int checkedId) {
                Chip selectedChip = view.findViewById(group.getCheckedChipId());
-               Boolean YesOrNo =  getBooleanValue(selectedChip.getText().toString());
-               BooleanAnswer question13 = new BooleanAnswer(YesOrNo,13,LocalDate.now().toString());
-               AddingToList(question13);
+               if(selectedChip != null) {
+                   Boolean YesOrNo = QuizActivity.AnswerHolder.getBooleanValue(selectedChip.getText().toString());
+                   BooleanAnswer question13 = new BooleanAnswer(YesOrNo, 13, LocalDate.now().toString());
+                   QuizActivity.AnswerHolder.AddingToList(question13);
+                   if(YesOrNo){
+                       Exercise.setVisibility(View.VISIBLE);
+                   }else{
+                       Exercise.setVisibility(View.GONE);
+                       Exercise.setText("");
+
+                   }
+               }
            }
        });
 
-
-
-      /*Events.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-          @RequiresApi(api = Build.VERSION_CODES.O)
-          @Override
-          public void onFocusChange(View v, boolean hasFocus) {
-              if (!hasFocus) {
-              String text = Events.getText().toString();
-              TextAnswer question14 = new TextAnswer(text, 14, LocalDate.now().toString());
-              AddingToList(question14);
-               }
-          }
-      });*/
-
-      /*  Exercise.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @RequiresApi(api = Build.VERSION_CODES.O)
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if(!hasFocus ){
-                    question131 = new TextAnswer(Exercise.getText().toString(),131,LocalDate.now().toString());
-                    AddingToList(question131);
-                }
-            }
-        }); */
-
     }
 
-    private void AddingToList(Answerable answerable) {
+  /*  private void AddingToList(Answerable answerable) {
         List<Answerable> answerables = new ArrayList<>(QuizActivity.AnswerHolder.QuizAnswers);
 
         for (Answerable a : answerables) {
@@ -198,9 +163,9 @@ public class Fragment4_in_QuizActivity extends Fragment {
         }
         QuizActivity.AnswerHolder.QuizAnswers.add(answerable);
 
-    }
+    }*/
 
-    private boolean getBooleanValue(String answer){
+   /* private boolean getBooleanValue(String answer){
         Boolean YesOrNo = false;
         String Yes = "Ja ";
         if(answer.equals(Yes)){
@@ -208,12 +173,7 @@ public class Fragment4_in_QuizActivity extends Fragment {
         }
         return YesOrNo;
     }
-
-    private void RemoveComplementaryQuestion(){
-        if(QuizActivity.AnswerHolder.QuizAnswers.contains(  question131)){
-            QuizActivity.AnswerHolder.QuizAnswers.remove(question131);
-        }
-    }
+    */
 
 
 }
