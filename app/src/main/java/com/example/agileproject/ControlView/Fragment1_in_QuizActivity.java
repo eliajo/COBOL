@@ -131,13 +131,13 @@ public class Fragment1_in_QuizActivity extends Fragment {
 
             }
         });
-        //Chip questionmark1=(Chip) view.findViewById(R.id.chip1questionmark);
-        //questionmark1.setOnClickListener(new View.OnClickListener() {
-            //@Override
-            //public void onClick(View v) {
-                //Toast.makeText(getActivity(),"Set Text",Toast.LENGTH_LONG).show();
-            //}
-        //});
+        Chip questionmark1=(Chip) view.findViewById(R.id.chip1questionmark);
+        questionmark1.setOnClickListener(new Chip.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getActivity(),"Set Text",Toast.LENGTH_LONG).show();
+            }
+        });
 
 
 
