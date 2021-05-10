@@ -25,9 +25,11 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalDate;
 import java.time.LocalDate;
+
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
+
 
 /**
  * @author Pegah Amanzadeh
@@ -43,11 +45,10 @@ public class Fragment1_in_QuizActivity extends Fragment {
     ChipGroup Hallucinations;
     ChipGroup Delusions;
     ChipGroup Anxiety;
-   // private NumberAnswer question1;
-   // private NumberAnswer question2;
-   // private NumberAnswer question3;
-   // private NumberAnswer question4;
-
+    // private NumberAnswer question1;
+    // private NumberAnswer question2;
+    // private NumberAnswer question3;
+    // private NumberAnswer question4;
 
 
     @Override
@@ -67,7 +68,8 @@ public class Fragment1_in_QuizActivity extends Fragment {
         Delusions = view.findViewById(R.id.chipGroupDelusion);
         Anxiety = view.findViewById(R.id.chipGroupAnxiety);
 
-            // switching to fragment 2
+
+        // switching to fragment 2
 
         view.findViewById(R.id.next_button_q2).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,6 +77,7 @@ public class Fragment1_in_QuizActivity extends Fragment {
                 navController.navigate(R.id.action_question1_to_questions2);
             }
         });
+
 
         EnergiLevel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,7 +88,7 @@ public class Fragment1_in_QuizActivity extends Fragment {
                     public void onCheckedChanged(ChipGroup group, int checkedId) {
                         Chip selectedChip;
                         selectedChip = view.findViewById(group.getCheckedChipId());
-                        NumberAnswer question1 = new NumberAnswer( Integer.valueOf(selectedChip.getText().toString()),1, LocalDate.now().toString());
+                        NumberAnswer question1 = new NumberAnswer(Integer.valueOf(selectedChip.getText().toString()), 1, LocalDate.now().toString());
                         AddingToList(question1);
                     }
                 });
@@ -111,7 +114,7 @@ public class Fragment1_in_QuizActivity extends Fragment {
                     public void onCheckedChanged(ChipGroup group, int checkedId) {
                         Chip selectedChip;
                         selectedChip = view.findViewById(group.getCheckedChipId());
-                        NumberAnswer  question2 = new NumberAnswer(Integer.valueOf(selectedChip.getText().toString()),2, LocalDate.now().toString());
+                        NumberAnswer question2 = new NumberAnswer(Integer.valueOf(selectedChip.getText().toString()), 2, LocalDate.now().toString());
                         AddingToList(question2);
                     }
                 });
@@ -139,7 +142,7 @@ public class Fragment1_in_QuizActivity extends Fragment {
                     public void onCheckedChanged(ChipGroup group, int checkedId) {
                         Chip selectedChip;
                         selectedChip = view.findViewById(group.getCheckedChipId());
-                        NumberAnswer  question3 = new NumberAnswer(Integer.valueOf(selectedChip.getText().toString()),3,LocalDate.now().toString());
+                        NumberAnswer question3 = new NumberAnswer(Integer.valueOf(selectedChip.getText().toString()), 3, LocalDate.now().toString());
                         AddingToList(question3);
                     }
                 });
@@ -166,7 +169,7 @@ public class Fragment1_in_QuizActivity extends Fragment {
                     public void onCheckedChanged(ChipGroup group, int checkedId) {
                         Chip selectedChip;
                         selectedChip = view.findViewById(group.getCheckedChipId());
-                        NumberAnswer question4 = new NumberAnswer(Integer.valueOf(selectedChip.getText().toString()),4,LocalDate.now().toString());
+                        NumberAnswer question4 = new NumberAnswer(Integer.valueOf(selectedChip.getText().toString()), 4, LocalDate.now().toString());
                         AddingToList(question4);
                     }
                 });
@@ -184,7 +187,9 @@ public class Fragment1_in_QuizActivity extends Fragment {
             }
         });*/
 
+
     }
+
 
    /* private void AddingToList(Answerable answerable){
         for(Answerable answers: QuizActivity.AnswerHolder.QuizAnswers ){
@@ -196,11 +201,11 @@ public class Fragment1_in_QuizActivity extends Fragment {
 
     }*/
 
-    private void AddingToList(Answerable answerable){
-        List <Answerable> answerables = new ArrayList<>(QuizActivity.AnswerHolder.QuizAnswers);
+    private void AddingToList(Answerable answerable) {
+        List<Answerable> answerables = new ArrayList<>(QuizActivity.AnswerHolder.QuizAnswers);
 
-        for (Answerable a:answerables) {
-            if(a.getQuestionId()==answerable.getQuestionId()){
+        for (Answerable a : answerables) {
+            if (a.getQuestionId() == answerable.getQuestionId()) {
                 QuizActivity.AnswerHolder.QuizAnswers.remove(a);
             }
 
@@ -208,4 +213,5 @@ public class Fragment1_in_QuizActivity extends Fragment {
         }
         QuizActivity.AnswerHolder.QuizAnswers.add(answerable);
 
+    }
 }
