@@ -58,13 +58,13 @@ View for Navigation Graph
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="1o.Har du tagit din medicin idag?"
+        android:text="9.Har du tagit din medicin idag?"
         android:textColor="#176693"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintHorizontal_bias="0.107"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chipGroup14" />
+        app:layout_constraintTop_toBottomOf="@+id/Anger" />
 
     <com.google.android.material.chip.ChipGroup
         android:id="@+id/chipGroup2"
@@ -102,7 +102,7 @@ View for Navigation Graph
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="11.Har du haft biverkningar idag?"
+        android:text="10.Har du haft biverkningar idag?"
         android:textColor="#176693"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -129,7 +129,7 @@ View for Navigation Graph
         style="@style/CustomChipStyle"
         android:layout_width="302dp"
         android:layout_height="104dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="28dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.146"
         app:layout_constraintStart_toStartOf="parent"
@@ -248,120 +248,14 @@ View for Navigation Graph
 
     </com.google.android.material.chip.ChipGroup>
 
-    <TextView
-        android:id="@+id/textView17"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="9.Uppskatta ditt mående*"
-        android:textColor="#176693"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.076"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Anger" />
 
-    <com.google.android.material.chip.ChipGroup
-        android:id="@+id/chipGroup14"
-        style="@style/CustomChipStyle"
-        android:layout_width="310dp"
-        android:layout_height="101dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginTop="12dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView17"
-        app:singleSelection="true">
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip3.1"
-            style="@style/CustomChipStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:elevation="4dp"
-            android:text="1" />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip3.2"
-            style="@style/CustomChipStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:elevation="4dp"
-            android:text="2" />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip3.3"
-            style="@style/CustomChipStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:elevation="4dp"
-            android:text="3" />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip3.4"
-            style="@style/CustomChipStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:elevation="4dp"
-            android:text="4" />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip3.5"
-            style="@style/CustomChipStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:elevation="4dp"
-            android:text="5" />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip3.6"
-            style="@style/CustomChipStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:elevation="4dp"
-            android:text="6" />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip3.7"
-            style="@style/CustomChipStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:elevation="4dp"
-            android:text="7" />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip3.8"
-            style="@style/CustomChipStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:elevation="4dp"
-            android:text="8" />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip3.9"
-            style="@style/CustomChipStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:elevation="4dp"
-            android:text="9" />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip3.10"
-            style="@style/CustomChipStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:elevation="4dp"
-            android:text="10" />
-
-
-    </com.google.android.material.chip.ChipGroup>
 
     <TextView
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        android:text="11.Vilka biverkningar har du upplevt?"
+        android:text="10.1 Vilka biverkningar har du upplevt?"
         android:textColor="#176693"
         android:textSize="18sp"
         android:visibility="gone"
@@ -377,6 +271,7 @@ View for Navigation Graph
         android:layout_marginBottom="12dp"
         android:hint="Beskriv dina biverkningar här..."
         android:visibility="gone"
+        android:inputType="text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.487"
@@ -399,7 +294,7 @@ View for Navigation Graph
 
 
     <com.google.android.material.chip.ChipGroup
-        android:id="@+id/side_effects"
+        android:id="@+id/Side_Effects"
         style="@style/SideEffectsShip"
         android:layout_width="401dp"
         android:layout_height="140dp"

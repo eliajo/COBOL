@@ -26,6 +26,7 @@ import java.time.LocalDateTime;
 import java.time.LocalDate;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -68,15 +69,16 @@ public class Fragment1_in_QuizActivity extends Fragment {
         Delusions = view.findViewById(R.id.chipGroup15);
         Anxiety = view.findViewById(R.id.chipGroup16);
 
-
         // switching to fragment 2
 
         view.findViewById(R.id.next_button_q2).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 navController.navigate(R.id.action_question1_to_questions2);
+
             }
         });
+
 
 
         EnergyLevel.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
@@ -85,8 +87,10 @@ public class Fragment1_in_QuizActivity extends Fragment {
             public void onCheckedChanged(ChipGroup group, int checkedId) {
                 Chip selectedChip;
                 selectedChip = view.findViewById(group.getCheckedChipId());
-                NumberAnswer question1 = new NumberAnswer(Integer.valueOf(selectedChip.getText().toString()), 1, LocalDate.now().toString());
-                AddingToList(question1);
+                if (selectedChip != null) {
+                    NumberAnswer question1 = new NumberAnswer(Integer.valueOf(selectedChip.getText().toString()), 1, LocalDate.now().toString());
+                    AddingToList(question1);
+                }
             }
 
         });
@@ -104,6 +108,7 @@ public class Fragment1_in_QuizActivity extends Fragment {
             }
 
         });
+
 
 
         Hallucinations.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
@@ -119,6 +124,7 @@ public class Fragment1_in_QuizActivity extends Fragment {
 
 
         Delusions.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
+
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onCheckedChanged(ChipGroup group, int checkedId) {
@@ -129,6 +135,7 @@ public class Fragment1_in_QuizActivity extends Fragment {
 
             }
         });
+
 
         Anxiety.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
 
@@ -145,9 +152,6 @@ public class Fragment1_in_QuizActivity extends Fragment {
         });
 
     }
-
-
-
     private void AddingToList(Answerable answerable) {
         List<Answerable> answerables = new ArrayList<>(QuizActivity.AnswerHolder.QuizAnswers);
 
@@ -162,5 +166,4 @@ public class Fragment1_in_QuizActivity extends Fragment {
 
 
     }
-
 }

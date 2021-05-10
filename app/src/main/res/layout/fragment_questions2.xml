@@ -417,7 +417,7 @@ View for Navigation Graph
             android:textColor="@color/LightBlue" />
 
         <RadioButton
-            android:id="@+id/radioButton"
+            android:id="@+id/radioButton1"
             android:layout_width="match_parent"
             android:layout_height="62dp"
             android:text="Jag vaknade tidigt och kunde int somna om"
@@ -430,7 +430,7 @@ View for Navigation Graph
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
-        android:text="8.Varför sov du inte bra?"
+        android:text="7.1 Varför sov du inte bra?"
         android:textColor="#176693"
         android:textSize="18sp"
         android:visibility="gone"

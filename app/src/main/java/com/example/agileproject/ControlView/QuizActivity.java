@@ -3,6 +3,7 @@ package com.example.agileproject.ControlView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
 import android.view.View;
@@ -20,6 +21,24 @@ import java.util.List;
 public class QuizActivity extends AppCompatActivity {
     Fragment1_in_QuizActivity fragment1;
 
+    @Override
+    public void onBackPressed() {
+
+        Fragment navHostFragment = getSupportFragmentManager().getPrimaryNavigationFragment();
+        Fragment fragment = navHostFragment.getChildFragmentManager().getFragments().get(0);
+        if(fragment.getId() == 0x7f0901aa){
+            findViewById(R.id.textView10).setVisibility(View.GONE);
+            findViewById(R.id.chipGroup).setVisibility(View.GONE);
+            findViewById(R.id.imageView).setVisibility(View.GONE);
+            findViewById(R.id.textView6).setVisibility(View.VISIBLE);
+            findViewById(R.id.chipGroup3).setVisibility(View.VISIBLE);
+        }else{
+            super.onBackPressed();
+        }
+
+
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +47,8 @@ public class QuizActivity extends AppCompatActivity {
 
     }
 
+
+
     public static class AnswerHolder{
 
        static List<Answerable> QuizAnswers = new ArrayList<>();
@@ -35,6 +56,5 @@ public class QuizActivity extends AppCompatActivity {
 
 
     }
-
 
 }

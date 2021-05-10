@@ -17,7 +17,7 @@ import android.widget.EditText;
 
 import com.example.agileproject.Model.Answerable;
 import com.example.agileproject.Model.BooleanAnswer;
-
+import com.example.agileproject.Model.MultipleTextAnswer;
 import com.example.agileproject.Model.NumberAnswer;
 import com.example.agileproject.Model.TextAnswer;
 import com.example.agileproject.R;
@@ -39,7 +39,7 @@ public class Questions3 extends Fragment {
     ChipGroup SideEffectsYesOrNo;
     ChipGroup SideEffects;
     EditText OtherSideEffects;
-  // MultipleTextAnswer question101;
+   MultipleTextAnswer question101;
 
 
 
@@ -74,7 +74,7 @@ public class Questions3 extends Fragment {
                view.findViewById(R.id.textView2).setVisibility(View.GONE);
                view.findViewById(R.id.chipGroup).setVisibility(View.GONE);
                view.findViewById(R.id.textView11).setVisibility(View.VISIBLE);
-               view.findViewById(R.id.side_effects).setVisibility(View.VISIBLE);
+               view.findViewById(R.id.Side_Effects).setVisibility(View.VISIBLE);
                view.findViewById(R.id.imageView3).setVisibility(View.VISIBLE);
                //navController.navigate(R.id.action_questions3_to_complementaryQuestion3);
 
@@ -131,6 +131,7 @@ public class Questions3 extends Fragment {
            }
        });
 
+
        Anger.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
            @RequiresApi(api = Build.VERSION_CODES.O)
            @Override
@@ -161,12 +162,10 @@ public class Questions3 extends Fragment {
                BooleanAnswer question10 = new BooleanAnswer(YesOrNo,10,LocalDate.now().toString());
                AddingToList(question10);
                if(YesOrNo == false ){
-                 //  RemoveComplementaryQuestion();
+                   RemoveComplementaryQuestion();
                }
            }
        });
-
-
 
 
        SideEffects.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
@@ -183,9 +182,9 @@ public class Questions3 extends Fragment {
                    }
                     answers.add(text);
                 }
-               // question101 =  new MultipleTextAnswer(answers,10.1,LocalDate.now().toString());
+                question101 =  new MultipleTextAnswer(answers,10.1,LocalDate.now().toString());
 
-               // AddingToList(question101);
+                AddingToList(question101);
            }
        });
 
@@ -194,11 +193,11 @@ public class Questions3 extends Fragment {
 
 
 
-  /*  private void RemoveComplementaryQuestion(){
+    private void RemoveComplementaryQuestion(){
         if(QuizActivity.AnswerHolder.QuizAnswers.contains(  question101)){
             QuizActivity.AnswerHolder.QuizAnswers.remove(question101);
         }
-    } */
+    }
 
     private void AddingToList(Answerable answerable) {
         List<Answerable> answerables = new ArrayList<>(QuizActivity.AnswerHolder.QuizAnswers);
@@ -214,7 +213,6 @@ public class Questions3 extends Fragment {
 
     }
 
-
     private boolean getBooleanValue(String answer){
         Boolean YesOrNo = false;
         String Yes = "Ja ";
@@ -222,7 +220,10 @@ public class Questions3 extends Fragment {
             YesOrNo = true;
         }
         return YesOrNo;
+
     }
+
+
 
 
 
