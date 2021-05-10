@@ -562,7 +562,7 @@ View for Navigation Graph
         app:layout_constraintTop_toBottomOf="@+id/chip1questionmark" />
 
     <com.google.android.material.chip.Chip
-        android:id="@+id/chip15"
+        android:id="@+id/chip3questionmark"
         android:layout_width="49dp"
         android:layout_height="39dp"
         android:layout_marginTop="104dp"
@@ -575,7 +575,7 @@ View for Navigation Graph
         app:layout_constraintTop_toBottomOf="@+id/chip2questionmark" />
 
     <com.google.android.material.chip.Chip
-        android:id="@+id/chip25"
+        android:id="@+id/chip4questionmark"
         android:layout_width="49dp"
         android:layout_height="39dp"
         android:layout_marginTop="96dp"
@@ -585,7 +585,7 @@ View for Navigation Graph
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.963"
         app:layout_constraintStart_toEndOf="@+id/textView12"
-        app:layout_constraintTop_toBottomOf="@+id/chip15" />
+        app:layout_constraintTop_toBottomOf="@+id/chip3questionmark" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

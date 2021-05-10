@@ -13,6 +13,7 @@ import androidx.navigation.Navigation;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 
 
@@ -143,6 +144,22 @@ public class Fragment1_in_QuizActivity extends Fragment {
                 openDialog2();
             }
         });
+        Chip questionmark3=(Chip) view.findViewById(R.id.chip3questionmark);
+        questionmark3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openDialog3();
+            }
+        });
+        Chip questionmark4=(Chip) view.findViewById(R.id.chip4questionmark);
+        questionmark4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openDialog4();
+            }
+        });
+
+       
 
 
     }
@@ -156,8 +173,15 @@ public class Fragment1_in_QuizActivity extends Fragment {
         PopUpDialog2 d2=new PopUpDialog2();
         d2.show(getFragmentManager(),"Diagol2");
 
+    }
+    public void openDialog3(){
+        PopUpDialog3 d3=new PopUpDialog3();
+        d3.show(getFragmentManager(),"Diagol3");
 
-
+    }
+    public void openDialog4(){
+        PopUpDialog4 d4=new PopUpDialog4();
+        d4.show(getFragmentManager(),"Diagol4");
 
     }
 
