@@ -41,18 +41,19 @@ public class AnswerDataAnalyzer {
         }
 
         //TODO a function which fetches upper and lower limits from settings
-        int upper = 10;
-        int lower = 0;
+        int upper = 10; //Change to fetched value
+        int lower = 0;  //Change to fetched value
 
-        boolean warning = true;
+        boolean sendWarning = true;
         for(NumberAnswer a : numberAnswers) {
             if(upper >= a.getData() && lower <= a.getData()) {
-                warning = false;
+                sendWarning = false;
             }
         }
 
-        if(warning) {
-            //TODO send notification
+        if(sendWarning) {
+            //TODO send warning notification
+            System.out.println("Warning");
         }
     }
 
