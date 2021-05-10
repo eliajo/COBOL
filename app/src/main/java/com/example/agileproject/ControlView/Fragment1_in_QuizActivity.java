@@ -50,7 +50,6 @@ public class Fragment1_in_QuizActivity extends Fragment {
     ChipGroup Anxiety;
 
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -81,6 +80,7 @@ public class Fragment1_in_QuizActivity extends Fragment {
 
 
         EnergyLevel.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
+
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onCheckedChanged(ChipGroup group, int checkedId) {
@@ -95,6 +95,7 @@ public class Fragment1_in_QuizActivity extends Fragment {
         });
 
 
+
         Hallucinations.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
@@ -107,7 +108,8 @@ public class Fragment1_in_QuizActivity extends Fragment {
         });
 
 
-        Delusions.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
+
+       Delusions.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onCheckedChanged(ChipGroup group, int checkedId) {
@@ -135,7 +137,6 @@ public class Fragment1_in_QuizActivity extends Fragment {
     }
     private void AddingToList(Answerable answerable) {
         List<Answerable> answerables = new ArrayList<>(QuizActivity.AnswerHolder.QuizAnswers);
-
         for (Answerable a : answerables) {
             if (a.getQuestionId() == answerable.getQuestionId()) {
                 QuizActivity.AnswerHolder.QuizAnswers.remove(a);
@@ -144,8 +145,12 @@ public class Fragment1_in_QuizActivity extends Fragment {
 
         }
         QuizActivity.AnswerHolder.QuizAnswers.add(answerable);
+
      }
 
 
 
-}
+
+
+    }
+

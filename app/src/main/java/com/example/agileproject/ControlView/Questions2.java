@@ -114,7 +114,6 @@ public class Questions2 extends Fragment {
                  Chip selectedChip = view.findViewById(group.getCheckedChipId());
                  NumberAnswer question5 = new NumberAnswer(Integer.valueOf(selectedChip.getText().toString()),5, LocalDate.now().toString());
                 AddingToList(question5);
-
              }
          });
 

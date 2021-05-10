@@ -42,7 +42,6 @@ public class Questions3 extends Fragment {
    MultipleTextAnswer question101;
 
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -130,7 +129,6 @@ public class Questions3 extends Fragment {
                view.findViewById(R.id.chipGroup).setVisibility(View.VISIBLE);
            }
        });
-
 
        Anger.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
            @RequiresApi(api = Build.VERSION_CODES.O)
@@ -222,6 +220,7 @@ public class Questions3 extends Fragment {
         return YesOrNo;
 
     }
+
 
 
 
