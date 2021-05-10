@@ -23,7 +23,7 @@ public class AnswerDataAnalyzer {
 
         switch (toAnalyze.get(0).getType()) {
             case 0: //The answer type is text
-                System.out.println("Text");
+                System.out.println("Can't analyze text");
                 break;
             case 1: //The answer type is int
                 numberAnalyze(toAnalyze);
@@ -40,21 +40,33 @@ public class AnswerDataAnalyzer {
             numberAnswers.add((NumberAnswer) a);
         }
 
-        //TODO a function which fetches upper and lower limits from settings
-        int upper = 10; //Change to fetched value
-        int lower = 0;  //Change to fetched value
+        if(aboveUpperLimit(numberAnswers)) {
+            //TODO send warning notification for high value
+            System.out.println("Warning, value too high");//Test line, remove later
+        } else if(belowLowerLimit(numberAnswers)) {
+            //TODO send warning notification for low value
+            System.out.println("Warning, value too low");//Test line, remove later
+        }
+    }
 
+    private boolean aboveUpperLimit(List<NumberAnswer> toAnalyze) {
         boolean sendWarning = true;
-        for(NumberAnswer a : numberAnswers) {
-            if(upper >= a.getData() && lower <= a.getData()) {
+        for(NumberAnswer a : toAnalyze) { //check upper bound
+            if(upper >= a.getData()) { //TODO method to get value from other place
                 sendWarning = false;
             }
         }
+        return sendWarning;
+    }
 
-        if(sendWarning) {
-            //TODO send warning notification
-            System.out.println("Warning");
+    private boolean belowLowerLimit(List<NumberAnswer> toAnalyze) {
+        boolean sendWarning = true;
+        for(NumberAnswer a : toAnalyze) { //check lower bound
+            if(lower <= a.getData()) { //TODO method to get value from other place
+                sendWarning = false;
+            }
         }
+        return sendWarning;
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
