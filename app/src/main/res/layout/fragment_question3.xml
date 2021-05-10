@@ -125,7 +125,7 @@ View for Navigation Graph
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.chip.ChipGroup
-        android:id="@+id/sleeptHoursDayTime"
+        android:id="@+id/Anger"
         style="@style/CustomChipStyle"
         android:layout_width="302dp"
         android:layout_height="104dp"
@@ -259,7 +259,7 @@ View for Navigation Graph
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.076"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sleeptHoursDayTime" />
+        app:layout_constraintTop_toBottomOf="@+id/Anger" />
 
     <com.google.android.material.chip.ChipGroup
         android:id="@+id/chipGroup14"

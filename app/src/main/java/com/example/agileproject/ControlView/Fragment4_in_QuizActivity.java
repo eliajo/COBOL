@@ -17,11 +17,15 @@ import android.widget.EditText;
 
 import com.example.agileproject.Model.Answerable;
 import com.example.agileproject.R;
+
 import com.example.agileproject.Utils.FileFormatter;
 
 import com.example.agileproject.Utils.FileHandler;
 
 
+
+
+import com.google.android.material.chip.ChipGroup;
 
 
 /**
@@ -36,6 +40,11 @@ public class Fragment4_in_QuizActivity extends Fragment {
     FileFormatter fileFormatter = new FileFormatter();
     FileHandler fileHandler = new FileHandler();
 
+    ChipGroup ChipGroupAlcohol;
+
+
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -47,9 +56,10 @@ public class Fragment4_in_QuizActivity extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
         EditText editText=(EditText) view.findViewById(R.id.textInputExercise);
+        ChipGroupAlcohol = view.findViewById(R.id.chipGroup8);
 
 
-        // Switching to fragment  doneQuestion
+                // Switching to fragment  doneQuestion
 
         view.findViewById(R.id.saveButton).setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)
