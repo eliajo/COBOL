@@ -7,48 +7,52 @@ View for Navigation Graph
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#0FFFFFFF">
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="227dp"
-        android:layout_height="240dp"
-        android:layout_marginStart="180dp"
-        android:layout_marginLeft="180dp"
-        android:src="@drawable/sun"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.871"
-        tools:visibility="visible" />
 
     <Button
         android:id="@+id/next_button_q2"
         style="@style/Widget.AppCompat.Button"
-        android:layout_width="124dp"
-        android:layout_height="57dp"
-        android:layout_marginEnd="28dp"
-        android:layout_marginRight="28dp"
-        android:layout_marginBottom="16dp"
+        android:layout_width="115dp"
+        android:layout_height="65dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="4dp"
         android:width="1dip"
         android:radius="15dip"
-        android:text="Nästa sida"
+        android:text="Nästa Sida"
         app:backgroundTint="#2196F3"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="156dp"
+        android:layout_height="101dp"
+        android:layout_marginBottom="92dp"
+        android:src="@drawable/sun"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintHorizontal_bias="0.976"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:visibility="visible" />
 
     <TextView
         android:id="@+id/textView6"
-        android:layout_width="190dp"
-        android:layout_height="46dp"
-        android:layout_marginStart="76dp"
-        android:layout_marginLeft="76dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="0dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="102dp"
+        android:layout_marginLeft="102dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="84dp"
+        android:layout_marginRight="84dp"
         android:text="Sidan 1 av 4"
         android:textColor="#176693"
         android:textSize="30sp"
-
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/chip13"
+        app:layout_constraintHorizontal_bias="0.426"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -58,7 +62,7 @@ View for Navigation Graph
         android:layout_height="23dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="8dp"
         android:text="1.Uppskatta din energinivå idag *"
         android:textColor="#176693"
         android:textColorHint="#176693"
@@ -69,195 +73,167 @@ View for Navigation Graph
     <TextView
         android:id="@+id/textView12"
         android:layout_width="258dp"
-        android:layout_height="22dp"
+        android:layout_height="0dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="8dp"
+
         android:text="4.Har du haft ångest? *"
+
         android:textColor="#176693"
         android:textSize="18dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chipGroupDelusion" />
+        app:layout_constraintTop_toBottomOf="@+id/chipGroup15" />
 
- />
 
     <TextView
         android:id="@+id/textView13"
-        android:layout_width="292dp"
+        android:layout_width="0dp"
         android:layout_height="23dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="12dp"
-        android:text="2.Har du haft hallucinationer idag? *"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="4dp"
+        android:text="2.Har du haft Hallucinationer idag? *"
         android:textColor="#176693"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chipGroupEnergiLevel" />
+        app:layout_constraintTop_toBottomOf="@+id/EnergyLevel" />
 
     <TextView
         android:id="@+id/textView14"
         android:layout_width="0dp"
         android:layout_height="26dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="12dp"
         android:text="3.Har du haft vanföreställningar idag? *"
         android:textColor="#176693"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chipGroupHallucinations" />
+        app:layout_constraintTop_toBottomOf="@+id/chipGroup10" />
 
     <com.google.android.material.chip.ChipGroup
-        android:id="@+id/chipGroupEnergiLevel"
+        android:id="@+id/EnergyLevel"
         style="@style/CustomChipStyle"
-        android:layout_width="283dp"
-        android:layout_height="108dp"
+        android:layout_width="340dp"
+        android:layout_height="93dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="12dp"
-        android:layout_marginEnd="16dp" />
-
-    <com.google.android.material.chip.ChipGroup
-        android:id="@+id/chipGroup3"
-        style="@style/OneToTenChipStyle"
-        android:layout_width="136dp"
-        android:layout_height="68dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginLeft="2dp"
-        android:layout_marginTop="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.095"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView13"
-        app:singleLine="true"
-        app:singleSelection="true">
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip9Ja"
-            style="@style/YesOrNowChipStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:elevation="4dp"
-            android:text="Ja"
-            android:textColor="#2D9CDB"
-            app:chipStrokeColor="#176693"
-            app:closeIconTint="#176693" />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip10"
-            style="@style/YesOrNowChipStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:elevation="4dp"
-            android:text="Nej"
-            android:textColor="#2D9CDB" />
-    </com.google.android.material.chip.ChipGroup>
-
-    <com.google.android.material.chip.ChipGroup
-        android:id="@+id/chipGroup4"
-
-        android:layout_width="134dp"
-        android:layout_height="67dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-
-        android:layout_marginTop="24dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView12"
-        app:singleLine="true"
-        app:singleSelection="true">
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip11Ja"
-            style="@style/YesOrNowChipStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:elevation="4dp"
-            android:text="Ja"
-            android:textColor="#2D9CDB" />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip12"
-            style="@style/YesOrNowChipStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:elevation="4dp"
-            android:text="Nej"
-            android:textColor="#2D9CDB" />
-    </com.google.android.material.chip.ChipGroup>
-
-    <com.google.android.material.chip.ChipGroup
-        android:id="@+id/chipGroup5"
-        android:layout_width="133dp"
-        android:layout_height="64dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
+
         android:layout_marginRight="16dp"
-        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView13">
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewQ1"
+        app:singleSelection="true">
+
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip40"
+            style="@style/CustomChipStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="4dp"
+            android:text="-5"
+            android:textColor="#2D9CDB" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip41"
+            style="@style/CustomChipStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="4dp"
+            android:text="-4"
+            android:textColor="#2D9CDB" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip42"
+            style="@style/CustomChipStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="4dp"
+            android:text="-3"
+            android:textColor="#2D9CDB" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip43"
+            style="@style/CustomChipStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="4dp"
+            android:text="-2"
+            android:textColor="#2D9CDB" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip44"
+            style="@style/CustomChipStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="4dp"
+            android:text="-1"
+            android:textColor="#2D9CDB" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip45"
+            style="@style/CustomChipStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="4dp"
+            android:text="0"
+            android:textColor="#2D9CDB"
+            app:chipBackgroundColor="#8BD58E" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip46"
+            style="@style/CustomChipStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="4dp"
+            android:text="+1"
+            android:textColor="#2D9CDB" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip47"
+            style="@style/CustomChipStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="4dp"
+            android:text="+2"
+            android:textColor="#2D9CDB" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip48"
+            style="@style/CustomChipStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="4dp"
+            android:text="+3"
+            android:textColor="#2D9CDB" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip96"
+            style="@style/CustomChipStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="4dp"
+            android:text="+4"
+            android:textColor="#2D9CDB" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip64"
             style="@style/CustomChipStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="1" />
+            android:elevation="4dp"
+            android:text="+5"
+            android:textColor="#2D9CDB" />
 
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip65"
-            style="@style/CustomChipStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="2" />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip66"
-            style="@style/CustomChipStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="3" />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip67"
-            style="@style/CustomChipStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="4" />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip68"
-            style="@style/CustomChipStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="5" />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip69"
-            style="@style/CustomChipStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="6" />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip70"
-            style="@style/CustomChipStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="7" />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip71"
-            style="@style/CustomChipStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="8+" />
     </com.google.android.material.chip.ChipGroup>
 
     <com.google.android.material.chip.ChipGroup
-        android:id="@+id/chipGroupDelusion"
+        android:id="@+id/chipGroup15"
         style="@style/CustomChipStyle"
         android:layout_width="284dp"
         android:layout_height="106dp"
@@ -265,95 +241,94 @@ View for Navigation Graph
         android:layout_marginLeft="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView14"
-        app:singleLine="true"
         app:singleSelection="true">
 
-        <com.google.android.material.chip.Chip
 
+        <com.google.android.material.chip.Chip
             android:id="@+id/chip72"
             style="@style/CustomChipStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="1"
-            android:elevation="4dp"/>
+            android:elevation="4dp"
+            android:text="1" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip73"
             style="@style/CustomChipStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="2"
-            android:elevation="4dp"/>
+            android:elevation="4dp"
+            android:text="2" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip74"
             style="@style/CustomChipStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="3"
-            android:elevation="4dp"/>
+            android:elevation="4dp"
+            android:text="3" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip75"
             style="@style/CustomChipStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="4"
-            android:elevation="4dp"/>
+            android:elevation="4dp"
+            android:text="4" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip76"
             style="@style/CustomChipStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="5"
-            android:elevation="4dp"/>
+            android:elevation="4dp"
+            android:text="5" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip77"
             style="@style/CustomChipStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="6"
-            android:elevation="4dp"/>
+            android:elevation="4dp"
+            android:text="6" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip78"
             style="@style/CustomChipStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="7"
-            android:elevation="4dp"/>
+            android:elevation="4dp"
+            android:text="7" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip79"
             style="@style/CustomChipStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="8"
-            android:elevation="4dp"/>
+            android:elevation="4dp"
+            android:text="8" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip80"
             style="@style/CustomChipStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="9"
-            android:elevation="4dp"/>
+            android:elevation="4dp"
+            android:text="9" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip81"
             style="@style/CustomChipStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="10"
-            android:elevation="4dp"/>
+            android:elevation="4dp"
+            android:text="10" />
 
 
     </com.google.android.material.chip.ChipGroup>
 
     <com.google.android.material.chip.ChipGroup
-        android:id="@+id/chipGroupAnxiety"
+        android:id="@+id/chipGroup16"
         style="@style/CustomChipStyle"
         android:layout_width="287dp"
         android:layout_height="109dp"
@@ -412,133 +387,153 @@ View for Navigation Graph
         <com.google.android.material.chip.Chip
             android:id="@+id/chip89"
             style="@style/CustomChipStyle"
-            android:id="@+id/chip13Ja"
-            style="@style/YesOrNowChipStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:elevation="4dp"
-            android:text="Ja"
-            android:textColor="#2D9CDB" />
+            android:text="6" />
 
         <com.google.android.material.chip.Chip
-            android:id="@+id/chip14"
-            style="@style/YesOrNowChipStyle"
+            android:id="@+id/chip90"
+            style="@style/CustomChipStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:elevation="4dp"
-            android:text="Nej"
-            android:textColor="#2D9CDB" />
+            android:text="7" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip91"
+            style="@style/CustomChipStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="4dp"
+            android:text="8" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip92"
+            style="@style/CustomChipStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="4dp"
+            android:text="9" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip94"
+            style="@style/CustomChipStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="4dp"
+            android:text="10" />
+
+
     </com.google.android.material.chip.ChipGroup>
 
     <com.google.android.material.chip.ChipGroup
-
-        android:id="@+id/chipGroupHallucinations"
+        android:id="@+id/chipGroup10"
         style="@style/CustomChipStyle"
-        android:layout_width="288dp"
-        android:layout_height="103dp"
+        android:layout_width="280dp"
+        android:layout_height="99dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="16dp"
-        android:checkable = "true"
-        android:layout_marginRight="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.043"
+        android:layout_marginTop="8dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewQ1"
+        app:layout_constraintTop_toBottomOf="@+id/textView13"
         app:singleSelection="true">
 
         <com.google.android.material.chip.Chip
-            android:id="@+id/chip39"
+            android:id="@+id/chip10"
             style="@style/CustomChipStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:elevation="4dp"
-            android:text="1"
-            android:textColor="#2D9CDB" />
+            android:text="1" />
 
         <com.google.android.material.chip.Chip
-            android:id="@+id/chip40"
+            android:id="@+id/chip26"
             style="@style/CustomChipStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:elevation="4dp"
-            android:text="2"
-            android:textColor="#2D9CDB" />
+            android:text="2" />
 
         <com.google.android.material.chip.Chip
-            android:id="@+id/chip41"
+            android:id="@+id/chip27"
             style="@style/CustomChipStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:elevation="4dp"
-            android:text="3"
-            android:textColor="#2D9CDB" />
+            android:text="3" />
 
         <com.google.android.material.chip.Chip
-            android:id="@+id/chip42"
+            android:id="@+id/chip33"
             style="@style/CustomChipStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:elevation="4dp"
-            android:text="4"
-            android:textColor="#2D9CDB" />
+            android:text="4" />
 
         <com.google.android.material.chip.Chip
-            android:id="@+id/chip43"
+            android:id="@+id/chip54"
             style="@style/CustomChipStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:elevation="4dp"
-            android:text="5"
-            android:textColor="#2D9CDB" />
+            android:text="5" />
 
         <com.google.android.material.chip.Chip
-            android:id="@+id/chip44"
+            android:id="@+id/chip55"
             style="@style/CustomChipStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:elevation="4dp"
-            android:text="6"
-            android:textColor="#2D9CDB" />
+            android:text="6" />
 
         <com.google.android.material.chip.Chip
-            android:id="@+id/chip45"
+            android:id="@+id/chip56"
             style="@style/CustomChipStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:elevation="4dp"
-            android:text="7"
-            android:textColor="#2D9CDB" />
+            android:text="7" />
 
         <com.google.android.material.chip.Chip
-            android:id="@+id/chip46"
+            android:id="@+id/chip57"
             style="@style/CustomChipStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:elevation="4dp"
-            android:text="8"
-            android:textColor="#2D9CDB" />
+            android:text="8" />
 
         <com.google.android.material.chip.Chip
-            android:id="@+id/chip47"
+            android:id="@+id/chip62"
             style="@style/CustomChipStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:elevation="4dp"
-            android:text="9"
-            android:textColor="#2D9CDB" />
+            android:text="9" />
 
         <com.google.android.material.chip.Chip
-            android:id="@+id/chip48"
+            android:id="@+id/chip82"
             style="@style/CustomChipStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:elevation="4dp"
-            android:text="10"
-            android:textColor="#2D9CDB" />
-
+            android:text="@string/_10" />
     </com.google.android.material.chip.ChipGroup>
 
+    <TextView
+        android:id="@+id/errorText"
+        android:layout_width="86dp"
+        android:layout_height="88dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginEnd="9dp"
+        android:layout_marginRight="9dp"
+        android:layout_marginBottom="8dp"
+        android:text="Du måste svara på alla frågor för att kunna fortsätta !"
+        android:textColor="#C30C0C"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/next_button_q2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.636"
+        app:layout_constraintStart_toStartOf="@+id/next_button_q2" />
 </androidx.constraintlayout.widget.ConstraintLayout>
-

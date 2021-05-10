@@ -24,11 +24,6 @@ public class Questions3 extends Fragment {
 
 
 
-    public Questions3() {
-        // Required empty public constructor
-    }
-
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

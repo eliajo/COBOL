@@ -25,6 +25,8 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalDate;
 import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.List;
 
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -41,14 +43,11 @@ import java.util.List;
 public class Fragment1_in_QuizActivity extends Fragment {
 
     NavController navController;
-    ChipGroup EnergiLevel;
+    ChipGroup EnergyLevel;
     ChipGroup Hallucinations;
     ChipGroup Delusions;
     ChipGroup Anxiety;
-    // private NumberAnswer question1;
-    // private NumberAnswer question2;
-    // private NumberAnswer question3;
-    // private NumberAnswer question4;
+
 
 
     @Override
@@ -63,10 +62,10 @@ public class Fragment1_in_QuizActivity extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
-        EnergiLevel = view.findViewById(R.id.chipGroupEnergiLevel);
-        Hallucinations = view.findViewById(R.id.chipGroupHallucinations);
-        Delusions = view.findViewById(R.id.chipGroupDelusion);
-        Anxiety = view.findViewById(R.id.chipGroupAnxiety);
+        EnergyLevel = view.findViewById(R.id.EnergyLevel);
+        Hallucinations = view.findViewById(R.id.chipGroup10);
+        Delusions = view.findViewById(R.id.chipGroup15);
+        Anxiety = view.findViewById(R.id.chipGroup16);
 
 
         // switching to fragment 2
@@ -79,22 +78,11 @@ public class Fragment1_in_QuizActivity extends Fragment {
         });
 
 
-        EnergiLevel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                EnergiLevel.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
-                    @RequiresApi(api = Build.VERSION_CODES.O)
-                    @Override
-                    public void onCheckedChanged(ChipGroup group, int checkedId) {
-                        Chip selectedChip;
-                        selectedChip = view.findViewById(group.getCheckedChipId());
-                        NumberAnswer question1 = new NumberAnswer(Integer.valueOf(selectedChip.getText().toString()), 1, LocalDate.now().toString());
-                        AddingToList(question1);
-                    }
-                });
-            }
-        });
-       /* EnergiLevel.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
+
+
+
+        EnergyLevel.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
+
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onCheckedChanged(ChipGroup group, int checkedId) {
@@ -103,26 +91,13 @@ public class Fragment1_in_QuizActivity extends Fragment {
             NumberAnswer question1 = new NumberAnswer( Integer.valueOf(selectedChip.getText().toString()),1, LocalDate.now().toString());
              AddingToList(question1);
             }
-        });*/
 
-        Hallucinations.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Hallucinations.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
-                    @RequiresApi(api = Build.VERSION_CODES.O)
-                    @Override
-                    public void onCheckedChanged(ChipGroup group, int checkedId) {
-                        Chip selectedChip;
-                        selectedChip = view.findViewById(group.getCheckedChipId());
-                        NumberAnswer question2 = new NumberAnswer(Integer.valueOf(selectedChip.getText().toString()), 2, LocalDate.now().toString());
-                        AddingToList(question2);
-                    }
-                });
-
-            }
         });
 
-       /* Hallucinations.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
+
+
+        Hallucinations.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
+
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onCheckedChanged(ChipGroup group, int checkedId) {
@@ -131,25 +106,13 @@ public class Fragment1_in_QuizActivity extends Fragment {
               NumberAnswer  question2 = new NumberAnswer(Integer.valueOf(selectedChip.getText().toString()),2, LocalDate.now().toString());
                 AddingToList(question2);
             }
-        });*/
 
-        Delusions.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Delusions.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
-                    @RequiresApi(api = Build.VERSION_CODES.O)
-                    @Override
-                    public void onCheckedChanged(ChipGroup group, int checkedId) {
-                        Chip selectedChip;
-                        selectedChip = view.findViewById(group.getCheckedChipId());
-                        NumberAnswer question3 = new NumberAnswer(Integer.valueOf(selectedChip.getText().toString()), 3, LocalDate.now().toString());
-                        AddingToList(question3);
-                    }
-                });
-
-            }
         });
-      /*  Delusions.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
+
+
+
+
+        Delusions.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onCheckedChanged(ChipGroup group, int checkedId) {
@@ -158,25 +121,10 @@ public class Fragment1_in_QuizActivity extends Fragment {
               NumberAnswer  question3 = new NumberAnswer(Integer.valueOf(selectedChip.getText().toString()),3,LocalDate.now().toString());
                 AddingToList(question3);
             }
-        });*/
-
-        Anxiety.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Anxiety.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
-                    @RequiresApi(api = Build.VERSION_CODES.O)
-                    @Override
-                    public void onCheckedChanged(ChipGroup group, int checkedId) {
-                        Chip selectedChip;
-                        selectedChip = view.findViewById(group.getCheckedChipId());
-                        NumberAnswer question4 = new NumberAnswer(Integer.valueOf(selectedChip.getText().toString()), 4, LocalDate.now().toString());
-                        AddingToList(question4);
-                    }
-                });
-
-            }
         });
-       /* Anxiety.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
+
+        Anxiety.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
+
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onCheckedChanged(ChipGroup group, int checkedId) {
@@ -185,21 +133,13 @@ public class Fragment1_in_QuizActivity extends Fragment {
              NumberAnswer question4 = new NumberAnswer(Integer.valueOf(selectedChip.getText().toString()),4,LocalDate.now().toString());
                 AddingToList(question4);
             }
-        });*/
+
+        });
 
 
     }
 
 
-   /* private void AddingToList(Answerable answerable){
-        for(Answerable answers: QuizActivity.AnswerHolder.QuizAnswers ){
-            if(answers.getQuestionId() == answerable.getQuestionId()){
-                QuizActivity.AnswerHolder.QuizAnswers.remove(answers);
-            }
-        }
-        QuizActivity.AnswerHolder.QuizAnswers.add(answerable);
-
-    }*/
 
     private void AddingToList(Answerable answerable) {
         List<Answerable> answerables = new ArrayList<>(QuizActivity.AnswerHolder.QuizAnswers);
@@ -214,4 +154,5 @@ public class Fragment1_in_QuizActivity extends Fragment {
         QuizActivity.AnswerHolder.QuizAnswers.add(answerable);
 
     }
+
 }

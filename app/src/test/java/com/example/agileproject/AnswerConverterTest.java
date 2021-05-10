@@ -22,6 +22,8 @@ public class AnswerConverterTest {
 
    
 
+
+
     @Test
     public void checkIfStoredAnswersAreConvertedCorrectlyByDate() { //Also tests if boolean and string works
         NumberAnswer a = new NumberAnswer(3,20,"2021-04-19");
@@ -31,7 +33,7 @@ public class AnswerConverterTest {
         TextAnswer e = new TextAnswer("Hello!",30,"2021-04-17");
         BooleanAnswer f = new BooleanAnswer(true,40,"2021-04-18");
 
-        List<Storable> answers = new ArrayList<>();
+        List<Answerable> answers = new ArrayList<>();
 
         answers.add(a);
         answers.add(b);
@@ -64,7 +66,7 @@ public class AnswerConverterTest {
         TextAnswer e = new TextAnswer("Hello!",30,"2021-04-17");
         BooleanAnswer f = new BooleanAnswer(true,40,"2021-04-18");
 
-        List<Storable> answers = new ArrayList<>();
+        List<Answerable> answers = new ArrayList<>();
 
         answers.add(a);
         answers.add(b);
@@ -87,6 +89,7 @@ public class AnswerConverterTest {
         assertEquals(expected, result.toString());
 
     }
+
 
 
 

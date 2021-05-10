@@ -18,7 +18,10 @@ import android.widget.EditText;
 import com.example.agileproject.Model.Answerable;
 import com.example.agileproject.R;
 import com.example.agileproject.Utils.FileFormatter;
+
 import com.example.agileproject.Utils.FileHandler;
+
+
 
 
 /**
@@ -54,6 +57,7 @@ public class Fragment4_in_QuizActivity extends Fragment {
             public void onClick(View v) {
             String allQuizAnswers = fileFormatter.format(QuizActivity.AnswerHolder.QuizAnswers);
             fileHandler.write(allQuizAnswers,getContext(),"Answers.txt");
+
 
 
             }
