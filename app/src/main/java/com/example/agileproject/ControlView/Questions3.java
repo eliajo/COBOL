@@ -41,7 +41,7 @@ public class Questions3 extends Fragment {
     EditText OtherSideEffects;
   // MultipleTextAnswer question101;
 
-<
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

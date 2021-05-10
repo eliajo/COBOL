@@ -26,10 +26,7 @@ import java.time.LocalDateTime;
 import java.time.LocalDate;
 import java.time.LocalDate;
 import java.time.LocalTime;
-
-
 import java.util.List;
-
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -82,20 +79,17 @@ public class Fragment1_in_QuizActivity extends Fragment {
         });
 
 
-
-
         EnergyLevel.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onCheckedChanged(ChipGroup group, int checkedId) {
                 Chip selectedChip;
                 selectedChip = view.findViewById(group.getCheckedChipId());
-            NumberAnswer question1 = new NumberAnswer( Integer.valueOf(selectedChip.getText().toString()),1, LocalDate.now().toString());
-             AddingToList(question1);
+                NumberAnswer question1 = new NumberAnswer(Integer.valueOf(selectedChip.getText().toString()), 1, LocalDate.now().toString());
+                AddingToList(question1);
             }
 
         });
-
 
 
         Hallucinations.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
@@ -105,7 +99,7 @@ public class Fragment1_in_QuizActivity extends Fragment {
             public void onCheckedChanged(ChipGroup group, int checkedId) {
                 Chip selectedChip;
                 selectedChip = view.findViewById(group.getCheckedChipId());
-              NumberAnswer  question2 = new NumberAnswer(Integer.valueOf(selectedChip.getText().toString()),2, LocalDate.now().toString());
+                NumberAnswer question2 = new NumberAnswer(Integer.valueOf(selectedChip.getText().toString()), 2, LocalDate.now().toString());
                 AddingToList(question2);
             }
 
@@ -118,8 +112,8 @@ public class Fragment1_in_QuizActivity extends Fragment {
             public void onCheckedChanged(ChipGroup group, int checkedId) {
                 Chip selectedChip;
                 selectedChip = view.findViewById(group.getCheckedChipId());
-              NumberAnswer  question2 = new NumberAnswer(Integer.valueOf(selectedChip.getText().toString()),2, LocalDate.now().toString());
-              AddingToList(question2);
+                NumberAnswer question2 = new NumberAnswer(Integer.valueOf(selectedChip.getText().toString()), 2, LocalDate.now().toString());
+                AddingToList(question2);
             }
         });
 
@@ -130,7 +124,7 @@ public class Fragment1_in_QuizActivity extends Fragment {
             public void onCheckedChanged(ChipGroup group, int checkedId) {
                 Chip selectedChip;
                 selectedChip = view.findViewById(group.getCheckedChipId());
-              NumberAnswer  question3 = new NumberAnswer(Integer.valueOf(selectedChip.getText().toString()),3,LocalDate.now().toString());
+                NumberAnswer question3 = new NumberAnswer(Integer.valueOf(selectedChip.getText().toString()), 3, LocalDate.now().toString());
                 AddingToList(question3);
 
             }
@@ -144,13 +138,11 @@ public class Fragment1_in_QuizActivity extends Fragment {
                 Chip selectedChip;
                 selectedChip = view.findViewById(group.getCheckedChipId());
 
-             NumberAnswer question4 = new NumberAnswer(Integer.valueOf(selectedChip.getText().toString()),4,LocalDate.now().toString());
+                NumberAnswer question4 = new NumberAnswer(Integer.valueOf(selectedChip.getText().toString()), 4, LocalDate.now().toString());
                 AddingToList(question4);
             }
 
         });
-
-
 
     }
 

@@ -536,5 +536,4 @@ View for Navigation Graph
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.636"
         app:layout_constraintStart_toStartOf="@+id/next_button_q2" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
