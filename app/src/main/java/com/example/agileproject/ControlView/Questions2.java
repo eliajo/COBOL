@@ -70,6 +70,16 @@ public class Questions2 extends Fragment {
                  view.findViewById(R.id.imageView).setVisibility(View.GONE);
                  view.findViewById(R.id.textView6).setVisibility(View.VISIBLE);
                  view.findViewById(R.id.chipGroup3).setVisibility(View.VISIBLE);
+             }
+         });
+         view.findViewById(R.id.imageView).setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 view.findViewById(R.id.textView10).setVisibility(View.GONE);
+                 view.findViewById(R.id.chipGroup).setVisibility(View.GONE);
+                 view.findViewById(R.id.imageView).setVisibility(View.GONE);
+                 view.findViewById(R.id.textView6).setVisibility(View.VISIBLE);
+                 view.findViewById(R.id.chipGroup3).setVisibility(View.VISIBLE);
 
              }
          });
