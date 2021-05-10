@@ -21,7 +21,6 @@ public class QuizActivity extends AppCompatActivity {
     Fragment1_in_QuizActivity fragment1;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
