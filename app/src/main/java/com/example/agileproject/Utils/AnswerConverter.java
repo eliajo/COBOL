@@ -12,6 +12,7 @@ import java.util.List;
 /**
  * Converts string from file into question objects stored in HashMaps.
  * There's two functions to get the answers, either by date or by question.
+ *
  * @author William Hugo, Elias Johansson
  */
 public class AnswerConverter {
@@ -25,84 +26,76 @@ public class AnswerConverter {
 
     private static AnswerConverter fileConverter;
 
-    private AnswerConverter(){
+    private AnswerConverter() {
         dateMap = new HashMap<>();
         questionMap = new HashMap<>();
     }
 
-    public static AnswerConverter getInstance(){
-        if(fileConverter == null){
+    public static AnswerConverter getInstance() {
+        if (fileConverter == null) {
             fileConverter = new AnswerConverter();
         }
         return fileConverter;
     }
 
     public void convert(String data) {
-    dateMap.clear();
-    questionMap.clear();
-    if (data.length()==0){
-        return;
-    }
+        dateMap.clear();
+        questionMap.clear();
+        if (data.length() == 0) {
+            return;
+        }
         String[] questionsStrings = data.split("@@@---@@@---@@@"); //Split by question
 
-        for (String question:questionsStrings) {
+        for (String question : questionsStrings) {
             String[] answerParameters = question.split("###---###---###");
             Answerable answer;
-            if(answerParameters[typeIndex].equals("0")){
+            if (answerParameters[typeIndex].equals("0")) {
                 //Answer is text
-                answer = new TextAnswer(answerParameters[answerIndex],Integer.parseInt(answerParameters[idIndex]),answerParameters[dateIndex]);
-                if( dateMap.containsKey(answer.getDate()) ) { //if date already exists
+                answer = new TextAnswer(answerParameters[answerIndex], Integer.parseInt(answerParameters[idIndex]), answerParameters[dateIndex]);
+                if (dateMap.containsKey(answer.getDate())) { //if date already exists
                     dateMap.get(answer.getDate()).add(answer);
-                }
-                else { //if date is new
+                } else { //if date is new
                     List<Answerable> answerList = new ArrayList<>();
                     answerList.add(answer);
                     dateMap.put(answer.getDate(), answerList);
                 }
-                if( questionMap.containsKey(answer.getQuestionId()) ) { //if question already exists
+                if (questionMap.containsKey(answer.getQuestionId())) { //if question already exists
                     questionMap.get(answer.getQuestionId()).add(answer);
-                }
-                else { //if questions is new
+                } else { //if questions is new
                     List<Answerable> answerList = new ArrayList<>();
                     answerList.add(answer);
                     questionMap.put(answer.getQuestionId(), answerList);
                 }
-            }
-            else if(answerParameters[typeIndex].equals("1")){
+            } else if (answerParameters[typeIndex].equals("1")) {
                 //Answer is int
-                answer = new NumberAnswer(Integer.parseInt(answerParameters[answerIndex]),Integer.parseInt(answerParameters[idIndex]),answerParameters[dateIndex]);
-                if( dateMap.containsKey(answer.getDate()) ) { //if date already exists
+                answer = new NumberAnswer(Integer.parseInt(answerParameters[answerIndex]), Integer.parseInt(answerParameters[idIndex]), answerParameters[dateIndex]);
+                if (dateMap.containsKey(answer.getDate())) { //if date already exists
                     dateMap.get(answer.getDate()).add(answer);
-                }
-                else { //if date is new
+                } else { //if date is new
                     List<Answerable> answerList = new ArrayList<>();
                     answerList.add(answer);
                     dateMap.put(answer.getDate(), answerList);
                 }
-                if( questionMap.containsKey(answer.getQuestionId()) ) { //if question already exists
+                if (questionMap.containsKey(answer.getQuestionId())) { //if question already exists
                     questionMap.get(answer.getQuestionId()).add(answer);
-                }
-                else { //if questions is new
+                } else { //if questions is new
                     List<Answerable> answerList = new ArrayList<>();
                     answerList.add(answer);
                     questionMap.put(answer.getQuestionId(), answerList);
                 }
-            }
-            else if(answerParameters[typeIndex].equals("2")){
+            } else if (answerParameters[typeIndex].equals("2")) {
                 //Answer is boolean
-                answer = new BooleanAnswer(Boolean.valueOf(answerParameters[answerIndex]),Integer.parseInt(answerParameters[idIndex]),answerParameters[dateIndex]);
-                if( dateMap.containsKey(answer.getDate()) ) { //if date already exists
+                answer = new BooleanAnswer(Boolean.valueOf(answerParameters[answerIndex]), Integer.parseInt(answerParameters[idIndex]), answerParameters[dateIndex]);
+                if (dateMap.containsKey(answer.getDate())) { //if date already exists
                     dateMap.get(answer.getDate()).add(answer);
-                }
-                else { //if date is new
+                } else { //if date is new
                     List<Answerable> answerList = new ArrayList<>();
                     answerList.add(answer);
                     dateMap.put(answer.getDate(), answerList);
                 }
-                if( questionMap.containsKey(answer.getQuestionId()) ) { //if question already exists
+                if (questionMap.containsKey(answer.getQuestionId())) { //if question already exists
                     questionMap.get(answer.getQuestionId()).add(answer);
-                }
-                else { //if questions is new
+                } else { //if questions is new
                     List<Answerable> answerList = new ArrayList<>();
                     answerList.add(answer);
                     questionMap.put(answer.getQuestionId(), answerList);
@@ -113,14 +106,18 @@ public class AnswerConverter {
 
     public List<Answerable> getAnswersByDate(String date) {
         ArrayList<Answerable> safeCopy = new ArrayList<>();
-        safeCopy.addAll(dateMap.get(date));
+        if (dateMap.get(date) != null) {
+            safeCopy.addAll(dateMap.get(date));
+        }
         return safeCopy;
 
     }
 
     public List<Answerable> getAnswersByQuestionID(int questionID) {
         ArrayList<Answerable> safeCopy = new ArrayList<>();
-        safeCopy.addAll(questionMap.get(questionID));
+        if (questionMap.get(questionID) != null) {
+            safeCopy.addAll(questionMap.get(questionID));
+        }
         return safeCopy;
     }
 

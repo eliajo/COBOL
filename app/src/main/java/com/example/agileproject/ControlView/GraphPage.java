@@ -16,10 +16,10 @@ import com.example.agileproject.Model.Answerable;
 import com.example.agileproject.Model.AnswerEntry;
 import com.example.agileproject.Model.GraphHelper;
 import com.example.agileproject.Model.NumberAnswer;
+import com.example.agileproject.Model.Storable;
 import com.example.agileproject.R;
-import com.example.agileproject.Utils.FileConverter;
+import com.example.agileproject.Utils.AnswerConverter;
 import com.example.agileproject.Utils.FileFormatter;
-import com.github.mikephil.charting.data.Entry;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +29,7 @@ import java.util.List;
  * Use the {@link GraphPage#newInstance} factory method to
  * create an instance of this fragment.
  */
+
 public class GraphPage extends Fragment {
 
     public GraphPage() {
@@ -52,20 +53,22 @@ public class GraphPage extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_graph_page, container, false);
-        List<Answerable> answerableList = new ArrayList<>();
+
+
+        List<Storable> answerableList = new ArrayList<>();
+
 
 
         //All this is just demo functionality for now
-        NumberAnswer na1 = new NumberAnswer(5,10,"2021-01-01");
-        NumberAnswer na2 = new NumberAnswer(6,10,"2021-01-02");
-        NumberAnswer na3 = new NumberAnswer(7,10,"2021-01-03");
-        NumberAnswer na4 = new NumberAnswer(5,10,"2021-01-04");
-        NumberAnswer na5 = new NumberAnswer(6,10,"2021-01-05");
-        NumberAnswer na6 = new NumberAnswer(7,10,"2021-01-06");
-
-        NumberAnswer s1 = new NumberAnswer(3,20,"2021-01-01");
-        NumberAnswer s2 = new NumberAnswer(3,20,"2021-01-02");
-        NumberAnswer s3 = new NumberAnswer(3,20,"2021-01-03");
+        NumberAnswer na1 = new NumberAnswer(5,5,"2021-05-03");
+        NumberAnswer na2 = new NumberAnswer(6,5,"2021-05-04");
+        NumberAnswer na3 = new NumberAnswer(7,5,"2021-05-05");
+        NumberAnswer na4 = new NumberAnswer(5,5,"2021-05-06");
+        NumberAnswer na5 = new NumberAnswer(6,5,"2021-05-07");
+        NumberAnswer na6 = new NumberAnswer(7,5,"2021-05-08");
+        NumberAnswer s1 = new NumberAnswer(3,10,"2021-01-01");
+        NumberAnswer s2 = new NumberAnswer(3,10,"2021-01-02");
+        NumberAnswer s3 = new NumberAnswer(3,10,"2021-01-03");
 
 
         answerableList.add(na1);
@@ -80,36 +83,22 @@ public class GraphPage extends Fragment {
         FileFormatter ff = new FileFormatter();
         String save =ff.format(answerableList);
 
-        FileConverter fileConverter = FileConverter.getInstance();
+        AnswerConverter fileConverter = AnswerConverter.getInstance();
         fileConverter.convert(save);
 
         GraphHelper graphHelper = new GraphHelper();
-        List<Answerable> wellBeingList = new ArrayList<>();
-        List<Answerable> sleepList = new ArrayList<>();
-        wellBeingList = graphHelper.getDataFromDateToDate("2021-01-01","2021-01-06",10);
-        sleepList = graphHelper.getDataFromDateToDate("2021-01-01","2021-01-03",20);
-        int index = 0;
+        List<AnswerEntry> wellBeingList = new ArrayList<>();
+        List<AnswerEntry> sleepList = new ArrayList<>();
+        wellBeingList = graphHelper.getDataFromDateToDate("2021-05-03","2021-05-09",5);
+        sleepList = graphHelper.getDataFromDateToDate("2021-01-01","2021-01-03",10);
 
         List<List<AnswerEntry>> entries = new ArrayList<>();
 
-        List<AnswerEntry> wellBeingEntry = new ArrayList<>();
-        List<AnswerEntry> sleepEntry = new ArrayList<>();
+        //Order is very important here...
+        entries.add(wellBeingList);
+        entries.add(sleepList);
 
-        for (Answerable a:wellBeingList) {
-            int tmp = (Integer) a.getData();
-            wellBeingEntry.add(new AnswerEntry(index,1.0f*tmp,a.getQuestionId()));
-            index++;
-        }
-        index=0;
 
-        for (Answerable a:sleepList) {
-            int tmp = (Integer) a.getData();
-            sleepEntry.add(new AnswerEntry(index,1.0f*tmp,a.getQuestionId()));
-            index++;
-        }
-
-        entries.add(wellBeingEntry);
-        entries.add(sleepEntry);
 
 
         RecyclerView recyclerView = v.findViewById(R.id.graph_recycler);

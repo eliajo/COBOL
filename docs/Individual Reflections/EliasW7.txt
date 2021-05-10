@@ -1,0 +1,23 @@
+what do I want to learn or understand better?
+
+Like last week I want to understand scrum better. I also want to improve my ability to develop several parts of a program at once. This week I felt like I could not focus as much as I wanted
+on one single task sicne I had to help others. To do this I probably should slow down a bit and try to not take to many tasks at once.
+
+how can I help someone else, or the entire team, to learn something new?
+
+I helped parts of the team find bugs and understand some key concepts in Android. I also spent some of that time pair programming. I felt like it made our development more effective and this
+is something I think should continue. I also had some discussions about code quality with some members of the group. So generally just beimg around to help team members is
+my plan to continue this.
+
+what is my contribution towards the team’s use of Scrum?
+
+I have done some code review like usual. I also created some tasks. I have also spent some time reminding everyone of the roles we had when some discussions sprung up.
+This was due to some discussion between PO and team members about priorities. I tried to make sure that the team knows that PO decides at the end of the day. 
+I think I am comfortable with my contribution at the moment so nothing is really going to change. 
+
+
+what is my contribution towards the team’s deliveries?
+
+I worked a little with the save system, mostly impementation decisions. I also worked on the notification system and the graphs. 
+I feel like my productivity is better than last week but I wish I could spent more time on one single thing. I think this hurt my productivity. To remedy this I plan to
+see if I can share some knowledge about the code I have written with the rest of the group. 
