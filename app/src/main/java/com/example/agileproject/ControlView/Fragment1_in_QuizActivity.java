@@ -34,7 +34,6 @@ import java.util.List;
 
 
 
-
 /**
  * @author Pegah Amanzadeh
  */
@@ -97,21 +96,6 @@ public class Fragment1_in_QuizActivity extends Fragment {
 
 
         Hallucinations.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
-
-            @RequiresApi(api = Build.VERSION_CODES.O)
-            @Override
-            public void onCheckedChanged(ChipGroup group, int checkedId) {
-                Chip selectedChip;
-                selectedChip = view.findViewById(group.getCheckedChipId());
-                NumberAnswer question2 = new NumberAnswer(Integer.valueOf(selectedChip.getText().toString()), 2, LocalDate.now().toString());
-                AddingToList(question2);
-            }
-
-        });
-
-
-
-        Hallucinations.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onCheckedChanged(ChipGroup group, int checkedId) {
@@ -124,7 +108,6 @@ public class Fragment1_in_QuizActivity extends Fragment {
 
 
         Delusions.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
-
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onCheckedChanged(ChipGroup group, int checkedId) {
@@ -138,13 +121,11 @@ public class Fragment1_in_QuizActivity extends Fragment {
 
 
         Anxiety.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
-
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onCheckedChanged(ChipGroup group, int checkedId) {
                 Chip selectedChip;
                 selectedChip = view.findViewById(group.getCheckedChipId());
-
                 NumberAnswer question4 = new NumberAnswer(Integer.valueOf(selectedChip.getText().toString()), 4, LocalDate.now().toString());
                 AddingToList(question4);
             }
@@ -163,7 +144,8 @@ public class Fragment1_in_QuizActivity extends Fragment {
 
         }
         QuizActivity.AnswerHolder.QuizAnswers.add(answerable);
+     }
 
 
-    }
+
 }
