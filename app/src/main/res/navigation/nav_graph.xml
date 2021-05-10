@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <!--
 View for Navigation Graph
 @author Edenia Isaac
@@ -87,4 +88,5 @@ View for Navigation Graph
             android:id="@+id/action_complementaryQuestion3_to_question4"
             app:destination="@id/question4" />
     </fragment>
+
 </navigation>

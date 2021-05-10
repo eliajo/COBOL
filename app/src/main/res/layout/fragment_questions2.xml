@@ -382,6 +382,7 @@ View for Navigation Graph
         android:id="@+id/imageView"
         android:layout_width="34dp"
         android:layout_height="33dp"
+
         android:layout_marginStart="28dp"
         android:layout_marginLeft="28dp"
         android:src="@drawable/back_arrow"
