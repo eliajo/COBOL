@@ -18,8 +18,42 @@ public class AnswerDataAnalyzer {
     public AnswerDataAnalyzer() {}
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public void analyzeBalance(int id, int time, int upper, int lower) {
+    public void analyzeBalance(int id, int time) {
         List<Answerable> toAnalyze = timeFrameAdjust(id, time);
+
+        switch (toAnalyze.get(0).getType()) {
+            case 0: //The answer type is text
+                System.out.println("Text");
+                break;
+            case 1: //The answer type is int
+                numberAnalyze(toAnalyze);
+                break;
+            case 2: //The answer type is boolean
+                System.out.println("Boolean");
+                break;
+        }
+    }
+
+    private void numberAnalyze(List<Answerable> toAnalyze) {
+        List<NumberAnswer> numberAnswers = new ArrayList<>();
+        for (Answerable a : toAnalyze) {
+            numberAnswers.add((NumberAnswer) a);
+        }
+
+        //TODO a function which fetches upper and lower limits from settings
+        int upper = 10;
+        int lower = 0;
+
+        boolean warning = true;
+        for(NumberAnswer a : numberAnswers) {
+            if(upper >= a.getData() && lower <= a.getData()) {
+                warning = false;
+            }
+        }
+
+        if(warning) {
+            //TODO send notification
+        }
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
