@@ -64,7 +64,6 @@ public class Questions3 extends Fragment {
            @Override
            public void onClick(View v) {
                editText.setVisibility(View.VISIBLE);
-
            }
        });
 
@@ -74,7 +73,6 @@ public class Questions3 extends Fragment {
                view.findViewById(R.id.textView11).setVisibility(View.GONE);
                view.findViewById(R.id.side_effects).setVisibility(View.GONE);
                view.findViewById(R.id.imageView3).setVisibility(View.GONE);
-               editText.setVisibility(View.GONE);
                view.findViewById(R.id.textView2).setVisibility(View.VISIBLE);
                view.findViewById(R.id.chipGroup).setVisibility(View.VISIBLE);
            }

@@ -388,13 +388,13 @@ View for Navigation Graph
         android:id="@+id/imageView3"
         android:layout_width="34dp"
         android:layout_height="33dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginLeft="36dp"
-        android:layout_marginBottom="28dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
         android:src="@drawable/back_arrow"
         android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputSideEffects" />
+
 
     <com.google.android.material.chip.ChipGroup
         android:id="@+id/side_effects"
