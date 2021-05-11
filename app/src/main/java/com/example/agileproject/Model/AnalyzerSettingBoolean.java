@@ -1,6 +1,7 @@
 package com.example.agileproject.Model;
 
 /**
+ * Settings for analyzing answers with the data type boolean
  * @author William Hugo
  */
 public class AnalyzerSettingBoolean implements AnalyzerSettable, Storable {
@@ -9,14 +10,16 @@ public class AnalyzerSettingBoolean implements AnalyzerSettable, Storable {
 
     private boolean warningSign;
 
-    public AnalyzerSettingBoolean(int id) {
+    public AnalyzerSettingBoolean(int id, boolean warningSign) {
+        this.warningSign = warningSign;
+
         this.id = id;
         this.type = 2;
     }
 
     @Override
     public String getInfoToWrite() {
-        return null;
+        return id + "###---###---###" + type + "###---###---###" + warningSign;
     }
 
     @Override
