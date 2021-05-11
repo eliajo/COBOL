@@ -26,18 +26,16 @@ public class QuizActivity extends AppCompatActivity {
 
         Fragment navHostFragment = getSupportFragmentManager().getPrimaryNavigationFragment();
         Fragment fragment = navHostFragment.getChildFragmentManager().getFragments().get(0);
-        if(fragment.getId() == 0x7f0901aa){
-            findViewById(R.id.textView10).setVisibility(View.GONE);
-            findViewById(R.id.chipGroup).setVisibility(View.GONE);
-            findViewById(R.id.imageView).setVisibility(View.GONE);
-            findViewById(R.id.textView6).setVisibility(View.VISIBLE);
-            findViewById(R.id.chipGroup3).setVisibility(View.VISIBLE);
+        if(fragment.getClass().equals(Questions3.class)){
+            findViewById(R.id.textView11).setVisibility(View.GONE);
+            findViewById(R.id.Side_Effects).setVisibility(View.GONE);
+            findViewById(R.id.imageView3).setVisibility(View.GONE);
+            findViewById(R.id.textInputSideEffects).setVisibility(View.GONE);
+            findViewById(R.id.textView2).setVisibility(View.VISIBLE);
+            findViewById(R.id.chipGroup).setVisibility(View.VISIBLE);
         }else{
             super.onBackPressed();
         }
-
-
-
     }
 
 
@@ -66,6 +64,7 @@ public class QuizActivity extends AppCompatActivity {
             }
             QuizActivity.AnswerHolder.QuizAnswers.add(answerable);
         }
+
 
 
     public static boolean getBooleanValue(String answer){

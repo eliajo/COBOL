@@ -94,8 +94,6 @@ public class Fragment4_in_QuizActivity extends Fragment {
             String allQuizAnswers = fileFormatter.format(QuizActivity.AnswerHolder.QuizAnswers);
             fileHandler.write(allQuizAnswers,getContext(),"Answers.txt");
 
-
-
             }
         });
 
@@ -151,29 +149,6 @@ public class Fragment4_in_QuizActivity extends Fragment {
 
     }
 
-  /*  private void AddingToList(Answerable answerable) {
-        List<Answerable> answerables = new ArrayList<>(QuizActivity.AnswerHolder.QuizAnswers);
-
-        for (Answerable a : answerables) {
-            if (a.getQuestionId() == answerable.getQuestionId()) {
-                QuizActivity.AnswerHolder.QuizAnswers.remove(a);
-            }
-
-
-        }
-        QuizActivity.AnswerHolder.QuizAnswers.add(answerable);
-
-    }*/
-
-   /* private boolean getBooleanValue(String answer){
-        Boolean YesOrNo = false;
-        String Yes = "Ja ";
-        if(answer.equals(Yes)){
-            YesOrNo = true;
-        }
-        return YesOrNo;
-    }
-    */
 
 
 }

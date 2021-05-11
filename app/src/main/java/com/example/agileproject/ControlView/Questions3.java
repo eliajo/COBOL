@@ -40,6 +40,7 @@ public class Questions3 extends Fragment {
     ChipGroup SideEffects;
     EditText OtherSideEffects;
    MultipleTextAnswer question101;
+   Chip other;
 
 
     @Override
@@ -47,6 +48,7 @@ public class Questions3 extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_question3, container, false);
+
     }
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -58,12 +60,30 @@ public class Questions3 extends Fragment {
         SideEffectsYesOrNo = view.findViewById(R.id.chipGroup);
         SideEffects = view.findViewById(R.id.Side_Effects);
         OtherSideEffects = view.findViewById(R.id.textInputSideEffects);
+        other =  view.findViewById(R.id.otherSideEffectsChip);
 
 
         view.findViewById(R.id.next_button_questions3).setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {
                 navController.navigate(R.id.action_questions3_to_question4);
+                if (view.findViewById(R.id.chipYesSideEffects).isSelected()) {
+
+                    List<Integer> ids = SideEffects.getCheckedChipIds();
+                    List<String> answers = new ArrayList<>();
+                    for (Integer id : ids) {
+                        Chip chip = view.findViewById(id);
+                        String text = chip.getText().toString();
+                        if (text.equals("Andra")) {
+                            text = OtherSideEffects.getText().toString();
+                        }
+                        answers.add(text);
+                    }
+                    question101 = new MultipleTextAnswer(answers, 10.1, LocalDate.now().toString());
+
+                    QuizActivity.AnswerHolder.AddingToList(question101);
+                }
             }
         });
 
@@ -75,68 +95,53 @@ public class Questions3 extends Fragment {
                view.findViewById(R.id.textView11).setVisibility(View.VISIBLE);
                view.findViewById(R.id.Side_Effects).setVisibility(View.VISIBLE);
                view.findViewById(R.id.imageView3).setVisibility(View.VISIBLE);
-               //navController.navigate(R.id.action_questions3_to_complementaryQuestion3);
+              view.findViewById(R.id.chipYesSideEffects).setSelected(true);
+              if(other.isChecked()){
+                  OtherSideEffects.setVisibility(View.VISIBLE);
+              }
 
            }
        });
 
-       view.findViewById(R.id.otherSideEffectsChip).setOnClickListener(new View.OnClickListener() {
+       other.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
-               editText.setVisibility(View.VISIBLE);
+               if(other.isChecked()){
+                   editText.setVisibility(View.VISIBLE);
+               }else if (!other.isChecked()){
+                   editText.setVisibility(View.GONE);
+               }
 
            }
        });
+
+
 
        view.findViewById(R.id.imageView3).setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
                view.findViewById(R.id.textView11).setVisibility(View.GONE);
-               view.findViewById(R.id.side_effects).setVisibility(View.GONE);
+               view.findViewById(R.id.Side_Effects).setVisibility(View.GONE);
                view.findViewById(R.id.imageView3).setVisibility(View.GONE);
+               view.findViewById(R.id.textInputSideEffects).setVisibility(View.GONE);
                view.findViewById(R.id.textView2).setVisibility(View.VISIBLE);
                view.findViewById(R.id.chipGroup).setVisibility(View.VISIBLE);
 
            }
        });
 
-       view.findViewById(R.id.imageView3).setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-               view.findViewById(R.id.textView11).setVisibility(View.GONE);
-               view.findViewById(R.id.side_effects).setVisibility(View.GONE);
-               view.findViewById(R.id.imageView3).setVisibility(View.GONE);
-               view.findViewById(R.id.textView2).setVisibility(View.VISIBLE);
-               view.findViewById(R.id.chipGroup).setVisibility(View.VISIBLE);
 
-           }
-       });
-
-       view.findViewById(R.id.otherSideEffectsChip).setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-               editText.setVisibility(View.VISIBLE);
-           }
-       });
-
-       view.findViewById(R.id.imageView3).setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-               view.findViewById(R.id.textView11).setVisibility(View.GONE);
-               view.findViewById(R.id.side_effects).setVisibility(View.GONE);
-               view.findViewById(R.id.imageView3).setVisibility(View.GONE);
-               view.findViewById(R.id.textView2).setVisibility(View.VISIBLE);
-               view.findViewById(R.id.chipGroup).setVisibility(View.VISIBLE);
-           }
-       });
 
        Anger.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
            @RequiresApi(api = Build.VERSION_CODES.O)
            @Override
            public void onCheckedChanged(ChipGroup group, int checkedId) {
                Chip selectedChip = view.findViewById(group.getCheckedChipId());
-               NumberAnswer question8 = new NumberAnswer(Integer.valueOf(selectedChip.getText().toString()),8, LocalDate.now().toString());
-               AddingToList(question8);
+               if( selectedChip != null){
+                   NumberAnswer question8 = new NumberAnswer(Integer.valueOf(selectedChip.getText().toString()),8, LocalDate.now().toString());
+                 QuizActivity.AnswerHolder.AddingToList(question8);
+               }
+
            }
        });
 
@@ -145,9 +150,11 @@ public class Questions3 extends Fragment {
            @Override
            public void onCheckedChanged(ChipGroup group, int checkedId) {
                Chip selectedChip = view.findViewById(group.getCheckedChipId());
-               Boolean YesOrNo = getBooleanValue(selectedChip.getText().toString());
-               BooleanAnswer question9 = new BooleanAnswer(YesOrNo,9,LocalDate.now().toString());
-               AddingToList(question9);
+               if(selectedChip != null) {
+                   Boolean YesOrNo = QuizActivity.AnswerHolder.getBooleanValue(selectedChip.getText().toString());
+                   BooleanAnswer question9 = new BooleanAnswer(YesOrNo, 9, LocalDate.now().toString());
+                  QuizActivity.AnswerHolder.AddingToList(question9);
+               }
            }
        });
 
@@ -156,73 +163,28 @@ public class Questions3 extends Fragment {
            @Override
            public void onCheckedChanged(ChipGroup group, int checkedId) {
                Chip selectedChip = view.findViewById(group.getCheckedChipId());
-               Boolean YesOrNo = getBooleanValue(selectedChip.getText().toString());
-               BooleanAnswer question10 = new BooleanAnswer(YesOrNo,10,LocalDate.now().toString());
-               AddingToList(question10);
-               if(YesOrNo == false ){
-                   RemoveComplementaryQuestion();
+               if( selectedChip != null) {
+                   Boolean YesOrNo = QuizActivity.AnswerHolder.getBooleanValue(selectedChip.getText().toString());
+                   BooleanAnswer question10 = new BooleanAnswer(YesOrNo, 10, LocalDate.now().toString());
+                  QuizActivity.AnswerHolder.AddingToList(question10);
+                   if (YesOrNo == false) {
+                       RemoveComplementaryQuestion();
+                       view.findViewById(R.id.chipYesSideEffects).setSelected(false);
+                   }
                }
            }
        });
 
 
-       SideEffects.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
-           @RequiresApi(api = Build.VERSION_CODES.O)
-           @Override
-           public void onCheckedChanged(ChipGroup group, int checkedId) {
-               List<Integer> ids = group.getCheckedChipIds();
-               List<String> answers = new ArrayList<>() ;
-                for(Integer id:ids){
-                    Chip chip = group.findViewById(id);
-                   String text = chip.getText().toString();
-                   if(text.equals("Andra")){
-                       text = OtherSideEffects.getText().toString();
-                   }
-                    answers.add(text);
-                }
-                question101 =  new MultipleTextAnswer(answers,10.1,LocalDate.now().toString());
-
-                AddingToList(question101);
-           }
-       });
-
 
     }
 
 
-
-    private void RemoveComplementaryQuestion(){
-        if(QuizActivity.AnswerHolder.QuizAnswers.contains(  question101)){
+    private void RemoveComplementaryQuestion() {
+        if (QuizActivity.AnswerHolder.QuizAnswers.contains(question101)) {
             QuizActivity.AnswerHolder.QuizAnswers.remove(question101);
         }
     }
-
-    private void AddingToList(Answerable answerable) {
-        List<Answerable> answerables = new ArrayList<>(QuizActivity.AnswerHolder.QuizAnswers);
-
-        for (Answerable a : answerables) {
-            if (a.getQuestionId() == answerable.getQuestionId()) {
-                QuizActivity.AnswerHolder.QuizAnswers.remove(a);
-            }
-
-
-        }
-        QuizActivity.AnswerHolder.QuizAnswers.add(answerable);
-
-    }
-
-    private boolean getBooleanValue(String answer){
-        Boolean YesOrNo = false;
-        String Yes = "Ja ";
-        if(answer.equals(Yes)){
-            YesOrNo = true;
-        }
-        return YesOrNo;
-
-    }
-
-
-
 
 
 

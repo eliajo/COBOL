@@ -239,7 +239,7 @@ View for Navigation Graph
             android:text="Ja " />
 
         <com.google.android.material.chip.Chip
-            android:id="@+id/chip2"
+            android:id="@+id/chipNoSideEffects"
             style="@style/YesOrNowChipStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -276,7 +276,7 @@ View for Navigation Graph
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/side_effects" />
+        app:layout_constraintTop_toBottomOf="@+id/Side_Effects" />
 
 
     <ImageView
