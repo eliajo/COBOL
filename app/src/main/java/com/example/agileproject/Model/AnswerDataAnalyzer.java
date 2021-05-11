@@ -23,13 +23,13 @@ public class AnswerDataAnalyzer {
 
         switch (toAnalyze.get(0).getType()) {
             case 0: //The answer type is text
-                System.out.println("Can't analyze text");
+                System.out.println("Can't analyze text"); //TODO should just be an exception here
                 break;
             case 1: //The answer type is int
                 numberAnalyze(toAnalyze);
                 break;
             case 2: //The answer type is boolean
-                System.out.println("Boolean");
+                System.out.println("Boolean"); //TODO add functions for boolean to call here
                 break;
         }
     }
