@@ -20,9 +20,12 @@ import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
+import com.github.mikephil.charting.formatter.IAxisValueFormatter;
 import com.github.mikephil.charting.formatter.PercentFormatter;
+import com.github.mikephil.charting.formatter.ValueFormatter;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -131,6 +134,8 @@ public class GraphDrawer {
         holder.getMainLabel().setTextSize(22f);
         chart.getDescription().setText("");
         chart.getLegend().setEnabled(false);
+       // IAxisValueFormatter xAxisFormatter= new ChartXAxisFormatter();
+       // chart.getXAxis().setValueFormatter(xAxisFormatter);
 
     }
 
