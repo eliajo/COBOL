@@ -47,11 +47,6 @@ public class Questions2 extends Fragment {
 
 
 
-    public Questions2() {
-        // Required empty public constructor
-    }
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -77,6 +72,13 @@ public class Questions2 extends Fragment {
              }
          });
 
+         view.findViewById(R.id.chipYes).setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 view.findViewById(R.id.chipNo).setSelected(false);
+             }
+         });
+
          view.findViewById(R.id.chipNo).setOnClickListener(new View.OnClickListener() {
 
              @Override
@@ -86,9 +88,11 @@ public class Questions2 extends Fragment {
                  view.findViewById(R.id.textView10).setVisibility(View.VISIBLE);
                  view.findViewById(R.id.chipGroup).setVisibility(View.VISIBLE);
                  view.findViewById(R.id.imageView).setVisibility(View.VISIBLE);
+                 view.findViewById(R.id.chipNo).setSelected(true);
 
              }
          });
+
          view.findViewById(R.id.imageView).setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View v) {
@@ -97,17 +101,6 @@ public class Questions2 extends Fragment {
                  view.findViewById(R.id.imageView).setVisibility(View.GONE);
                  view.findViewById(R.id.textView6).setVisibility(View.VISIBLE);
                  view.findViewById(R.id.chipGroup3).setVisibility(View.VISIBLE);
-             }
-         });
-         view.findViewById(R.id.imageView).setOnClickListener(new View.OnClickListener() {
-             @Override
-             public void onClick(View v) {
-                 view.findViewById(R.id.textView10).setVisibility(View.GONE);
-                 view.findViewById(R.id.chipGroup).setVisibility(View.GONE);
-                 view.findViewById(R.id.imageView).setVisibility(View.GONE);
-                 view.findViewById(R.id.textView6).setVisibility(View.VISIBLE);
-                 view.findViewById(R.id.chipGroup3).setVisibility(View.VISIBLE);
-
              }
          });
 
@@ -116,8 +109,11 @@ public class Questions2 extends Fragment {
              @Override
              public void onCheckedChanged(ChipGroup group, int checkedId) {
                  Chip selectedChip = view.findViewById(group.getCheckedChipId());
-                 NumberAnswer question5 = new NumberAnswer(Integer.valueOf(selectedChip.getText().toString()),5, LocalDate.now().toString());
-                AddingToList(question5);
+                 if(selectedChip != null){
+                     NumberAnswer question5 = new NumberAnswer(Integer.valueOf(selectedChip.getText().toString()),5, LocalDate.now().toString());
+                    QuizActivity.AnswerHolder.AddingToList(question5);
+                 }
+
              }
          });
 
@@ -126,8 +122,10 @@ public class Questions2 extends Fragment {
              @Override
              public void onCheckedChanged(ChipGroup group, int checkedId) {
                  Chip selectedChip = view.findViewById(group.getCheckedChipId());
-                 NumberAnswer question6 = new NumberAnswer(Integer.valueOf(selectedChip.getText().toString()),6,LocalDate.now().toString());
-                 AddingToList(question6);
+                 if(selectedChip != null) {
+                     NumberAnswer question6 = new NumberAnswer(Integer.valueOf(selectedChip.getText().toString()), 6, LocalDate.now().toString());
+                    QuizActivity.AnswerHolder.AddingToList(question6);
+                 }
              }
          });
 
@@ -136,14 +134,15 @@ public class Questions2 extends Fragment {
              @Override
              public void onCheckedChanged(ChipGroup group, int checkedId) {
                  Chip selectedChip = view.findViewById(group.getCheckedChipId());
+                 if (selectedChip != null) {
                  String answer = selectedChip.getText().toString();
-                 Boolean YesOrNo = getBooleanValue(answer);
-                 BooleanAnswer question7 = new BooleanAnswer( YesOrNo,7,LocalDate.now().toString());
-                 AddingToList(question7);
-                 if(YesOrNo == true){
+                 Boolean YesOrNo = QuizActivity.AnswerHolder.getBooleanValue(answer);
+                 BooleanAnswer question7 = new BooleanAnswer(YesOrNo, 7, LocalDate.now().toString());
+                QuizActivity.AnswerHolder.AddingToList(question7);
+                 if (YesOrNo == true) {
                      RemoveComplementaryQuestion();
                  }
-
+               }
              }
          });
           Reasons.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -152,26 +151,11 @@ public class Questions2 extends Fragment {
               public void onCheckedChanged(RadioGroup group, int checkedId) {
                   RadioButton selectedButton = view.findViewById(group.getCheckedRadioButtonId());
                   question71 = new TextAnswer(selectedButton.getText().toString(),71,LocalDate.now().toString());
-                 AddingToList(question71);
+                QuizActivity.AnswerHolder.AddingToList(question71);
               }
           });
 
     }
-
-    private void AddingToList(Answerable answerable) {
-        List<Answerable> answerables = new ArrayList<>(QuizActivity.AnswerHolder.QuizAnswers);
-
-        for (Answerable a : answerables) {
-            if (a.getQuestionId() == answerable.getQuestionId()) {
-                QuizActivity.AnswerHolder.QuizAnswers.remove(a);
-            }
-
-
-        }
-        QuizActivity.AnswerHolder.QuizAnswers.add(answerable);
-
-    }
-
 
     private void RemoveComplementaryQuestion(){
         if(QuizActivity.AnswerHolder.QuizAnswers.contains(question71)){
@@ -179,14 +163,6 @@ public class Questions2 extends Fragment {
         }
     }
 
-    private boolean getBooleanValue(String answer){
-        Boolean YesOrNo = false;
-        String Yes = "Ja ";
-        if(answer.equals(Yes)){
-            YesOrNo = true;
-        }
-      return YesOrNo;
-    }
 
 
 }

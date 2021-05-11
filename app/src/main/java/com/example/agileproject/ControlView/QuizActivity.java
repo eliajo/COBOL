@@ -26,16 +26,29 @@ public class QuizActivity extends AppCompatActivity {
 
         Fragment navHostFragment = getSupportFragmentManager().getPrimaryNavigationFragment();
         Fragment fragment = navHostFragment.getChildFragmentManager().getFragments().get(0);
-        if(fragment.getClass().equals(Questions3.class)){
+        if(fragment.getClass().equals(Questions3.class) && findViewById(R.id.chipYesSideEffects).isSelected()){
             findViewById(R.id.textView11).setVisibility(View.GONE);
             findViewById(R.id.Side_Effects).setVisibility(View.GONE);
             findViewById(R.id.imageView3).setVisibility(View.GONE);
             findViewById(R.id.textInputSideEffects).setVisibility(View.GONE);
             findViewById(R.id.textView2).setVisibility(View.VISIBLE);
             findViewById(R.id.chipGroup).setVisibility(View.VISIBLE);
-        }else{
+        } else if(fragment.getClass().equals(Questions2.class) && findViewById(R.id.chipNo).isSelected()){
+            findViewById(R.id.textView10).setVisibility(View.GONE);
+            findViewById(R.id.chipGroup).setVisibility(View.GONE);
+            findViewById(R.id.imageView).setVisibility(View.GONE);
+            findViewById(R.id.textView6).setVisibility(View.VISIBLE);
+            findViewById(R.id.chipGroup3).setVisibility(View.VISIBLE);
+
+        }
+        else{
             super.onBackPressed();
         }
+
+        //findViewById(R.id.chipNo).isSelected(
+       // findViewById(R.id.chipYesSideEffects).isSelected()
+
+
     }
 
 
