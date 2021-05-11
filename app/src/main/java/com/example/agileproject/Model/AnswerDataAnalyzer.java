@@ -52,7 +52,7 @@ public class AnswerDataAnalyzer {
     private boolean aboveUpperLimit(List<NumberAnswer> toAnalyze) {
         boolean sendWarning = true;
         for(NumberAnswer a : toAnalyze) { //check upper bound
-            if(upper >= a.getData()) { //TODO method to get value from other place
+            if(/**upper >= a.getData()*/sendWarning) { //TODO method to get value from other place
                 sendWarning = false;
             }
         }
@@ -62,7 +62,7 @@ public class AnswerDataAnalyzer {
     private boolean belowLowerLimit(List<NumberAnswer> toAnalyze) {
         boolean sendWarning = true;
         for(NumberAnswer a : toAnalyze) { //check lower bound
-            if(lower <= a.getData()) { //TODO method to get value from other place
+            if(/**lower <= a.getData()*/ sendWarning) { //TODO method to get value from other place
                 sendWarning = false;
             }
         }
