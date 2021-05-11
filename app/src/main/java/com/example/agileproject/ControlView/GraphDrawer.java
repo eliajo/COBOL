@@ -85,20 +85,21 @@ public class GraphDrawer {
 
         LineData lineData = new LineData(lineDataSet);
         chart.getAxisRight().setEnabled(false);
-        switch (timePeriod){
+      /*  switch (timePeriod){
             case WEEK: chart.getXAxis().setAxisMaximum(7);
             break;
             //Not really 30 days a month so might need to fix this
-            case MONTH: chart.getXAxis().setAxisMaximum(30);
+            case MONTH: chart.getXAxis().setAxisMaximum(4);
             break;
-            case YEAR: chart.getXAxis().setAxisMaximum(365);
-        }
+            case YEAR: chart.getXAxis().setAxisMaximum(12);
+        }*/
 
         chart.getXAxis().setAxisMinimum(0f);
         chart.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);
         //chart.setVisibleXRange(entries.size()-1,entries.size()-1);
-        chart.getAxisLeft().setAxisMaximum(10);
+
         chart.getAxisLeft().setAxisMinimum(0);
+        chart.getAxisLeft().setAxisMaximum(10);
         chart.getAxisLeft().setGranularity(1f);
 
         chart.getAxisLeft().setDrawGridLines(false);
@@ -112,8 +113,7 @@ public class GraphDrawer {
         //chart.setVisibleXRangeMinimum(0);
         //chart.setVisibleXRangeMaximum(10);
         chart.setData(lineData);
-        chart.fitScreen();
-        chart.invalidate();
+
         lineData.setDrawValues(false);
         chart.setDrawMarkers(false);
         lineDataSet.setHighlightEnabled(true);
@@ -134,8 +134,20 @@ public class GraphDrawer {
         holder.getMainLabel().setTextSize(22f);
         chart.getDescription().setText("");
         chart.getLegend().setEnabled(false);
-       // IAxisValueFormatter xAxisFormatter= new ChartXAxisFormatter();
-       // chart.getXAxis().setValueFormatter(xAxisFormatter);
+        ValueFormatter valueFormatter = new com.example.agileproject.ControlView.ValueFormatter(entries.get(position).size(),entries.get(position).get(entries.get(position).size()-1).getDateAdded());
+        chart.getXAxis().setValueFormatter(valueFormatter);
+
+        if (timePeriod== GraphHelper.TimePeriod.WEEK){
+            chart.setVisibleXRange(0, 7);
+        }
+        else if (timePeriod== GraphHelper.TimePeriod.MONTH){
+            chart.setVisibleXRange(0, 4);
+        }
+        else if (timePeriod== GraphHelper.TimePeriod.YEAR){
+            chart.setVisibleXRange(0, 12);
+        }
+        chart.fitScreen();
+        chart.invalidate();
 
     }
 

@@ -152,7 +152,7 @@ public class GraphAdapter extends RecyclerView.Adapter<GraphAdapter.GraphHolder>
             GraphHelper graphHelper = new GraphHelper();
             List<AnswerEntry> subEntries = graphHelper.getDataFromDateToDate(startDate.toString(), endDate.toString(), questionId);
             if (subEntries.size()==0){
-                subEntries.add(new AnswerEntry(0,0,mockQuestionId));
+                subEntries.add(new AnswerEntry(0,0,mockQuestionId,null));
             }
             entries.set(position,subEntries);
 
@@ -164,7 +164,7 @@ public class GraphAdapter extends RecyclerView.Adapter<GraphAdapter.GraphHolder>
             GraphHelper graphHelper = new GraphHelper();
             List<AnswerEntry> subEntries = graphHelper.getDataFromDateToDate(startDate.toString(), endDate.toString(), questionId);
             if (subEntries.size()==0){
-                subEntries.add(new AnswerEntry(0,0,mockQuestionId));
+                subEntries.add(new AnswerEntry(0,0,mockQuestionId,null));
             }
             entries.set(position,subEntries);
 
@@ -176,7 +176,7 @@ public class GraphAdapter extends RecyclerView.Adapter<GraphAdapter.GraphHolder>
             GraphHelper graphHelper = new GraphHelper();
             List<AnswerEntry> subEntries = graphHelper.getDataFromDateToDate(startDate.toString(), endDate.toString(), questionId);
             if (subEntries.size()==0){
-                subEntries.add(new AnswerEntry(0,0,mockQuestionId));
+                subEntries.add(new AnswerEntry(0,0,mockQuestionId,null));
             }
             entries.set(position,subEntries);
 
