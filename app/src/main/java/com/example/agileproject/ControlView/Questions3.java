@@ -80,7 +80,7 @@ public class Questions3 extends Fragment {
                         }
                         answers.add(text);
                     }
-                    question101 = new MultipleTextAnswer(answers, 10.1, LocalDate.now().toString());
+                    question101 = new MultipleTextAnswer(answers, 101, LocalDate.now().toString());
 
                     QuizActivity.AnswerHolder.AddingToList(question101);
                 }

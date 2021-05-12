@@ -24,14 +24,14 @@ public class ContactConverterTest {
         Contact c2 = new Contact("n2","0002");
         Contact c3 = new Contact("n3","0003","email@email.com");
 
-        List<Storable> storableList = new ArrayList<>();
+        List<Contact> storableList = new ArrayList<>();
 
         storableList.add(c1);
         storableList.add(c2);
         storableList.add(c3);
 
         FileFormatter ff = new FileFormatter();
-        String formattedData = ff.format(storableList);
+        String formattedData = ff.formatContact(storableList);
 
         ContactConverter.getInstance().convert(formattedData);
 

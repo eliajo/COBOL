@@ -2,6 +2,7 @@ package com.example.agileproject;
 
 import com.example.agileproject.Model.Answerable;
 import com.example.agileproject.Model.BooleanAnswer;
+import com.example.agileproject.Model.MultipleTextAnswer;
 import com.example.agileproject.Model.NumberAnswer;
 import com.example.agileproject.Model.Storable;
 import com.example.agileproject.Model.TextAnswer;
@@ -32,6 +33,10 @@ public class AnswerConverterTest {
         NumberAnswer d = new NumberAnswer(8,20,"2021-04-17");
         TextAnswer e = new TextAnswer("Hello!",30,"2021-04-17");
         BooleanAnswer f = new BooleanAnswer(true,40,"2021-04-18");
+        List <String> multipleChoiceList = new ArrayList<>();
+        multipleChoiceList.add("VattenKastning");
+        multipleChoiceList.add("AnnatTest");
+        MultipleTextAnswer g = new MultipleTextAnswer(multipleChoiceList,111,"2021-04-18");
 
         List<Answerable> answers = new ArrayList<>();
 
@@ -41,16 +46,17 @@ public class AnswerConverterTest {
         answers.add(d);
         answers.add(e);
         answers.add(f);
+        answers.add(g);
 
         FileFormatter ff = new FileFormatter();
         String res = ff.format(answers);
         AnswerConverter fc = AnswerConverter.getInstance();
         fc.convert(res);
 
-        String expected = b.getInfoToWrite() + f.getInfoToWrite();
+        String expected = b.getInfoToWrite() + f.getInfoToWrite() + g.getInfoToWrite();
         StringBuilder result = new StringBuilder();
         for (Answerable ans: fc.getAnswersByDate("2021-04-18")) {
-            result.append(ans.getData()+"###---###---###"+ans.getQuestionId() + "###---###---###" + ans.getDate() + "###---###---###" + ans.getType());
+            result.append(ans.getInfoToWrite());
         }
 
         assertEquals(expected, result.toString());
@@ -65,6 +71,10 @@ public class AnswerConverterTest {
         NumberAnswer d = new NumberAnswer(8,20,"2021-04-17");
         TextAnswer e = new TextAnswer("Hello!",30,"2021-04-17");
         BooleanAnswer f = new BooleanAnswer(true,40,"2021-04-18");
+        List <String> multipleChoiceList = new ArrayList<>();
+        multipleChoiceList.add("VattenKastning");
+        multipleChoiceList.add("AnnatTest");
+        MultipleTextAnswer g = new MultipleTextAnswer(multipleChoiceList,111,"2021-04-18");
 
         List<Answerable> answers = new ArrayList<>();
 
@@ -74,21 +84,27 @@ public class AnswerConverterTest {
         answers.add(d);
         answers.add(e);
         answers.add(f);
+        answers.add(g);
 
         FileFormatter ff = new FileFormatter();
         String res = ff.format(answers);
         AnswerConverter fc = AnswerConverter.getInstance();
         fc.convert(res);
 
-        String expected = a.getInfoToWrite() + d.getInfoToWrite();
+        String expected = a.getInfoToWrite() + d.getInfoToWrite() + g.getInfoToWrite();
         StringBuilder result = new StringBuilder();
         for (Answerable ans: fc.getAnswersByQuestionID(20)) {
             result.append(ans.getData()+"###---###---###"+ans.getQuestionId() + "###---###---###" + ans.getDate() + "###---###---###" + ans.getType());
         }
+        for (Answerable ans: fc.getAnswersByQuestionID(111)) {
+            result.append(ans.getInfoToWrite());
+        }
+
 
         assertEquals(expected, result.toString());
 
     }
+
 
 
 
