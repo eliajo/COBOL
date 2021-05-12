@@ -52,7 +52,6 @@ View for Navigation Graph
         android:textColor="#176693"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/chip13"
         app:layout_constraintHorizontal_bias="0.426"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -116,11 +115,11 @@ View for Navigation Graph
     <com.google.android.material.chip.ChipGroup
         android:id="@+id/EnergyLevel"
         style="@style/CustomChipStyle"
-        android:layout_width="340dp"
-        android:layout_height="93dp"
+        android:layout_width="371dp"
+        android:layout_height="100dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
 
         android:layout_marginRight="16dp"
@@ -178,13 +177,12 @@ View for Navigation Graph
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip45"
-            style="@style/CustomChipStyle"
+            style="@style/NormalChip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:elevation="4dp"
             android:text="0"
-            android:textColor="#2D9CDB"
-            app:chipBackgroundColor="#8BD58E" />
+            />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip46"

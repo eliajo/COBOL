@@ -102,8 +102,10 @@ public class Fragment1_in_QuizActivity extends Fragment {
             public void onCheckedChanged(ChipGroup group, int checkedId) {
                 Chip selectedChip;
                 selectedChip = view.findViewById(group.getCheckedChipId());
-                NumberAnswer question2 = new NumberAnswer(Integer.valueOf(selectedChip.getText().toString()), 2, LocalDate.now().toString());
-                AddingToList(question2);
+                if(selectedChip != null) {
+                    NumberAnswer question2 = new NumberAnswer(Integer.valueOf(selectedChip.getText().toString()), 2, LocalDate.now().toString());
+                    AddingToList(question2);
+                }
             }
         });
 
@@ -115,8 +117,10 @@ public class Fragment1_in_QuizActivity extends Fragment {
             public void onCheckedChanged(ChipGroup group, int checkedId) {
                 Chip selectedChip;
                 selectedChip = view.findViewById(group.getCheckedChipId());
-                NumberAnswer question3 = new NumberAnswer(Integer.valueOf(selectedChip.getText().toString()), 3, LocalDate.now().toString());
-                AddingToList(question3);
+                if(selectedChip != null) {
+                    NumberAnswer question3 = new NumberAnswer(Integer.valueOf(selectedChip.getText().toString()), 3, LocalDate.now().toString());
+                    AddingToList(question3);
+                }
 
             }
         });
@@ -128,8 +132,10 @@ public class Fragment1_in_QuizActivity extends Fragment {
             public void onCheckedChanged(ChipGroup group, int checkedId) {
                 Chip selectedChip;
                 selectedChip = view.findViewById(group.getCheckedChipId());
-                NumberAnswer question4 = new NumberAnswer(Integer.valueOf(selectedChip.getText().toString()), 4, LocalDate.now().toString());
-                AddingToList(question4);
+                if(selectedChip != null) {
+                    NumberAnswer question4 = new NumberAnswer(Integer.valueOf(selectedChip.getText().toString()), 4, LocalDate.now().toString());
+                    AddingToList(question4);
+                }
             }
 
         });
