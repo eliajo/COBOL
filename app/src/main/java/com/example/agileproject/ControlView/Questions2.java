@@ -47,11 +47,23 @@ public class Questions2 extends Fragment {
 
 
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_questions2, container, false);
+        View view = inflater.inflate(R.layout.fragment_questions2, container, false);
+        if (QuizActivity.AnswerHolder.isComplementaryQuestionForPageAnswered(2)){
+            view.findViewById(R.id.textView6).setVisibility(View.GONE);
+            view.findViewById(R.id.chipGroup3).setVisibility(View.GONE);
+            view.findViewById(R.id.textView10).setVisibility(View.VISIBLE);
+            view.findViewById(R.id.chipGroup).setVisibility(View.VISIBLE);
+            view.findViewById(R.id.imageView).setVisibility(View.VISIBLE);
+            view.findViewById(R.id.chipNo).setSelected(true);
+
+        }
+
+        return view;
     }
 
     @Override
