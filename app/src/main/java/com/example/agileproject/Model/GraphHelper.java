@@ -76,7 +76,7 @@ public class GraphHelper {
         if (answerableList.get(0).getType()==1) {
             for (Answerable answerable : answerableList
             ) {
-                answerEntries.add(new AnswerEntry(index, (Integer) answerable.getData()*1.0f, questionId));
+                answerEntries.add(new AnswerEntry(index, (Integer) answerable.getData()*1.0f, questionId,answerable.getDate()));
                 index++;
             }
         }
@@ -92,7 +92,7 @@ public class GraphHelper {
                      bool = 0;
                 }
                 index++;
-                answerEntries.add(new AnswerEntry(index, bool, questionId));
+                answerEntries.add(new AnswerEntry(index, bool, questionId,answerable.getDate()));
 
             }
         }
