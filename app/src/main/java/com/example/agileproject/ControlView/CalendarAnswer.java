@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.agileproject.Model.Answerable;
 import com.example.agileproject.R;
@@ -47,6 +48,10 @@ public class CalendarAnswer extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        /*setContentView(R.layout.activity_main);
+         **final TextView helloTextView = (TextView) findViewById(R.id.text_view_id);
+         **helloTextView.setText(R.string.user_greeting);
+         */
     }
 
     @Override
@@ -61,6 +66,7 @@ public class CalendarAnswer extends Fragment {
         List<Answerable> answersDate = AnswerConverter.getInstance().getAnswersByDate(date);
         for (Answerable a : answersDate){
             if (a.getQuestionId() == 14){
+                //answerView.setText(a.getInfoToWrite());
                 return a.getInfoToWrite();
             }
         }
