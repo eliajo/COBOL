@@ -10,14 +10,20 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
 import android.widget.EditText;
-
+import android.widget.TextView;
 import com.example.agileproject.Model.Answerable;
 import com.example.agileproject.Model.BooleanAnswer;
 import com.example.agileproject.Model.MultipleTextAnswer;
+
+import com.example.agileproject.Model.BooleanAnswer;
+
 import com.example.agileproject.Model.NumberAnswer;
 import com.example.agileproject.Model.TextAnswer;
 import com.example.agileproject.R;
@@ -28,12 +34,15 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+
 /**
  * A simple {@link Fragment} subclass.
  * @author Edenia
  */
 public class Questions3 extends Fragment {
+
     NavController navController;
+
     ChipGroup Anger;
     ChipGroup Medicine;
     ChipGroup SideEffectsYesOrNo;
@@ -41,6 +50,13 @@ public class Questions3 extends Fragment {
     EditText OtherSideEffects;
    MultipleTextAnswer question101;
    Chip other;
+
+    Chip selectedChip;
+
+    NumberAnswer question8;
+    BooleanAnswer question9;
+    BooleanAnswer question10;
+
 
 
     @Override
@@ -54,20 +70,19 @@ public class Questions3 extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
-        EditText editText=(EditText) view.findViewById(R.id.textInputSideEffects);
         Anger = view.findViewById(R.id.Anger);
         Medicine = view.findViewById(R.id.chipGroup2);
         SideEffectsYesOrNo = view.findViewById(R.id.chipGroup);
         SideEffects = view.findViewById(R.id.Side_Effects);
         OtherSideEffects = view.findViewById(R.id.textInputSideEffects);
         other =  view.findViewById(R.id.otherSideEffectsChip);
+        TextView errorText=(TextView)  view.findViewById(R.id.textView20);
 
 
         view.findViewById(R.id.next_button_questions3).setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {
-                navController.navigate(R.id.action_questions3_to_question4);
                 if (view.findViewById(R.id.chipYesSideEffects).isSelected()) {
 
                     List<Integer> ids = SideEffects.getCheckedChipIds();
@@ -84,14 +99,24 @@ public class Questions3 extends Fragment {
 
                     QuizActivity.AnswerHolder.AddingToList(question101);
                 }
+
+                if (!(question8 == null || question9 == null || question10 == null)) {
+
+                    navController.navigate(R.id.action_questions3_to_question4);
+                    //}
+                } else {
+                    errorText.setVisibility(View.VISIBLE);
+
+                }
             }
+
         });
 
        view.findViewById(R.id.chipYesSideEffects).setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
                view.findViewById(R.id.textView2).setVisibility(View.GONE);
-               view.findViewById(R.id.chipGroup).setVisibility(View.GONE);
+               view.findViewById(R.id.sideeffectsRadiobutton).setVisibility(View.GONE);
                view.findViewById(R.id.textView11).setVisibility(View.VISIBLE);
                view.findViewById(R.id.Side_Effects).setVisibility(View.VISIBLE);
                view.findViewById(R.id.imageView3).setVisibility(View.VISIBLE);
@@ -103,13 +128,15 @@ public class Questions3 extends Fragment {
            }
        });
 
+
+       //check on master
        other.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
                if(other.isChecked()){
-                   editText.setVisibility(View.VISIBLE);
+                   OtherSideEffects.setVisibility(View.VISIBLE);
                }else if (!other.isChecked()){
-                   editText.setVisibility(View.GONE);
+                   OtherSideEffects.setVisibility(View.GONE);
                }
 
            }
@@ -189,3 +216,5 @@ public class Questions3 extends Fragment {
 
 
 }
+
+

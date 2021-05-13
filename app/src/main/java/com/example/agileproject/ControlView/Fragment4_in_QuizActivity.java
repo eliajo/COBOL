@@ -1,5 +1,7 @@
 package com.example.agileproject.ControlView;
 
+import android.content.Context;
+
 import android.os.Build;
 import android.os.Bundle;
 
@@ -10,17 +12,31 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
+
+
+import android.preference.EditTextPreference;
+
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.agileproject.Model.Answerable;
+
 import com.example.agileproject.Model.BooleanAnswer;
 import com.example.agileproject.Model.TextAnswer;
 import com.example.agileproject.R;
+import com.google.android.material.chip.Chip;
+import com.google.android.material.chip.ChipGroup;
+import com.google.android.material.internal.ThemeEnforcement;
+
+import org.w3c.dom.Text;
+
+import java.time.LocalDateTime;
 
 import com.example.agileproject.Utils.FileFormatter;
 
@@ -48,6 +64,7 @@ import com.google.android.material.chip.ChipGroup;
 
 public class Fragment4_in_QuizActivity extends Fragment {
     NavController navController;
+
     FileFormatter fileFormatter = new FileFormatter();
     FileHandler fileHandler = new FileHandler();
     ChipGroup chipGroupAlcohol;
@@ -58,6 +75,13 @@ public class Fragment4_in_QuizActivity extends Fragment {
     TextAnswer question131;
 
 
+    BooleanAnswer question11;
+    BooleanAnswer question12;
+    BooleanAnswer question13;
+    TextAnswer question14;
+
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -65,15 +89,21 @@ public class Fragment4_in_QuizActivity extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_fragment4, container, false);
     }
+
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT_WATCH)
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
+
        Exercise = view.findViewById(R.id.textInputExercise);
         Events = view.findViewById(R.id.textInputEditText);
         chipGroupAlcohol = view.findViewById(R.id.chipGroup8);
         chipGroupObsession = view.findViewById(R.id.chipGroup7);
         chipGroupExercise = view.findViewById(R.id.chipGroup11);
+
+        TextView error = (TextView) view.findViewById(R.id.textView21);
+
 
                 // Switching to fragment  doneQuestion
 
@@ -81,6 +111,7 @@ public class Fragment4_in_QuizActivity extends Fragment {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {
+
                 String ExerciseText  = Exercise.getText().toString();
                 if(!ExerciseText.equals("")){
                     question131 = new TextAnswer(ExerciseText,131,LocalDate.now().toString());
@@ -94,8 +125,38 @@ public class Fragment4_in_QuizActivity extends Fragment {
             String allQuizAnswers = fileFormatter.format(QuizActivity.AnswerHolder.QuizAnswers);
             fileHandler.write(allQuizAnswers,getContext(),"Answers.txt");
 
+                if ((question11 == null || question12 == null || question13 == null || question14 == null)) {
+
+                    error.setVisibility(View.VISIBLE);
+                } else {
+                    navController.navigate(R.id.action_question4_to_doneQuestions);
+                }
+
+
             }
         });
+
+        /*view.findViewById(R.id.chipYesExercise).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editText.setVisibility(View.VISIBLE);
+            }
+        }); */
+
+         // Don't know what is used for
+        Events.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+
+                if (!hasFocus) {
+                    InputMethodManager imm = (InputMethodManager) v.getContext().getSystemService(getContext().INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(v.getWindowToken(),0);
+                }
+
+            }
+        });
+
 
 
 
@@ -106,7 +167,7 @@ public class Fragment4_in_QuizActivity extends Fragment {
                Chip selectedChip = view.findViewById(group.getCheckedChipId());
                if(selectedChip != null) {
                    Boolean YesOrNo = QuizActivity.AnswerHolder.getBooleanValue(selectedChip.getText().toString());
-                   BooleanAnswer question11 = new BooleanAnswer(YesOrNo, 11, LocalDate.now().toString());
+                   question11 = new BooleanAnswer(YesOrNo, 11, LocalDate.now().toString());
                  QuizActivity.AnswerHolder. AddingToList(question11);
                }
            }
@@ -120,7 +181,7 @@ public class Fragment4_in_QuizActivity extends Fragment {
                Chip selectedChip = view.findViewById(group.getCheckedChipId());
                if(selectedChip != null) {
                    Boolean YesOrNo = QuizActivity.AnswerHolder.getBooleanValue(selectedChip.getText().toString());
-                   BooleanAnswer question12 = new BooleanAnswer(YesOrNo, 12, LocalDate.now().toString());
+                    question12 = new BooleanAnswer(YesOrNo, 12, LocalDate.now().toString());
                  QuizActivity.AnswerHolder.AddingToList(question12);
 
                }
@@ -152,4 +213,5 @@ public class Fragment4_in_QuizActivity extends Fragment {
 
 
 }
+
 

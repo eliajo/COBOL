@@ -58,7 +58,6 @@ public class QuizActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
 
-
     }
 
 
@@ -88,6 +87,7 @@ public class QuizActivity extends AppCompatActivity {
             }
             return YesOrNo;
         }
+
 
 
     }
