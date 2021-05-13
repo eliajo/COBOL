@@ -55,7 +55,8 @@ public class GraphPage extends Fragment {
         View v = inflater.inflate(R.layout.fragment_graph_page, container, false);
 
 
-        List<Storable> answerableList = new ArrayList<>();
+        List<Answerable> answerableList = new ArrayList<>();
+
 
 
 
