@@ -25,7 +25,6 @@ View for Navigation Graph
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/tillbaka"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.871"
@@ -381,31 +380,19 @@ View for Navigation Graph
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/tillbaka"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="29dp"
-        android:layout_marginLeft="29dp"
-        android:layout_marginEnd="46dp"
-        android:layout_marginRight="46dp"
-        android:layout_marginBottom="33dp"
-        android:text="tillbaka"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageView2"
-        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="34dp"
         android:layout_height="33dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginLeft="28dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="16dp"
         android:src="@drawable/back_arrow"
         android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chipGroup" />
-
+       />
 
     <RadioGroup
         android:id="@+id/sideeffectsRadiobutton"
@@ -468,10 +455,10 @@ View for Navigation Graph
         android:text="Du måste svara på alla frågor för att kunna fortsätta !"
         android:textColor="#C30C0C"
         android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="@+id/next_button_questions2"
+        app:layout_constraintBottom_toTopOf="@+id/next_button_2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/next_button_questions2" />
+        app:layout_constraintStart_toStartOf="@+id/next_button_2" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
