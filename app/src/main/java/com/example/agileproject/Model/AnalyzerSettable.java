@@ -13,10 +13,16 @@ public interface AnalyzerSettable {
     int getId();
 
     /**
-     * Getter for an inte representing the type of the question, will either be 1 (int) or 2 (boolean)
+     * Getter for an int representing the type of the question, will either be 1 (int) or 2 (boolean)
      * @return int representing the data type
      */
     int getType();
+
+    /**
+     * Getter for the time frame that needs to be checked
+     * @return int
+     */
+    int getTimeFrame();
 
 
 }

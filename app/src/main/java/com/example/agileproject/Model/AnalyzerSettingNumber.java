@@ -35,4 +35,9 @@ public class AnalyzerSettingNumber implements AnalyzerSettable, Storable {
     public int getType() {
         return type;
     }
+
+    @Override
+    public int getTimeFrame() {
+        return timeFrame;
+    }
 }

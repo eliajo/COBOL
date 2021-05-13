@@ -4,6 +4,7 @@ import android.os.Build;
 
 import androidx.annotation.RequiresApi;
 
+import com.example.agileproject.Utils.AnalyzerConverter;
 import com.example.agileproject.Utils.AnswerConverter;
 
 import java.time.LocalDate;
@@ -11,6 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Class that analyzes data by getting the settings of what factors to analyze by
+ * from the AnalyzerConverter class. Calls for notifications to be sent if needed.
  * @Author William Hugo
  */
 public class AnswerDataAnalyzer {
@@ -18,8 +21,8 @@ public class AnswerDataAnalyzer {
     public AnswerDataAnalyzer() {}
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public void analyzeBalance(int id, int time) {
-        List<Answerable> toAnalyze = timeFrameAdjust(id, time);
+    public void analyzeBalance(int id) {
+        List<Answerable> toAnalyze = timeFrameAdjust(id);
 
         switch (toAnalyze.get(0).getType()) {
             case 0: //The answer type is text
@@ -70,10 +73,13 @@ public class AnswerDataAnalyzer {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    private List<Answerable> timeFrameAdjust(int id, int time) {
+    private List<Answerable> timeFrameAdjust(int id) {
 
         List<Answerable> allOfId = AnswerConverter.getInstance().getAnswersByQuestionID(id);
         List<Answerable> adjusted = new ArrayList<>();
+
+        AnalyzerSettable settings = AnalyzerConverter.getInstance().getAnalyzerSettings(id);
+        int time = settings.getTimeFrame();
 
         for(int i = 0; i > time; i++) {
             for (Answerable a : allOfId) {
