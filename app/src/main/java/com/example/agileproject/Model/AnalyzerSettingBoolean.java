@@ -9,9 +9,11 @@ public class AnalyzerSettingBoolean implements AnalyzerSettable, Storable {
     private final int type;
 
     private boolean warningSign;
+    private int timeFrame;
 
-    public AnalyzerSettingBoolean(int id, boolean warningSign) {
+    public AnalyzerSettingBoolean(int id, boolean warningSign, int timeFrame) {
         this.warningSign = warningSign;
+        this.timeFrame = timeFrame;
 
         this.id = id;
         this.type = 2;
@@ -19,7 +21,7 @@ public class AnalyzerSettingBoolean implements AnalyzerSettable, Storable {
 
     @Override
     public String getInfoToWrite() {
-        return id + "###---###---###" + type + "###---###---###" + warningSign;
+        return id + "###---###---###" + type + "###---###---###" + timeFrame + "###---###---###" + warningSign;
     }
 
     @Override

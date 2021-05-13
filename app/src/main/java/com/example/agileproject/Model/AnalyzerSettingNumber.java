@@ -10,10 +10,12 @@ public class AnalyzerSettingNumber implements AnalyzerSettable, Storable {
 
     private int upperLimit;
     private int lowerLimit;
+    private int timeFrame;
 
-    public AnalyzerSettingNumber(int id, int upperLimit, int lowerLimit) {
+    public AnalyzerSettingNumber(int id, int upperLimit, int lowerLimit, int timeFrame) {
         this.upperLimit = upperLimit;
         this.lowerLimit = lowerLimit;
+        this.timeFrame = timeFrame;
 
         this.id = id;
         this.type = 1;
@@ -21,7 +23,7 @@ public class AnalyzerSettingNumber implements AnalyzerSettable, Storable {
 
     @Override
     public String getInfoToWrite() {
-        return id + "###---###---###" + type + "###---###---###" + upperLimit + "###---###---###" + lowerLimit;
+        return id + "###---###---###" + type + "###---###---###" + timeFrame + "###---###---###" + upperLimit + "###---###---###" + lowerLimit;
     }
 
     @Override
