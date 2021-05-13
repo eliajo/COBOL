@@ -51,5 +51,13 @@ public class AnalyzerConverter {
             }
         }
     }
-    
+
+    public List<AnalyzerSettable> getAnalyzerSettings() {
+        List<AnalyzerSettable> safeCopy = new ArrayList<>();
+        if(!analyzerList.isEmpty()) {
+            safeCopy.addAll(analyzerList);
+        }
+        return safeCopy;
+    }
+
 }
