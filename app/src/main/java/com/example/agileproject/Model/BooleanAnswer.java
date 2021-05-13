@@ -5,7 +5,7 @@ package com.example.agileproject.Model;
  * @author Elias Johansson William Hugo
  */
 
-public class BooleanAnswer implements Answerable, Storable {
+public class BooleanAnswer implements Answerable {
 
     private boolean bool;
     private int questionId;

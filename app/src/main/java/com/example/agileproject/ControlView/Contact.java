@@ -7,7 +7,7 @@ import com.example.agileproject.Model.Storable;
  *
  *  @author Elin Berthag, Alva Leufstedt, Klara Jakobsson
  */
-public class Contact implements Storable {
+public class Contact  {
     //A contact consist of a name and one or two ways of contact (phone number and/or email).
     String name;
     String contactWay;
@@ -24,7 +24,7 @@ public class Contact implements Storable {
         this.contactWay = contactWay;
         this.optionalContactWay = optionalContactWay;
     }
-    @Override
+
     public String getInfoToWrite(){
 
         if (optionalContactWay!=null){

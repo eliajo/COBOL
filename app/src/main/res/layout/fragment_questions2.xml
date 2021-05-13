@@ -154,7 +154,7 @@ View for Navigation Graph
     </com.google.android.material.chip.ChipGroup>
 
     <Button
-        android:id="@+id/next_button_questions2"
+        android:id="@+id/next_button_2"
         style="@style/Widget.AppCompat.Button"
         android:layout_width="115dp"
         android:layout_height="65dp"
@@ -335,7 +335,7 @@ View for Navigation Graph
         app:singleSelection="true">
 
         <com.google.android.material.chip.Chip
-            android:id="@+id/chip19"
+            android:id="@+id/chipYes"
             style="@style/YesOrNowChipStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -382,13 +382,13 @@ View for Navigation Graph
         android:id="@+id/imageView"
         android:layout_width="34dp"
         android:layout_height="33dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginLeft="36dp"
-        android:layout_marginBottom="36dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginLeft="28dp"
         android:src="@drawable/back_arrow"
         android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chipGroup" />
+
 
     <RadioGroup
         android:id="@+id/chipGroup"
@@ -417,7 +417,7 @@ View for Navigation Graph
             android:textColor="@color/LightBlue" />
 
         <RadioButton
-            android:id="@+id/radioButton"
+            android:id="@+id/radioButton1"
             android:layout_width="match_parent"
             android:layout_height="62dp"
             android:text="Jag vaknade tidigt och kunde int somna om"
@@ -430,7 +430,7 @@ View for Navigation Graph
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
-        android:text="8.Varför sov du inte bra?"
+        android:text="7.1 Varför sov du inte bra?"
         android:textColor="#176693"
         android:textSize="18sp"
         android:visibility="gone"
