@@ -1,6 +1,7 @@
 package com.example.agileproject.ControlView;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,7 +25,9 @@ import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.data.PieData;
+import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.interfaces.datasets.IDataSet;
+import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -36,7 +39,7 @@ import java.util.List;
  *
  * @author Elias Johansson
  */
-public class GraphAdapter extends RecyclerView.Adapter<GraphAdapter.GraphHolder> {
+public class GraphAdapter extends RecyclerView.Adapter<GraphAdapter.GraphHolder> implements OnChartValueSelectedListener {
 
     private static final int linechartID = 1;
     private static final int piechartID = 2;
@@ -81,6 +84,10 @@ public class GraphAdapter extends RecyclerView.Adapter<GraphAdapter.GraphHolder>
             holder.setPosition(position);
         } else {
             graphDrawer.drawPieChart(entries, holder, position);
+            if (holder.getQuestionId()==10){
+                PieChart chart = (PieChart) holder.getGraph();
+                chart.setOnChartValueSelectedListener(this);
+            }
             holder.setPosition(position);
         }
 
@@ -120,6 +127,18 @@ public class GraphAdapter extends RecyclerView.Adapter<GraphAdapter.GraphHolder>
     @Override
     public int getItemCount() {
         return entries.size();
+    }
+
+    @Override
+    public void onValueSelected(Entry e, Highlight h) {
+        /*Intent intent = new Intent();
+        context.startActivity();*/
+
+    }
+
+    @Override
+    public void onNothingSelected() {
+
     }
 
     /**
