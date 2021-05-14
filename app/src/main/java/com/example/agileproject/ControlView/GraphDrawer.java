@@ -31,7 +31,7 @@ import java.util.List;
 public class GraphDrawer {
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public void drawLineChart(List<List<AnswerEntry>> entries, GraphAdapter.GraphHolder holder, int position, GraphHelper.TimePeriod timePeriod){
+    public void drawLineChart(List<List<AnswerEntry>> entries, GraphAdapter.GraphHolder holder, int position, GraphHelper.TimePeriod timePeriod) {
         LineChart chart = (LineChart) holder.getGraph();
         chart.clear();
         int id = holder.getQuestionId();
@@ -60,8 +60,10 @@ public class GraphDrawer {
             case 9:
                 holder.getMainLabel().setText("Hur ditt mående har varit");
                 break;
-            default: throw new IllegalArgumentException("No valid questionID");
+            default:
+                throw new IllegalArgumentException("No valid questionID");
         }
+
 
         //Not nice, if someone knows a better way feel free to fix it.
         //Think it should work though. This is because lineDataSet needs an Entry but
@@ -71,24 +73,49 @@ public class GraphDrawer {
         //Safer solution but but takes O(n) time. Might have to discuss this.
         LineDataSet lineDataSet;
         List<Entry> converterList;
-        if(entries.get(position).get(0).getQuestionId()==1000||entries.get(position).get(0).getQuestionId()==2000){
+        if (entries.get(position).get(0).getQuestionId() == 1000 || entries.get(position).get(0).getQuestionId() == 2000) {
             converterList = new ArrayList<>();
+        } else {
+            converterList = new ArrayList<>(entries.get(position));
         }
-        else {
-        converterList = new ArrayList<>(entries.get(position));}
         lineDataSet = new LineDataSet(converterList, "Dagar");
 
-        //Temporary code to show graph
+        LineData lineData;
+        if (id == 5) {
+            int relatedPosition = 0;
+            int index = 0;
+            boolean found = false;
+            for (List<AnswerEntry> a : entries) {
+                if (a.get(0).getQuestionId() == 6) {
+                    relatedPosition = index;
+                    found = true;
+                }
+                index++;
+            }
+            if (found) {
+                List<Entry> secondList = new ArrayList<>(entries.get(relatedPosition));
+                LineDataSet secondLineDataSet = new LineDataSet(secondList, "Dagar");
+                lineData = new LineData(lineDataSet, secondLineDataSet);
+            } else {
+                lineData = new LineData(lineDataSet);
 
-        LineData lineData = new LineData(lineDataSet);
+            }
+        }
+        //Temporary code to show graph
+        else {
+            lineData = new LineData(lineDataSet);
+        }
         chart.getAxisRight().setEnabled(false);
-        switch (timePeriod){
-            case WEEK: chart.getXAxis().setAxisMaximum(7);
-            break;
+        switch (timePeriod) {
+            case WEEK:
+                chart.getXAxis().setAxisMaximum(7);
+                break;
             //Not really 30 days a month so might need to fix this
-            case MONTH: chart.getXAxis().setAxisMaximum(30);
-            break;
-            case YEAR: chart.getXAxis().setAxisMaximum(365);
+            case MONTH:
+                chart.getXAxis().setAxisMaximum(30);
+                break;
+            case YEAR:
+                chart.getXAxis().setAxisMaximum(365);
         }
 
         chart.getXAxis().setAxisMinimum(0f);
@@ -125,7 +152,7 @@ public class GraphDrawer {
         lineDataSet.setValueTextColor(Color.DKGRAY);
         lineDataSet.setDrawFilled(true);
         lineDataSet.setFillColor(Color.parseColor("#add8e6"));
-        lineDataSet.setGradientColor( Color.parseColor("#ffffff"), Color.parseColor("#add8e6"));
+        lineDataSet.setGradientColor(Color.parseColor("#ffffff"), Color.parseColor("#add8e6"));
 
         holder.getMainLabel().setTextColor(Color.parseColor("#4682b4"));
         holder.getMainLabel().setTextSize(22f);
@@ -138,10 +165,10 @@ public class GraphDrawer {
     public void drawPieChart(List<List<AnswerEntry>> entries, GraphAdapter.GraphHolder holder, int position) {
         PieChart pieChart = (PieChart) holder.getGraph();
         pieChart.clear();
-        PieData pieData ;
+        PieData pieData;
 
         int id = holder.getQuestionId();
-        switch(id) {
+        switch (id) {
             case 7:
                 holder.getMainLabel().setText("Hur du har sovit");
                 break;
@@ -160,45 +187,43 @@ public class GraphDrawer {
             case 17:
                 holder.getMainLabel().setText("Hur ofta du har gjort någon fysisk aktivitet");
                 break;
-            default: throw new IllegalArgumentException("No valid questionID");
+            default:
+                throw new IllegalArgumentException("No valid questionID");
         }
-    //   List<PieEntry> pieEntryList = new ArrayList<>(entries.get(position));
+        //   List<PieEntry> pieEntryList = new ArrayList<>(entries.get(position));
 
 
-
-  //     (entries.get(position));
+        //     (entries.get(position));
         List<PieEntry> pieEntryList = new ArrayList<>();
 
-            pieChart = pieChart.findViewById(R.id.piechart);
-        pieEntryList.add(new PieEntry(100,"Nej"));
-        pieEntryList.add(new PieEntry(100,"Ja"));
-       // pieEntryList.add(new PieEntry(30,"Ja"));
-            PieDataSet pieDataSet = new PieDataSet(pieEntryList,"Procent");
-            pieDataSet.setLabel("");
-            pieDataSet.setColors(ColorTemplate.LIBERTY_COLORS);
-            pieData = new PieData(pieDataSet);
-            //pieData.setValueFormatter(new PercentFormatter());
-            pieChart.setData(pieData);
-            //pieChart.setUsePercentValues(true);
-            pieChart.invalidate();
+        pieChart = pieChart.findViewById(R.id.piechart);
+        pieEntryList.add(new PieEntry(100, "Nej"));
+        pieEntryList.add(new PieEntry(100, "Ja"));
+        // pieEntryList.add(new PieEntry(30,"Ja"));
+        PieDataSet pieDataSet = new PieDataSet(pieEntryList, "Procent");
+        pieDataSet.setLabel("");
+        pieDataSet.setColors(ColorTemplate.LIBERTY_COLORS);
+        pieData = new PieData(pieDataSet);
+        //pieData.setValueFormatter(new PercentFormatter());
+        pieChart.setData(pieData);
+        //pieChart.setUsePercentValues(true);
+        pieChart.invalidate();
 
-            pieChart.setDrawHoleEnabled(false);
-            pieData.setDrawValues(false);
-            pieChart.setTouchEnabled(false);
-            pieChart.setClickable(false);
-            pieChart.setDrawEntryLabels(true);
-            pieChart.setEntryLabelColor(Color.parseColor("#4682b4"));
-            pieChart.setEntryLabelTextSize(25f);
-            holder.getMainLabel().setTextColor(Color.parseColor("#4682b4"));
-            holder.getMainLabel().setTextSize(22f);
-            pieChart.getDescription().setText("");
-            pieChart.getLegend().setTextSize(16f);
-            pieChart.getLegend().setTextColor(Color.parseColor("#4682b4"));
+        pieChart.setDrawHoleEnabled(false);
+        pieData.setDrawValues(false);
+        pieChart.setTouchEnabled(false);
+        pieChart.setClickable(false);
+        pieChart.setDrawEntryLabels(true);
+        pieChart.setEntryLabelColor(Color.parseColor("#4682b4"));
+        pieChart.setEntryLabelTextSize(25f);
+        holder.getMainLabel().setTextColor(Color.parseColor("#4682b4"));
+        holder.getMainLabel().setTextSize(22f);
+        pieChart.getDescription().setText("");
+        pieChart.getLegend().setTextSize(16f);
+        pieChart.getLegend().setTextColor(Color.parseColor("#4682b4"));
 
 
     }
-
-
 
 
 }
