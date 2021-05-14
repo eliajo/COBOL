@@ -14,12 +14,12 @@ View for Navigation Graph
         android:id="@+id/textView18"
         android:layout_width="105dp"
         android:layout_height="26dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="36dp"
         android:text="Energinivå"
         android:textColor="#083D5C"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.598"
+        app:layout_constraintHorizontal_bias="0.604"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
