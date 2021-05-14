@@ -23,17 +23,23 @@ public class AnswerDataAnalyzer {
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void analyzeBalance(int id) {
         List<Answerable> toAnalyze = timeFrameAdjust(id);
+        AnalyzerSettable settings = AnalyzerConverter.getInstance().getAnalyzerSettings(id);
 
-        switch (toAnalyze.get(0).getType()) {
-            case 0: //The answer type is text
-                System.out.println("Can't analyze text"); //TODO should just be an exception here
-                break;
-            case 1: //The answer type is int
-                numberAnalyze(toAnalyze);
-                break;
-            case 2: //The answer type is boolean
-                System.out.println("Boolean"); //TODO add functions for boolean to call here
-                break;
+        if(settings != null) {
+            switch (settings.getType()) {
+                case 0: //The answer type is text
+                    System.out.println("Can't analyze text");
+                    break;
+                case 1: //The answer type is int
+                    numberAnalyze(toAnalyze);
+                    break;
+                case 2: //The answer type is boolean
+                    System.out.println("Boolean"); //TODO add functions for boolean to call here
+                    break;
+                default:
+                    System.out.println("No type represented by this id");
+                    break;
+            }
         }
     }
 
@@ -46,7 +52,7 @@ public class AnswerDataAnalyzer {
         if(aboveUpperLimit(numberAnswers)) {
             //TODO send warning notification for high value
             System.out.println("Warning, value too high");//Test line, remove later
-        } else if(belowLowerLimit(numberAnswers)) {
+        }else if(belowLowerLimit(numberAnswers)) {
             //TODO send warning notification for low value
             System.out.println("Warning, value too low");//Test line, remove later
         }

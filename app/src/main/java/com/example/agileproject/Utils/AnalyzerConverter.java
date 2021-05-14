@@ -53,16 +53,14 @@ public class AnalyzerConverter {
     }
 
     public AnalyzerSettable getAnalyzerSettings(int id) {
-        if(analyzerMap.containsKey(id)) {
-            if(analyzerMap.get(id).getType() == 1) {
-                AnalyzerSettingNumber numberSetting = (AnalyzerSettingNumber) analyzerMap.get(id);
-                return numberSetting;
-            } else if(analyzerMap.get(id).getType() == 2 ) {
-                AnalyzerSettingBoolean booleanSetting = (AnalyzerSettingBoolean) analyzerMap.get(id);
-                return booleanSetting;
+        try {
+            if (analyzerMap.containsKey(id)) {
+                return analyzerMap.get(id);
             }
+        } catch (Exception exception) {
+            System.out.println("Exception: analyzer settings for id not found.");
         }
-        return null; //TODO check if exception is needed
+        return null;
     }
 
 }
