@@ -27,7 +27,6 @@ View for Navigation Graph
         android:id="@+id/textView24"
         android:layout_width="182dp"
         android:layout_height="28dp"
-        android:layout_marginTop="12dp"
         android:text=" +5 = jätte mycket energi                                   "
         android:textColor="#ED0C39"
         android:textSize="16sp"
