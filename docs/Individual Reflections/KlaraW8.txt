@@ -1,0 +1,9 @@
+What do I want to learn or understand better? 
+I want to learn more about the navigation between different fragments in the app. I thought I had learned this before, but now some troubles have occurred that I do not know how to solve. I will find this out by reading some more documentation and then discuss with some other team members how they have solved similar problems before.
+How can I help someone else, or the entire team, to learn something new? 
+By bringing new ideas and perspectives to the group’s discussions. Also, by asking a lot of questions so that the entire team can learn from each other’s.
+What is my contribution towards the team’s use of Scrum? 
+This sprint, I was scrum master and contributed by making agendas for our meetings and worked with keeping them effective and valuable for the team and our deliveries.
+What is my contribution towards the team’s deliveries? 
+This sprint, I started with breaking down some tasks in Trello, then I implemented the design for two home page-fragments and then me and Elin started to work with connecting them with graphs and connecting functionality to the buttons. Me and Elin also started working with showing the answers in the calendar from the quiz that can not be shown in graphs. Also, I have contributed to the teamwork by having the role of scrum master.
+
