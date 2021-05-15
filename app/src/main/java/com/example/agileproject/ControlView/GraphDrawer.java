@@ -192,11 +192,11 @@ public class GraphDrawer {
                 break;
             case 9:
                 holder.getMainLabel().setText("Har du tagit din medicin idag?");
-                pieChart.setClickable(true);
-                pieChart.setTouchEnabled(true);
                 break;
             case 10:
                 holder.getMainLabel().setText("Hur du haft några biverkningar idag?");
+                pieChart.setClickable(true);
+                pieChart.setTouchEnabled(true);
                 break;
             case 11:
                 holder.getMainLabel().setText("Har du druckit alkohol idag?");
