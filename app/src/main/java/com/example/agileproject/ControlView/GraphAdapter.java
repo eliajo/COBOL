@@ -79,6 +79,9 @@ public class GraphAdapter extends RecyclerView.Adapter<GraphAdapter.GraphHolder>
         if (!holder.isInitialized()){
             holder.setQuestionId(entries.get(position).get(0).getQuestionId());
         }
+        if (entries.get(position).get(0).getQuestionId()==101){
+            return;
+        }
         if (holder.getItemViewType() == linechartID) {
             //Only called once.
             graphDrawer.drawLineChart(entries, holder, position, GraphHelper.TimePeriod.WEEK);
@@ -134,6 +137,11 @@ public class GraphAdapter extends RecyclerView.Adapter<GraphAdapter.GraphHolder>
         Intent intent = new Intent(context,GraphInfoPage.class);
         AnswerEntry answerEntry = (AnswerEntry) e;
        int id= answerEntry.getQuestionId();
+       int newId=0;
+       if (id==10){
+           newId=101;
+       }
+       intent.putExtra("Id",newId);
         context.startActivity(intent);
 
     }

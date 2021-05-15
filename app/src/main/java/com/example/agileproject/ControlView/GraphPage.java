@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import com.example.agileproject.Model.Answerable;
 import com.example.agileproject.Model.AnswerEntry;
 import com.example.agileproject.Model.GraphHelper;
+import com.example.agileproject.Model.MultipleTextAnswer;
 import com.example.agileproject.Model.NumberAnswer;
 import com.example.agileproject.Model.Storable;
 import com.example.agileproject.R;
@@ -77,6 +78,15 @@ public class GraphPage extends Fragment {
         NumberAnswer s2 = new NumberAnswer(1,10,"2021-01-02");
         NumberAnswer s3 = new NumberAnswer(1,10,"2021-01-03");
 
+        List <String> stringList = new ArrayList<>();
+        stringList.add("Test");
+        stringList.add("Functionality");
+
+        MultipleTextAnswer m1 = new MultipleTextAnswer(stringList,101,"2021-01-01");
+        MultipleTextAnswer m2 = new MultipleTextAnswer(stringList,101,"2021-01-02");
+        MultipleTextAnswer m3 = new MultipleTextAnswer(stringList,101,"2021-01-03");
+
+
 
         answerableList.add(na1);
         answerableList.add(na2);
@@ -93,6 +103,9 @@ public class GraphPage extends Fragment {
         answerableList.add(s1);
         answerableList.add(s2);
         answerableList.add(s3);
+        answerableList.add(m1);
+        answerableList.add(m2);
+        answerableList.add(m3);
         FileFormatter ff = new FileFormatter();
         String save =ff.format(answerableList);
 
