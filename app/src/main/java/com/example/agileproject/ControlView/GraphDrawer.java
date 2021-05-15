@@ -20,9 +20,12 @@ import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
+import com.github.mikephil.charting.formatter.IAxisValueFormatter;
 import com.github.mikephil.charting.formatter.PercentFormatter;
+import com.github.mikephil.charting.formatter.ValueFormatter;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -49,16 +52,13 @@ public class GraphDrawer {
                 holder.getMainLabel().setText("Hur mycket ångest du haft");
                 break;
             case 5:
-                holder.getMainLabel().setText("Hur mycket du sovit på nattid");
+                holder.getMainLabel().setText("Hur mycket du sovit på nattid jämfört med dagtid");
                 break;
             case 6:
-                holder.getMainLabel().setText("Hur mycket du sovit på dagtid");
+                holder.getMainLabel().setText("Hur mycket du sovit på nattid jämfört med dagtid");
                 break;
             case 8:
                 holder.getMainLabel().setText("Hur mycket ilska du haft");
-                break;
-            case 9:
-                holder.getMainLabel().setText("Hur ditt mående har varit");
                 break;
             default:
                 throw new IllegalArgumentException("No valid questionID");
@@ -106,6 +106,7 @@ public class GraphDrawer {
             lineData = new LineData(lineDataSet);
         }
         chart.getAxisRight().setEnabled(false);
+
         switch (timePeriod) {
             case WEEK:
                 chart.getXAxis().setAxisMaximum(7);
@@ -118,11 +119,13 @@ public class GraphDrawer {
                 chart.getXAxis().setAxisMaximum(365);
         }
 
+
         chart.getXAxis().setAxisMinimum(0f);
         chart.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);
         //chart.setVisibleXRange(entries.size()-1,entries.size()-1);
-        chart.getAxisLeft().setAxisMaximum(10);
+
         chart.getAxisLeft().setAxisMinimum(0);
+        chart.getAxisLeft().setAxisMaximum(10);
         chart.getAxisLeft().setGranularity(1f);
 
         chart.getAxisLeft().setDrawGridLines(false);
@@ -136,8 +139,7 @@ public class GraphDrawer {
         //chart.setVisibleXRangeMinimum(0);
         //chart.setVisibleXRangeMaximum(10);
         chart.setData(lineData);
-        chart.fitScreen();
-        chart.invalidate();
+
         lineData.setDrawValues(false);
         chart.setDrawMarkers(false);
         lineDataSet.setHighlightEnabled(true);
@@ -158,6 +160,20 @@ public class GraphDrawer {
         holder.getMainLabel().setTextSize(22f);
         chart.getDescription().setText("");
         chart.getLegend().setEnabled(false);
+        ValueFormatter valueFormatter = new com.example.agileproject.ControlView.ValueFormatter(entries.get(position).size(),entries.get(position).get(entries.get(position).size()-1).getDateAdded());
+        chart.getXAxis().setValueFormatter(valueFormatter);
+
+        if (timePeriod== GraphHelper.TimePeriod.WEEK){
+            chart.setVisibleXRange(0, 7);
+        }
+        else if (timePeriod== GraphHelper.TimePeriod.MONTH){
+            chart.setVisibleXRange(0, 4);
+        }
+        else if (timePeriod== GraphHelper.TimePeriod.YEAR){
+            chart.setVisibleXRange(0, 12);
+        }
+        chart.fitScreen();
+        chart.invalidate();
 
     }
 
@@ -172,24 +188,24 @@ public class GraphDrawer {
         int id = holder.getQuestionId();
         switch (id) {
             case 7:
-                holder.getMainLabel().setText("Hur du har sovit");
+                holder.getMainLabel().setText("Har du sovit bra inatt?");
                 break;
-            case 10:
-                holder.getMainLabel().setText("Hur ofta du tagit din medicin");
+            case 9:
+                holder.getMainLabel().setText("Har du tagit din medicin idag?");
                 pieChart.setClickable(true);
                 pieChart.setTouchEnabled(true);
                 break;
+            case 10:
+                holder.getMainLabel().setText("Hur du haft några biverkningar idag?");
+                break;
             case 11:
-                holder.getMainLabel().setText("Hur ofta du haft biverkningar");
+                holder.getMainLabel().setText("Har du druckit alkohol idag?");
+                break;
+            case 12:
+                holder.getMainLabel().setText("Har du haft tvångstankar?");
                 break;
             case 13:
-                holder.getMainLabel().setText("Hur ofta du druckit alkohol");
-                break;
-            case 14:
-                holder.getMainLabel().setText("Hur ofta du har haft tvångstankar");
-                break;
-            case 17:
-                holder.getMainLabel().setText("Hur ofta du har gjort någon fysisk aktivitet");
+                holder.getMainLabel().setText("Har du gjort någon fysisk aktivitet?");
                 break;
             default:
                 throw new IllegalArgumentException("No valid questionID");
