@@ -131,8 +131,8 @@ public class GraphAdapter extends RecyclerView.Adapter<GraphAdapter.GraphHolder>
 
     @Override
     public void onValueSelected(Entry e, Highlight h) {
-        /*Intent intent = new Intent();
-        context.startActivity();*/
+        Intent intent = new Intent(context,GraphInfoPage.class);
+        context.startActivity(intent);
 
     }
 

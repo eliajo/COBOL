@@ -167,6 +167,8 @@ public class GraphDrawer {
         pieChart.clear();
         PieData pieData;
 
+        pieChart.setClickable(false);
+        pieChart.setTouchEnabled(false);
         int id = holder.getQuestionId();
         switch (id) {
             case 7:
@@ -174,6 +176,8 @@ public class GraphDrawer {
                 break;
             case 10:
                 holder.getMainLabel().setText("Hur ofta du tagit din medicin");
+                pieChart.setClickable(true);
+                pieChart.setTouchEnabled(true);
                 break;
             case 11:
                 holder.getMainLabel().setText("Hur ofta du haft biverkningar");
@@ -211,8 +215,8 @@ public class GraphDrawer {
 
         pieChart.setDrawHoleEnabled(false);
         pieData.setDrawValues(false);
-        pieChart.setTouchEnabled(false);
-        pieChart.setClickable(false);
+
+
         pieChart.setDrawEntryLabels(true);
         pieChart.setEntryLabelColor(Color.parseColor("#4682b4"));
         pieChart.setEntryLabelTextSize(25f);
