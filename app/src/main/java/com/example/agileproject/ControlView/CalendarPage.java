@@ -70,6 +70,7 @@ public class CalendarPage extends Fragment {
 
                 if(dateExists(date, dates)) {
                     System.out.println("THIS DATE EXISTS!!!");
+                    CalendarAnswer.newInstance().fetchAnswers(date.toString());
                 } else {
                     //toast.show();
                     System.out.println("DATE DOESN'T EXIST");
