@@ -25,6 +25,7 @@ import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.data.PieData;
+import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.interfaces.datasets.IDataSet;
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
@@ -131,6 +132,8 @@ public class GraphAdapter extends RecyclerView.Adapter<GraphAdapter.GraphHolder>
     @Override
     public void onValueSelected(Entry e, Highlight h) {
         Intent intent = new Intent(context,GraphInfoPage.class);
+        AnswerEntry answerEntry = (AnswerEntry) e;
+       int id= answerEntry.getQuestionId();
         context.startActivity(intent);
 
     }

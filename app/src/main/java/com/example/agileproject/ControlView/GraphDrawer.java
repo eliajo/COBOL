@@ -214,12 +214,29 @@ public class GraphDrawer {
 
 
         //     (entries.get(position));
-        List<PieEntry> pieEntryList = new ArrayList<>();
+        List<PieEntry> pieEntryList;
+        int yes = 0;
+        int no = 0;
+        for (AnswerEntry entry:entries.get(position)) {
+            if (entry.getY()==1){
+                yes++;
+            }
+            else {
+                no++;
+            }
+
+        }
 
         pieChart = pieChart.findViewById(R.id.piechart);
-        pieEntryList.add(new PieEntry(100, "Nej"));
-        pieEntryList.add(new PieEntry(100, "Ja"));
+        AnswerEntry yesEntry = new AnswerEntry("Yes",yes,id,"");
+        AnswerEntry noEntry = new AnswerEntry("No",no,id,"");
         // pieEntryList.add(new PieEntry(30,"Ja"));
+        List <AnswerEntry> answerEntryList = new ArrayList<>();
+        if(yes!=0){
+        answerEntryList.add(yesEntry);}
+        if(no!=0){
+        answerEntryList.add(noEntry);}
+        pieEntryList = new ArrayList<>(answerEntryList);
         PieDataSet pieDataSet = new PieDataSet(pieEntryList, "Procent");
         pieDataSet.setLabel("");
         pieDataSet.setColors(ColorTemplate.LIBERTY_COLORS);
