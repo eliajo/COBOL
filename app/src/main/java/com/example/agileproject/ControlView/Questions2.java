@@ -108,20 +108,24 @@ public class Questions2 extends Fragment {
         TextView ErrorText = (TextView) view.findViewById(R.id.textView19);
         view.findViewById(R.id.next_button_2).setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) { // doesnt work
+            public void onClick(View v) {
 
                 if (selectedChip == view.findViewById(R.id.chipNo)) {
                     if( !(question5==null || question6==null || question7 == null  || question71==null)){
                         navController.navigate(R.id.action_questions2_to_questions3);
+                    }else{
+
+                        ErrorText.setVisibility(View.VISIBLE);
                     }
 
                 }
 
-                if  (selectedChip==view.findViewById(R.id.chip19)) {
+                else if (selectedChip==view.findViewById(R.id.chipYes)) {
                     if (!(question5 == null || question6 == null || question7 == null)) {
-
                         navController.navigate(R.id.action_questions2_to_questions3);
+                    }else{
 
+                        ErrorText.setVisibility(View.VISIBLE);
                     }
                 }
                 else {
@@ -140,10 +144,12 @@ public class Questions2 extends Fragment {
              @RequiresApi(api = Build.VERSION_CODES.O)
              @Override
              public void onCheckedChanged(ChipGroup group, int checkedId) {
-                 Chip selectedChip = view.findViewById(group.getCheckedChipId());
+                Chip  selectedChip = view.findViewById(group.getCheckedChipId());
                  if(selectedChip != null){
-                     NumberAnswer question5 = new NumberAnswer(Integer.valueOf(selectedChip.getText().toString()),5, LocalDate.now().toString());
+                      question5 = new NumberAnswer(Integer.valueOf(selectedChip.getText().toString()),5, LocalDate.now().toString());
                     QuizActivity.AnswerHolder.AddingToList(question5);
+                 }else{
+                     question5 = null;
                  }
 
              }
@@ -153,10 +159,12 @@ public class Questions2 extends Fragment {
              @RequiresApi(api = Build.VERSION_CODES.O)
              @Override
              public void onCheckedChanged(ChipGroup group, int checkedId) {
-                 Chip selectedChip = view.findViewById(group.getCheckedChipId());
+               Chip selectedChip = view.findViewById(group.getCheckedChipId());
                  if(selectedChip != null) {
-                     NumberAnswer question6 = new NumberAnswer(Integer.valueOf(selectedChip.getText().toString()), 6, LocalDate.now().toString());
+                      question6 = new NumberAnswer(Integer.valueOf(selectedChip.getText().toString()), 6, LocalDate.now().toString());
                     QuizActivity.AnswerHolder.AddingToList(question6);
+                 }else{
+                     question6 = null;
                  }
              }
          });
@@ -165,11 +173,11 @@ public class Questions2 extends Fragment {
              @RequiresApi(api = Build.VERSION_CODES.O)
              @Override
              public void onCheckedChanged(ChipGroup group, int checkedId) {
-                 Chip selectedChip = view.findViewById(group.getCheckedChipId());
+                  selectedChip = view.findViewById(group.getCheckedChipId());
                  if (selectedChip != null) {
                  String answer = selectedChip.getText().toString();
                  Boolean YesOrNo = QuizActivity.AnswerHolder.getBooleanValue(answer);
-                 BooleanAnswer question7 = new BooleanAnswer(YesOrNo, 7, LocalDate.now().toString());
+                 question7 = new BooleanAnswer(YesOrNo, 7, LocalDate.now().toString());
                 QuizActivity.AnswerHolder.AddingToList(question7);
                  if (YesOrNo == true) {
                      RemoveComplementaryQuestion();

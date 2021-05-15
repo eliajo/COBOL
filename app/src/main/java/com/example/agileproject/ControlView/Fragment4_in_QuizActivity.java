@@ -73,6 +73,7 @@ public class Fragment4_in_QuizActivity extends Fragment {
     EditText Events;
     EditText Exercise;
     TextAnswer question131;
+  private  int counter =0;
 
 
     BooleanAnswer question11;
@@ -111,7 +112,7 @@ public class Fragment4_in_QuizActivity extends Fragment {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {
-
+               counter ++;
                 String ExerciseText  = Exercise.getText().toString();
                 if(!ExerciseText.equals("")){
                     question131 = new TextAnswer(ExerciseText,131,LocalDate.now().toString());
@@ -119,18 +120,22 @@ public class Fragment4_in_QuizActivity extends Fragment {
                 }
                 String text =   Events.getText().toString();
                 if(!text.equals("")){
-                    TextAnswer question14 = new TextAnswer(text,14,LocalDate.now().toString());
+                     question14 = new TextAnswer(text,14,LocalDate.now().toString());
                  QuizActivity.AnswerHolder.AddingToList(question14);
                 }
-            String allQuizAnswers = fileFormatter.format(QuizActivity.AnswerHolder.QuizAnswers);
-            fileHandler.write(allQuizAnswers,getContext(),"Answers.txt");
 
-                if ((question11 == null || question12 == null || question13 == null || question14 == null)) {
+                 if(counter == 1){
+                     if ((question11 == null || question12 == null || question13 == null || question14 == null)) {
+                         error.setVisibility(View.VISIBLE);
 
-                    error.setVisibility(View.VISIBLE);
-                } else {
-                    navController.navigate(R.id.action_question4_to_doneQuestions);
-                }
+                     } else {
+                         navController.navigate(R.id.action_question4_to_doneQuestions);
+                     }
+                 } else{
+                     navController.navigate(R.id.action_question4_to_doneQuestions);
+                 }
+                String allQuizAnswers = fileFormatter.format(QuizActivity.AnswerHolder.QuizAnswers);
+                fileHandler.write(allQuizAnswers,getContext(),"Answers.txt");
 
 
             }
@@ -169,6 +174,9 @@ public class Fragment4_in_QuizActivity extends Fragment {
                    Boolean YesOrNo = QuizActivity.AnswerHolder.getBooleanValue(selectedChip.getText().toString());
                    question11 = new BooleanAnswer(YesOrNo, 11, LocalDate.now().toString());
                  QuizActivity.AnswerHolder. AddingToList(question11);
+               }else{
+                   RemoveComplementaryQuestion(question11);
+                   question11 = null;
                }
            }
        });
@@ -184,6 +192,9 @@ public class Fragment4_in_QuizActivity extends Fragment {
                     question12 = new BooleanAnswer(YesOrNo, 12, LocalDate.now().toString());
                  QuizActivity.AnswerHolder.AddingToList(question12);
 
+               }else{
+                   RemoveComplementaryQuestion(question12);
+                   question12 = null;
                }
            }
        });
@@ -195,7 +206,7 @@ public class Fragment4_in_QuizActivity extends Fragment {
                Chip selectedChip = view.findViewById(group.getCheckedChipId());
                if(selectedChip != null) {
                    Boolean YesOrNo = QuizActivity.AnswerHolder.getBooleanValue(selectedChip.getText().toString());
-                   BooleanAnswer question13 = new BooleanAnswer(YesOrNo, 13, LocalDate.now().toString());
+                   question13 = new BooleanAnswer(YesOrNo, 13, LocalDate.now().toString());
                    QuizActivity.AnswerHolder.AddingToList(question13);
                    if(YesOrNo){
                        Exercise.setVisibility(View.VISIBLE);
@@ -204,12 +215,20 @@ public class Fragment4_in_QuizActivity extends Fragment {
                        Exercise.setText("");
 
                    }
+               }else{
+                   RemoveComplementaryQuestion(question13);
+                   question13 = null;
                }
            }
        });
 
     }
 
+    private void RemoveComplementaryQuestion( Answerable question) {
+        if (QuizActivity.AnswerHolder.QuizAnswers.contains(question)) {
+            QuizActivity.AnswerHolder.QuizAnswers.remove(question);
+        }
+    }
 
 
 }

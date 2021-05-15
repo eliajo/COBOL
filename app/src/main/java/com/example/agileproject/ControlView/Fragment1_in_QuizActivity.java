@@ -104,6 +104,8 @@ public class Fragment1_in_QuizActivity extends Fragment {
                 if (selectedChip != null) {
                   question1 = new NumberAnswer(Integer.valueOf(selectedChip.getText().toString()), 1, LocalDate.now().toString());
                  QuizActivity.AnswerHolder.AddingToList(question1);
+                }else{
+                    question1 = null;
                 }
             }
 
@@ -120,6 +122,8 @@ public class Fragment1_in_QuizActivity extends Fragment {
                 if(selectedChip != null) {
                     question2 = new NumberAnswer(Integer.valueOf(selectedChip.getText().toString()), 2, LocalDate.now().toString());
                   QuizActivity.AnswerHolder.AddingToList(question2);
+                } else {
+                    question2 = null;
                 }
             }
         });
@@ -135,6 +139,8 @@ public class Fragment1_in_QuizActivity extends Fragment {
                if (selectedChip != null) {
                    question3 = new NumberAnswer(Integer.valueOf(selectedChip.getText().toString()), 3, LocalDate.now().toString());
                  QuizActivity.AnswerHolder.AddingToList(question3);
+               }else {
+                   question3 = null;
                }
               }
            });
@@ -150,6 +156,8 @@ public class Fragment1_in_QuizActivity extends Fragment {
                if (selectedChip != null) {
                    question4 = new NumberAnswer(Integer.valueOf(selectedChip.getText().toString()), 4, LocalDate.now().toString());
                   QuizActivity.AnswerHolder.AddingToList(question4);
+               } else{
+                   question4 = null;
                }
            }
 
