@@ -81,6 +81,14 @@ public class GraphPage extends Fragment {
         List <String> stringList = new ArrayList<>();
         stringList.add("Test");
         stringList.add("Functionality");
+        stringList.add("Functionality");
+        stringList.add("Functionality");
+        stringList.add("Functionality");
+        stringList.add("Functionality");
+        stringList.add("Functionality");
+        stringList.add("Functionality");
+        stringList.add("Functionality");
+        stringList.add("Functionality");
 
         MultipleTextAnswer m1 = new MultipleTextAnswer(stringList,101,"2021-01-01");
         MultipleTextAnswer m2 = new MultipleTextAnswer(stringList,101,"2021-01-02");
