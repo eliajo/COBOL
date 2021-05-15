@@ -6,6 +6,11 @@ package com.example.agileproject.Model;
  */
 public interface Answerable {
 
+    /**
+     * Method to get the info needed to write and load from file
+     * @return String that holds information about object
+     */
+    String getInfoToWrite();
 
     /**
      *Returns the primary data for the object, for example Boolean. Note all are subclasses of Object so no primitive types

@@ -24,6 +24,12 @@
 
      </style>
 
+     <style name="NormalChip" parent="Widget.MaterialComponents.Chip.Choice">
+          <item name="chipBackgroundColor">#8BD58E</item>
+          <item name="android:textColor">@color/chip_text_color</item>
+          <item name="rippleColor">@color/whiteAlpha</item>
+     </style>
+
      <style name="YesOrNowChipStyle" parent="Widget.MaterialComponents.Chip.Choice">
           <item name="chipMinHeight">56dp</item>
           <item name="chipStartPadding">4dp</item>
