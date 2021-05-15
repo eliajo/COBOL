@@ -30,7 +30,7 @@ public class ValueFormatter extends com.github.mikephil.charting.formatter.Value
     public String getXValue(String dateInMillisecons, int index, ViewPortHandler viewPortHandler) {
         try {
 
-            SimpleDateFormat sdf = new SimpleDateFormat("dd MMM");
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM");
             return sdf.format(new Date(Long.parseLong(dateInMillisecons)));
 
         } catch (Exception e) {

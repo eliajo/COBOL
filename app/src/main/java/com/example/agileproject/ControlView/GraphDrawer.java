@@ -52,16 +52,13 @@ public class GraphDrawer {
                 holder.getMainLabel().setText("Hur mycket ångest du haft");
                 break;
             case 5:
-                holder.getMainLabel().setText("Hur mycket du sovit på nattid");
+                holder.getMainLabel().setText("Hur mycket du sovit på nattid jämfört med dagtid");
                 break;
             case 6:
-                holder.getMainLabel().setText("Hur mycket du sovit på dagtid");
+                holder.getMainLabel().setText("Hur mycket du sovit på nattid jämfört med dagtid");
                 break;
             case 8:
                 holder.getMainLabel().setText("Hur mycket ilska du haft");
-                break;
-            case 9:
-                holder.getMainLabel().setText("Hur ditt mående har varit");
                 break;
             default:
                 throw new IllegalArgumentException("No valid questionID");
@@ -189,22 +186,22 @@ public class GraphDrawer {
         int id = holder.getQuestionId();
         switch (id) {
             case 7:
-                holder.getMainLabel().setText("Hur du har sovit");
+                holder.getMainLabel().setText("Har du sovit bra inatt?");
+                break;
+            case 9:
+                holder.getMainLabel().setText("Har du tagit din medicin idag?");
                 break;
             case 10:
-                holder.getMainLabel().setText("Hur ofta du tagit din medicin");
+                holder.getMainLabel().setText("Hur du haft några biverkningar idag?");
                 break;
             case 11:
-                holder.getMainLabel().setText("Hur ofta du haft biverkningar");
+                holder.getMainLabel().setText("Har du druckit alkohol idag?");
+                break;
+            case 12:
+                holder.getMainLabel().setText("Har du haft tvångstankar?");
                 break;
             case 13:
-                holder.getMainLabel().setText("Hur ofta du druckit alkohol");
-                break;
-            case 14:
-                holder.getMainLabel().setText("Hur ofta du har haft tvångstankar");
-                break;
-            case 17:
-                holder.getMainLabel().setText("Hur ofta du har gjort någon fysisk aktivitet");
+                holder.getMainLabel().setText("Har du gjort någon fysisk aktivitet?");
                 break;
             default:
                 throw new IllegalArgumentException("No valid questionID");

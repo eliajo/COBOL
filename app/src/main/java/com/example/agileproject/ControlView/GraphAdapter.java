@@ -106,16 +106,15 @@ public class GraphAdapter extends RecyclerView.Adapter<GraphAdapter.GraphHolder>
             case 5:
             case 6:
             case 8:
-            case 9:
                 //Needed if no data exists to avoid crash and show empty graph
             case 1000:
                 return linechartID;
             case 7:
+            case 9:
             case 10:
             case 11:
+            case 12:
             case 13:
-            case 14:
-            case 17:
                 //Needed if no data exists to avoid crash and show empty graph
             case 2000:
                 return piechartID;
