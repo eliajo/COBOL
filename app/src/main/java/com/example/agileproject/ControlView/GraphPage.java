@@ -68,6 +68,7 @@ public class GraphPage extends Fragment {
         NumberAnswer na4 = new NumberAnswer(5,5,"2021-05-06");
         NumberAnswer na5 = new NumberAnswer(6,5,"2021-05-07");
         NumberAnswer na6 = new NumberAnswer(7,5,"2021-05-08");
+        NumberAnswer na7 = new NumberAnswer(5,5,"2021-03-03");
         NumberAnswer nb1 = new NumberAnswer(2,6,"2021-05-03");
         NumberAnswer nb2 = new NumberAnswer(2,6,"2021-05-04");
         NumberAnswer nb3 = new NumberAnswer(2,6,"2021-05-05");
@@ -102,6 +103,7 @@ public class GraphPage extends Fragment {
         answerableList.add(na4);
         answerableList.add(na5);
         answerableList.add(na6);
+        answerableList.add(na7);
         answerableList.add(nb1);
         answerableList.add(nb2);
         answerableList.add(nb3);

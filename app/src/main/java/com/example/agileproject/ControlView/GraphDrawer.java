@@ -130,7 +130,7 @@ public class GraphDrawer {
 
         chart.getAxisLeft().setDrawGridLines(false);
 
-        chart.getXAxis().setGranularity(1f);
+
         chart.getXAxis().setDrawGridLines(false);
         chart.setClickable(false);
         chart.setTouchEnabled(false);
@@ -138,7 +138,7 @@ public class GraphDrawer {
 
         //chart.setVisibleXRangeMinimum(0);
         //chart.setVisibleXRangeMaximum(10);
-        chart.setData(lineData);
+
 
         lineData.setDrawValues(false);
         chart.setDrawMarkers(false);
@@ -160,20 +160,22 @@ public class GraphDrawer {
         holder.getMainLabel().setTextSize(22f);
         chart.getDescription().setText("");
         chart.getLegend().setEnabled(false);
-        ValueFormatter valueFormatter = new com.example.agileproject.ControlView.ValueFormatter(entries.get(position).size(),entries.get(position).get(entries.get(position).size()-1).getDateAdded());
+        ValueFormatter valueFormatter = new com.example.agileproject.ControlView.ValueFormatter(entries.get(position),entries.get(position).get(entries.get(position).size()-1).getDateAdded(),timePeriod);
         chart.getXAxis().setValueFormatter(valueFormatter);
 
         if (timePeriod== GraphHelper.TimePeriod.WEEK){
-            chart.setVisibleXRange(0, 7);
-        }
+            chart.getXAxis().setGranularity(1f);
+        chart.setVisibleXRange(0,entries.get(position).size()-1);}
         else if (timePeriod== GraphHelper.TimePeriod.MONTH){
-            chart.setVisibleXRange(0, 4);
+            chart.getXAxis().setGranularity(7f);
         }
         else if (timePeriod== GraphHelper.TimePeriod.YEAR){
-            chart.setVisibleXRange(0, 12);
+            chart.getXAxis().setGranularity(30f);
         }
+        chart.setData(lineData);
         chart.fitScreen();
         chart.invalidate();
+
 
     }
 
