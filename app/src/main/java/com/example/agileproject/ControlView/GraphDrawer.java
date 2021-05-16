@@ -22,14 +22,15 @@ import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.formatter.IAxisValueFormatter;
 import com.github.mikephil.charting.formatter.PercentFormatter;
-import com.github.mikephil.charting.formatter.ValueFormatter;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class GraphDrawer {
 
@@ -73,10 +74,29 @@ public class GraphDrawer {
         //Safer solution but but takes O(n) time. Might have to discuss this.
         LineDataSet lineDataSet;
         List<Entry> converterList;
+        List<AnswerEntry> tmpAnswerEntryList = new ArrayList<>();
+        if (timePeriod.equals( GraphHelper.TimePeriod.YEAR)){
+            LocalDate localDate = LocalDate.parse(entries.get(position).get(0).getDateAdded());
+            for (int i =0;i<12;i++) {
+                int a = i;
+                List <AnswerEntry> returnList=entries.get(position).stream().filter(o -> LocalDate.parse(o.getDateAdded()).getMonth() == localDate.getMonth().plus(a)).collect(Collectors.toList());
+               int sum = 0;
+                for (AnswerEntry answerEntry:returnList) {
+                    sum +=answerEntry.getY();
+                }
+                if (returnList.size()>0){
+                int mean = sum/returnList.size();
+                tmpAnswerEntryList.add(new AnswerEntry(i,mean,entries.get(position).get(0).getQuestionId(),localDate.plusMonths(i).toString()));}
+            }
+        }
         if (entries.get(position).get(0).getQuestionId() == 1000 || entries.get(position).get(0).getQuestionId() == 2000) {
             converterList = new ArrayList<>();
         } else {
-            converterList = new ArrayList<>(entries.get(position));
+            if (timePeriod== GraphHelper.TimePeriod.YEAR){
+                converterList = new ArrayList<>(tmpAnswerEntryList);
+            }
+            else {
+            converterList = new ArrayList<>(entries.get(position));}
         }
         lineDataSet = new LineDataSet(converterList, "Dagar");
 
@@ -107,7 +127,8 @@ public class GraphDrawer {
         }
         chart.getAxisRight().setEnabled(false);
 
-        switch (timePeriod) {
+
+        /*switch (timePeriod) {
             case WEEK:
                 chart.getXAxis().setAxisMaximum(7);
                 break;
@@ -117,7 +138,7 @@ public class GraphDrawer {
                 break;
             case YEAR:
                 chart.getXAxis().setAxisMaximum(365);
-        }
+        }*/
 
 
         chart.getXAxis().setAxisMinimum(0f);
@@ -160,18 +181,26 @@ public class GraphDrawer {
         holder.getMainLabel().setTextSize(22f);
         chart.getDescription().setText("");
         chart.getLegend().setEnabled(false);
-        ValueFormatter valueFormatter = new com.example.agileproject.ControlView.ValueFormatter(entries.get(position),entries.get(position).get(entries.get(position).size()-1).getDateAdded(),timePeriod);
-        chart.getXAxis().setValueFormatter(valueFormatter);
-
+        com.example.agileproject.ControlView.ValueFormatter valueFormatter;
+        if (timePeriod== GraphHelper.TimePeriod.YEAR){
+            valueFormatter= new ValueFormatter(tmpAnswerEntryList,tmpAnswerEntryList.get(0).getDateAdded(),timePeriod);
+        }
+        else {
+            valueFormatter = new com.example.agileproject.ControlView.ValueFormatter(entries.get(position), entries.get(position).get(0).getDateAdded(), timePeriod);
+        }
         if (timePeriod== GraphHelper.TimePeriod.WEEK){
             chart.getXAxis().setGranularity(1f);
-        chart.setVisibleXRange(0,entries.get(position).size()-1);}
+            chart.setVisibleXRange(0,entries.get(position).size()-1);}
         else if (timePeriod== GraphHelper.TimePeriod.MONTH){
             chart.getXAxis().setGranularity(7f);
         }
         else if (timePeriod== GraphHelper.TimePeriod.YEAR){
-            chart.getXAxis().setGranularity(30f);
+            chart.getXAxis().setAxisMaximum(12);
+            chart.getXAxis().setLabelCount(12,true);
         }
+        chart.getXAxis().setValueFormatter(valueFormatter);
+
+
         chart.setData(lineData);
         chart.fitScreen();
         chart.invalidate();

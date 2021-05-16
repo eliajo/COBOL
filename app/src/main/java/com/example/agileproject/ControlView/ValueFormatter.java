@@ -28,12 +28,13 @@ public class ValueFormatter extends com.github.mikephil.charting.formatter.Value
     private LocalDate localDate;
     private GraphHelper.TimePeriod timePeriod;
     private List<AnswerEntry> answerEntries;
-
+    private int axisIndex;
     @RequiresApi(api = Build.VERSION_CODES.O)
     public ValueFormatter(List<AnswerEntry> answerEntries, String lastDate, GraphHelper.TimePeriod timePeriod) {
         this.localDate = LocalDate.parse(lastDate);
         this.timePeriod = timePeriod;
         this.answerEntries = answerEntries;
+        this.axisIndex=0;
     }
 
     //override?
@@ -50,13 +51,15 @@ public class ValueFormatter extends com.github.mikephil.charting.formatter.Value
     }
 
 
+
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public String getAxisLabel(float value, AxisBase axis) {
         int index = (int) value;
         LocalDate returnDate;
+
         if (index >= answerEntries.size()) {
-            returnDate = localDate.plusDays(index-answerEntries.size()+1);
+            returnDate = localDate.plusDays(index);
         } else {
             LocalDate valueDate = LocalDate.parse(answerEntries.get(index).getDateAdded());
             long daysBetween = DAYS.between(valueDate, localDate);
@@ -83,30 +86,42 @@ public class ValueFormatter extends com.github.mikephil.charting.formatter.Value
             return returnDate.toString();
         } else if (timePeriod == GraphHelper.TimePeriod.YEAR) {
 
-            switch (returnDate.getMonth()) {
+            switch (localDate.getMonth().plus(axisIndex)) {
                 case JANUARY:
+                    axisIndex++;
                     return "Jan";
                 case FEBRUARY:
+                    axisIndex++;
                     return "Feb";
                 case MARCH:
+                    axisIndex++;
                     return "Mars";
                 case APRIL:
+                    axisIndex++;
                     return "April";
                 case MAY:
+                    axisIndex++;
                     return "Maj";
                 case JUNE:
+                    axisIndex++;
                     return "Juni";
                 case JULY:
+                    axisIndex++;
                     return "Juli";
                 case AUGUST:
+                    axisIndex++;
                     return "Aug";
                 case SEPTEMBER:
+                    axisIndex++;
                     return "Sep";
                 case OCTOBER:
-                    return "OKT";
+                    axisIndex++;
+                    return "Okt";
                 case NOVEMBER:
+                    axisIndex++;
                     return "Nov";
                 case DECEMBER:
+                    axisIndex++;
                     return "Dec";
 
             }

@@ -15,7 +15,7 @@ public class AnswerEntry extends PieEntry {
     private String label;
 
     public AnswerEntry(float x, float y, int questionId,String dateAdded){
-        super(x,y);
+        super(y,x);
         this.x=x;
         this.y=y;
         this.questionId=questionId;
