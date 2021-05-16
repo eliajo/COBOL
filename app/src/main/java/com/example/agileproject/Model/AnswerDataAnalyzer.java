@@ -31,10 +31,12 @@ public class AnswerDataAnalyzer {
                     System.out.println("Can't analyze text");
                     break;
                 case 1: //The answer type is int
-                    numberAnalyze(toAnalyze);
+                    AnalyzerSettingNumber numberSettings = (AnalyzerSettingNumber) AnalyzerConverter.getInstance().getAnalyzerSettings(id);
+                    numberAnalyze(toAnalyze, numberSettings);
                     break;
                 case 2: //The answer type is boolean
-                    System.out.println("Boolean"); //TODO add functions for boolean to call here
+                    AnalyzerSettingBoolean booleanSettings = (AnalyzerSettingBoolean) AnalyzerConverter.getInstance().getAnalyzerSettings(id);
+                    booleanAnalyze(toAnalyze, booleanSettings);
                     break;
                 default:
                     System.out.println("No type represented by this id");
@@ -43,35 +45,57 @@ public class AnswerDataAnalyzer {
         }
     }
 
-    private void numberAnalyze(List<Answerable> toAnalyze) {
-        List<NumberAnswer> numberAnswers = new ArrayList<>();
+    private void booleanAnalyze(List<Answerable> toAnalyze, AnalyzerSettingBoolean settings) {
+        List<BooleanAnswer> booleanAnswers = new ArrayList<>();
         for (Answerable a : toAnalyze) {
-            numberAnswers.add((NumberAnswer) a);
+            booleanAnswers.add((BooleanAnswer) a);
         }
 
-        if(aboveUpperLimit(numberAnswers)) {
-            //TODO send warning notification for high value
-            System.out.println("Warning, value too high");//Test line, remove later
-        }else if(belowLowerLimit(numberAnswers)) {
-            //TODO send warning notification for low value
-            System.out.println("Warning, value too low");//Test line, remove later
+        if(booleanWarning(booleanAnswers, settings)) {
+            //TODO send warning notification for boolean value
+            System.out.println("Warning");
         }
     }
 
-    private boolean aboveUpperLimit(List<NumberAnswer> toAnalyze) {
+    private boolean booleanWarning(List<BooleanAnswer> toAnalyze, AnalyzerSettingBoolean settings) {
         boolean sendWarning = true;
-        for(NumberAnswer a : toAnalyze) { //check upper bound
-            if(/**upper >= a.getData()*/sendWarning) { //TODO method to get value from other place
+        for(BooleanAnswer a : toAnalyze) {
+            if(settings.getWarningSign() != a.getData()) {
                 sendWarning = false;
             }
         }
         return sendWarning;
     }
 
-    private boolean belowLowerLimit(List<NumberAnswer> toAnalyze) {
+    private void numberAnalyze(List<Answerable> toAnalyze, AnalyzerSettingNumber settings) {
+        List<NumberAnswer> numberAnswers = new ArrayList<>();
+        for (Answerable a : toAnalyze) {
+            numberAnswers.add((NumberAnswer) a);
+        }
+
+        if(aboveUpperLimit(numberAnswers, settings)) {
+            //TODO send warning notification for high value
+            System.out.println("Warning, value too high");//Test line, remove later
+        }else if(belowLowerLimit(numberAnswers, settings)) {
+            //TODO send warning notification for low value
+            System.out.println("Warning, value too low");//Test line, remove later
+        }
+    }
+
+    private boolean aboveUpperLimit(List<NumberAnswer> toAnalyze, AnalyzerSettingNumber settings) {
+        boolean sendWarning = true;
+        for(NumberAnswer a : toAnalyze) { //check upper bound
+            if(settings.getUpperLimit() >= a.getData()) {
+                sendWarning = false;
+            }
+        }
+        return sendWarning;
+    }
+
+    private boolean belowLowerLimit(List<NumberAnswer> toAnalyze, AnalyzerSettingNumber settings) {
         boolean sendWarning = true;
         for(NumberAnswer a : toAnalyze) { //check lower bound
-            if(/**lower <= a.getData()*/ sendWarning) { //TODO method to get value from other place
+            if(settings.getLowerLimit() <= a.getData()) {
                 sendWarning = false;
             }
         }

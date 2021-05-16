@@ -38,4 +38,8 @@ public class AnalyzerSettingBoolean implements AnalyzerSettable, Storable {
     public int getTimeFrame() {
         return timeFrame;
     }
+
+    public boolean getWarningSign() {
+        return warningSign;
+    }
 }

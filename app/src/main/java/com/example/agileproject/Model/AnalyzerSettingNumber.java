@@ -40,4 +40,12 @@ public class AnalyzerSettingNumber implements AnalyzerSettable, Storable {
     public int getTimeFrame() {
         return timeFrame;
     }
+
+    public int getUpperLimit() {
+        return upperLimit;
+    }
+
+    public int getLowerLimit() {
+        return lowerLimit;
+    }
 }
