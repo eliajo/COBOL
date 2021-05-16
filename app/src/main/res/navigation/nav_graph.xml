@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <!--
 View for Navigation Graph
 @author Edenia Isaac
@@ -17,9 +18,6 @@ View for Navigation Graph
         <action
             android:id="@+id/action_questions2_to_questions3"
             app:destination="@id/questions3" />
-        <action
-            android:id="@+id/action_questions2_to_complementaryQuestion24"
-            app:destination="@id/complementaryQuestion24" />
     </fragment>
     <fragment
         android:id="@+id/questions3"
@@ -32,9 +30,6 @@ View for Navigation Graph
         <action
             android:id="@+id/action_questions3_to_questions2"
             app:destination="@id/questions2" />
-        <action
-            android:id="@+id/action_questions3_to_complementaryQuestion3"
-            app:destination="@id/complementaryQuestion3" />
     </fragment>
     <fragment
         android:id="@+id/question1"
@@ -54,8 +49,8 @@ View for Navigation Graph
             android:id="@+id/action_question4_to_questions3"
             app:destination="@id/questions3" />
         <action
-            android:id="@+id/action_question4_to_doneQuestions"
-            app:destination="@id/doneQuestions" />
+            android:id="@+id/q4_to_homePage2"
+            app:destination="@id/homePage2" />
     </fragment>
     <fragment
         android:id="@+id/doneQuestions"
@@ -63,28 +58,10 @@ View for Navigation Graph
         android:label="fragment_done_questions"
         tools:layout="@layout/fragment_done_questions" />
     <fragment
-        android:id="@+id/complementaryQuestion24"
-        android:name="com.example.agileproject.ControlView.ComplementaryQuestion2"
-        android:label="ComplementaryQuestion2" >
-        <action
-            android:id="@+id/action_complementaryQuestion24_to_questions3"
-            app:destination="@id/questions3" />
-
-    </fragment>
+        android:id="@+id/homePage2"
+        android:name="com.example.agileproject.ControlView.HomePage2"
+        android:label="fragment_home_page2"
+        tools:layout="@layout/fragment_home_page2" />
 
 
-    <fragment
-        android:id="@+id/complementaryQuestion3"
-        android:name="com.example.agileproject.ControlView.ComplementaryQuestion3"
-        android:label="ComplementaryQuestion3" >
-        <action
-            android:id="@+id/action_complementaryQuestion3_to_questions2"
-            app:destination="@id/questions2" />
-        <action
-            android:id="@+id/action_complementaryQuestion3_to_complementaryQuestion24"
-            app:destination="@id/complementaryQuestion24" />
-        <action
-            android:id="@+id/action_complementaryQuestion3_to_question4"
-            app:destination="@id/question4" />
-    </fragment>
 </navigation>

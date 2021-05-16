@@ -27,8 +27,6 @@ import java.util.List;
  */
 public class ContactPage extends Fragment {
 
-
-
     NavController navController;
 
     public ContactPage() {

@@ -1,0 +1,31 @@
+what do I want to learn or understand better?
+
+As the previous weeks I still want to improve my understanding of Scrum and the rest of the agile mindset. I spent some time reading articles online about acceptance testing
+and how to do testing. I still feel like it really has not fully "clicked" yet but I definitely feel more comfortable with scrum than last week. I will continue to read up on 
+agile principles when I find the time.
+Like last week I also want to 
+become better at multitasking in a software development environment. It really is a challenge for me since I have never been a good multitasker. I feel though that I have become
+better at it since I now understand the different parts of the program on a deeper level. I don't think I can get better at this by training, it has to do with experience. 
+
+how can I help someone else, or the entire team, to learn something new?
+
+Like previous weeks I have tried to be available as often as I can to help the team out with various issues. I have tried to focus more on helping them understand the problem
+and giving them tips on how to solve them, than directly solving them for them. 
+I hope that this will increase both our productivity and make me feel less stressed about the project.
+
+what is my contribution towards the team’s use of Scrum?
+
+I noticed that some stories were not formatted correctly and I took it up with the team and it should hopefully be solved soon. In general I feel like some of the non code
+related tasks of this course, such as documentation, as been prioritized away. 
+My goal is to make sure that everything is up to date and correct before we turn in the project by getting the group to do these tasks. Besides this I have also attended
+each standup meeting, like almost all sprints but I might have forgotten to mention it. I feel like I contribute by trying to spur discussion and making everyone feel involved.
+This is something that I feel is going to make sure that everyone knows what they should do and by result making sure that the project at the end brings value to our stakeholder.
+I also had a discussion with the group about how our focus on our time log might not be to beneficial to us since it does not encourage effiency and productivity. It is better
+to focus on what you have achieved than how many hour you have spent. This is something that will be taken into account the next sprint. 
+
+what is my contribution towards the team’s deliveries?
+
+I have done quite alot of work on the functionality to save answers and graphs. At the time of writing it is not done but I will spend this weekend to make sure it gets done.
+This was caused due to the fact that I did not have as much time as I expected this week. In the future I will try to plan things better. Besides this I have also spent
+time on the team reflection. In general I feel like I have become more productive this week which I believe is thanks to the team becoming more and more independent. This
+has been a relief for me since I have been quite stressed the last few sprints due to me having to work on too many areas of the app at once.
