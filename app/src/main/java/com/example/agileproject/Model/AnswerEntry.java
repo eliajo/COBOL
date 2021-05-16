@@ -11,12 +11,23 @@ import com.github.mikephil.charting.data.PieEntry;
 public class AnswerEntry extends PieEntry {
     private float x,y;
     private int questionId;
+    private String dateAdded;
+    private String label;
 
-    public AnswerEntry(float x, float y, int questionId){
-        super(x,y);
+    public AnswerEntry(float x, float y, int questionId,String dateAdded){
+        super(y,x);
         this.x=x;
         this.y=y;
         this.questionId=questionId;
+        this.dateAdded = dateAdded;
+    }
+    public AnswerEntry(String label, float y, int questionId,String dateAdded){
+        super(y,label);
+
+        this.label = label;
+        this.y=y;
+        this.questionId=questionId;
+        this.dateAdded = dateAdded;
     }
 
 
@@ -24,9 +35,17 @@ public class AnswerEntry extends PieEntry {
         return questionId;
     }
 
+    public String getDateAdded(){
+        return dateAdded;
+    }
     @Override
     public float getX() {
         return x;
+    }
+
+    @Override
+    public String getLabel() {
+        return label;
     }
 
     @Override
