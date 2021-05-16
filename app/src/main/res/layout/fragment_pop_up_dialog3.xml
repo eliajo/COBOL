@@ -18,7 +18,8 @@ View for Navigation Graph
         android:layout_height="24dp"
         android:layout_marginTop="48dp"
         android:text=" Vanföreställningar"
-        android:textColor="#176693"
+        android:textColor="#083D5C"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.467"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,13 +27,14 @@ View for Navigation Graph
 
     <TextView
         android:id="@+id/textView28"
-        android:layout_width="274dp"
-        android:layout_height="91dp"
+        android:layout_width="290dp"
+        android:layout_height="108dp"
         android:layout_marginTop="12dp"
-        android:text="   Förklaring:  falsk föreställning om sig själv eller andra  Har du känt dig orolig, misstänksam för omgivningen, har du känt dig förföljd, hänsyftning ideer, känner dig kontrollerad ect "
-        android:textColor="#176693"
+        android:text="   Förklaring:  falsk föreställning om sig själv eller andra, har du känt dig orolig, misstänksam för omgivningen, har du känt dig förföljd, hänsyftning ideer, känner dig kontrollerad ect. Där:"
+        android:textColor="#083D5C"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.461"
+        app:layout_constraintHorizontal_bias="0.396"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView22" />
 
@@ -49,22 +51,24 @@ View for Navigation Graph
 
     <TextView
         android:id="@+id/textView30"
-        android:layout_width="174dp"
-        android:layout_height="29dp"
+        android:layout_width="262dp"
+        android:layout_height="33dp"
         android:layout_marginTop="8dp"
         android:text="1 = inga vanföreställningar"
         android:textColor="#4CC321"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.388"
+        app:layout_constraintHorizontal_bias="0.51"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView28" />
 
     <TextView
         android:id="@+id/textView31"
-        android:layout_width="227dp"
-        android:layout_height="30dp"
+        android:layout_width="259dp"
+        android:layout_height="38dp"
         android:text="10 = jätte mycket vanföreställningar"
         android:textColor="#D81E1E"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
