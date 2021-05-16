@@ -69,7 +69,7 @@ public class Questions2 extends Fragment {
         TextView ErrorText = (TextView) view.findViewById(R.id.textView19);
         view.findViewById(R.id.next_button_questions2).setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) { // doesnt work
+            public void onClick(View v) {
 
                 if (selectedChip == view.findViewById(R.id.chipNo)) {
                     if( !(question5==null || question6==null || question7 == null  || question7Complementary0==null)){
@@ -169,8 +169,7 @@ public class Questions2 extends Fragment {
                 }else {
                     question7Complementary0 = new TextAnswer(String.valueOf(selectedRadioButton.getText().toString()), 8, LocalDateTime.now().toString());
                 }
-                //question7Complementary1 = new NumberAnswer(1, 9, LocalDateTime.now().toString());
-                //question7Complementary2 = new NumberAnswer(2, 10, LocalDateTime.now().toString());
+                
             }
 
         });
