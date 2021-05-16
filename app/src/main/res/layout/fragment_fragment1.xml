@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 View for Navigation Graph
-@author Pegah Amanzadeh
+@author Pegah Amanzadeh, Edenia Isaac
 -->
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.android.com/tools" 
+     android:layout_height="match_parent"
+     android:layout_width="match_parent"
+    android:fillViewport="true">
+ 
+
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="#0FFFFFFF">
 
 
@@ -41,19 +48,19 @@ View for Navigation Graph
 
     <TextView
         android:id="@+id/textView6"
-        android:layout_width="0dp"
-        android:layout_height="38dp"
+        android:layout_width="222dp"
+        android:layout_height="48dp"
         android:layout_marginStart="102dp"
         android:layout_marginLeft="102dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="84dp"
         android:layout_marginRight="84dp"
-        android:text="Sidan 1 av 4"
+        android:text="Sida 1 av 4"
         android:textColor="#176693"
-        android:textSize="30sp"
+        android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/chip1questionmark"
-        app:layout_constraintHorizontal_bias="0.426"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -63,7 +70,7 @@ View for Navigation Graph
         android:layout_height="23dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="20dp"
         android:text="1.Uppskatta din energinivå idag *"
         android:textColor="#176693"
         android:textColorHint="#176693"
@@ -77,10 +84,8 @@ View for Navigation Graph
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="8dp"
-
+        android:layout_marginTop="20dp"
         android:text="4.Har du haft ångest? *"
-
         android:textColor="#176693"
         android:textSize="18dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -93,7 +98,7 @@ View for Navigation Graph
         android:layout_height="23dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="20dp"
         android:text="2.Har du haft Hallucinationer idag? *"
         android:textColor="#176693"
         android:textSize="18sp"
@@ -106,7 +111,7 @@ View for Navigation Graph
         android:layout_height="26dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="20dp"
         android:text="3.Har du haft vanföreställningar idag? *"
         android:textColor="#176693"
         android:textSize="18sp"
@@ -120,7 +125,7 @@ View for Navigation Graph
         android:layout_height="100dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="16dp"
 
         android:layout_marginRight="16dp"
@@ -238,6 +243,7 @@ View for Navigation Graph
         style="@style/CustomChipStyle"
         android:layout_width="284dp"
         android:layout_height="106dp"
+        android:layout_marginTop="20dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -335,7 +341,7 @@ View for Navigation Graph
         android:layout_height="109dp"
         android:layout_marginStart="4dp"
         android:layout_marginLeft="4dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="13dp"
         android:layout_marginRight="13dp"
         app:layout_constraintEnd_toEndOf="@+id/next_button_q2"
@@ -435,7 +441,7 @@ View for Navigation Graph
         android:layout_height="99dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView13"
         app:singleSelection="true">
@@ -543,7 +549,7 @@ View for Navigation Graph
         android:id="@+id/chip1questionmark"
         android:layout_width="49dp"
         android:layout_height="39dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="80dp"
         android:layout_marginEnd="6dp"
         android:layout_marginRight="6dp"
         android:text="?"
@@ -556,18 +562,20 @@ View for Navigation Graph
         android:id="@+id/chip2questionmark"
         android:layout_width="49dp"
         android:layout_height="39dp"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="116dp"
         android:layout_marginEnd="4dp"
         android:layout_marginRight="4dp"
         android:text="?"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.962"
+        app:layout_constraintStart_toEndOf="@+id/textView13"
         app:layout_constraintTop_toBottomOf="@+id/chip1questionmark" />
 
     <com.google.android.material.chip.Chip
         android:id="@+id/chip3questionmark"
         android:layout_width="49dp"
         android:layout_height="39dp"
-        android:layout_marginTop="104dp"
+        android:layout_marginTop="120dp"
         android:layout_marginEnd="6dp"
         android:layout_marginRight="6dp"
         android:text="?"
@@ -580,14 +588,17 @@ View for Navigation Graph
         android:id="@+id/chip4questionmark"
         android:layout_width="49dp"
         android:layout_height="39dp"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="136dp"
         android:layout_marginEnd="6dp"
         android:layout_marginRight="6dp"
         android:text="?"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.963"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/textView12"
         app:layout_constraintTop_toBottomOf="@+id/chip3questionmark" />
 
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 
+</ScrollView>
