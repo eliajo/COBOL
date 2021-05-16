@@ -204,7 +204,8 @@ public class GraphDrawer {
             chart.getXAxis().setAxisMaximum(7);
             chart.getXAxis().setLabelCount(7,true);}
         else if (timePeriod== GraphHelper.TimePeriod.MONTH){
-            chart.getXAxis().setAxisMaximum(4);
+            chart.getXAxis().setGranularity(10f);
+            chart.getXAxis().setAxisMaximum(30);
             chart.getXAxis().setLabelCount(4,true);
         }
         else if (timePeriod== GraphHelper.TimePeriod.YEAR){
