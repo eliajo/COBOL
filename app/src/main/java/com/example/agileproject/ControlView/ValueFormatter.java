@@ -29,9 +29,15 @@ public class ValueFormatter extends com.github.mikephil.charting.formatter.Value
     private GraphHelper.TimePeriod timePeriod;
     private List<AnswerEntry> answerEntries;
     private int axisIndex;
+    private String lastDate;
     @RequiresApi(api = Build.VERSION_CODES.O)
     public ValueFormatter(List<AnswerEntry> answerEntries, String lastDate, GraphHelper.TimePeriod timePeriod) {
-        this.localDate = LocalDate.parse(lastDate);
+        if (lastDate!=null){
+        this.localDate = LocalDate.parse(lastDate);}
+        else{
+            this.localDate=LocalDate.now();
+        }
+        this.lastDate=lastDate;
         this.timePeriod = timePeriod;
         this.answerEntries = answerEntries;
         this.axisIndex=0;
@@ -58,7 +64,7 @@ public class ValueFormatter extends com.github.mikephil.charting.formatter.Value
         int index = (int) value;
         LocalDate returnDate;
 
-        if (index >= answerEntries.size()) {
+        if (index >= answerEntries.size()||lastDate==null) {
             returnDate = localDate.plusDays(index);
         } else {
             LocalDate valueDate = LocalDate.parse(answerEntries.get(index).getDateAdded());
