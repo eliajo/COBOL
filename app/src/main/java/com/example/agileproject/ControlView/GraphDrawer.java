@@ -76,18 +76,7 @@ public class GraphDrawer {
         List<Entry> converterList;
         List<AnswerEntry> tmpAnswerEntryList = new ArrayList<>();
         if (timePeriod.equals( GraphHelper.TimePeriod.YEAR)){
-            LocalDate localDate = LocalDate.parse(entries.get(position).get(0).getDateAdded());
-            for (int i =0;i<12;i++) {
-                int a = i;
-                List <AnswerEntry> returnList=entries.get(position).stream().filter(o -> LocalDate.parse(o.getDateAdded()).getMonth() == localDate.getMonth().plus(a)).collect(Collectors.toList());
-               int sum = 0;
-                for (AnswerEntry answerEntry:returnList) {
-                    sum +=answerEntry.getY();
-                }
-                if (returnList.size()>0){
-                int mean = sum/returnList.size();
-                tmpAnswerEntryList.add(new AnswerEntry(i,mean,entries.get(position).get(0).getQuestionId(),localDate.plusMonths(i).toString()));}
-            }
+            convertToYear(entries, position, tmpAnswerEntryList);
         }
         if (entries.get(position).get(0).getQuestionId() == 1000 || entries.get(position).get(0).getQuestionId() == 2000) {
             converterList = new ArrayList<>();
@@ -113,8 +102,18 @@ public class GraphDrawer {
                 index++;
             }
             if (found) {
-                List<Entry> secondList = new ArrayList<>(entries.get(relatedPosition));
-                LineDataSet secondLineDataSet = new LineDataSet(secondList, "Dagar");
+                LineDataSet secondLineDataSet;
+                List<Entry> secondList;
+                if (timePeriod== GraphHelper.TimePeriod.YEAR){
+                    List <AnswerEntry> tmpDoubleGraphList = new ArrayList();
+                    convertToYear(entries,relatedPosition,tmpDoubleGraphList);
+                    secondList= new ArrayList<>(tmpDoubleGraphList);
+
+                }
+                else{
+                 secondList= new ArrayList<>(entries.get(relatedPosition));
+                 }
+                secondLineDataSet = new LineDataSet(secondList, "Dagar");
                 lineData = new LineData(lineDataSet, secondLineDataSet);
             } else {
                 lineData = new LineData(lineDataSet);
@@ -190,9 +189,11 @@ public class GraphDrawer {
         }
         if (timePeriod== GraphHelper.TimePeriod.WEEK){
             chart.getXAxis().setGranularity(1f);
-            chart.setVisibleXRange(0,entries.get(position).size()-1);}
+            chart.getXAxis().setAxisMaximum(7);
+            chart.getXAxis().setLabelCount(7,true);}
         else if (timePeriod== GraphHelper.TimePeriod.MONTH){
-            chart.getXAxis().setGranularity(7f);
+            chart.getXAxis().setAxisMaximum(4);
+            chart.getXAxis().setLabelCount(4,true);
         }
         else if (timePeriod== GraphHelper.TimePeriod.YEAR){
             chart.getXAxis().setAxisMaximum(12);
@@ -206,6 +207,22 @@ public class GraphDrawer {
         chart.invalidate();
 
 
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private void convertToYear(List<List<AnswerEntry>> entries, int position, List<AnswerEntry> tmpAnswerEntryList) {
+        LocalDate localDate = LocalDate.parse(entries.get(position).get(0).getDateAdded());
+        for (int i =0;i<12;i++) {
+            int a = i;
+            List <AnswerEntry> returnList=entries.get(position).stream().filter(o -> LocalDate.parse(o.getDateAdded()).getMonth() == localDate.getMonth().plus(a)).collect(Collectors.toList());
+           int sum = 0;
+            for (AnswerEntry answerEntry:returnList) {
+                sum +=answerEntry.getY();
+            }
+            if (returnList.size()>0){
+            int mean = sum/returnList.size();
+            tmpAnswerEntryList.add(new AnswerEntry(i,mean,entries.get(position).get(0).getQuestionId(),localDate.plusMonths(i).toString()));}
+        }
     }
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
@@ -259,8 +276,8 @@ public class GraphDrawer {
         }
 
         pieChart = pieChart.findViewById(R.id.piechart);
-        AnswerEntry yesEntry = new AnswerEntry("Yes",yes,id,"");
-        AnswerEntry noEntry = new AnswerEntry("No",no,id,"");
+        AnswerEntry yesEntry = new AnswerEntry("Ja",yes,id,"");
+        AnswerEntry noEntry = new AnswerEntry("Nej",no,id,"");
         // pieEntryList.add(new PieEntry(30,"Ja"));
         List <AnswerEntry> answerEntryList = new ArrayList<>();
         if(yes!=0){
