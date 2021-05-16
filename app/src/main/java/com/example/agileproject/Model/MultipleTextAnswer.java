@@ -49,4 +49,5 @@ public class MultipleTextAnswer implements Answerable {
     public int getType() {
         return type;
     }
+
 }
