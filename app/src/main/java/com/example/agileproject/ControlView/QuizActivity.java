@@ -2,9 +2,11 @@ package com.example.agileproject.ControlView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 
@@ -21,6 +23,7 @@ import java.util.List;
 public class QuizActivity extends AppCompatActivity {
     Fragment1_in_QuizActivity fragment1;
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public void onBackPressed() {
 
@@ -87,6 +90,17 @@ public class QuizActivity extends AppCompatActivity {
             }
             return YesOrNo;
         }
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    public static boolean isComplementaryQuestionForPageAnswered(int pageNumber){
+            //Checks if there is an object in list with question id equal to 7 or 10
+            if (pageNumber==2){
+                return QuizAnswers.stream().anyMatch(o -> o.getQuestionId()==7);
+            }
+            else if (pageNumber==3){
+                return QuizAnswers.stream().anyMatch(o -> o.getQuestionId()==10);
+            }
+            return false;
+    }
 
 
 

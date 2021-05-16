@@ -1,14 +1,15 @@
 package com.example.agileproject.Model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MultipleTextAnswer implements Answerable {
     private List<String> text;
-    private double questionId;
+    private int questionId;
     private String date;
     private final int type;
 
-    public MultipleTextAnswer(List<String> text, double questionId, String date) {
+    public MultipleTextAnswer(List<String> text, int questionId, String date) {
         this.text = text;
         this.questionId = questionId;
         this.date = date;
@@ -18,27 +19,35 @@ public class MultipleTextAnswer implements Answerable {
 
     @Override
     public String getInfoToWrite() {
+        StringBuilder sb = new StringBuilder();
+        for (String s:text) {
+            sb.append(s);
+            sb.append("§§§---§§§---§§§");
+        }
 
-        return text + "###---###---###" + questionId + "###---###---###" + date + "###---###---###" + type;
+        return sb.toString() + "###---###---###" + questionId + "###---###---###" + date + "###---###---###" + type;
     }
 
     @Override
-    public Object getData() {
-        return null;
+    public List<String> getData() {
+        List<String> safeCopy = new ArrayList<>();
+        safeCopy.addAll(text);
+        return safeCopy;
     }
 
     @Override
     public int getQuestionId() {
-        return 0;
+        return questionId;
     }
 
     @Override
     public String getDate() {
-        return null;
+        return date;
     }
 
     @Override
     public int getType() {
-        return 0;
+        return type;
     }
+
 }

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_home_page"
+    app:startDestination="@id/homePage">
+
+    <fragment
+        android:id="@+id/homePage"
+        android:name="com.example.agileproject.ControlView.HomePage"
+        android:label="fragment_home_page"
+        tools:layout="@layout/fragment_home_page" >
+        <action
+            android:id="@+id/home_to_calendar"
+            app:destination="@id/calendarPage" />
+        <action
+            android:id="@+id/home_to_stats"
+            app:destination="@id/graphPage" />
+    </fragment>
+    <fragment
+        android:id="@+id/calendarPage"
+        android:name="com.example.agileproject.ControlView.CalendarPage"
+        android:label="fragment_calendar_page"
+        tools:layout="@layout/fragment_calendar_page" />
+    <fragment
+        android:id="@+id/graphPage"
+        android:name="com.example.agileproject.ControlView.GraphPage"
+        android:label="fragment_graph_page"
+        tools:layout="@layout/fragment_graph_page" />
+</navigation>

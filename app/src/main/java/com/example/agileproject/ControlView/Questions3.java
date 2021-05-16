@@ -58,12 +58,22 @@ public class Questions3 extends Fragment {
 
 
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_question3, container, false);
+        View view = inflater.inflate(R.layout.fragment_question3, container, false);
+        if (QuizActivity.AnswerHolder.isComplementaryQuestionForPageAnswered(3)){
+            view.findViewById(R.id.textView2).setVisibility(View.GONE);
+            view.findViewById(R.id.chipGroup).setVisibility(View.GONE);
+            view.findViewById(R.id.textView11).setVisibility(View.VISIBLE);
+            view.findViewById(R.id.Side_Effects).setVisibility(View.VISIBLE);
+            view.findViewById(R.id.imageView3).setVisibility(View.VISIBLE);
+            view.findViewById(R.id.chipYesSideEffects).setSelected(true);
+        }
 
+        return view;
     }
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -94,8 +104,9 @@ public class Questions3 extends Fragment {
                         }
                         answers.add(text);
                     }
+
                     if(!answers.isEmpty()){
-                        question101 = new MultipleTextAnswer(answers, 10.1, LocalDate.now().toString());
+                        question101 = new MultipleTextAnswer(answers, 101, LocalDate.now().toString());
                         QuizActivity.AnswerHolder.AddingToList(question101);
                     }
                    else{
@@ -105,6 +116,7 @@ public class Questions3 extends Fragment {
 
                 if (selectedChip == view.findViewById(R.id.chipNoSideEffects)) {
                     if (!(question8 == null || question9 == null || question10 == null)) {
+
 
                         navController.navigate(R.id.action_questions3_to_question4);
 

@@ -2,10 +2,12 @@ package com.example.agileproject.Utils;
 
 import com.example.agileproject.Model.Answerable;
 import com.example.agileproject.Model.BooleanAnswer;
+import com.example.agileproject.Model.MultipleTextAnswer;
 import com.example.agileproject.Model.NumberAnswer;
 import com.example.agileproject.Model.TextAnswer;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -99,6 +101,25 @@ public class AnswerConverter {
                     List<Answerable> answerList = new ArrayList<>();
                     answerList.add(answer);
                     questionMap.put(answer.getQuestionId(), answerList);
+                }
+            }
+            else if (answerParameters[typeIndex].equals("3")) {
+                String[] mulChoiceArrString = answerParameters[0].split("§§§---§§§---§§§");
+                List<String> mulChoiceListString = Arrays.asList(mulChoiceArrString);
+                MultipleTextAnswer multipleTextAnswer = new MultipleTextAnswer(mulChoiceListString, Integer.parseInt(answerParameters[idIndex]),answerParameters[dateIndex]);
+                if (dateMap.containsKey(multipleTextAnswer.getDate())) { //if date already exists
+                    dateMap.get(multipleTextAnswer.getDate()).add(multipleTextAnswer);
+                } else { //if date is new
+                    List<Answerable> answerList = new ArrayList<>();
+                    answerList.add(multipleTextAnswer);
+                    dateMap.put(multipleTextAnswer.getDate(), answerList);
+                }
+                if (questionMap.containsKey(multipleTextAnswer.getQuestionId())) { //if question already exists
+                    questionMap.get(multipleTextAnswer.getQuestionId()).add(multipleTextAnswer);
+                } else { //if questions is new
+                    List<Answerable> answerList = new ArrayList<>();
+                    answerList.add(multipleTextAnswer);
+                    questionMap.put(multipleTextAnswer.getQuestionId(), answerList);
                 }
             }
         }
