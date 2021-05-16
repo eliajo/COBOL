@@ -21,6 +21,10 @@ import java.util.Locale;
 
 import static java.time.temporal.ChronoUnit.DAYS;
 
+/**
+ * Class that formats the x-axis to show telling values.
+ * @author Elias Johansson, Alva Leufstedt
+ */
 
 public class ValueFormatter extends com.github.mikephil.charting.formatter.ValueFormatter {
 
@@ -57,7 +61,13 @@ public class ValueFormatter extends com.github.mikephil.charting.formatter.Value
     }
 
 
-
+    /**
+     * Inherited method to format x-values. From Api MpAndroidChart
+     *
+     * @param value
+     * @param axis
+     * @return
+     */
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public String getAxisLabel(float value, AxisBase axis) {

@@ -32,8 +32,20 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Class that holds logic to draw the different graphs.
+ * @author Elias Johansson, Alva Leufstedt, Elin Berthag
+ */
+
 public class GraphDrawer {
 
+    /**
+     *
+     * @param entries List that contain lists of data points divided by questionid
+     * @param holder The class that holds the graphs and other related data
+     * @param position The position in entries where the current data is located
+     * @param timePeriod The period of time that is to be viewed.
+     */
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void drawLineChart(List<List<AnswerEntry>> entries, GraphAdapter.GraphHolder holder, int position, GraphHelper.TimePeriod timePeriod) {
         LineChart chart = (LineChart) holder.getGraph();
@@ -209,6 +221,13 @@ public class GraphDrawer {
 
     }
 
+    /**
+     * Method that converts datapoints by merging them into one per month
+     * @param entries List that contain lists of data points divided by questionid
+     * @param position Position of the data in entries that are to be converted
+     * @param tmpAnswerEntryList New list that is to be populated
+     *
+     */
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void convertToYear(List<List<AnswerEntry>> entries, int position, List<AnswerEntry> tmpAnswerEntryList) {
         LocalDate localDate = LocalDate.parse(entries.get(position).get(0).getDateAdded());
@@ -225,6 +244,12 @@ public class GraphDrawer {
         }
     }
 
+    /**
+     * Method that handles logic to draw piecharts
+     * @param entries List that contain lists of data points divided by questionid
+     * @param holder The class that holds the graphs and other related data
+     * @param position The position in entries where the current data is located
+     */
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
     public void drawPieChart(List<List<AnswerEntry>> entries, GraphAdapter.GraphHolder holder, int position) {
         PieChart pieChart = (PieChart) holder.getGraph();

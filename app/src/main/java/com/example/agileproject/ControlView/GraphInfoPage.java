@@ -13,6 +13,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.agileproject.R;
 
+/**
+ * Class that initializes list that shows more info about a graph
+ */
 public class GraphInfoPage extends AppCompatActivity {
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override

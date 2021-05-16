@@ -22,6 +22,10 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class that shows more information about a graph in a list. Purely Android based.
+ * @author Elias Johansson
+ */
 public class GraphInfoAdapter extends RecyclerView.Adapter<GraphInfoAdapter.GraphInfoHolder> {
 
     private int questionId;
