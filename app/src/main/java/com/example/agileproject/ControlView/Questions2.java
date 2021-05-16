@@ -62,7 +62,7 @@ public class Questions2 extends Fragment {
             view.findViewById(R.id.textView6).setVisibility(View.GONE);
             view.findViewById(R.id.chipGroup3).setVisibility(View.GONE);
             view.findViewById(R.id.textView10).setVisibility(View.VISIBLE);
-            view.findViewById(R.id.chipGroup).setVisibility(View.VISIBLE);
+            view.findViewById(R.id.sideeffectsRadiobutton).setVisibility(View.VISIBLE);
             view.findViewById(R.id.imageView).setVisibility(View.VISIBLE);
             view.findViewById(R.id.chipNo).setSelected(true);
 

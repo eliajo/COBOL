@@ -129,10 +129,10 @@ public class Fragment4_in_QuizActivity extends Fragment {
                          error.setVisibility(View.VISIBLE);
 
                      } else {
-                         navController.navigate(R.id.action_question4_to_doneQuestions);
+                        // navController.navigate(R.id.action_question4_to_doneQuestions);
                      }
                  } else{
-                     navController.navigate(R.id.action_question4_to_doneQuestions);
+                    // navController.navigate(R.id.action_question4_to_doneQuestions);
                  }
                 String allQuizAnswers = fileFormatter.format(QuizActivity.AnswerHolder.QuizAnswers);
                 fileHandler.write(allQuizAnswers,getContext(),"Answers.txt");
