@@ -16,6 +16,8 @@ import java.io.IOException;
  */
 public class FileHandler {
 
+
+
     /**
      * @param data     The data that is to be written, String
      * @param context  The application context. (Different ways to get access to this depending on where this method is used)
@@ -24,6 +26,9 @@ public class FileHandler {
      *                 <p>
      *                 This method writes data to a desired file.
      */
+
+
+
     public void write(String data, Context context, String filename) {
         File pathToFile = context.getFilesDir();
 

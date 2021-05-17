@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- The view looks a bit different in the app compared to in the design mode -->
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -6,23 +7,84 @@
     android:layout_height="match_parent"
     tools:context=".ControlView.HomePage">
 
-    <!-- TODO: Update blank fragment layout -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
 
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="392dp"
+            android:layout_height="398dp"
+            android:layout_marginTop="52dp"
+            android:layout_marginBottom="81dp"
+            android:src="@drawable/sun"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.779" />
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="318dp"
+            android:layout_height="108dp"
+            android:layout_marginTop="96dp"
+            android:text="Hur är din dag?"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+            android:textColor="#2D9CDB"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/imageView6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.493"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <Button
             android:id="@+id/quiz_Button"
-            android:layout_width="173dp"
-            android:layout_height="85dp"
+            android:layout_width="266dp"
+            android:layout_height="100dp"
+            android:elevation="4dp"
             android:text="Starta Testet"
-            app:backgroundTint="#2196F3"
+            android:textSize="24sp"
+            app:backgroundTint="#2D9CDB"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.488"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.607" />
+
+        <Button
+            android:id="@+id/calendar_button"
+            android:layout_width="275dp"
+            android:layout_height="60dp"
+            android:elevation="4dp"
+            android:text="Min kalender"
+            android:textSize="24sp"
+            app:backgroundTint="#2D9CDB"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.783" />
+
+        <Button
+            android:id="@+id/stat_button"
+            android:layout_width="275dp"
+            android:layout_height="59dp"
+            android:elevation="4dp"
+            android:text="Min statistik"
+            android:textSize="24sp"
+            app:backgroundTint="#2D9CDB"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:elevation="4dp"/>
+            app:layout_constraintVertical_bias="0.892" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

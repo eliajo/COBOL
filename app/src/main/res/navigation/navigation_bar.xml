@@ -9,7 +9,14 @@
         android:id="@+id/home_page"
         android:name="com.example.agileproject.ControlView.HomePage"
         android:label="fragment_home_page"
-        tools:layout="@layout/fragment_home_page" />
+        tools:layout="@layout/fragment_home_page" >
+        <action
+            android:id="@+id/home_to_calendar2"
+            app:destination="@id/calendar_page" />
+        <action
+            android:id="@+id/home_to_stats2"
+            app:destination="@id/graph_page" />
+    </fragment>
     <fragment
         android:id="@+id/graph_page"
         android:name="com.example.agileproject.ControlView.GraphPage"
@@ -26,6 +33,11 @@
         android:label="fragment_contact_page"
         tools:layout="@layout/fragment_contact_page" />
     <fragment
+        android:id="@+id/medication_page"
+        android:name="com.example.agileproject.ControlView.MedicationPage"
+        android:label="fragment_medication_page"
+        tools:layout="@layout/fragment_medication_page" />
+    <fragment
         android:id="@+id/addContactPage2"
         android:name="com.example.agileproject.ControlView.AddContactPage"
         android:label="fragment_add_contact"
@@ -36,5 +48,6 @@
     <action
         android:id="@+id/switch_back_contact"
         app:destination="@id/contact_page" />
+
 
 </navigation>

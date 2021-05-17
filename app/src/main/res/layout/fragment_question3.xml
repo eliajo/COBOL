@@ -3,12 +3,18 @@
 View for Navigation Graph
 @author Edenia Isaac
 -->
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ControlView.Questions2">
+    android:layout_width="match_parent"
+    android:fillViewport="true">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+  >
 
 
     <ImageView
@@ -44,35 +50,36 @@ View for Navigation Graph
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
         android:text="Sida 3 av 4"
         android:textColor="#176693"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView9"
+        android:textSize="40dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.418"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="9.Har du tagit din medicin idag? *"
+        android:layout_marginTop="20dp"
+        android:text="9.Har du tagit din medicin idag?"
         android:textColor="#176693"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.113"
+        app:layout_constraintHorizontal_bias="0.107"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sleepHourDay" />
+        app:layout_constraintTop_toBottomOf="@+id/Anger" />
+
 
     <com.google.android.material.chip.ChipGroup
-        android:id="@+id/EnergyLevel"
+        android:id="@+id/chipGroup2"
         android:layout_width="185dp"
         android:layout_height="64dp"
         android:layout_margin="24dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="20dp"
         app:chipSpacingHorizontal="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -109,28 +116,28 @@ View for Navigation Graph
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.122"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/EnergyLevel" />
+        app:layout_constraintTop_toBottomOf="@+id/chipGroup2" />
+
 
     <TextView
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
         android:text="8.Uppskata din irritation/ilska *"
         android:textColor="#176693"
         android:textSize="18sp"
+        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.108"
+        app:layout_constraintHorizontal_bias="0.102"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
     <com.google.android.material.chip.ChipGroup
-        android:id="@+id/sleepHourDay"
+        android:id="@+id/Anger"
         style="@style/CustomChipStyle"
         android:layout_width="302dp"
         android:layout_height="104dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.146"
         app:layout_constraintStart_toStartOf="parent"
@@ -221,7 +228,7 @@ View for Navigation Graph
     </com.google.android.material.chip.ChipGroup>
 
     <com.google.android.material.chip.ChipGroup
-        android:id="@+id/sideeffectsRadiobutton"
+        android:id="@+id/chipGroup"
         android:layout_width="227dp"
         android:layout_height="66dp"
         android:layout_marginTop="20dp"
@@ -240,7 +247,7 @@ View for Navigation Graph
             android:text="Ja " />
 
         <com.google.android.material.chip.Chip
-            android:id="@+id/chip2"
+            android:id="@+id/chipNoSideEffects"
             style="@style/YesOrNowChipStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -249,11 +256,11 @@ View for Navigation Graph
 
     </com.google.android.material.chip.ChipGroup>
 
+
     <TextView
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
         android:text="10.1 Vilka biverkningar har du upplevt? *"
         android:textColor="#176693"
         android:textSize="18sp"
@@ -270,33 +277,38 @@ View for Navigation Graph
         android:layout_marginBottom="12dp"
         android:hint="Beskriv dina biverkningar här..."
         android:visibility="gone"
+        android:layout_marginTop="20dp"
+        android:inputType="text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.077"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/side_effects"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/Side_Effects" />
+
+
 
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="34dp"
         android:layout_height="33dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginBottom="36dp"
         android:src="@drawable/back_arrow"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+         />
+
 
     <com.google.android.material.chip.ChipGroup
-        android:id="@+id/side_effects"
+        android:id="@+id/Side_Effects"
         style="@style/SideEffectsShip"
         android:layout_width="405dp"
         android:layout_height="150dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="20dp"
         android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView11"
@@ -383,3 +395,4 @@ View for Navigation Graph
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
+</ScrollView>

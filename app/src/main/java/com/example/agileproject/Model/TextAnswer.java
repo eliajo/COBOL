@@ -4,7 +4,7 @@ package com.example.agileproject.Model;
  * @author Elias Johansson William Hugo
  */
 
-public class TextAnswer implements Answerable, Storable {
+public class TextAnswer implements Answerable {
     private String text;
     private int questionId;
     private String date;
