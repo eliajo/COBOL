@@ -39,8 +39,9 @@ public class GraphInfoAdapter extends RecyclerView.Adapter<GraphInfoAdapter.Grap
         GraphHelper graphHelper = new GraphHelper();
         LocalDate endDate =LocalDate.now();
         LocalDate startDate = endDate.minusYears(1);
-        answerEntries=graphHelper.getMultipleTextAnswerFromDateToDate(startDate.toString(),endDate.toString(),questionId);
-
+        if (questionId==101) {
+            answerEntries = graphHelper.getMultipleTextAnswerFromDateToDate(startDate.toString(), endDate.toString(), questionId);
+        }
     }
 
 
@@ -54,6 +55,7 @@ public class GraphInfoAdapter extends RecyclerView.Adapter<GraphInfoAdapter.Grap
     public void onBindViewHolder(GraphInfoAdapter.GraphInfoHolder holder, int position) {
         holder.getDateText().append(answerEntries.get(position).getDate());
         //Not good but cant come up with other way now
+        if (questionId==101){
         List<String> stringList = (List<String>) answerEntries.get(position).getData();
         StringBuilder sb = new StringBuilder();
         for (String s:stringList) {
@@ -61,11 +63,14 @@ public class GraphInfoAdapter extends RecyclerView.Adapter<GraphInfoAdapter.Grap
 
         }
         holder.getInfoText().append((sb.toString()) );
-    }
+    }}
 
     @Override
     public int getItemCount() {
-        return answerEntries.size();
+        if (questionId==101){
+        return answerEntries.size();}
+        //TODO add suport for other questions of type answerable
+         return 1;
     }
 
     protected class GraphInfoHolder extends RecyclerView.ViewHolder {

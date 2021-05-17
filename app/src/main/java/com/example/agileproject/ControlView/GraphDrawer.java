@@ -59,7 +59,7 @@ public class GraphDrawer {
     public void drawLineChart(List<List<AnswerEntry>> entries, GraphAdapter.GraphHolder holder, int position, GraphHelper.TimePeriod timePeriod) {
         LineChart chart = (LineChart) holder.getGraph();
         chart.clear();
-        int id = holder.getQuestionId();
+        int id = entries.get(position).get(0).getQuestionId();
         switch (id) {
             case 1:
                 holder.getMainLabel().setText("Hur din energinivå har varit");
@@ -82,6 +82,10 @@ public class GraphDrawer {
             case 8:
                 holder.getMainLabel().setText("Hur mycket ilska du haft");
                 break;
+            case 1000:
+                return;
+            case 2000:
+                return;
             default:
                 throw new IllegalArgumentException("No valid questionID");
         }
@@ -268,7 +272,7 @@ public class GraphDrawer {
 
         pieChart.setClickable(false);
         pieChart.setTouchEnabled(false);
-        int id = holder.getQuestionId();
+        int id = entries.get(position).get(0).getQuestionId();
         switch (id) {
             case 7:
                 holder.getMainLabel().setText("Har du sovit bra inatt?");
