@@ -329,6 +329,19 @@ public class GraphDrawer {
                     .sorted(Map.Entry.comparingByKey())
                     .forEachOrdered((e) -> tmpPieEntryList.add(new AnswerEntry(e.getKey(),e.getValue().floatValue(),101,"")));
             pieEntryList.addAll(tmpPieEntryList);
+            //Sum all nos
+            int yes = 0;
+            int no = 0;
+            for (AnswerEntry entry : entries.get(position)) {
+                if (entry.getY() == 1) {
+                    yes++;
+                } else {
+                    no++;
+                }
+
+            }
+            pieEntryList.add(new AnswerEntry("Ja",yes,101,""));
+
 
         }
 
@@ -370,7 +383,7 @@ public class GraphDrawer {
 
         pieChart.setDrawEntryLabels(true);
         pieChart.setEntryLabelColor(Color.parseColor("#4682b4"));
-        pieChart.setEntryLabelTextSize(25f);
+        pieChart.setEntryLabelTextSize(10f);
         holder.getMainLabel().setTextColor(Color.parseColor("#4682b4"));
         holder.getMainLabel().setTextSize(22f);
         pieChart.getDescription().setText("");
