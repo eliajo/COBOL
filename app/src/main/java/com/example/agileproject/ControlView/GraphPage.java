@@ -83,17 +83,17 @@ public class GraphPage extends Fragment {
         stringList.add("Test");
         stringList.add("Functionality");
         stringList.add("Functionality");
-        stringList.add("Functionality");
-        stringList.add("Functionality");
+        stringList.add("Test1");
+        stringList.add("Test2");
         stringList.add("Functionality");
         stringList.add("Functionality");
         stringList.add("Functionality");
         stringList.add("Functionality");
         stringList.add("Functionality");
 
-        MultipleTextAnswer m1 = new MultipleTextAnswer(stringList,101,"2021-01-01");
-        MultipleTextAnswer m2 = new MultipleTextAnswer(stringList,101,"2021-01-02");
-        MultipleTextAnswer m3 = new MultipleTextAnswer(stringList,101,"2021-01-03");
+        MultipleTextAnswer m1 = new MultipleTextAnswer(stringList,101,"2021-01-01",true);
+        MultipleTextAnswer m2 = new MultipleTextAnswer(stringList,101,"2021-01-02",false);
+        MultipleTextAnswer m3 = new MultipleTextAnswer(stringList,101,"2021-01-03",false);
 
 
 

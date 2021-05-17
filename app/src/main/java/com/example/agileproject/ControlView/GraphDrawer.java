@@ -9,8 +9,11 @@ import androidx.annotation.RequiresApi;
 import androidx.core.content.ContextCompat;
 
 import com.example.agileproject.Model.AnswerEntry;
+import com.example.agileproject.Model.Answerable;
 import com.example.agileproject.Model.GraphHelper;
+import com.example.agileproject.Model.MultipleTextAnswer;
 import com.example.agileproject.R;
+import com.example.agileproject.Utils.AnswerConverter;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.XAxis;
@@ -30,7 +33,13 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.groupingBy;
+import static java.util.stream.Collectors.summarizingDouble;
+import static java.util.stream.Collectors.summingDouble;
+import static java.util.stream.Collectors.summingInt;
 
 /**
  * Class that holds logic to draw the different graphs.
@@ -251,7 +260,7 @@ public class GraphDrawer {
      * @param holder The class that holds the graphs and other related data
      * @param position The position in entries where the current data is located
      */
-    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
+    @RequiresApi(api = Build.VERSION_CODES.N)
     public void drawPieChart(List<List<AnswerEntry>> entries, GraphAdapter.GraphHolder holder, int position) {
         PieChart pieChart = (PieChart) holder.getGraph();
         pieChart.clear();
@@ -288,20 +297,51 @@ public class GraphDrawer {
 
 
         //     (entries.get(position));
-        List<PieEntry> pieEntryList;
-        int yes = 0;
-        int no = 0;
-        for (AnswerEntry entry:entries.get(position)) {
-            if (entry.getY()==1){
-                yes++;
+
+        List<PieEntry> pieEntryList = new ArrayList<>();
+        if (id==10) {
+            final List<PieEntry> tmpPieEntryList = new ArrayList<>();
+            GraphHelper graphHelper = new GraphHelper();
+            List<MultipleTextAnswer> otherEffectsList;
+            otherEffectsList = graphHelper.getMultipleTextAnswerFromDateToDate(entries.get(position).get(0).getDateAdded(), entries.get(position).get(entries.get(position).size() - 1).getDateAdded(), 101);
+
+            //This looks through all the different dates and adds them together by answer. For example if you choose Annat three times it will
+            //have the weight of three in the final list that will be added to the graph.
+            for (int i = 0; i < otherEffectsList.size(); i++) {
+
+                List<String> strings = (List<String>) otherEffectsList.get(i).getData();
+                for (int j = 0; j < strings.size(); j++) {
+                    if (j == strings.size() - 1 && otherEffectsList.get(i).isOther()) {
+                        pieEntryList.add(new AnswerEntry("Annat",1,101,"" ));
+                    }
+                    pieEntryList.add(new AnswerEntry(strings.get(j),1 ,101,""));
+                }
             }
-            else {
-                no++;
-            }
+            Map<String, Double> map = pieEntryList.stream()
+                    .collect(groupingBy(PieEntry::getLabel,
+                            summingDouble((PieEntry::getValue))));
+            pieEntryList.clear();
+            map.entrySet().stream()
+                    .sorted(Map.Entry.comparingByKey())
+                    .forEachOrdered((e) -> tmpPieEntryList.add(new AnswerEntry(e.getKey(),e.getValue().floatValue(),101,"")));
+            pieEntryList.addAll(tmpPieEntryList);
 
         }
 
-        pieChart = pieChart.findViewById(R.id.piechart);
+
+        else {
+            int yes = 0;
+            int no = 0;
+            for (AnswerEntry entry : entries.get(position)) {
+                if (entry.getY() == 1) {
+                    yes++;
+                } else {
+                    no++;
+                }
+
+            }
+
+
         AnswerEntry yesEntry = new AnswerEntry("Ja",yes,id,"");
         AnswerEntry noEntry = new AnswerEntry("Nej",no,id,"");
         // pieEntryList.add(new PieEntry(30,"Ja"));
@@ -310,7 +350,7 @@ public class GraphDrawer {
         answerEntryList.add(yesEntry);}
         if(no!=0){
         answerEntryList.add(noEntry);}
-        pieEntryList = new ArrayList<>(answerEntryList);
+        pieEntryList = new ArrayList<>(answerEntryList);}
         PieDataSet pieDataSet = new PieDataSet(pieEntryList, "Procent");
         pieDataSet.setLabel("");
         pieDataSet.setColors(ColorTemplate.LIBERTY_COLORS);

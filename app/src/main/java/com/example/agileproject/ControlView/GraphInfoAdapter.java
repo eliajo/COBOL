@@ -29,7 +29,7 @@ import java.util.List;
 public class GraphInfoAdapter extends RecyclerView.Adapter<GraphInfoAdapter.GraphInfoHolder> {
 
     private int questionId;
-    private List<Answerable> answerEntries;
+    private List<MultipleTextAnswer> answerEntries;
     private Context context;
 
     @RequiresApi(api = Build.VERSION_CODES.O)

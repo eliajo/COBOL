@@ -137,11 +137,11 @@ public class GraphAdapter extends RecyclerView.Adapter<GraphAdapter.GraphHolder>
         Intent intent = new Intent(context,GraphInfoPage.class);
         AnswerEntry answerEntry = (AnswerEntry) e;
        int id= answerEntry.getQuestionId();
-       int newId=0;
+
        if (id==10){
-           newId=101;
+           id=101;
        }
-       intent.putExtra("Id",newId);
+       intent.putExtra("Id",id);
         context.startActivity(intent);
 
     }

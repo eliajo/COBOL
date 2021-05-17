@@ -36,7 +36,7 @@ public class AnswerConverterTest {
         List <String> multipleChoiceList = new ArrayList<>();
         multipleChoiceList.add("VattenKastning");
         multipleChoiceList.add("AnnatTest");
-        MultipleTextAnswer g = new MultipleTextAnswer(multipleChoiceList,111,"2021-04-18");
+        MultipleTextAnswer g = new MultipleTextAnswer(multipleChoiceList,111,"2021-04-18",false);
 
         List<Answerable> answers = new ArrayList<>();
 
@@ -74,7 +74,7 @@ public class AnswerConverterTest {
         List <String> multipleChoiceList = new ArrayList<>();
         multipleChoiceList.add("VattenKastning");
         multipleChoiceList.add("AnnatTest");
-        MultipleTextAnswer g = new MultipleTextAnswer(multipleChoiceList,111,"2021-04-18");
+        MultipleTextAnswer g = new MultipleTextAnswer(multipleChoiceList,111,"2021-04-18",false);
 
         List<Answerable> answers = new ArrayList<>();
 

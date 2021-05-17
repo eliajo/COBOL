@@ -106,7 +106,7 @@ public class AnswerConverter {
             else if (answerParameters[typeIndex].equals("3")) {
                 String[] mulChoiceArrString = answerParameters[0].split("§§§---§§§---§§§");
                 List<String> mulChoiceListString = Arrays.asList(mulChoiceArrString);
-                MultipleTextAnswer multipleTextAnswer = new MultipleTextAnswer(mulChoiceListString, Integer.parseInt(answerParameters[idIndex]),answerParameters[dateIndex]);
+                MultipleTextAnswer multipleTextAnswer = new MultipleTextAnswer(mulChoiceListString, Integer.parseInt(answerParameters[idIndex]),answerParameters[dateIndex],Boolean.valueOf(answerParameters[4]));
                 if (dateMap.containsKey(multipleTextAnswer.getDate())) { //if date already exists
                     dateMap.get(multipleTextAnswer.getDate()).add(multipleTextAnswer);
                 } else { //if date is new
