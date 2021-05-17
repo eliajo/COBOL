@@ -19,32 +19,37 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-
 import com.example.agileproject.Model.Answerable;
+import android.widget.TextView;
 import com.example.agileproject.Model.BooleanAnswer;
 import com.example.agileproject.Model.NumberAnswer;
 import com.example.agileproject.Model.TextAnswer;
 import com.example.agileproject.R;
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.time.LocalDateTime;
+
 
 /**
  * A simple {@link Fragment} subclass.
-
+ @author Edenia Isaac, Pegah Amanzadeh
  */
 public class Questions2 extends Fragment {
 
     NavController navController;
+
     ChipGroup SleepHoursNight;
     ChipGroup SleepHoursDay;
     ChipGroup SleptWell;
     RadioGroup Reasons;
-   private  TextAnswer question71;
-
+    TextAnswer question71;
+    NumberAnswer question5;
+    NumberAnswer question6;
+    BooleanAnswer question7;
+    Chip selectedChip;
 
 
     @RequiresApi(api = Build.VERSION_CODES.N)
@@ -57,7 +62,7 @@ public class Questions2 extends Fragment {
             view.findViewById(R.id.textView6).setVisibility(View.GONE);
             view.findViewById(R.id.chipGroup3).setVisibility(View.GONE);
             view.findViewById(R.id.textView10).setVisibility(View.VISIBLE);
-            view.findViewById(R.id.chipGroup).setVisibility(View.VISIBLE);
+            view.findViewById(R.id.sideeffectsRadiobutton).setVisibility(View.VISIBLE);
             view.findViewById(R.id.imageView).setVisibility(View.VISIBLE);
             view.findViewById(R.id.chipNo).setSelected(true);
 
@@ -71,18 +76,11 @@ public class Questions2 extends Fragment {
         super.onViewCreated(view, savedInstanceState);
          navController = Navigation.findNavController(view);
          SleepHoursNight = view.findViewById(R.id.sleeptHours);
-         SleepHoursDay = view.findViewById(R.id.sleeptHoursDayTime);
+         SleepHoursDay = view.findViewById(R.id.sleepHourDay);
          SleptWell = view.findViewById(R.id.chipGroup3);
-         Reasons = view.findViewById(R.id.chipGroup);
+         Reasons = view.findViewById(R.id.sideeffectsRadiobutton);
 
 
-
-         view.findViewById(R.id.next_button_2).setOnClickListener(new View.OnClickListener() {
-             @Override
-             public void onClick(View v) {
-                 navController.navigate(R.id.action_questions2_to_questions3);
-             }
-         });
 
          view.findViewById(R.id.chipYes).setOnClickListener(new View.OnClickListener() {
              @Override
@@ -98,7 +96,7 @@ public class Questions2 extends Fragment {
                  view.findViewById(R.id.textView6).setVisibility(View.GONE);
                  view.findViewById(R.id.chipGroup3).setVisibility(View.GONE);
                  view.findViewById(R.id.textView10).setVisibility(View.VISIBLE);
-                 view.findViewById(R.id.chipGroup).setVisibility(View.VISIBLE);
+                 view.findViewById(R.id.sideeffectsRadiobutton).setVisibility(View.VISIBLE);
                  view.findViewById(R.id.imageView).setVisibility(View.VISIBLE);
                  view.findViewById(R.id.chipNo).setSelected(true);
 
@@ -109,21 +107,61 @@ public class Questions2 extends Fragment {
              @Override
              public void onClick(View v) {
                  view.findViewById(R.id.textView10).setVisibility(View.GONE);
-                 view.findViewById(R.id.chipGroup).setVisibility(View.GONE);
+                 view.findViewById(R.id.sideeffectsRadiobutton).setVisibility(View.GONE);
                  view.findViewById(R.id.imageView).setVisibility(View.GONE);
                  view.findViewById(R.id.textView6).setVisibility(View.VISIBLE);
                  view.findViewById(R.id.chipGroup3).setVisibility(View.VISIBLE);
              }
          });
 
+
+
+
+        TextView ErrorText = (TextView) view.findViewById(R.id.textView19);
+        view.findViewById(R.id.next_button_2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (selectedChip == view.findViewById(R.id.chipNo)) {
+                    if( !(question5==null || question6==null || question7 == null  || question71==null)){
+                        navController.navigate(R.id.action_questions2_to_questions3);
+                    }else{
+
+                        ErrorText.setVisibility(View.VISIBLE);
+                    }
+
+                }
+
+                else if (selectedChip==view.findViewById(R.id.chipYes)) {
+                    if (!(question5 == null || question6 == null || question7 == null)) {
+                        navController.navigate(R.id.action_questions2_to_questions3);
+                    }else{
+
+                        ErrorText.setVisibility(View.VISIBLE);
+                    }
+                }
+                else {
+
+                    ErrorText.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
+
+
+
+
+
          SleepHoursNight.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
              @RequiresApi(api = Build.VERSION_CODES.O)
              @Override
              public void onCheckedChanged(ChipGroup group, int checkedId) {
-                 Chip selectedChip = view.findViewById(group.getCheckedChipId());
+                Chip  selectedChip = view.findViewById(group.getCheckedChipId());
                  if(selectedChip != null){
-                     NumberAnswer question5 = new NumberAnswer(Integer.valueOf(selectedChip.getText().toString()),5, LocalDate.now().toString());
+                      question5 = new NumberAnswer(Integer.valueOf(selectedChip.getText().toString()),5, LocalDate.now().toString());
                     QuizActivity.AnswerHolder.AddingToList(question5);
+                 }else{
+                     question5 = null;
                  }
 
              }
@@ -133,10 +171,12 @@ public class Questions2 extends Fragment {
              @RequiresApi(api = Build.VERSION_CODES.O)
              @Override
              public void onCheckedChanged(ChipGroup group, int checkedId) {
-                 Chip selectedChip = view.findViewById(group.getCheckedChipId());
+               Chip selectedChip = view.findViewById(group.getCheckedChipId());
                  if(selectedChip != null) {
-                     NumberAnswer question6 = new NumberAnswer(Integer.valueOf(selectedChip.getText().toString()), 6, LocalDate.now().toString());
+                      question6 = new NumberAnswer(Integer.valueOf(selectedChip.getText().toString()), 6, LocalDate.now().toString());
                     QuizActivity.AnswerHolder.AddingToList(question6);
+                 }else{
+                     question6 = null;
                  }
              }
          });
@@ -145,11 +185,11 @@ public class Questions2 extends Fragment {
              @RequiresApi(api = Build.VERSION_CODES.O)
              @Override
              public void onCheckedChanged(ChipGroup group, int checkedId) {
-                 Chip selectedChip = view.findViewById(group.getCheckedChipId());
+                  selectedChip = view.findViewById(group.getCheckedChipId());
                  if (selectedChip != null) {
                  String answer = selectedChip.getText().toString();
                  Boolean YesOrNo = QuizActivity.AnswerHolder.getBooleanValue(answer);
-                 BooleanAnswer question7 = new BooleanAnswer(YesOrNo, 7, LocalDate.now().toString());
+                 question7 = new BooleanAnswer(YesOrNo, 7, LocalDate.now().toString());
                 QuizActivity.AnswerHolder.AddingToList(question7);
                  if (YesOrNo == true) {
                      RemoveComplementaryQuestion();
@@ -177,4 +217,6 @@ public class Questions2 extends Fragment {
 
 
 
+
 }
+
