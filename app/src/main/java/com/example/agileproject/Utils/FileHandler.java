@@ -32,7 +32,6 @@ public class FileHandler {
     public void write(String data, Context context, String filename) {
         File pathToFile = context.getFilesDir();
 
-
         File file = new File(pathToFile, filename);
 
         try {
@@ -78,6 +77,23 @@ public class FileHandler {
         String readString = new String(data);
         return readString;
 
+
+    }
+
+    public void empty (Context context, String filename){
+        File pathToFile = context.getFilesDir();
+
+        File file = new File(pathToFile,filename);
+
+        try{ FileOutputStream outputStream = new FileOutputStream(file);
+            outputStream.write(("").getBytes());
+            outputStream.close();
+
+        }catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 }
