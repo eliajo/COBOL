@@ -303,47 +303,72 @@ public class GraphDrawer {
         //     (entries.get(position));
 
         List<PieEntry> pieEntryList = new ArrayList<>();
-        if (id==10) {
-            final List<PieEntry> tmpPieEntryList = new ArrayList<>();
-            GraphHelper graphHelper = new GraphHelper();
-            List<MultipleTextAnswer> otherEffectsList;
-            otherEffectsList = graphHelper.getMultipleTextAnswerFromDateToDate(entries.get(position).get(0).getDateAdded(), entries.get(position).get(entries.get(position).size() - 1).getDateAdded(), 101);
+        if (id==10||id==7) {
+            if (id==10) {
+                final List<PieEntry> tmpPieEntryList = new ArrayList<>();
+                GraphHelper graphHelper = new GraphHelper();
+                List<MultipleTextAnswer> otherEffectsList;
+                otherEffectsList = graphHelper.getMultipleTextAnswerFromDateToDate(entries.get(position).get(0).getDateAdded(), entries.get(position).get(entries.get(position).size() - 1).getDateAdded(), 101);
 
-            //This looks through all the different dates and adds them together by answer. For example if you choose Annat three times it will
-            //have the weight of three in the final list that will be added to the graph.
-            for (int i = 0; i < otherEffectsList.size(); i++) {
+                //This looks through all the different dates and adds them together by answer. For example if you choose Annat three times it will
+                //have the weight of three in the final list that will be added to the graph.
+                for (int i = 0; i < otherEffectsList.size(); i++) {
 
-                List<String> strings = (List<String>) otherEffectsList.get(i).getData();
-                for (int j = 0; j < strings.size(); j++) {
-                    if (j == strings.size() - 1 && otherEffectsList.get(i).isOther()) {
-                        pieEntryList.add(new AnswerEntry("Annat",1,101,"" ));
+                    List<String> strings = (List<String>) otherEffectsList.get(i).getData();
+                    for (int j = 0; j < strings.size(); j++) {
+                        if (j == strings.size() - 1 && otherEffectsList.get(i).isOther()) {
+                            pieEntryList.add(new AnswerEntry("Annat", 1, 101, ""));
+                        }
+                        pieEntryList.add(new AnswerEntry(strings.get(j), 1, 101, ""));
                     }
-                    pieEntryList.add(new AnswerEntry(strings.get(j),1 ,101,""));
                 }
-            }
-            Map<String, Double> map = pieEntryList.stream()
-                    .collect(groupingBy(PieEntry::getLabel,
-                            summingDouble((PieEntry::getValue))));
-            pieEntryList.clear();
-            map.entrySet().stream()
-                    .sorted(Map.Entry.comparingByKey())
-                    .forEachOrdered((e) -> tmpPieEntryList.add(new AnswerEntry(e.getKey(),e.getValue().floatValue(),101,"")));
-            pieEntryList.addAll(tmpPieEntryList);
-            //Sum all nos
-            int yes = 0;
-            int no = 0;
-            for (AnswerEntry entry : entries.get(position)) {
-                if (entry.getY() == 1) {
-                    yes++;
-                } else {
-                    no++;
+                Map<String, Double> map = pieEntryList.stream()
+                        .collect(groupingBy(PieEntry::getLabel,
+                                summingDouble((PieEntry::getValue))));
+                pieEntryList.clear();
+                map.entrySet().stream()
+                        .sorted(Map.Entry.comparingByKey())
+                        .forEachOrdered((e) -> tmpPieEntryList.add(new AnswerEntry(e.getKey(), e.getValue().floatValue(), 101, "")));
+                pieEntryList.addAll(tmpPieEntryList);
+                //Sum all nos
+                int yes = 0;
+                int no = 0;
+                for (AnswerEntry entry : entries.get(position)) {
+                    if (entry.getY() == 1) {
+                        yes++;
+                    } else {
+                        no++;
+                    }
+
                 }
+                pieEntryList.add(new AnswerEntry("Nej", no, 101, ""));
 
             }
-            pieEntryList.add(new AnswerEntry("Ja",yes,101,""));
+            else if (id==7){
+                GraphHelper graphHelper = new GraphHelper();
+                List <AnswerEntry> sleepList = graphHelper.getDataFromDateToDate(entries.get(position).get(0).getDateAdded(), entries.get(position).get(entries.get(position).size() - 1).getDateAdded(), 71);
+                Map<String, Double> map = sleepList.stream()
+                        .collect(groupingBy(AnswerEntry::getLabel,
+                                summingDouble((AnswerEntry::getValue))));
+                sleepList.clear();
+                map.entrySet().stream()
+                        .sorted(Map.Entry.comparingByKey())
+                        .forEachOrdered((e) -> sleepList.add(new AnswerEntry(e.getKey(), e.getValue().floatValue(), 71, "")));
+                pieEntryList.addAll(sleepList);
+                int yes = 0;
+                int no = 0;
+                for (AnswerEntry entry : entries.get(position)) {
+                    if (entry.getY() == 1) {
+                        yes++;
+                    } else {
+                        no++;
+                    }
 
-
+                }
+                pieEntryList.add(new AnswerEntry("Ja", yes, 71, ""));
+            }
         }
+
 
 
         else {
