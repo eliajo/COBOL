@@ -72,7 +72,16 @@ public class GraphHelper {
             e.printStackTrace();
         }
         if (answerableList.size() == 0) {
+
             return answerEntries;
+        }
+        if (answerableList.get(0).getType()==0){
+            int index =0;
+            for (Answerable answerable : answerableList
+            ) {
+                answerEntries.add(new AnswerEntry(answerable.getData().toString(), index, questionId, answerable.getDate()));
+                index++;
+            }
         }
         int index = 0;
         if (answerableList.get(0).getType() == 1) {
