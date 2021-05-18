@@ -200,7 +200,6 @@ public class GraphDrawer {
         lineDataSet.setDrawFilled(true);
         lineDataSet.setFillColor(Color.parseColor("#add8e6"));
         lineDataSet.setGradientColor(Color.parseColor("#ffffff"), Color.parseColor("#add8e6"));
-
         holder.getMainLabel().setTextColor(Color.parseColor("#4682b4"));
         holder.getMainLabel().setTextSize(22f);
         chart.getDescription().setText("");
@@ -331,7 +330,7 @@ public class GraphDrawer {
                         .forEachOrdered((e) -> tmpPieEntryList.add(new AnswerEntry(e.getKey(), e.getValue().floatValue(), 101, "")));
                 pieEntryList.addAll(tmpPieEntryList);
                 //Sum all nos
-                int yes = 0;
+                int yes = 1;
                 int no = 0;
                 for (AnswerEntry entry : entries.get(position)) {
                     if (entry.getY() == 1) {
@@ -355,7 +354,7 @@ public class GraphDrawer {
                         .sorted(Map.Entry.comparingByKey())
                         .forEachOrdered((e) -> sleepList.add(new AnswerEntry(e.getKey(), e.getValue().floatValue(), 71, "")));
                 pieEntryList.addAll(sleepList);
-                int yes = 0;
+                int yes = 1;
                 int no = 0;
                 for (AnswerEntry entry : entries.get(position)) {
                     if (entry.getY() == 1) {
@@ -372,7 +371,7 @@ public class GraphDrawer {
 
 
         else {
-            int yes = 0;
+            int yes = 1;
             int no = 0;
             for (AnswerEntry entry : entries.get(position)) {
                 if (entry.getY() == 1) {
@@ -408,7 +407,7 @@ public class GraphDrawer {
 
         pieChart.setDrawEntryLabels(true);
         pieChart.setEntryLabelColor(Color.parseColor("#4682b4"));
-        pieChart.setEntryLabelTextSize(10f);
+        pieChart.setEntryLabelTextSize(20f);
         holder.getMainLabel().setTextColor(Color.parseColor("#4682b4"));
         holder.getMainLabel().setTextSize(22f);
         pieChart.getDescription().setText("");
