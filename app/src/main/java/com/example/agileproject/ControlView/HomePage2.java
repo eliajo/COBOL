@@ -45,6 +45,7 @@ public class HomePage2 extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         statButton = view.findViewById(R.id.statistik_button);
+
         statButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -52,6 +53,7 @@ public class HomePage2 extends Fragment {
             }
         });
         calendarButton = view.findViewById(R.id.kalender_button);
+
         calendarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

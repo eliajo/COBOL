@@ -37,6 +37,7 @@
             android:src="@drawable/image_9"
             app:layout_constraintBottom_toTopOf="@+id/statistik_button"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.509"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
@@ -52,6 +53,7 @@
             app:backgroundTint="#2D9CDB"
             app:layout_constraintBottom_toTopOf="@+id/kalender_button"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView6" />
 

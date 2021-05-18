@@ -2,6 +2,7 @@ package com.example.agileproject.ControlView;
 
 import android.content.Context;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 
@@ -106,8 +107,6 @@ public class Fragment4_in_QuizActivity extends Fragment {
         TextView error = (TextView) view.findViewById(R.id.textView21);
 
 
-                // Switching to fragment  doneQuestion
-
         view.findViewById(R.id.saveButton).setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
@@ -118,7 +117,7 @@ public class Fragment4_in_QuizActivity extends Fragment {
                     question131 = new TextAnswer(ExerciseText,131,LocalDate.now().toString());
                    QuizActivity.AnswerHolder.AddingToList(question131);
                 }
-                String text =   Events.getText().toString();
+                String text = Events.getText().toString();
                 if(!text.equals("")){
                      question14 = new TextAnswer(text,14,LocalDate.now().toString());
                  QuizActivity.AnswerHolder.AddingToList(question14);
@@ -137,9 +136,15 @@ public class Fragment4_in_QuizActivity extends Fragment {
                 String allQuizAnswers = fileFormatter.format(QuizActivity.AnswerHolder.QuizAnswers);
                 fileHandler.write(allQuizAnswers,getContext(),"Answers.txt");
 
+                changeActivity();
+
+
+
 
             }
         });
+
+
 
         /*view.findViewById(R.id.chipYesExercise).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -148,8 +153,8 @@ public class Fragment4_in_QuizActivity extends Fragment {
             }
         }); */
 
-         // Don't know what is used for
-        Events.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+
+        /*Events.setOnFocusChangeListener(new View.OnFocusChangeListener() {
 
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
@@ -162,10 +167,8 @@ public class Fragment4_in_QuizActivity extends Fragment {
             }
         });
 
-
-
-
-       chipGroupAlcohol.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
+        */
+        chipGroupAlcohol.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
            @RequiresApi(api = Build.VERSION_CODES.O)
            @Override
            public void onCheckedChanged(ChipGroup group, int checkedId) {
@@ -221,7 +224,6 @@ public class Fragment4_in_QuizActivity extends Fragment {
                }
            }
        });
-
     }
 
     private void RemoveComplementaryQuestion( Answerable question) {
@@ -229,6 +231,16 @@ public class Fragment4_in_QuizActivity extends Fragment {
             QuizActivity.AnswerHolder.QuizAnswers.remove(question);
         }
     }
+
+    private void changeActivity(){
+        Intent intent = new Intent(getActivity(), MainActivity.class);
+        startActivity(intent);
+    }
+
+
+
+
+
 
 
 }
