@@ -4,6 +4,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.view.View;
+import android.widget.TextView;
 
 
 import androidx.annotation.RequiresApi;
@@ -21,11 +22,23 @@ public class GraphInfoPage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_graph_info);
 
+        setContentView(R.layout.activity_graph_info);
         RecyclerView recyclerView = findViewById(R.id.infoRecycler);
         Bundle bundle = getIntent().getExtras();
-        int id =bundle.getInt("Id");
+        int id = bundle.getInt("Id");
+
+        TextView textView = findViewById(R.id.graphInfoLabel);
+        if (id == 101) {
+            textView.append("Vilka biverkningar du haft");
+        }
+        if(id == 71) {
+            textView.append("Varför du inte sovit bra");
+        }
+        if(id == 131) {
+            textView.append("Vad du gjort för fysisk aktivitet");
+        }
+
         GraphInfoAdapter graphInfoAdapter = new GraphInfoAdapter(this,id);
         recyclerView.setAdapter(graphInfoAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
