@@ -79,7 +79,7 @@ public class GraphHelper {
             int index =0;
             for (Answerable answerable : answerableList
             ) {
-                answerEntries.add(new AnswerEntry(answerable.getData().toString(), index, questionId, answerable.getDate()));
+                answerEntries.add(new AnswerEntry(answerable.getData().toString(), 1, questionId, answerable.getDate()));
                 index++;
             }
         }
