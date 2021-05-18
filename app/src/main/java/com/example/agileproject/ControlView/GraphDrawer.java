@@ -169,8 +169,13 @@ public class GraphDrawer {
         chart.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);
         //chart.setVisibleXRange(entries.size()-1,entries.size()-1);
 
+        if (id==1){
+            chart.getAxisLeft().setAxisMinimum(-5);
+            chart.getAxisLeft().setAxisMaximum(5);
+        }
+        else{
         chart.getAxisLeft().setAxisMinimum(0);
-        chart.getAxisLeft().setAxisMaximum(10);
+        chart.getAxisLeft().setAxisMaximum(10);}
         chart.getAxisLeft().setGranularity(1f);
 
         chart.getAxisLeft().setDrawGridLines(false);
