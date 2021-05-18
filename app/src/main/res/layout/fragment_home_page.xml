@@ -58,7 +58,7 @@
             app:layout_constraintVertical_bias="0.607" />
 
         <Button
-            android:id="@+id/quiz_Button2"
+            android:id="@+id/calendar_button"
             android:layout_width="275dp"
             android:layout_height="60dp"
             android:elevation="4dp"
@@ -73,7 +73,7 @@
             app:layout_constraintVertical_bias="0.783" />
 
         <Button
-            android:id="@+id/quiz_Button3"
+            android:id="@+id/stat_button"
             android:layout_width="275dp"
             android:layout_height="59dp"
             android:elevation="4dp"

@@ -49,14 +49,19 @@ View for Navigation Graph
             android:id="@+id/action_question4_to_questions3"
             app:destination="@id/questions3" />
         <action
-            android:id="@+id/action_question4_to_doneQuestions"
-            app:destination="@id/doneQuestions" />
+            android:id="@+id/q4_to_homePage2"
+            app:destination="@id/homePage2" />
     </fragment>
     <fragment
         android:id="@+id/doneQuestions"
         android:name="com.example.agileproject.ControlView.DoneQuestions"
         android:label="fragment_done_questions"
         tools:layout="@layout/fragment_done_questions" />
+    <fragment
+        android:id="@+id/homePage2"
+        android:name="com.example.agileproject.ControlView.HomePage2"
+        android:label="fragment_home_page2"
+        tools:layout="@layout/fragment_home_page2" />
 
 
 </navigation>

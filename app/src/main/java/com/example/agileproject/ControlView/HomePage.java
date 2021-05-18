@@ -6,6 +6,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,23 +16,39 @@ import android.widget.Button;
 
 import com.example.agileproject.R;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class HomePage extends Fragment {
 
+    NavController navController;
+
     private Button quizButton;
+    private Button statButton;
+    private Button calendarButton;
 
     public HomePage() {
         // Required empty public constructor
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home_page, container, false);
+        View view = inflater.inflate(R.layout.fragment_home_page, container, false);
+        navController = Navigation.findNavController(this.getActivity(), R.id.main_pages_fragment);
+        statButton = view.findViewById(R.id.stat_button);
+        statButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navController.navigate(R.id.home_to_stats2);
+            }
+        });
+        calendarButton = view.findViewById(R.id.calendar_button);
+        calendarButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navController.navigate(R.id.home_to_calendar2);
+            }
+        });
+        return view;
     }
 
     @Override
@@ -43,7 +61,6 @@ public class HomePage extends Fragment {
                 changeActivity();
             }
         });
-
     }
 
     private void changeActivity(){
