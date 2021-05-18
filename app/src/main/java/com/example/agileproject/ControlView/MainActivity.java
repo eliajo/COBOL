@@ -16,6 +16,8 @@ import android.widget.Button;
 
 import com.example.agileproject.R;
 import com.example.agileproject.Utils.AlarmHandler;
+import com.example.agileproject.Utils.AnswerConverter;
+import com.example.agileproject.Utils.FileHandler;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 /**
@@ -35,6 +37,10 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView bottomNavigationView = findViewById(R.id.nav_bar);
         NavController navController = Navigation.findNavController(this, R.id.main_pages_fragment);
         NavigationUI.setupWithNavController(bottomNavigationView, navController);
+
+        FileHandler fileHandler = new FileHandler();
+        String readAnswers = fileHandler.read(getApplicationContext(),"Answers.txt");
+        AnswerConverter.getInstance().convert(readAnswers);
 
         AlarmHandler alarmHandler = new AlarmHandler();
 

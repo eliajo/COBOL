@@ -9,8 +9,11 @@ import androidx.annotation.RequiresApi;
 import androidx.core.content.ContextCompat;
 
 import com.example.agileproject.Model.AnswerEntry;
+import com.example.agileproject.Model.Answerable;
 import com.example.agileproject.Model.GraphHelper;
+import com.example.agileproject.Model.MultipleTextAnswer;
 import com.example.agileproject.R;
+import com.example.agileproject.Utils.AnswerConverter;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.XAxis;
@@ -22,22 +25,41 @@ import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.formatter.IAxisValueFormatter;
 import com.github.mikephil.charting.formatter.PercentFormatter;
-import com.github.mikephil.charting.formatter.ValueFormatter;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.groupingBy;
+import static java.util.stream.Collectors.summarizingDouble;
+import static java.util.stream.Collectors.summingDouble;
+import static java.util.stream.Collectors.summingInt;
+
+/**
+ * Class that holds logic to draw the different graphs.
+ * @author Elias Johansson, Alva Leufstedt, Elin Berthag
+ */
 
 public class GraphDrawer {
 
+    /**
+     *
+     * @param entries List that contain lists of data points divided by questionid
+     * @param holder The class that holds the graphs and other related data
+     * @param position The position in entries where the current data is located
+     * @param timePeriod The period of time that is to be viewed.
+     */
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void drawLineChart(List<List<AnswerEntry>> entries, GraphAdapter.GraphHolder holder, int position, GraphHelper.TimePeriod timePeriod) {
         LineChart chart = (LineChart) holder.getGraph();
         chart.clear();
-        int id = holder.getQuestionId();
+        int id = entries.get(position).get(0).getQuestionId();
         switch (id) {
             case 1:
                 holder.getMainLabel().setText("Hur din energinivå har varit");
@@ -60,6 +82,10 @@ public class GraphDrawer {
             case 8:
                 holder.getMainLabel().setText("Hur mycket ilska du haft");
                 break;
+            case 1000:
+                return;
+            case 2000:
+                return;
             default:
                 throw new IllegalArgumentException("No valid questionID");
         }
@@ -73,10 +99,18 @@ public class GraphDrawer {
         //Safer solution but but takes O(n) time. Might have to discuss this.
         LineDataSet lineDataSet;
         List<Entry> converterList;
+        List<AnswerEntry> tmpAnswerEntryList = new ArrayList<>();
+        if (timePeriod.equals( GraphHelper.TimePeriod.YEAR)){
+            convertToYear(entries, position, tmpAnswerEntryList);
+        }
         if (entries.get(position).get(0).getQuestionId() == 1000 || entries.get(position).get(0).getQuestionId() == 2000) {
             converterList = new ArrayList<>();
         } else {
-            converterList = new ArrayList<>(entries.get(position));
+            if (timePeriod== GraphHelper.TimePeriod.YEAR){
+                converterList = new ArrayList<>(tmpAnswerEntryList);
+            }
+            else {
+            converterList = new ArrayList<>(entries.get(position));}
         }
         lineDataSet = new LineDataSet(converterList, "Dagar");
 
@@ -93,8 +127,18 @@ public class GraphDrawer {
                 index++;
             }
             if (found) {
-                List<Entry> secondList = new ArrayList<>(entries.get(relatedPosition));
-                LineDataSet secondLineDataSet = new LineDataSet(secondList, "Dagar");
+                LineDataSet secondLineDataSet;
+                List<Entry> secondList;
+                if (timePeriod== GraphHelper.TimePeriod.YEAR){
+                    List <AnswerEntry> tmpDoubleGraphList = new ArrayList();
+                    convertToYear(entries,relatedPosition,tmpDoubleGraphList);
+                    secondList= new ArrayList<>(tmpDoubleGraphList);
+
+                }
+                else{
+                 secondList= new ArrayList<>(entries.get(relatedPosition));
+                 }
+                secondLineDataSet = new LineDataSet(secondList, "Dagar");
                 lineData = new LineData(lineDataSet, secondLineDataSet);
             } else {
                 lineData = new LineData(lineDataSet);
@@ -107,7 +151,8 @@ public class GraphDrawer {
         }
         chart.getAxisRight().setEnabled(false);
 
-        switch (timePeriod) {
+
+        /*switch (timePeriod) {
             case WEEK:
                 chart.getXAxis().setAxisMaximum(7);
                 break;
@@ -117,7 +162,7 @@ public class GraphDrawer {
                 break;
             case YEAR:
                 chart.getXAxis().setAxisMaximum(365);
-        }
+        }*/
 
 
         chart.getXAxis().setAxisMinimum(0f);
@@ -130,7 +175,7 @@ public class GraphDrawer {
 
         chart.getAxisLeft().setDrawGridLines(false);
 
-        chart.getXAxis().setGranularity(1f);
+
         chart.getXAxis().setDrawGridLines(false);
         chart.setClickable(false);
         chart.setTouchEnabled(false);
@@ -138,7 +183,7 @@ public class GraphDrawer {
 
         //chart.setVisibleXRangeMinimum(0);
         //chart.setVisibleXRangeMaximum(10);
-        chart.setData(lineData);
+
 
         lineData.setDrawValues(false);
         chart.setDrawMarkers(false);
@@ -160,30 +205,74 @@ public class GraphDrawer {
         holder.getMainLabel().setTextSize(22f);
         chart.getDescription().setText("");
         chart.getLegend().setEnabled(false);
-        ValueFormatter valueFormatter = new com.example.agileproject.ControlView.ValueFormatter(entries.get(position).size(),entries.get(position).get(entries.get(position).size()-1).getDateAdded());
-        chart.getXAxis().setValueFormatter(valueFormatter);
-
-        if (timePeriod== GraphHelper.TimePeriod.WEEK){
-            chart.setVisibleXRange(0, 7);
+        com.example.agileproject.ControlView.ValueFormatter valueFormatter;
+        if (timePeriod== GraphHelper.TimePeriod.YEAR){
+            valueFormatter= new ValueFormatter(tmpAnswerEntryList,tmpAnswerEntryList.get(0).getDateAdded(),timePeriod);
         }
+        else {
+            valueFormatter = new com.example.agileproject.ControlView.ValueFormatter(entries.get(position), entries.get(position).get(0).getDateAdded(), timePeriod);
+        }
+        if (timePeriod== GraphHelper.TimePeriod.WEEK){
+            chart.getXAxis().setGranularity(1f);
+            chart.getXAxis().setAxisMaximum(7);
+            chart.getXAxis().setLabelCount(7,true);}
         else if (timePeriod== GraphHelper.TimePeriod.MONTH){
-            chart.setVisibleXRange(0, 4);
+            chart.getXAxis().setGranularity(10f);
+            chart.getXAxis().setAxisMaximum(30);
+            chart.getXAxis().setLabelCount(4,true);
         }
         else if (timePeriod== GraphHelper.TimePeriod.YEAR){
-            chart.setVisibleXRange(0, 12);
+            chart.getXAxis().setAxisMaximum(12);
+            chart.getXAxis().setLabelCount(12,true);
         }
+        chart.getXAxis().setValueFormatter(valueFormatter);
+
+
+        chart.setData(lineData);
         chart.fitScreen();
         chart.invalidate();
 
+
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
+    /**
+     * Method that converts datapoints by merging them into one per month
+     * @param entries List that contain lists of data points divided by questionid
+     * @param position Position of the data in entries that are to be converted
+     * @param tmpAnswerEntryList New list that is to be populated
+     *
+     */
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private void convertToYear(List<List<AnswerEntry>> entries, int position, List<AnswerEntry> tmpAnswerEntryList) {
+        LocalDate localDate = LocalDate.parse(entries.get(position).get(0).getDateAdded());
+        for (int i =0;i<12;i++) {
+            int a = i;
+            List <AnswerEntry> returnList=entries.get(position).stream().filter(o -> LocalDate.parse(o.getDateAdded()).getMonth() == localDate.getMonth().plus(a)).collect(Collectors.toList());
+           int sum = 0;
+            for (AnswerEntry answerEntry:returnList) {
+                sum +=answerEntry.getY();
+            }
+            if (returnList.size()>0){
+            int mean = sum/returnList.size();
+            tmpAnswerEntryList.add(new AnswerEntry(i,mean,entries.get(position).get(0).getQuestionId(),localDate.plusMonths(i).toString()));}
+        }
+    }
+
+    /**
+     * Method that handles logic to draw piecharts
+     * @param entries List that contain lists of data points divided by questionid
+     * @param holder The class that holds the graphs and other related data
+     * @param position The position in entries where the current data is located
+     */
+    @RequiresApi(api = Build.VERSION_CODES.N)
     public void drawPieChart(List<List<AnswerEntry>> entries, GraphAdapter.GraphHolder holder, int position) {
         PieChart pieChart = (PieChart) holder.getGraph();
         pieChart.clear();
         PieData pieData;
 
-        int id = holder.getQuestionId();
+        pieChart.setClickable(false);
+        pieChart.setTouchEnabled(false);
+        int id = entries.get(position).get(0).getQuestionId();
         switch (id) {
             case 7:
                 holder.getMainLabel().setText("Har du sovit bra inatt?");
@@ -193,6 +282,8 @@ public class GraphDrawer {
                 break;
             case 10:
                 holder.getMainLabel().setText("Hur du haft några biverkningar idag?");
+                pieChart.setClickable(true);
+                pieChart.setTouchEnabled(true);
                 break;
             case 11:
                 holder.getMainLabel().setText("Har du druckit alkohol idag?");
@@ -210,12 +301,73 @@ public class GraphDrawer {
 
 
         //     (entries.get(position));
-        List<PieEntry> pieEntryList = new ArrayList<>();
 
-        pieChart = pieChart.findViewById(R.id.piechart);
-        pieEntryList.add(new PieEntry(100, "Nej"));
-        pieEntryList.add(new PieEntry(100, "Ja"));
+        List<PieEntry> pieEntryList = new ArrayList<>();
+        if (id==10) {
+            final List<PieEntry> tmpPieEntryList = new ArrayList<>();
+            GraphHelper graphHelper = new GraphHelper();
+            List<MultipleTextAnswer> otherEffectsList;
+            otherEffectsList = graphHelper.getMultipleTextAnswerFromDateToDate(entries.get(position).get(0).getDateAdded(), entries.get(position).get(entries.get(position).size() - 1).getDateAdded(), 101);
+
+            //This looks through all the different dates and adds them together by answer. For example if you choose Annat three times it will
+            //have the weight of three in the final list that will be added to the graph.
+            for (int i = 0; i < otherEffectsList.size(); i++) {
+
+                List<String> strings = (List<String>) otherEffectsList.get(i).getData();
+                for (int j = 0; j < strings.size(); j++) {
+                    if (j == strings.size() - 1 && otherEffectsList.get(i).isOther()) {
+                        pieEntryList.add(new AnswerEntry("Annat",1,101,"" ));
+                    }
+                    pieEntryList.add(new AnswerEntry(strings.get(j),1 ,101,""));
+                }
+            }
+            Map<String, Double> map = pieEntryList.stream()
+                    .collect(groupingBy(PieEntry::getLabel,
+                            summingDouble((PieEntry::getValue))));
+            pieEntryList.clear();
+            map.entrySet().stream()
+                    .sorted(Map.Entry.comparingByKey())
+                    .forEachOrdered((e) -> tmpPieEntryList.add(new AnswerEntry(e.getKey(),e.getValue().floatValue(),101,"")));
+            pieEntryList.addAll(tmpPieEntryList);
+            //Sum all nos
+            int yes = 0;
+            int no = 0;
+            for (AnswerEntry entry : entries.get(position)) {
+                if (entry.getY() == 1) {
+                    yes++;
+                } else {
+                    no++;
+                }
+
+            }
+            pieEntryList.add(new AnswerEntry("Ja",yes,101,""));
+
+
+        }
+
+
+        else {
+            int yes = 0;
+            int no = 0;
+            for (AnswerEntry entry : entries.get(position)) {
+                if (entry.getY() == 1) {
+                    yes++;
+                } else {
+                    no++;
+                }
+
+            }
+
+
+        AnswerEntry yesEntry = new AnswerEntry("Ja",yes,id,"");
+        AnswerEntry noEntry = new AnswerEntry("Nej",no,id,"");
         // pieEntryList.add(new PieEntry(30,"Ja"));
+        List <AnswerEntry> answerEntryList = new ArrayList<>();
+        if(yes!=0){
+        answerEntryList.add(yesEntry);}
+        if(no!=0){
+        answerEntryList.add(noEntry);}
+        pieEntryList = new ArrayList<>(answerEntryList);}
         PieDataSet pieDataSet = new PieDataSet(pieEntryList, "Procent");
         pieDataSet.setLabel("");
         pieDataSet.setColors(ColorTemplate.LIBERTY_COLORS);
@@ -227,11 +379,11 @@ public class GraphDrawer {
 
         pieChart.setDrawHoleEnabled(false);
         pieData.setDrawValues(false);
-        pieChart.setTouchEnabled(false);
-        pieChart.setClickable(false);
+
+
         pieChart.setDrawEntryLabels(true);
         pieChart.setEntryLabelColor(Color.parseColor("#4682b4"));
-        pieChart.setEntryLabelTextSize(25f);
+        pieChart.setEntryLabelTextSize(10f);
         holder.getMainLabel().setTextColor(Color.parseColor("#4682b4"));
         holder.getMainLabel().setTextSize(22f);
         pieChart.getDescription().setText("");

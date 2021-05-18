@@ -8,12 +8,14 @@ public class MultipleTextAnswer implements Answerable {
     private int questionId;
     private String date;
     private final int type;
+    private boolean other;
 
-    public MultipleTextAnswer(List<String> text, int questionId, String date) {
+    public MultipleTextAnswer(List<String> text, int questionId, String date, boolean other) {
         this.text = text;
         this.questionId = questionId;
         this.date = date;
         this.type = 3;
+        this.other=other;
 
     }
 
@@ -25,7 +27,7 @@ public class MultipleTextAnswer implements Answerable {
             sb.append("§§§---§§§---§§§");
         }
 
-        return sb.toString() + "###---###---###" + questionId + "###---###---###" + date + "###---###---###" + type;
+        return sb.toString() + "###---###---###" + questionId + "###---###---###" + date + "###---###---###" + type + "###---###---###" + other;
     }
 
     @Override
@@ -49,4 +51,9 @@ public class MultipleTextAnswer implements Answerable {
     public int getType() {
         return type;
     }
+
+    public boolean isOther() {
+        return other;
+    }
+
 }

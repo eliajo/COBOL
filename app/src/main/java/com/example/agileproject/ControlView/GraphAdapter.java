@@ -25,6 +25,7 @@ import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.data.PieData;
+import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.interfaces.datasets.IDataSet;
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
@@ -78,6 +79,9 @@ public class GraphAdapter extends RecyclerView.Adapter<GraphAdapter.GraphHolder>
         if (!holder.isInitialized()){
             holder.setQuestionId(entries.get(position).get(0).getQuestionId());
         }
+        if (entries.get(position).get(0).getQuestionId()==101){
+            return;
+        }
         if (holder.getItemViewType() == linechartID) {
             //Only called once.
             graphDrawer.drawLineChart(entries, holder, position, GraphHelper.TimePeriod.WEEK);
@@ -130,8 +134,15 @@ public class GraphAdapter extends RecyclerView.Adapter<GraphAdapter.GraphHolder>
 
     @Override
     public void onValueSelected(Entry e, Highlight h) {
-        /*Intent intent = new Intent();
-        context.startActivity();*/
+        Intent intent = new Intent(context,GraphInfoPage.class);
+        AnswerEntry answerEntry = (AnswerEntry) e;
+       int id= answerEntry.getQuestionId();
+
+       if (id==10){
+           id=101;
+       }
+       intent.putExtra("Id",id);
+        context.startActivity(intent);
 
     }
 
