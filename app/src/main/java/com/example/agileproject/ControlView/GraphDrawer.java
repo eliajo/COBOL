@@ -145,6 +145,7 @@ public class GraphDrawer {
                 secondLineDataSet.setCircleColor(Color.parseColor("#30a68b"));
                 secondLineDataSet.setCircleRadius(6);
                 secondLineDataSet.setCircleHoleRadius(3);
+                secondLineDataSet.setLineWidth(2);
                 lineData = new LineData(lineDataSet, secondLineDataSet);
                 lineDataSet.setDrawFilled(false);
 
@@ -430,18 +431,22 @@ public class GraphDrawer {
         pieChart.setDrawEntryLabels(true);
         pieChart.setEntryLabelColor(Color.parseColor("#4682b4"));
         //if-sats change text size
-        pieChart.setEntryLabelTextSize(10f);
+        pieChart.setEntryLabelTextSize(25f);
         holder.getMainLabel().setTextColor(Color.parseColor("#4682b4"));
         holder.getMainLabel().setTextSize(22f);
         pieChart.getDescription().setText("");
         pieChart.getLegend().setTextSize(16f);
         pieChart.getLegend().setTextColor(Color.parseColor("#4682b4"));
-        pieDataSet.setXValuePosition(PieDataSet.ValuePosition.OUTSIDE_SLICE); // labels outside of pie chart
-        pieDataSet.setValueLinePart1OffsetPercentage(90f);
-        pieDataSet.setValueLinePart1Length(0.6f);
-        pieDataSet.setValueLinePart2Length(0.10f);
-        pieChart.setExtraOffsets(10.f, 5.f, 10.f, 5.f);
 
+        if(id==7 || id==10) {
+            pieDataSet.setXValuePosition(PieDataSet.ValuePosition.OUTSIDE_SLICE); // labels outside of pie chart
+            pieDataSet.setValueLinePart1OffsetPercentage(90f);
+            pieDataSet.setValueLinePart1Length(0.6f);
+            pieDataSet.setValueLinePart2Length(0.10f);
+            pieChart.setExtraOffsets(20.f, 5.f, 20.f, 5.f);
+            pieChart.getLegend().setTextSize(10f);
+            pieChart.setEntryLabelTextSize(10f);
+        }
 
 
     }
