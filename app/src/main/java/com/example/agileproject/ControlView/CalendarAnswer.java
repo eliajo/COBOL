@@ -81,7 +81,7 @@ public class CalendarAnswer extends Fragment {
         }
         for (Answerable a : answersDate){
             if (a.getQuestionId() == 14){
-                text.setText(date + " " + (String) a.getData());
+                text.setText( (String) a.getData() + " " + date);
                 // return (String) a.getData();
             }
             else {

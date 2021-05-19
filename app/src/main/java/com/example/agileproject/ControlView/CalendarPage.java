@@ -66,6 +66,8 @@ public class CalendarPage extends Fragment {
         AnswerConverter.getInstance().convert(s);
 
 
+
+
         addAllEvents(caldroid);
 
         FragmentTransaction t = getFragmentManager().beginTransaction();

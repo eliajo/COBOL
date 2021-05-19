@@ -12,12 +12,13 @@
 
         <TextView
             android:id="@+id/questionView"
-            android:layout_width="195dp"
-            android:layout_height="47dp"
-            android:layout_marginStart="24dp"
-            android:layout_marginLeft="24dp"
-            android:layout_marginBottom="176dp"
-            android:text="Har det hänt något allvarligt?"
+            android:layout_width="301dp"
+            android:layout_height="66dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginBottom="128dp"
+            android:text="Klicka på en dag i kalendern för att se ditt svar"
+            android:textColor="#2196F3"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -25,10 +26,13 @@
             android:id="@+id/answerView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="228dp"
-            android:layout_marginLeft="228dp"
-            android:layout_marginBottom="172dp"
-            android:text="get answer here"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginBottom="204dp"
+            android:text="Har det hänt något allvarligt idag?"
+            android:textColor="#3F51B5"
+            android:textSize="18sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
