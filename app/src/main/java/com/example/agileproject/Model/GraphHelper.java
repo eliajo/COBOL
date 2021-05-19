@@ -7,6 +7,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
@@ -71,7 +72,16 @@ public class GraphHelper {
             e.printStackTrace();
         }
         if (answerableList.size() == 0) {
+
             return answerEntries;
+        }
+        if (answerableList.get(0).getType()==0){
+            int index =0;
+            for (Answerable answerable : answerableList
+            ) {
+                answerEntries.add(new AnswerEntry(answerable.getData().toString(), 1, questionId, answerable.getDate()));
+                index++;
+            }
         }
         int index = 0;
         if (answerableList.get(0).getType() == 1) {
@@ -100,8 +110,8 @@ public class GraphHelper {
         return answerEntries;
     }
 
-    public List<Answerable> getMultipleTextAnswerFromDateToDate(String startingDate, String endDate, int questionId) {
-        List<Answerable> answerableList = new ArrayList<>();
+    public List<MultipleTextAnswer> getMultipleTextAnswerFromDateToDate(String startingDate, String endDate, int questionId) {
+        List<MultipleTextAnswer> multipleTextAnswers = new ArrayList<>();
         List<Answerable> byIdList;
         List<Answerable> byDateList;
         List<MultipleTextAnswer> answerEntries = new ArrayList<>();
@@ -130,7 +140,8 @@ public class GraphHelper {
                 byIdList = fileConverter.getAnswersByQuestionID(questionId);
 
                 byDateList.retainAll(byIdList); //Basically a union of the two lists.
-                answerableList.addAll(byDateList);
+                //Might look insecure but in all reality it should not cause a problem
+                multipleTextAnswers.addAll((List<MultipleTextAnswer>)(List<?>) byDateList);
                 byDateList.clear();
                 byIdList.clear();
             }
@@ -139,6 +150,6 @@ public class GraphHelper {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        return answerableList;
+        return multipleTextAnswers;
     }
 }
