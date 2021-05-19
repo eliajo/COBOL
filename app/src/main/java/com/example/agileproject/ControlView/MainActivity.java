@@ -41,8 +41,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        FileHandler fileHandler = new FileHandler();
 
-        FileHandler fileHandler=new FileHandler();
        String s =fileHandler.read(getApplicationContext(),"Answers.txt");
        AnswerConverter.getInstance().convert(s);
 
@@ -55,7 +55,6 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.main_pages_fragment);
         NavigationUI.setupWithNavController(bottomNavigationView, navController);
 
-        FileHandler fileHandler = new FileHandler();
         String readAnswers = fileHandler.read(getApplicationContext(),"Answers.txt");
         AnswerConverter.getInstance().convert(readAnswers);
 

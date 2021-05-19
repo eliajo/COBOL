@@ -2,6 +2,7 @@ package com.example.agileproject.ControlView;
 
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Typeface;
 import android.os.Build;
 import android.view.View;
 
@@ -423,13 +424,18 @@ public class GraphDrawer {
         pieChart.setDrawEntryLabels(true);
         pieChart.setEntryLabelColor(Color.parseColor("#4682b4"));
         //if-sats change text size
-        pieChart.setEntryLabelTextSize(20f);
+        pieChart.setEntryLabelTextSize(10f);
         holder.getMainLabel().setTextColor(Color.parseColor("#4682b4"));
         holder.getMainLabel().setTextSize(22f);
         pieChart.getDescription().setText("");
         pieChart.getLegend().setTextSize(16f);
         pieChart.getLegend().setTextColor(Color.parseColor("#4682b4"));
-        //vrid entry label
+        pieDataSet.setXValuePosition(PieDataSet.ValuePosition.OUTSIDE_SLICE); // labels outside of pie chart
+        pieDataSet.setValueLinePart1OffsetPercentage(90f);
+        pieDataSet.setValueLinePart1Length(0.6f);
+        pieDataSet.setValueLinePart2Length(0.10f);
+        pieChart.setExtraOffsets(5.f, 5.f, 5.f, 5.f);
+
 
 
     }
