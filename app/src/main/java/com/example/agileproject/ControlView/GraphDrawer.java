@@ -169,8 +169,13 @@ public class GraphDrawer {
         chart.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);
         //chart.setVisibleXRange(entries.size()-1,entries.size()-1);
 
+        if (id==1){
+            chart.getAxisLeft().setAxisMinimum(-5);
+            chart.getAxisLeft().setAxisMaximum(5);
+        }
+        else{
         chart.getAxisLeft().setAxisMinimum(0);
-        chart.getAxisLeft().setAxisMaximum(10);
+        chart.getAxisLeft().setAxisMaximum(10);}
         chart.getAxisLeft().setGranularity(1f);
 
         chart.getAxisLeft().setDrawGridLines(false);
@@ -283,6 +288,7 @@ public class GraphDrawer {
                 holder.getMainLabel().setText("Hur du haft några biverkningar idag?");
                 pieChart.setClickable(true);
                 pieChart.setTouchEnabled(true);
+                pieChart.setRotationEnabled(false);
                 break;
             case 11:
                 holder.getMainLabel().setText("Har du druckit alkohol idag?");
@@ -292,6 +298,9 @@ public class GraphDrawer {
                 break;
             case 13:
                 holder.getMainLabel().setText("Har du gjort någon fysisk aktivitet?");
+                pieChart.setClickable(true);
+                pieChart.setTouchEnabled(true);
+                pieChart.setRotationEnabled(false);
                 break;
             default:
                 throw new IllegalArgumentException("No valid questionID");
@@ -318,8 +327,10 @@ public class GraphDrawer {
                         if (j == strings.size() - 1 && otherEffectsList.get(i).isOther()) {
                             pieEntryList.add(new AnswerEntry("Annat", 1, 101, ""));
                         }
-                        pieEntryList.add(new AnswerEntry(strings.get(j), 1, 101, ""));
-                    }
+                        else {
+                            pieEntryList.add(new AnswerEntry(strings.get(j), 1, 101, ""));
+                        }
+                        }
                 }
                 Map<String, Double> map = pieEntryList.stream()
                         .collect(groupingBy(PieEntry::getLabel,
@@ -340,12 +351,13 @@ public class GraphDrawer {
                     }
 
                 }
-                pieEntryList.add(new AnswerEntry("Nej", no, 101, ""));
-
+                if (no>0) {
+                    pieEntryList.add(new AnswerEntry("Nej", no, 101, ""));
+                }
             }
-            else if (id==7){
+            else if (id==7) {
                 GraphHelper graphHelper = new GraphHelper();
-                List <AnswerEntry> sleepList = graphHelper.getDataFromDateToDate(entries.get(position).get(0).getDateAdded(), entries.get(position).get(entries.get(position).size() - 1).getDateAdded(), 71);
+                List<AnswerEntry> sleepList = graphHelper.getDataFromDateToDate(entries.get(position).get(0).getDateAdded(), entries.get(position).get(entries.get(position).size() - 1).getDateAdded(), 71);
                 Map<String, Double> map = sleepList.stream()
                         .collect(groupingBy(AnswerEntry::getLabel,
                                 summingDouble((AnswerEntry::getValue))));
@@ -364,7 +376,9 @@ public class GraphDrawer {
                     }
 
                 }
-                pieEntryList.add(new AnswerEntry("Ja", yes, 71, ""));
+                if (yes > 0) {
+                    pieEntryList.add(new AnswerEntry("Ja", yes, 71, ""));
+                }
             }
         }
 

@@ -31,6 +31,7 @@ public class GraphInfoAdapter extends RecyclerView.Adapter<GraphInfoAdapter.Grap
     private int questionId;
     private List<MultipleTextAnswer> answerEntries;
     private Context context;
+    private List<AnswerEntry> answerableList;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public GraphInfoAdapter(Context context,int questionId) {
@@ -41,6 +42,9 @@ public class GraphInfoAdapter extends RecyclerView.Adapter<GraphInfoAdapter.Grap
         LocalDate startDate = endDate.minusYears(1);
         if (questionId==101) {
             answerEntries = graphHelper.getMultipleTextAnswerFromDateToDate(startDate.toString(), endDate.toString(), questionId);
+        }
+        else if (questionId==131){
+            answerableList=graphHelper.getDataFromDateToDate(startDate.toString(),endDate.toString(),questionId);
         }
     }
 
@@ -53,9 +57,10 @@ public class GraphInfoAdapter extends RecyclerView.Adapter<GraphInfoAdapter.Grap
 
     @Override
     public void onBindViewHolder(GraphInfoAdapter.GraphInfoHolder holder, int position) {
-        holder.getDateText().append(answerEntries.get(position).getDate());
+
         //Not good but cant come up with other way now
         if (questionId==101){
+            holder.getDateText().append(answerEntries.get(position).getDate());
         List<String> stringList = (List<String>) answerEntries.get(position).getData();
         StringBuilder sb = new StringBuilder();
         for (String s:stringList) {
@@ -63,13 +68,24 @@ public class GraphInfoAdapter extends RecyclerView.Adapter<GraphInfoAdapter.Grap
 
         }
         holder.getInfoText().append((sb.toString()) );
-    }}
+    }if (questionId==131){
+            holder.getDateText().setText(answerableList.get(position).getDateAdded());
+            holder.getInfoText().append((answerableList.get(position).getLabel()));
+        }
+
+
+    }
 
     @Override
     public int getItemCount() {
         if (questionId==101){
         return answerEntries.size();}
-        //TODO add support for other questions of type answerable
+
+        //TODO add suport for other questions of type answerable
+        if (questionId==131){
+            return answerableList.size();
+        }
+
          return 1;
     }
 
