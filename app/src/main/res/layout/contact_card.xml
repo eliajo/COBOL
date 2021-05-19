@@ -74,6 +74,30 @@
                 app:srcCompat="@drawable/ic_baseline_person_24"
                 tools:ignore="VectorDrawableCompat" />
 
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/deleteButton"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginStart="300dp"
+                android:layout_marginLeft="300dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="36dp"
+                android:clickable="true"
+                android:contentDescription="TODO"
+                android:visibility="visible"
+                app:backgroundTint="#2D9CDB"
+                app:backgroundTintMode="add"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.04"
+                app:layout_constraintStart_toStartOf="parent"
+                app:rippleColor="@color/white"
+                app:srcCompat="@android:drawable/ic_delete"
+                tools:ignore="OnClick"
+                tools:visibility="visible" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
