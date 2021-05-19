@@ -1,21 +1,28 @@
 package com.example.agileproject.ControlView;
 
 import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.agileproject.Model.Answerable;
+import com.example.agileproject.Model.TextAnswer;
 import com.example.agileproject.R;
 import com.example.agileproject.Utils.AnswerConverter;
+import com.example.agileproject.Utils.FileFormatter;
 import com.roomorama.caldroid.CaldroidFragment;
 import com.roomorama.caldroid.CaldroidListener;
 
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -50,6 +57,16 @@ public class CalendarPage extends Fragment {
         args.putInt(CaldroidFragment.YEAR, calendar.get(Calendar.YEAR));
         args.putInt(CaldroidFragment.START_DAY_OF_WEEK, CaldroidFragment.MONDAY);
         caldroid.setArguments(args);
+        // Kod för att testa så att det fungerar i kalendern.
+        TextAnswer test = new TextAnswer("Test", 14, "2021-05-16");
+        List <Answerable> list = new ArrayList<>();
+        list.add(test);
+        FileFormatter file = new FileFormatter();
+        String s = file.format(list);
+        AnswerConverter.getInstance().convert(s);
+
+
+
 
         addAllEvents(caldroid);
 
@@ -65,19 +82,19 @@ public class CalendarPage extends Fragment {
 
         final CaldroidListener listener = new CaldroidListener() {
 
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onSelectDate(Date date, View view) {
 
-                if(dateExists(date, dates)) {
-                    System.out.println("THIS DATE EXISTS!!!");
-                    CalendarAnswer.newInstance().fetchAnswers(date.toString());
-                } else {
-                    //toast.show();
-                    System.out.println("DATE DOESN'T EXIST");
-                }
 
-                System.out.println("TEST " + date.toString());
-                System.out.println("");
+
+                    LocalDate local = LocalDate.parse(new SimpleDateFormat("yyyy-MM-dd").format(date));
+                    System.out.println("THIS DATE EXISTS!!!");
+                    CalendarAnswer c = CalendarAnswer.getInstance();
+                    String s = local.toString();
+                    c.fetchAnswers(s);
+
+
             }
         };
         caldroid.setCaldroidListener(listener);
@@ -115,7 +132,6 @@ public class CalendarPage extends Fragment {
             String[] array = s.split("-"); //splits the dateString into an array of three strings, [0] = year, [1] = month, [2] = day
             dates.add(new Date(Integer.parseInt(array[0])-1900,Integer.parseInt(array[1])-1,Integer.parseInt(array[2])));
         }
-        dates.add(new Date(2021-1900,5-1,2)); //this row is a test to try existing dates (NOT COLORING!), remove later
         return dates;
     }
 

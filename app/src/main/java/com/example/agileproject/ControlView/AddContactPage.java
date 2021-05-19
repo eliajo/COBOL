@@ -64,6 +64,7 @@ public class AddContactPage extends Fragment {
 
                 //Hack that is going to be changed. No use having a list for one contact.
                 //Converts the contact into a saveable string
+
                 List<Contact> storableList = new ArrayList<>();
                 storableList.add(contact);
                 String formattedContact = fileFormatter.formatContact(storableList);
@@ -71,7 +72,7 @@ public class AddContactPage extends Fragment {
                 //Saves the contact
                 FileHandler fileHandler = new FileHandler();
                 fileHandler.write(formattedContact,getContext(),"Contacts.txt");
-
+                
                 //Reads the contact from harddrive
                 String readContact = fileHandler.read(getContext(),"Contacts.txt");
 

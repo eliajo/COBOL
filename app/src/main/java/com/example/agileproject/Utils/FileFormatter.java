@@ -5,6 +5,7 @@ import android.os.Build;
 import androidx.annotation.RequiresApi;
 
 import com.example.agileproject.ControlView.Contact;
+import com.example.agileproject.Model.AnalyzerSettable;
 import com.example.agileproject.Model.Answerable;
 import com.example.agileproject.Model.Storable;
 
@@ -40,6 +41,15 @@ public class FileFormatter {
             sb.append(s.getInfoToWrite());
 
             sb.append("@@@---@@@---@@@"); //End of question or contact
+        }
+        return sb.toString();
+    }
+
+    public String formatSetting(List<AnalyzerSettable> settings) {
+        StringBuilder sb = new StringBuilder();
+
+        for(AnalyzerSettable s : settings) {
+            sb.append(s.getInfoToWrite()).append("@@@---@@@---@@@");
         }
         return sb.toString();
     }
