@@ -221,9 +221,10 @@ public class GraphDrawer {
             chart.getXAxis().setAxisMaximum(7);
             chart.getXAxis().setLabelCount(7,true);}
         else if (timePeriod== GraphHelper.TimePeriod.MONTH){
-            chart.getXAxis().setGranularity(10f);
+            chart.getXAxis().setGranularity(7f);
             chart.getXAxis().setAxisMaximum(30);
             chart.getXAxis().setLabelCount(4,true);
+            // fula
         }
         else if (timePeriod== GraphHelper.TimePeriod.YEAR){
             chart.getXAxis().setAxisMaximum(12);
@@ -341,7 +342,7 @@ public class GraphDrawer {
                         .forEachOrdered((e) -> tmpPieEntryList.add(new AnswerEntry(e.getKey(), e.getValue().floatValue(), 101, "")));
                 pieEntryList.addAll(tmpPieEntryList);
                 //Sum all nos
-                int yes = 1;
+                int yes = 0;
                 int no = 0;
                 for (AnswerEntry entry : entries.get(position)) {
                     if (entry.getY() == 1) {
@@ -366,7 +367,7 @@ public class GraphDrawer {
                         .sorted(Map.Entry.comparingByKey())
                         .forEachOrdered((e) -> sleepList.add(new AnswerEntry(e.getKey(), e.getValue().floatValue(), 71, "")));
                 pieEntryList.addAll(sleepList);
-                int yes = 1;
+                int yes = 0;
                 int no = 0;
                 for (AnswerEntry entry : entries.get(position)) {
                     if (entry.getY() == 1) {
@@ -385,7 +386,7 @@ public class GraphDrawer {
 
 
         else {
-            int yes = 1;
+            int yes = 0;
             int no = 0;
             for (AnswerEntry entry : entries.get(position)) {
                 if (entry.getY() == 1) {
@@ -421,12 +422,14 @@ public class GraphDrawer {
 
         pieChart.setDrawEntryLabels(true);
         pieChart.setEntryLabelColor(Color.parseColor("#4682b4"));
+        //if-sats change text size
         pieChart.setEntryLabelTextSize(20f);
         holder.getMainLabel().setTextColor(Color.parseColor("#4682b4"));
         holder.getMainLabel().setTextSize(22f);
         pieChart.getDescription().setText("");
         pieChart.getLegend().setTextSize(16f);
         pieChart.getLegend().setTextColor(Color.parseColor("#4682b4"));
+        //vrid entry label
 
 
     }
