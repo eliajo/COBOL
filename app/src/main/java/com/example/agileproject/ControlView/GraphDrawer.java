@@ -114,7 +114,8 @@ public class GraphDrawer {
             converterList = new ArrayList<>(entries.get(position));}
         }
         lineDataSet = new LineDataSet(converterList, "Dagar");
-
+        lineDataSet.setDrawFilled(true);
+        lineDataSet.setFillColor(Color.parseColor("#add8e6"));
         LineData lineData;
         if (id == 5) {
             int relatedPosition = 0;
@@ -140,11 +141,18 @@ public class GraphDrawer {
                  secondList= new ArrayList<>(entries.get(relatedPosition));
                  }
                 secondLineDataSet = new LineDataSet(secondList, "Dagar");
+                secondLineDataSet.setColor(Color.parseColor("#97e1d0"));
+                secondLineDataSet.setCircleColor(Color.parseColor("#30a68b"));
+                secondLineDataSet.setCircleRadius(6);
+                secondLineDataSet.setCircleHoleRadius(3);
                 lineData = new LineData(lineDataSet, secondLineDataSet);
+                lineDataSet.setDrawFilled(false);
+
             } else {
                 lineData = new LineData(lineDataSet);
 
             }
+
         }
         //Temporary code to show graph
         else {
@@ -203,8 +211,6 @@ public class GraphDrawer {
         lineDataSet.setHighLightColor(Color.RED);
         lineDataSet.setValueTextSize(12);
         lineDataSet.setValueTextColor(Color.DKGRAY);
-        lineDataSet.setDrawFilled(true);
-        lineDataSet.setFillColor(Color.parseColor("#add8e6"));
         lineDataSet.setGradientColor(Color.parseColor("#ffffff"), Color.parseColor("#add8e6"));
         holder.getMainLabel().setTextColor(Color.parseColor("#4682b4"));
         holder.getMainLabel().setTextSize(22f);
@@ -225,7 +231,7 @@ public class GraphDrawer {
             chart.getXAxis().setGranularity(7f);
             chart.getXAxis().setAxisMaximum(30);
             chart.getXAxis().setLabelCount(4,true);
-            // fula
+
         }
         else if (timePeriod== GraphHelper.TimePeriod.YEAR){
             chart.getXAxis().setAxisMaximum(12);
@@ -434,7 +440,7 @@ public class GraphDrawer {
         pieDataSet.setValueLinePart1OffsetPercentage(90f);
         pieDataSet.setValueLinePart1Length(0.6f);
         pieDataSet.setValueLinePart2Length(0.10f);
-        pieChart.setExtraOffsets(5.f, 5.f, 5.f, 5.f);
+        pieChart.setExtraOffsets(10.f, 5.f, 10.f, 5.f);
 
 
 
