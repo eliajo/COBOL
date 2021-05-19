@@ -164,38 +164,38 @@ public class SettingsPage extends Fragment implements View.OnClickListener {
         List<AnalyzerSettable> settings = new ArrayList<>();
 
         if(hBool) {
-            int id = 1, //TODO LÄGG TILL RÄTT ID!!!!!!!!!!!!!!!
+            int id = 2, //Hallucination
                     time = Integer.parseInt(hTime.getText().toString()),
                     lower = Integer.parseInt(hLower.getText().toString()),
                     upper = Integer.parseInt(hUpper.getText().toString());
             settings.add(new AnalyzerSettingNumber(id, upper, lower, time));
         }
         if(dBool) {
-            int id = 1, //TODO LÄGG TILL RÄTT ID!!!!!!!!!!!!!!!
-                    time = Integer.parseInt(hTime.getText().toString()),
-                    lower = Integer.parseInt(hLower.getText().toString()),
-                    upper = Integer.parseInt(hUpper.getText().toString());
+            int id = 3, //Delusions
+                    time = Integer.parseInt(dTime.getText().toString()),
+                    lower = Integer.parseInt(dLower.getText().toString()),
+                    upper = Integer.parseInt(dUpper.getText().toString());
             settings.add(new AnalyzerSettingNumber(id, upper, lower, time));
         }
         if(aBool) {
-            int id = 1, //TODO LÄGG TILL RÄTT ID!!!!!!!!!!!!!!!
-                    time = Integer.parseInt(hTime.getText().toString()),
-                    lower = Integer.parseInt(hLower.getText().toString()),
-                    upper = Integer.parseInt(hUpper.getText().toString());
+            int id = 4, //Anxiety
+                    time = Integer.parseInt(aTime.getText().toString()),
+                    lower = Integer.parseInt(aLower.getText().toString()),
+                    upper = Integer.parseInt(aUpper.getText().toString());
             settings.add(new AnalyzerSettingNumber(id, upper, lower, time));
         }
         if(iBool) {
-            int id = 1, //TODO LÄGG TILL RÄTT ID!!!!!!!!!!!!!!!
-                    time = Integer.parseInt(hTime.getText().toString()),
-                    lower = Integer.parseInt(hLower.getText().toString()),
-                    upper = Integer.parseInt(hUpper.getText().toString());
+            int id = 8, //Irritation
+                    time = Integer.parseInt(iTime.getText().toString()),
+                    lower = Integer.parseInt(iLower.getText().toString()),
+                    upper = Integer.parseInt(iUpper.getText().toString());
             settings.add(new AnalyzerSettingNumber(id, upper, lower, time));
         }
         if(eBool) {
-            int id = 1, //TODO LÄGG TILL RÄTT ID!!!!!!!!!!!!!!!
-                    time = Integer.parseInt(hTime.getText().toString()),
-                    lower = Integer.parseInt(hLower.getText().toString()),
-                    upper = Integer.parseInt(hUpper.getText().toString());
+            int id = 1, //Energy
+                    time = Integer.parseInt(eTime.getText().toString()),
+                    lower = Integer.parseInt(eLower.getText().toString()),
+                    upper = Integer.parseInt(eUpper.getText().toString());
             settings.add(new AnalyzerSettingNumber(id, upper, lower, time));
         }
 
