@@ -16,9 +16,6 @@
         <action
             android:id="@+id/home_to_stats"
             app:destination="@id/graphPage" />
-        <action
-            android:id="@+id/action_homePage_to_homePage22"
-            app:destination="@id/homePage22" />
     </fragment>
     <fragment
         android:id="@+id/calendarPage"

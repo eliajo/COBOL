@@ -24,6 +24,9 @@ import com.example.agileproject.Utils.AnswerConverter;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+/**
+ * @author Pegah Amanzadeh, Edenia Isaac
+ */
 
 public class HomePage extends Fragment {
 
@@ -35,10 +38,6 @@ public class HomePage extends Fragment {
     private Button quizButton;
     private Button statButton;
     private Button calendarButton;
-    //private Button statButton;
-    //private Button calendarButton;
-    private TextView text;
-
 
     public HomePage() {
         // Required empty public constructor
@@ -61,6 +60,7 @@ public class HomePage extends Fragment {
             }
         });
         calendarButton = view.findViewById(R.id.calendar_button);
+
         calendarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -73,24 +73,11 @@ public class HomePage extends Fragment {
             view.findViewById(R.id.calendar_button).setVisibility(View.VISIBLE);
             view.findViewById(R.id.textView17).setVisibility(View.GONE);
             view.findViewById(R.id.imageView4).setVisibility(View.GONE);
-
-
-            //statButton.findViewById(R.id.statistik_button).setVisibility(View.VISIBLE);
-            //calendarButton.findViewById(R.id.kalender_button).setVisibility(View.VISIBLE);
-            //navController.navigate(R.id.action_homePage_to_homePage22);
-        //}else{
+            view.findViewById(R.id.textView32).setVisibility(View.VISIBLE);
             view.findViewById(R.id.textView15).setVisibility(View.VISIBLE);
             view.findViewById(R.id.imageView6).setVisibility(View.VISIBLE);
-
-
         }
-
-
-
-
         return view;
-
-
     }
 
     @Override
