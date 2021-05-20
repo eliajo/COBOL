@@ -189,6 +189,10 @@ public class GraphDrawer {
         chart.getAxisLeft().setAxisMinimum(0);
         chart.getAxisLeft().setAxisMaximum(10);}
         chart.getAxisLeft().setGranularity(1f);
+        chart.getAxisLeft().setTextColor(Color.parseColor("#4682b4"));
+        chart.getAxisLeft().setTextSize(15f);
+        chart.getXAxis().setTextColor(Color.parseColor("#4682b4"));
+        chart.getXAxis().setTextSize(13f);
 
         chart.getAxisLeft().setDrawGridLines(false);
 
