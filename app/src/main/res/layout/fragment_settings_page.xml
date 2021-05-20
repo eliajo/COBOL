@@ -23,7 +23,7 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="540dp">
+                android:layout_height="880dp">
 
                 <TextView
                     android:id="@+id/onOff_text"
@@ -368,6 +368,70 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />
+
+                <TimePicker
+                    android:id="@+id/medicineTimePicker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="70dp"
+                    android:layout_marginLeft="70dp"
+                    android:layout_marginTop="10dp"
+                    android:timePickerMode="spinner"
+                    app:layout_constraintStart_toEndOf="@+id/medicine_switch"
+                    app:layout_constraintTop_toBottomOf="@+id/energy_lower" />
+
+                <Switch
+                    android:id="@+id/medicine_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/medicine_title" />
+
+                <TextView
+                    android:id="@+id/medicine_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="85dp"
+                    android:text="Medicinpåminnelse"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/energy_switch" />
+
+                <TimePicker
+                    android:id="@+id/reminderTimePicker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="70dp"
+                    android:layout_marginLeft="70dp"
+                    android:layout_marginTop="178dp"
+                    android:timePickerMode="spinner"
+                    app:layout_constraintStart_toEndOf="@+id/reminder_switch"
+                    app:layout_constraintTop_toBottomOf="@+id/energy_lower" />
+
+                <TextView
+                    android:id="@+id/reminder_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="115dp"
+                    android:text="Quizpåminnelse"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/medicine_switch" />
+
+                <Switch
+                    android:id="@+id/reminder_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/reminder_title" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
