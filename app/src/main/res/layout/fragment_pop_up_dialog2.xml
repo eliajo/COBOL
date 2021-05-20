@@ -15,13 +15,12 @@ View for Navigation Graph
     <TextView
         android:id="@+id/textView15"
         android:layout_width="119dp"
-        android:layout_height="21dp"
+        android:layout_height="0dp"
         android:layout_marginTop="40dp"
         android:text="Hallucination"
         android:textColor="#083D5C"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.547"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -30,15 +29,13 @@ View for Navigation Graph
         android:layout_width="280dp"
         android:layout_height="88dp"
         android:layout_marginTop="8dp"
-        android:text=" Förklaring: Upplevelse som är lika    tydlig som en sinnesintryck men som inte händer på riktig, till exempel höra röster."
+        android:text="   Förklaring: Upplevelse som är lika    tydlig som en sinnesintryck men som inte händer på riktig, till exempel höra röster."
         android:textColor="#083D5C"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.312"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView15"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
     <ImageButton
         android:id="@+id/imageButton3"
@@ -50,5 +47,29 @@ View for Navigation Graph
         android:src="@android:drawable/btn_dialog"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView30"
+        android:layout_width="262dp"
+        android:layout_height="33dp"
+        android:text="1 = inga hallucinationer"
+        android:textColor="#4CC321"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.577"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView27" />
+
+    <TextView
+        android:id="@+id/textView31"
+        android:layout_width="261dp"
+        android:layout_height="41dp"
+        android:text="10 = jätte mycket hallicinationer"
+        android:textColor="#D81E1E"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.573"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView30" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

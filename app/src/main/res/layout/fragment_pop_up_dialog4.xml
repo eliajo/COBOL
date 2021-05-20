@@ -35,12 +35,10 @@ View for Navigation Graph
         android:text="  Förklaring: intensiv, varaktig och oförklarlig oro känsla."
         android:textColor="#083D5C"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.602"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView23"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/textView23" />
 
     <ImageButton
         android:id="@+id/imageButton4"
@@ -52,4 +50,30 @@ View for Navigation Graph
         android:src="@android:drawable/btn_dialog"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView30"
+        android:layout_width="222dp"
+        android:layout_height="32dp"
+        android:text="1 = inga ångest"
+        android:textColor="#4CC321"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.772"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView29" />
+
+    <TextView
+        android:id="@+id/textView31"
+        android:layout_width="223dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="4dp"
+        android:text="10 = jätte mycket ångest"
+        android:textColor="#D81E1E"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.771"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView30" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
