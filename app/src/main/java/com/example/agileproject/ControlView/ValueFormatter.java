@@ -77,9 +77,10 @@ public class ValueFormatter extends com.github.mikephil.charting.formatter.Value
         if (index >= answerEntries.size()||lastDate==null) {
             returnDate = localDate.plusDays(index);
         } else {
-            LocalDate valueDate = LocalDate.parse(answerEntries.get(index).getDateAdded());
+            /*LocalDate valueDate = LocalDate.parse(answerEntries.get(index).getDateAdded());
             long daysBetween = DAYS.between(valueDate, localDate);
-            returnDate = localDate.minusDays(daysBetween);
+            returnDate = localDate.minusDays(daysBetween);*/
+            returnDate = localDate.plusDays(index);
         }
         if (timePeriod == GraphHelper.TimePeriod.WEEK) {
             switch (returnDate.getDayOfWeek()) {

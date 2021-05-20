@@ -196,7 +196,7 @@ public class GraphDrawer {
         chart.getAxisLeft().setDrawGridLines(false);
         chart.getAxisLeft().setZeroLineColor(Color.parseColor("#4682b4"));
         chart.getXAxis().setAxisLineColor(Color.parseColor("#4682b4"));
-        chart.getXAxis().setXOffset(10f);
+        //chart.getXAxis().setXOffset(10f);
         chart.getXAxis().setDrawGridLines(false);
         chart.setClickable(false);
         chart.setTouchEnabled(false);
@@ -232,8 +232,8 @@ public class GraphDrawer {
         }
         if (timePeriod== GraphHelper.TimePeriod.WEEK){
             chart.getXAxis().setGranularity(1f);
-            chart.getXAxis().setAxisMaximum(7);
-            chart.getXAxis().setLabelCount(7,true);}
+            chart.getXAxis().setAxisMaximum(6);
+            chart.getXAxis().setLabelCount(7,false);}
         else if (timePeriod== GraphHelper.TimePeriod.MONTH){
             chart.getXAxis().setGranularity(7f);
             chart.getXAxis().setAxisMaximum(30);
@@ -282,7 +282,7 @@ public class GraphDrawer {
      * @param holder The class that holds the graphs and other related data
      * @param position The position in entries where the current data is located
      */
-    @RequiresApi(api = Build.VERSION_CODES.N)
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public void drawPieChart(List<List<AnswerEntry>> entries, GraphAdapter.GraphHolder holder, int position) {
         PieChart pieChart = (PieChart) holder.getGraph();
         pieChart.clear();

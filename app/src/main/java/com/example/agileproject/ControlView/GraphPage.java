@@ -60,9 +60,27 @@ public class GraphPage extends Fragment {
         List<Answerable> answerableList = new ArrayList<>();
         List<List<AnswerEntry>> entries = new ArrayList<>();
 
+/*
 
+        NumberAnswer na1 = new NumberAnswer(1,1,"2021-05-20");
+        NumberAnswer na2 = new NumberAnswer(-3,1,"2021-05-14");
+        NumberAnswer na3 = new NumberAnswer(5,1,"2021-05-17");
 
+        answerableList.add(na1);
+        answerableList.add(na2);
+        answerableList.add(na3);
 
+        FileFormatter ff = new FileFormatter();
+        String save =ff.format(answerableList);
+
+        AnswerConverter fileConverter = AnswerConverter.getInstance();
+        fileConverter.convert(save);
+
+        GraphHelper g =new GraphHelper();
+        entries.add(g.getDataFromDateToDate("2021-05-14","2021-05-20",1));
+*/
+
+        //NumberAnswer na2 = new NumberAnswer(6,5,"2021-05-04");
 
         //All this is just demo functionality for now
       /*  NumberAnswer na1 = new NumberAnswer(5,5,"2021-05-03");
@@ -139,6 +157,7 @@ public class GraphPage extends Fragment {
         entries.add(sleepList);
         entries.add(secondSleepList);
 */
+
 
         GraphHelper graphHelper = new GraphHelper();
 
