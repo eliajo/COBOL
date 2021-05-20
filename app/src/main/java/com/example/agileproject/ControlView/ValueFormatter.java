@@ -99,7 +99,7 @@ public class ValueFormatter extends com.github.mikephil.charting.formatter.Value
                     return "Sön";
             }
         } else if (timePeriod == GraphHelper.TimePeriod.MONTH) {
-            return returnDate.toString();
+            return returnDate.getDayOfMonth() + "/" + returnDate.getMonthValue() ;
         } else if (timePeriod == GraphHelper.TimePeriod.YEAR) {
 
             switch (localDate.getMonth().plus(axisIndex)) {
