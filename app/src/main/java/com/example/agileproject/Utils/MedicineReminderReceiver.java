@@ -16,7 +16,7 @@ public class MedicineReminderReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         Log.println(Log.DEBUG, "Rev", "Recieved");
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(context, "Test")
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(context, "Medicine")
                 .setSmallIcon(R.drawable.ic_baseline_person_24)
                 .setContentText("Glöm inte att ta din medicin idag!")
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
