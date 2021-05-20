@@ -19,7 +19,9 @@ public class MedicineReminderReceiver extends BroadcastReceiver {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, "Medicine")
                 .setSmallIcon(R.drawable.ic_baseline_person_24)
                 .setContentText("Glöm inte att ta din medicin idag!")
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                .setAutoCancel(true);
+
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(context);
         notificationManager.notify(notificationID, builder.build());
     }
