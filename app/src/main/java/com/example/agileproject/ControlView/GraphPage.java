@@ -60,11 +60,11 @@ public class GraphPage extends Fragment {
         List<Answerable> answerableList = new ArrayList<>();
         List<List<AnswerEntry>> entries = new ArrayList<>();
 
-/*
 
+/*
         NumberAnswer na1 = new NumberAnswer(1,1,"2021-05-20");
         NumberAnswer na2 = new NumberAnswer(-3,1,"2021-05-14");
-        NumberAnswer na3 = new NumberAnswer(5,1,"2021-05-17");
+        NumberAnswer na3 = new NumberAnswer(5,1,"2021-01-17");
 
         answerableList.add(na1);
         answerableList.add(na2);
@@ -164,23 +164,23 @@ public class GraphPage extends Fragment {
         String startDate = LocalDate.now().minusDays(7).toString();
         String endDate = LocalDate.now().toString();
 
-        entries.add(graphHelper.getDataFromDateToDate(startDate,endDate,1));
-        entries.add(graphHelper.getDataFromDateToDate(startDate,endDate,2));
-        entries.add(graphHelper.getDataFromDateToDate(startDate,endDate,3));
-        entries.add(graphHelper.getDataFromDateToDate(startDate,endDate,4));
-        entries.add(graphHelper.getDataFromDateToDate(startDate,endDate,5));
-        entries.add(graphHelper.getDataFromDateToDate(startDate,endDate,6));
-        entries.add(graphHelper.getDataFromDateToDate(startDate,endDate,7));
-        entries.add(graphHelper.getDataFromDateToDate(startDate,endDate,8));
-        entries.add(graphHelper.getDataFromDateToDate(startDate,endDate,9));
-        entries.add(graphHelper.getDataFromDateToDate(startDate,endDate,10));
-        entries.add(graphHelper.getDataFromDateToDate(startDate,endDate,11));
-        entries.add(graphHelper.getDataFromDateToDate(startDate,endDate,12));
-        entries.add(graphHelper.getDataFromDateToDate(startDate,endDate,13));
+        entries.add(graphHelper.getDataFromDateToDate(startDate, endDate, 1));
+        entries.add(graphHelper.getDataFromDateToDate(startDate, endDate, 2));
+        entries.add(graphHelper.getDataFromDateToDate(startDate, endDate, 3));
+        entries.add(graphHelper.getDataFromDateToDate(startDate, endDate, 4));
+        entries.add(graphHelper.getDataFromDateToDate(startDate, endDate, 5));
+        entries.add(graphHelper.getDataFromDateToDate(startDate, endDate, 6));
+        entries.add(graphHelper.getDataFromDateToDate(startDate, endDate, 7));
+        entries.add(graphHelper.getDataFromDateToDate(startDate, endDate, 8));
+        entries.add(graphHelper.getDataFromDateToDate(startDate, endDate, 9));
+        entries.add(graphHelper.getDataFromDateToDate(startDate, endDate, 10));
+        entries.add(graphHelper.getDataFromDateToDate(startDate, endDate, 11));
+        entries.add(graphHelper.getDataFromDateToDate(startDate, endDate, 12));
+        entries.add(graphHelper.getDataFromDateToDate(startDate, endDate, 13));
 
-        for(int i=0; i<entries.size();i++){
-            if (entries.get(i).isEmpty()){
-                entries.get(i).add(new AnswerEntry(0,0,1000,""));
+        for (int i = 0; i < entries.size(); i++) {
+            if (entries.get(i).isEmpty()) {
+                entries.get(i).add(new AnswerEntry(0, 0, 1000, ""));
             }
         }
 
@@ -190,7 +190,7 @@ public class GraphPage extends Fragment {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this.getContext());
         recyclerView.setLayoutManager(layoutManager);
 
-        GraphAdapter graphAdapter = new GraphAdapter(getContext(),entries);
+        GraphAdapter graphAdapter = new GraphAdapter(getContext(), entries);
 
         recyclerView.setAdapter(graphAdapter);
 
