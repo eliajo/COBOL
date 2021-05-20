@@ -41,11 +41,11 @@ public class AnalyzerConverter {
             String[] settings = s.split("###---###---###"); //Splitting up the different settings of one analyzer
             switch (Integer.parseInt(settings[1])) { //This finds the type
                 case 1: //Numbers
-                    AnalyzerSettingNumber numberSetting = new AnalyzerSettingNumber(Integer.parseInt(settings[0]), Integer.parseInt(settings[1]), Integer.parseInt(settings[2]), Integer.parseInt(settings[3]));
+                    AnalyzerSettingNumber numberSetting = new AnalyzerSettingNumber(Integer.parseInt(settings[0]), Integer.parseInt(settings[3]), Integer.parseInt(settings[4]), Integer.parseInt(settings[2]));
                     analyzerMap.put(numberSetting.getId(), numberSetting);
                     break;
                 case 2: //Booleans
-                    AnalyzerSettingBoolean booleanSetting = new AnalyzerSettingBoolean(Integer.parseInt(settings[0]), Boolean.parseBoolean(settings[1]), Integer.parseInt(settings[2]));
+                    AnalyzerSettingBoolean booleanSetting = new AnalyzerSettingBoolean(Integer.parseInt(settings[0]), Boolean.parseBoolean(settings[3]), Integer.parseInt(settings[2]));
                     analyzerMap.put(booleanSetting.getId(), booleanSetting);
                     break;
             }

@@ -17,6 +17,8 @@ import android.widget.Switch;
 import com.example.agileproject.Model.AnalyzerSettable;
 import com.example.agileproject.Model.AnalyzerSettingNumber;
 import com.example.agileproject.R;
+import com.example.agileproject.Utils.AnalyzerConverter;
+import com.example.agileproject.Utils.AnswerConverter;
 import com.example.agileproject.Utils.FileFormatter;
 import com.example.agileproject.Utils.FileHandler;
 
@@ -35,26 +37,31 @@ public class SettingsPage extends Fragment implements View.OnClickListener {
     NavController navController;
     //Hallucination
     Boolean hBool = false;
+    Switch hSwitch;
     EditText hUpper;
     EditText hLower;
     EditText hTime;
     //Delusion
     Boolean dBool = false;
+    Switch dSwitch;
     EditText dUpper;
     EditText dLower;
     EditText dTime;
     //Anxiety
     Boolean aBool = false;
+    Switch aSwitch;
     EditText aUpper;
     EditText aLower;
     EditText aTime;
     //Irritation
     Boolean iBool = false;
+    Switch iSwitch;
     EditText iUpper;
     EditText iLower;
     EditText iTime;
     //Energy
     Boolean eBool = false;
+    Switch eSwitch;
     EditText eUpper;
     EditText eLower;
     EditText eTime;
@@ -81,7 +88,7 @@ public class SettingsPage extends Fragment implements View.OnClickListener {
         hLower = view.findViewById(R.id.hallucination_lower);
         hUpper = view.findViewById(R.id.hallucination_upper);
         hTime = view.findViewById(R.id.hallucination_time);
-        Switch hSwitch = view.findViewById(R.id.hallucinations_switch);
+        hSwitch = view.findViewById(R.id.hallucinations_switch);
         hSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -96,7 +103,7 @@ public class SettingsPage extends Fragment implements View.OnClickListener {
         dUpper = view.findViewById(R.id.delusions_upper);
         dLower = view.findViewById(R.id.delusions_lower);
         dTime = view.findViewById(R.id.delusions_time);
-        Switch dSwitch = view.findViewById(R.id.delusions_switch);
+        dSwitch = view.findViewById(R.id.delusions_switch);
         dSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -111,7 +118,7 @@ public class SettingsPage extends Fragment implements View.OnClickListener {
         aUpper = view.findViewById(R.id.anxiety_upper);
         aLower = view.findViewById(R.id.anxiety_lower);
         aTime = view.findViewById(R.id.anxiety_time);
-        Switch aSwitch = view.findViewById(R.id.anxiety_switch);
+        aSwitch = view.findViewById(R.id.anxiety_switch);
         aSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -126,7 +133,7 @@ public class SettingsPage extends Fragment implements View.OnClickListener {
         iUpper = view.findViewById(R.id.irritation_upper);
         iLower = view.findViewById(R.id.irritation_lower);
         iTime = view.findViewById(R.id.irritation_time);
-        Switch iSwitch = view.findViewById(R.id.irritation_switch);
+        iSwitch = view.findViewById(R.id.irritation_switch);
         iSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -141,7 +148,7 @@ public class SettingsPage extends Fragment implements View.OnClickListener {
         eUpper = view.findViewById(R.id.energy_upper);
         eLower = view.findViewById(R.id.energy_lower);
         eTime = view.findViewById(R.id.energy_time);
-        Switch eSwitch = view.findViewById(R.id.energy_switch);
+        eSwitch = view.findViewById(R.id.energy_switch);
         eSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -156,6 +163,8 @@ public class SettingsPage extends Fragment implements View.OnClickListener {
         Button saveSettings = view.findViewById(R.id.save_settings);
         saveSettings.setOnClickListener(this);
 
+        adjustToCorrectSettings();
+
         return view;
     }
 
@@ -164,38 +173,38 @@ public class SettingsPage extends Fragment implements View.OnClickListener {
         List<AnalyzerSettable> settings = new ArrayList<>();
 
         if(hBool) {
-            int id = 1, //TODO LÄGG TILL RÄTT ID!!!!!!!!!!!!!!!
+            int id = 2, //Hallucination
                     time = Integer.parseInt(hTime.getText().toString()),
                     lower = Integer.parseInt(hLower.getText().toString()),
                     upper = Integer.parseInt(hUpper.getText().toString());
             settings.add(new AnalyzerSettingNumber(id, upper, lower, time));
         }
         if(dBool) {
-            int id = 1, //TODO LÄGG TILL RÄTT ID!!!!!!!!!!!!!!!
-                    time = Integer.parseInt(hTime.getText().toString()),
-                    lower = Integer.parseInt(hLower.getText().toString()),
-                    upper = Integer.parseInt(hUpper.getText().toString());
+            int id = 3, //Delusions
+                    time = Integer.parseInt(dTime.getText().toString()),
+                    lower = Integer.parseInt(dLower.getText().toString()),
+                    upper = Integer.parseInt(dUpper.getText().toString());
             settings.add(new AnalyzerSettingNumber(id, upper, lower, time));
         }
         if(aBool) {
-            int id = 1, //TODO LÄGG TILL RÄTT ID!!!!!!!!!!!!!!!
-                    time = Integer.parseInt(hTime.getText().toString()),
-                    lower = Integer.parseInt(hLower.getText().toString()),
-                    upper = Integer.parseInt(hUpper.getText().toString());
+            int id = 4, //Anxiety
+                    time = Integer.parseInt(aTime.getText().toString()),
+                    lower = Integer.parseInt(aLower.getText().toString()),
+                    upper = Integer.parseInt(aUpper.getText().toString());
             settings.add(new AnalyzerSettingNumber(id, upper, lower, time));
         }
         if(iBool) {
-            int id = 1, //TODO LÄGG TILL RÄTT ID!!!!!!!!!!!!!!!
-                    time = Integer.parseInt(hTime.getText().toString()),
-                    lower = Integer.parseInt(hLower.getText().toString()),
-                    upper = Integer.parseInt(hUpper.getText().toString());
+            int id = 8, //Irritation
+                    time = Integer.parseInt(iTime.getText().toString()),
+                    lower = Integer.parseInt(iLower.getText().toString()),
+                    upper = Integer.parseInt(iUpper.getText().toString());
             settings.add(new AnalyzerSettingNumber(id, upper, lower, time));
         }
         if(eBool) {
-            int id = 1, //TODO LÄGG TILL RÄTT ID!!!!!!!!!!!!!!!
-                    time = Integer.parseInt(hTime.getText().toString()),
-                    lower = Integer.parseInt(hLower.getText().toString()),
-                    upper = Integer.parseInt(hUpper.getText().toString());
+            int id = 1, //Energy
+                    time = Integer.parseInt(eTime.getText().toString()),
+                    lower = Integer.parseInt(eLower.getText().toString()),
+                    upper = Integer.parseInt(eUpper.getText().toString());
             settings.add(new AnalyzerSettingNumber(id, upper, lower, time));
         }
 
@@ -206,5 +215,50 @@ public class SettingsPage extends Fragment implements View.OnClickListener {
         } else {
             fileHandler.empty(getContext(), "Settings.txt");
         }
+    }
+
+    private void adjustToCorrectSettings() {
+        String s = fileHandler.read(getContext(),"Settings.txt");
+        AnalyzerConverter.getInstance().convert(s);
+        AnalyzerSettingNumber hSettings = (AnalyzerSettingNumber) AnalyzerConverter.getInstance().getAnalyzerSettings(2);
+        if(hSettings != null) {
+            hSwitch.setChecked(true);
+            hTime.setText(String.valueOf(hSettings.getTimeFrame()));
+            hLower.setText(String.valueOf(hSettings.getLowerLimit()));
+            hUpper.setText(String.valueOf(hSettings.getUpperLimit()));
+        }
+
+        AnalyzerSettingNumber dSettings = (AnalyzerSettingNumber) AnalyzerConverter.getInstance().getAnalyzerSettings(3);
+        if(dSettings != null) {
+            dSwitch.setChecked(true);
+            dTime.setText(String.valueOf(dSettings.getTimeFrame()));
+            dLower.setText(String.valueOf(dSettings.getLowerLimit()));
+            dUpper.setText(String.valueOf(dSettings.getUpperLimit()));
+        }
+
+        AnalyzerSettingNumber aSettings = (AnalyzerSettingNumber) AnalyzerConverter.getInstance().getAnalyzerSettings(4);
+        if(aSettings != null) {
+            aSwitch.setChecked(true);
+            aTime.setText(String.valueOf(aSettings.getTimeFrame()));
+            aLower.setText(String.valueOf(aSettings.getLowerLimit()));
+            aUpper.setText(String.valueOf(aSettings.getUpperLimit()));
+        }
+
+        AnalyzerSettingNumber iSettings = (AnalyzerSettingNumber) AnalyzerConverter.getInstance().getAnalyzerSettings(8);
+        if(iSettings != null) {
+            iSwitch.setChecked(true);
+            iTime.setText(String.valueOf(iSettings.getTimeFrame()));
+            iLower.setText(String.valueOf(iSettings.getLowerLimit()));
+            iUpper.setText(String.valueOf(iSettings.getUpperLimit()));
+        }
+
+        AnalyzerSettingNumber eSettings = (AnalyzerSettingNumber) AnalyzerConverter.getInstance().getAnalyzerSettings(1);
+        if(eSettings != null) {
+            eSwitch.setChecked(true);
+            eTime.setText(String.valueOf(eSettings.getTimeFrame()));
+            eLower.setText(String.valueOf(eSettings.getLowerLimit()));
+            eUpper.setText(String.valueOf(eSettings.getUpperLimit()));
+        }
+
     }
 }
