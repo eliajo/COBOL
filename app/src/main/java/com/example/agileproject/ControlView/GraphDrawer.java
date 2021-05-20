@@ -194,8 +194,9 @@ public class GraphDrawer {
         chart.getXAxis().setTextColor(Color.parseColor("#4682b4"));
         chart.getXAxis().setTextSize(13f);
         chart.getAxisLeft().setDrawGridLines(false);
-
-
+        chart.getAxisLeft().setZeroLineColor(Color.parseColor("#4682b4"));
+        chart.getXAxis().setAxisLineColor(Color.parseColor("#4682b4"));
+        chart.getXAxis().setXOffset(10f);
         chart.getXAxis().setDrawGridLines(false);
         chart.setClickable(false);
         chart.setTouchEnabled(false);
@@ -392,10 +393,8 @@ public class GraphDrawer {
                 ) {
                     if(ae.getLabel().equals("Jag vaknade många gånger under natten")){
                         ae.setLabel("Jag vaknade under natten");
-
-
                     }
-                    if(ae.getLabel().equals("Jag vaknade tidigt och kunde inte somna")){
+                    if(ae.getLabel().equals("Jag vaknade tidigt och kunde inte somna om")){
                         ae.setLabel("Jag vaknade tidigt");
                     }
                 }
