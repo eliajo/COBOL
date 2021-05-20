@@ -27,4 +27,9 @@
         android:name="com.example.agileproject.ControlView.GraphPage"
         android:label="fragment_graph_page"
         tools:layout="@layout/fragment_graph_page" />
+    <fragment
+        android:id="@+id/homePage22"
+        android:name="com.example.agileproject.ControlView.HomePage2"
+        android:label="fragment_home_page2"
+        tools:layout="@layout/fragment_home_page2" />
 </navigation>

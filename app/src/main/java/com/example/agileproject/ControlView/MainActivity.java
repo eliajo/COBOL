@@ -14,31 +14,47 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.agileproject.Model.Answerable;
 import com.example.agileproject.R;
 import com.example.agileproject.Utils.AlarmHandler;
 import com.example.agileproject.Utils.AnswerConverter;
 import com.example.agileproject.Utils.FileHandler;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author William Hugo
  * @author Edenia Isaac
  */
 public class MainActivity extends AppCompatActivity {
+    NavController navController;
 
     private Button startQuiz;
-    @RequiresApi(api = Build.VERSION_CODES.M)
+
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        FileHandler fileHandler = new FileHandler();
+
+       String s =fileHandler.read(getApplicationContext(),"Answers.txt");
+       AnswerConverter.getInstance().convert(s);
+
+
+
+
 
         //This code connects the navigation bar to the fragment for our four main pages
         BottomNavigationView bottomNavigationView = findViewById(R.id.nav_bar);
         NavController navController = Navigation.findNavController(this, R.id.main_pages_fragment);
         NavigationUI.setupWithNavController(bottomNavigationView, navController);
 
-        FileHandler fileHandler = new FileHandler();
         String readAnswers = fileHandler.read(getApplicationContext(),"Answers.txt");
         AnswerConverter.getInstance().convert(readAnswers);
 
@@ -64,6 +80,8 @@ public class MainActivity extends AppCompatActivity {
             notificationManager.createNotificationChannel(channel);
         }
     }
+
+
 
 
 

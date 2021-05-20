@@ -233,11 +233,13 @@ View for Navigation Graph
         android:id="@+id/textView21"
         android:layout_width="0dp"
         android:layout_height="41dp"
+        android:layout_marginBottom="48dp"
         android:text="Svara gärna på alla frågor"
         android:textColor="#FF5722"
         android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@+id/saveButton"
         app:layout_constraintEnd_toEndOf="@+id/saveButton"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/saveButton" />
 
 

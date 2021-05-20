@@ -2,6 +2,7 @@ package com.example.agileproject.ControlView;
 
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Typeface;
 import android.os.Build;
 import android.view.View;
 
@@ -16,6 +17,7 @@ import com.example.agileproject.R;
 import com.example.agileproject.Utils.AnswerConverter;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.components.LegendEntry;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
@@ -31,6 +33,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
@@ -113,7 +116,8 @@ public class GraphDrawer {
             converterList = new ArrayList<>(entries.get(position));}
         }
         lineDataSet = new LineDataSet(converterList, "Dagar");
-
+        lineDataSet.setDrawFilled(true);
+        lineDataSet.setFillColor(Color.parseColor("#add8e6"));
         LineData lineData;
         if (id == 5) {
             int relatedPosition = 0;
@@ -139,11 +143,19 @@ public class GraphDrawer {
                  secondList= new ArrayList<>(entries.get(relatedPosition));
                  }
                 secondLineDataSet = new LineDataSet(secondList, "Dagar");
+                secondLineDataSet.setColor(Color.parseColor("#97e1d0"));
+                secondLineDataSet.setCircleColor(Color.parseColor("#30a68b"));
+                secondLineDataSet.setCircleRadius(6);
+                secondLineDataSet.setCircleHoleRadius(3);
+                secondLineDataSet.setLineWidth(2);
                 lineData = new LineData(lineDataSet, secondLineDataSet);
+                lineDataSet.setDrawFilled(false);
+
             } else {
                 lineData = new LineData(lineDataSet);
 
             }
+
         }
         //Temporary code to show graph
         else {
@@ -177,10 +189,14 @@ public class GraphDrawer {
         chart.getAxisLeft().setAxisMinimum(0);
         chart.getAxisLeft().setAxisMaximum(10);}
         chart.getAxisLeft().setGranularity(1f);
-
+        chart.getAxisLeft().setTextColor(Color.parseColor("#4682b4"));
+        chart.getAxisLeft().setTextSize(15f);
+        chart.getXAxis().setTextColor(Color.parseColor("#4682b4"));
+        chart.getXAxis().setTextSize(13f);
         chart.getAxisLeft().setDrawGridLines(false);
-
-
+        chart.getAxisLeft().setZeroLineColor(Color.parseColor("#4682b4"));
+        chart.getXAxis().setAxisLineColor(Color.parseColor("#4682b4"));
+        chart.getXAxis().setXOffset(10f);
         chart.getXAxis().setDrawGridLines(false);
         chart.setClickable(false);
         chart.setTouchEnabled(false);
@@ -202,10 +218,7 @@ public class GraphDrawer {
         lineDataSet.setHighLightColor(Color.RED);
         lineDataSet.setValueTextSize(12);
         lineDataSet.setValueTextColor(Color.DKGRAY);
-        lineDataSet.setDrawFilled(true);
-        lineDataSet.setFillColor(Color.parseColor("#add8e6"));
         lineDataSet.setGradientColor(Color.parseColor("#ffffff"), Color.parseColor("#add8e6"));
-
         holder.getMainLabel().setTextColor(Color.parseColor("#4682b4"));
         holder.getMainLabel().setTextSize(22f);
         chart.getDescription().setText("");
@@ -222,9 +235,10 @@ public class GraphDrawer {
             chart.getXAxis().setAxisMaximum(7);
             chart.getXAxis().setLabelCount(7,true);}
         else if (timePeriod== GraphHelper.TimePeriod.MONTH){
-            chart.getXAxis().setGranularity(10f);
+            chart.getXAxis().setGranularity(7f);
             chart.getXAxis().setAxisMaximum(30);
             chart.getXAxis().setLabelCount(4,true);
+
         }
         else if (timePeriod== GraphHelper.TimePeriod.YEAR){
             chart.getXAxis().setAxisMaximum(12);
@@ -236,7 +250,6 @@ public class GraphDrawer {
         chart.setData(lineData);
         chart.fitScreen();
         chart.invalidate();
-
 
     }
 
@@ -375,7 +388,15 @@ public class GraphDrawer {
                     } else {
                         no++;
                     }
-
+                }
+                for (PieEntry ae :pieEntryList
+                ) {
+                    if(ae.getLabel().equals("Jag vaknade många gånger under natten")){
+                        ae.setLabel("Jag vaknade under natten");
+                    }
+                    if(ae.getLabel().equals("Jag vaknade tidigt och kunde inte somna om")){
+                        ae.setLabel("Jag vaknade tidigt");
+                    }
                 }
                 if (yes > 0) {
                     pieEntryList.add(new AnswerEntry("Ja", yes, 71, ""));
@@ -410,7 +431,9 @@ public class GraphDrawer {
         PieDataSet pieDataSet = new PieDataSet(pieEntryList, "Procent");
         pieDataSet.setLabel("");
         pieDataSet.setColors(ColorTemplate.LIBERTY_COLORS);
+        //pieDataSet.setSelectionShift(10f);
         pieData = new PieData(pieDataSet);
+
         //pieData.setValueFormatter(new PercentFormatter());
         pieChart.setData(pieData);
         //pieChart.setUsePercentValues(true);
@@ -422,13 +445,27 @@ public class GraphDrawer {
 
         pieChart.setDrawEntryLabels(true);
         pieChart.setEntryLabelColor(Color.parseColor("#4682b4"));
-        pieChart.setEntryLabelTextSize(10f);
+        pieChart.setEntryLabelTextSize(25f);
         holder.getMainLabel().setTextColor(Color.parseColor("#4682b4"));
         holder.getMainLabel().setTextSize(22f);
         pieChart.getDescription().setText("");
         pieChart.getLegend().setTextSize(16f);
         pieChart.getLegend().setTextColor(Color.parseColor("#4682b4"));
+       // LegendEntry legendEntry = new LegendEntry();
+       // legendEntry.label = "Jag vaknade flera gånger under natten";
+       // pieChart.getLegend().setCustom(Arrays.asList(legendEntry));
 
+        if(id==7 || id==10) {
+            pieDataSet.setXValuePosition(PieDataSet.ValuePosition.OUTSIDE_SLICE); // labels outside of pie chart
+            pieDataSet.setValueLinePart1OffsetPercentage(90f);
+            pieDataSet.setValueLineColor(Color.parseColor("#4682b4"));
+            pieDataSet.setValueLinePart1Length(0.6f);
+            pieDataSet.setValueLinePart2Length(0.10f);
+            pieChart.setExtraOffsets(30.f, 5.f, 30.f, 5.f);
+            pieChart.getLegend().setTextSize(10f);
+            pieChart.setEntryLabelTextSize(10f);
+
+        }
 
     }
 

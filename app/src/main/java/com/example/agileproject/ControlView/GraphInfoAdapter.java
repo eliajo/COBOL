@@ -80,10 +80,12 @@ public class GraphInfoAdapter extends RecyclerView.Adapter<GraphInfoAdapter.Grap
     public int getItemCount() {
         if (questionId==101){
         return answerEntries.size();}
+
         //TODO add suport for other questions of type answerable
         if (questionId==131){
             return answerableList.size();
         }
+
          return 1;
     }
 

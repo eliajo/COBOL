@@ -2,6 +2,7 @@ package com.example.agileproject.ControlView;
 
 import android.content.Context;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 
@@ -82,9 +83,6 @@ public class Fragment4_in_QuizActivity extends Fragment {
     BooleanAnswer question13;
     TextAnswer question14;
 
-
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -107,9 +105,8 @@ public class Fragment4_in_QuizActivity extends Fragment {
         TextView error = (TextView) view.findViewById(R.id.textView21);
 
 
-                // Switching to fragment  doneQuestion
-
         view.findViewById(R.id.saveButton).setOnClickListener(new View.OnClickListener() {
+           
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {
@@ -119,7 +116,7 @@ public class Fragment4_in_QuizActivity extends Fragment {
                     question131 = new TextAnswer(ExerciseText,131,LocalDate.now().toString());
                    QuizActivity.AnswerHolder.AddingToList(question131);
                 }
-                String text =   Events.getText().toString();
+                String text = Events.getText().toString();
                 if(!text.equals("")){
                      question14 = new TextAnswer(text,14,LocalDate.now().toString());
                  QuizActivity.AnswerHolder.AddingToList(question14);
@@ -140,35 +137,11 @@ public class Fragment4_in_QuizActivity extends Fragment {
                 String readAnswers=fileHandler.read(getContext(),"Answer.txt");
                 AnswerConverter.getInstance().convert(readAnswers);
 
-
+                changeActivity();
             }
         });
 
-        /*view.findViewById(R.id.chipYesExercise).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                editText.setVisibility(View.VISIBLE);
-            }
-        }); */
-
-         // Don't know what is used for
-        Events.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-
-                if (!hasFocus) {
-                    InputMethodManager imm = (InputMethodManager) v.getContext().getSystemService(getContext().INPUT_METHOD_SERVICE);
-                    imm.hideSoftInputFromWindow(v.getWindowToken(),0);
-                }
-
-            }
-        });
-
-
-
-
-       chipGroupAlcohol.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
+        chipGroupAlcohol.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
            @RequiresApi(api = Build.VERSION_CODES.O)
            @Override
            public void onCheckedChanged(ChipGroup group, int checkedId) {
@@ -224,7 +197,6 @@ public class Fragment4_in_QuizActivity extends Fragment {
                }
            }
        });
-
     }
 
     private void RemoveComplementaryQuestion( Answerable question) {
@@ -233,7 +205,10 @@ public class Fragment4_in_QuizActivity extends Fragment {
         }
     }
 
-
+    private void changeActivity(){
+        Intent intent = new Intent(getActivity(), MainActivity.class);
+        startActivity(intent);
+    }
 }
 
 
