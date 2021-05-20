@@ -193,7 +193,6 @@ public class GraphDrawer {
         chart.getAxisLeft().setTextSize(15f);
         chart.getXAxis().setTextColor(Color.parseColor("#4682b4"));
         chart.getXAxis().setTextSize(13f);
-
         chart.getAxisLeft().setDrawGridLines(false);
 
 
