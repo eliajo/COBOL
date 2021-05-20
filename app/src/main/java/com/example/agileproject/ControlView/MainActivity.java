@@ -15,8 +15,10 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.agileproject.Model.Answerable;
+import com.example.agileproject.Model.SettingNotificationReminder;
 import com.example.agileproject.R;
 import com.example.agileproject.Utils.AlarmHandler;
+import com.example.agileproject.Utils.AnalyzerConverter;
 import com.example.agileproject.Utils.AnswerConverter;
 import com.example.agileproject.Utils.FileHandler;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -58,10 +60,20 @@ public class MainActivity extends AppCompatActivity {
         String readAnswers = fileHandler.read(getApplicationContext(),"Answers.txt");
         AnswerConverter.getInstance().convert(readAnswers);
 
-        AlarmHandler alarmHandler = new AlarmHandler();
 
-        alarmHandler.setAlarm(getApplicationContext(),22,AlarmHandler.REMINDER_TYPE);
-        alarmHandler.setAlarm(getApplicationContext(),22,AlarmHandler.MEDICINE_TYPE);
+
+        String readData = fileHandler.read(getApplicationContext(),"Settings.txt");
+        AnalyzerConverter.getInstance().convert(readData);
+
+        SettingNotificationReminder medicineSettings= (SettingNotificationReminder) AnalyzerConverter.getInstance().getAnalyzerSettings(101);
+        SettingNotificationReminder quizReminderSettings= (SettingNotificationReminder) AnalyzerConverter.getInstance().getAnalyzerSettings(102);
+
+        AlarmHandler alarmHandler = new AlarmHandler();
+        if (medicineSettings !=null){
+        alarmHandler.setAlarm(getApplicationContext(),medicineSettings.getHour(),medicineSettings.getMinute(),AlarmHandler.MEDICINE_TYPE,false);}
+        if (quizReminderSettings!=null) {
+            alarmHandler.setAlarm(getApplicationContext(), quizReminderSettings.getHour(), quizReminderSettings.getMinute(), AlarmHandler.REMINDER_TYPE,false);
+        }
         createNotificationChannel();
 
     }

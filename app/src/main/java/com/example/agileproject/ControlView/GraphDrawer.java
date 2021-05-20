@@ -299,7 +299,7 @@ public class GraphDrawer {
                 holder.getMainLabel().setText("Har du tagit din medicin idag?");
                 break;
             case 10:
-                holder.getMainLabel().setText("Hur du haft några biverkningar idag?");
+                holder.getMainLabel().setText("Hur du haft några biverkningar idag? (Tryck för mer info)");
                 pieChart.setClickable(true);
                 pieChart.setTouchEnabled(true);
                 pieChart.setRotationEnabled(false);
@@ -311,7 +311,7 @@ public class GraphDrawer {
                 holder.getMainLabel().setText("Har du haft tvångstankar?");
                 break;
             case 13:
-                holder.getMainLabel().setText("Har du gjort någon fysisk aktivitet?");
+                holder.getMainLabel().setText("Har du gjort någon fysisk aktivitet? (Tryck för mer info)");
                 pieChart.setClickable(true);
                 pieChart.setTouchEnabled(true);
                 pieChart.setRotationEnabled(false);

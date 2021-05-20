@@ -21,6 +21,7 @@ import com.example.agileproject.Model.AnalyzerSettable;
 import com.example.agileproject.Model.AnalyzerSettingNumber;
 import com.example.agileproject.Model.SettingNotificationReminder;
 import com.example.agileproject.R;
+import com.example.agileproject.Utils.AlarmHandler;
 import com.example.agileproject.Utils.AnalyzerConverter;
 import com.example.agileproject.Utils.FileFormatter;
 import com.example.agileproject.Utils.FileHandler;
@@ -253,12 +254,18 @@ public class SettingsPage extends Fragment implements View.OnClickListener {
                     hour = medicineTime.getHour(),
                     minute = medicineTime.getMinute();
             settings.add(new SettingNotificationReminder(id, hour, minute));
-        }
+            AlarmHandler alarmHandler = new AlarmHandler();
+            alarmHandler.setAlarm(getContext(),hour,minute,AlarmHandler.MEDICINE_TYPE,false);}
+
+
         if(quizBool) {
             int id = 102,
                     hour = quizTime.getHour(),
                     minute = quizTime.getMinute();
             settings.add(new SettingNotificationReminder(id, hour, minute));
+            AlarmHandler alarmHandler = new AlarmHandler();
+            alarmHandler.setAlarm(getContext(),hour,minute,AlarmHandler.REMINDER_TYPE,false);
+
         }
 
         if(!settings.isEmpty()) {
