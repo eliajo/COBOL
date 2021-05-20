@@ -36,35 +36,35 @@ public class SettingsPage extends Fragment implements View.OnClickListener {
 
     NavController navController;
     //Hallucination
-    Boolean hBool = false;
-    Switch hSwitch;
-    EditText hUpper;
-    EditText hLower;
-    EditText hTime;
+    private Boolean hBool = false;
+    private Switch hSwitch;
+    private EditText hUpper;
+    private EditText hLower;
+    private EditText hTime;
     //Delusion
-    Boolean dBool = false;
-    Switch dSwitch;
-    EditText dUpper;
-    EditText dLower;
-    EditText dTime;
+    private Boolean dBool = false;
+    private Switch dSwitch;
+    private EditText dUpper;
+    private EditText dLower;
+    private EditText dTime;
     //Anxiety
     Boolean aBool = false;
-    Switch aSwitch;
-    EditText aUpper;
-    EditText aLower;
-    EditText aTime;
+    private Switch aSwitch;
+    private EditText aUpper;
+    private EditText aLower;
+    private EditText aTime;
     //Irritation
     Boolean iBool = false;
-    Switch iSwitch;
-    EditText iUpper;
-    EditText iLower;
-    EditText iTime;
+    private Switch iSwitch;
+    private EditText iUpper;
+    private EditText iLower;
+    private EditText iTime;
     //Energy
     Boolean eBool = false;
-    Switch eSwitch;
-    EditText eUpper;
-    EditText eLower;
-    EditText eTime;
+    private Switch eSwitch;
+    private EditText eUpper;
+    private EditText eLower;
+    private EditText eTime;
 
     public SettingsPage() {
         // Required empty public constructor
