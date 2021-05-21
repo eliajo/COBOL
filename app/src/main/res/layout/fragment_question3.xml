@@ -123,7 +123,7 @@ View for Navigation Graph
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="8.Uppskata din irritation/ilska *"
+        android:text="8.Uppskatta din irritation/ilska *"
         android:textColor="#176693"
         android:textSize="18sp"
         android:layout_marginTop="20dp"
