@@ -461,7 +461,7 @@ public class GraphDrawer {
             pieDataSet.setValueLineColor(Color.parseColor("#4682b4"));
             pieDataSet.setValueLinePart1Length(0.6f);
             pieDataSet.setValueLinePart2Length(0.10f);
-            pieChart.setExtraOffsets(30.f, 5.f, 30.f, 5.f);
+            pieChart.setExtraOffsets(60.f, 5.f, 60.f, 5.f);
             pieChart.getLegend().setTextSize(10f);
             pieChart.setEntryLabelTextSize(10f);
 
