@@ -1,0 +1,8 @@
+What do I want to learn or understand better? 
+Now when we are close to the end of this project, I want to focus on learning how to finish things up in the best way and give space for reflections about the whole project and what we have learnt from our way of using Scrum. I want to understand why things went as they went and what we could have done to prevent it from the start if we knew the things we know by now.
+How can I help someone else, or the entire team, to learn something new? 
+This week, I have encouraged learning by discussing with the group what we have done and how we would have done it different if we did something similar again. This reflection seems to be a good start for our final reflection and by bringing it up this week, it will be something that everyone can keep in mind for next week.
+What is my contribution towards the team’s use of Scrum? 
+I have attended all meetings this sprint and have done all my tasks. I brought up the idea of why effort estimation on individual tasks where a good idea since it would be difficult to estimate a whole user story otherwise. 
+What is my contribution towards the team’s deliveries? 
+This week, I have focused on working a lot with the team reflection since some of the group members have experienced that they spend a lot of time and energy on it while others do not contribute to it at all. I have also worked with showing the answers for the last question of the quiz in the calendar page and testing the app and checking for bugs.
