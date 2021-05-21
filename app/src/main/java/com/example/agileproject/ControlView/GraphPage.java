@@ -22,6 +22,7 @@ import com.example.agileproject.R;
 import com.example.agileproject.Utils.AnswerConverter;
 import com.example.agileproject.Utils.FileFormatter;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -57,12 +58,32 @@ public class GraphPage extends Fragment {
 
 
         List<Answerable> answerableList = new ArrayList<>();
+        List<List<AnswerEntry>> entries = new ArrayList<>();
 
 
+/*
+        NumberAnswer na1 = new NumberAnswer(1,1,"2021-05-20");
+        NumberAnswer na2 = new NumberAnswer(-3,1,"2021-05-14");
+        NumberAnswer na3 = new NumberAnswer(5,1,"2021-01-17");
 
+        answerableList.add(na1);
+        answerableList.add(na2);
+        answerableList.add(na3);
+
+        FileFormatter ff = new FileFormatter();
+        String save =ff.format(answerableList);
+
+        AnswerConverter fileConverter = AnswerConverter.getInstance();
+        fileConverter.convert(save);
+
+        GraphHelper g =new GraphHelper();
+        entries.add(g.getDataFromDateToDate("2021-05-14","2021-05-20",1));
+*/
+
+        //NumberAnswer na2 = new NumberAnswer(6,5,"2021-05-04");
 
         //All this is just demo functionality for now
-        NumberAnswer na1 = new NumberAnswer(5,5,"2021-05-03");
+      /*  NumberAnswer na1 = new NumberAnswer(5,5,"2021-05-03");
         NumberAnswer na2 = new NumberAnswer(6,5,"2021-05-04");
         NumberAnswer na3 = new NumberAnswer(7,5,"2021-05-05");
         NumberAnswer na4 = new NumberAnswer(5,5,"2021-05-06");
@@ -83,17 +104,17 @@ public class GraphPage extends Fragment {
         stringList.add("Test");
         stringList.add("Functionality");
         stringList.add("Functionality");
-        stringList.add("Functionality");
-        stringList.add("Functionality");
+        stringList.add("Test1");
+        stringList.add("Test2");
         stringList.add("Functionality");
         stringList.add("Functionality");
         stringList.add("Functionality");
         stringList.add("Functionality");
         stringList.add("Functionality");
 
-        MultipleTextAnswer m1 = new MultipleTextAnswer(stringList,101,"2021-01-01");
-        MultipleTextAnswer m2 = new MultipleTextAnswer(stringList,101,"2021-01-02");
-        MultipleTextAnswer m3 = new MultipleTextAnswer(stringList,101,"2021-01-03");
+        MultipleTextAnswer m1 = new MultipleTextAnswer(stringList,101,"2021-01-01",true);
+        MultipleTextAnswer m2 = new MultipleTextAnswer(stringList,101,"2021-01-02",false);
+        MultipleTextAnswer m3 = new MultipleTextAnswer(stringList,101,"2021-01-03",false);
 
 
 
@@ -130,14 +151,38 @@ public class GraphPage extends Fragment {
         sleepList = graphHelper.getDataFromDateToDate("2021-01-01","2021-01-03",10);
         secondSleepList= graphHelper.getDataFromDateToDate("2021-05-03","2021-05-09",6);
 
-        List<List<AnswerEntry>> entries = new ArrayList<>();
 
         //Order is very important here...
         entries.add(wellBeingList);
         entries.add(sleepList);
         entries.add(secondSleepList);
+*/
 
 
+        GraphHelper graphHelper = new GraphHelper();
+
+        String startDate = LocalDate.now().minusDays(7).toString();
+        String endDate = LocalDate.now().toString();
+
+        entries.add(graphHelper.getDataFromDateToDate(startDate, endDate, 1));
+        entries.add(graphHelper.getDataFromDateToDate(startDate, endDate, 2));
+        entries.add(graphHelper.getDataFromDateToDate(startDate, endDate, 3));
+        entries.add(graphHelper.getDataFromDateToDate(startDate, endDate, 4));
+        entries.add(graphHelper.getDataFromDateToDate(startDate, endDate, 5));
+        entries.add(graphHelper.getDataFromDateToDate(startDate, endDate, 6));
+        entries.add(graphHelper.getDataFromDateToDate(startDate, endDate, 7));
+        entries.add(graphHelper.getDataFromDateToDate(startDate, endDate, 8));
+        entries.add(graphHelper.getDataFromDateToDate(startDate, endDate, 9));
+        entries.add(graphHelper.getDataFromDateToDate(startDate, endDate, 10));
+        entries.add(graphHelper.getDataFromDateToDate(startDate, endDate, 11));
+        entries.add(graphHelper.getDataFromDateToDate(startDate, endDate, 12));
+        entries.add(graphHelper.getDataFromDateToDate(startDate, endDate, 13));
+
+        for (int i = 0; i < entries.size(); i++) {
+            if (entries.get(i).isEmpty()) {
+                entries.get(i).add(new AnswerEntry(0, 0, 1000, ""));
+            }
+        }
 
 
         RecyclerView recyclerView = v.findViewById(R.id.graph_recycler);
@@ -145,7 +190,7 @@ public class GraphPage extends Fragment {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this.getContext());
         recyclerView.setLayoutManager(layoutManager);
 
-        GraphAdapter graphAdapter = new GraphAdapter(getContext(),entries);
+        GraphAdapter graphAdapter = new GraphAdapter(getContext(), entries);
 
         recyclerView.setAdapter(graphAdapter);
 

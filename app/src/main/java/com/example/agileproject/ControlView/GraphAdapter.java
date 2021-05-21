@@ -88,7 +88,7 @@ public class GraphAdapter extends RecyclerView.Adapter<GraphAdapter.GraphHolder>
             holder.setPosition(position);
         } else {
             graphDrawer.drawPieChart(entries, holder, position);
-            if (holder.getQuestionId()==10){
+            if (holder.getQuestionId()==10||holder.getQuestionId()==13){
                 PieChart chart = (PieChart) holder.getGraph();
                 chart.setOnChartValueSelectedListener(this);
             }
@@ -137,11 +137,14 @@ public class GraphAdapter extends RecyclerView.Adapter<GraphAdapter.GraphHolder>
         Intent intent = new Intent(context,GraphInfoPage.class);
         AnswerEntry answerEntry = (AnswerEntry) e;
        int id= answerEntry.getQuestionId();
-       int newId=0;
+
        if (id==10){
-           newId=101;
+           id=101;
        }
-       intent.putExtra("Id",newId);
+       if (id==13){
+           id=131;
+       }
+       intent.putExtra("Id",id);
         context.startActivity(intent);
 
     }

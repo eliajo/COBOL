@@ -51,6 +51,13 @@ public class ContactPage extends Fragment {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this.getContext());
         contactRecycleView.setLayoutManager(layoutManager);
 
+        FileHandler fileHandler = new FileHandler();
+
+        String readContact = fileHandler.read(getContext(),"Contacts.txt");
+
+        //Converts all contacts again, maybe more obtimized to add a separate method for this
+        ContactConverter.getInstance().convert(readContact);
+
         //Gets the contacts that are already loaded in (either at startup or after contact addition)
         List<Contact> contactList = ContactConverter.getInstance().getContactList();
 

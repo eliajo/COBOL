@@ -48,9 +48,11 @@ public class Questions3 extends Fragment {
     ChipGroup SideEffectsYesOrNo;
     ChipGroup SideEffects;
     EditText OtherSideEffects;
-   MultipleTextAnswer question101;
-   Chip other;
-   Chip selectedChip;
+
+    MultipleTextAnswer question101;
+    Chip other;
+    Chip selectedChip;
+
 
     NumberAnswer question8;
     BooleanAnswer question9;
@@ -96,21 +98,25 @@ public class Questions3 extends Fragment {
 
                     List<Integer> ids = SideEffects.getCheckedChipIds();
                     List<String> answers = new ArrayList<>();
+                    boolean otherAnswer = false;
                     for (Integer id : ids) {
                         Chip chip = view.findViewById(id);
                         String text = chip.getText().toString();
                         if (text.equals("Andra")) {
                             text = OtherSideEffects.getText().toString();
+                            otherAnswer=true;
                         }
                         answers.add(text);
                     }
 
                     if(!answers.isEmpty()){
-                        question101 = new MultipleTextAnswer(answers, 101, LocalDate.now().toString());
+
+                        question101 = new MultipleTextAnswer(answers, 101, LocalDate.now().toString(),otherAnswer);
                         QuizActivity.AnswerHolder.AddingToList(question101);
                     }
-                   else{
-                       question101 = null;
+                    else{
+                        question101 = null;
+
                     }
                 }
 
@@ -138,6 +144,7 @@ public class Questions3 extends Fragment {
             }
 
         });
+
 
        view.findViewById(R.id.chipYesSideEffects).setOnClickListener(new View.OnClickListener() {
            @Override
@@ -233,6 +240,7 @@ public class Questions3 extends Fragment {
                }
            }
        });
+
 
 
 

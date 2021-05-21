@@ -24,6 +24,8 @@ import java.util.List;
 public class CalendarAnswer extends Fragment {
 
     private String date;
+    private TextView text;
+    private static CalendarAnswer calendarAnswer;
 
     public CalendarAnswer() {
         // Required empty public constructor
@@ -44,6 +46,11 @@ public class CalendarAnswer extends Fragment {
         return fragment;
     }
 
+    public static CalendarAnswer getInstance() {
+
+            return calendarAnswer;
+    }
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -58,18 +65,29 @@ public class CalendarAnswer extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_calendar_answer, container, false);
+
+        View view = inflater.inflate(R.layout.fragment_calendar_answer, container, false);
+        text = view.findViewById(R.id.questionView);
+        calendarAnswer = this;
+        return view;
     }
 
     // run when clicking on a date, returns the answer from a specific date on question 14
-    public String fetchAnswers(String date){
+    public void fetchAnswers(String date){
         List<Answerable> answersDate = AnswerConverter.getInstance().getAnswersByDate(date);
+        if(answersDate.isEmpty()) {
+            text.setText("Inga svar finns denna dag" + " " + date);
+            return;
+        }
         for (Answerable a : answersDate){
             if (a.getQuestionId() == 14){
-                //answerView.setText(a.getInfoToWrite());
-                return a.getInfoToWrite();
+                text.setText( (String) a.getData() + " " + date);
+                // return (String) a.getData();
+            }
+            else {
+                text.setText("Svar på fråga 14 saknas för" + " " + date);
             }
         }
-        return "Inget svar att visa för denna dag.";
+
     }
 }

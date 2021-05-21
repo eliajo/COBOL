@@ -34,9 +34,9 @@
         tools:layout="@layout/fragment_contact_page" />
     <fragment
         android:id="@+id/medication_page"
-        android:name="com.example.agileproject.ControlView.MedicationPage"
+        android:name="com.example.agileproject.ControlView.SettingsPage"
         android:label="fragment_medication_page"
-        tools:layout="@layout/fragment_medication_page" />
+        tools:layout="@layout/fragment_settings_page" />
     <fragment
         android:id="@+id/addContactPage2"
         android:name="com.example.agileproject.ControlView.AddContactPage"

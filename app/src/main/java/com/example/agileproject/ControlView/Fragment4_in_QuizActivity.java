@@ -31,6 +31,7 @@ import com.example.agileproject.Model.Answerable;
 import com.example.agileproject.Model.BooleanAnswer;
 import com.example.agileproject.Model.TextAnswer;
 import com.example.agileproject.R;
+import com.example.agileproject.Utils.AnswerConverter;
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
 import com.google.android.material.internal.ThemeEnforcement;
@@ -133,6 +134,8 @@ public class Fragment4_in_QuizActivity extends Fragment {
                  }
                 String allQuizAnswers = fileFormatter.format(QuizActivity.AnswerHolder.QuizAnswers);
                 fileHandler.write(allQuizAnswers,getContext(),"Answers.txt");
+                String readAnswers=fileHandler.read(getContext(),"Answer.txt");
+                AnswerConverter.getInstance().convert(readAnswers);
 
                 changeActivity();
             }
