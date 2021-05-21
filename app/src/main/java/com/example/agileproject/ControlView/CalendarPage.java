@@ -58,12 +58,14 @@ public class CalendarPage extends Fragment {
         args.putInt(CaldroidFragment.START_DAY_OF_WEEK, CaldroidFragment.MONDAY);
         caldroid.setArguments(args);
         // Kod för att testa så att det fungerar i kalendern.
-        TextAnswer test = new TextAnswer("Test", 14, "2021-05-16");
+        /* TextAnswer test = new TextAnswer("Test", 14, "2021-05-16");
         List <Answerable> list = new ArrayList<>();
         list.add(test);
         FileFormatter file = new FileFormatter();
         String s = file.format(list);
         AnswerConverter.getInstance().convert(s);
+
+         */
 
 
 
