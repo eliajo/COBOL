@@ -3,6 +3,7 @@ package com.example.agileproject.Utils;
 import com.example.agileproject.Model.AnalyzerSettable;
 import com.example.agileproject.Model.AnalyzerSettingBoolean;
 import com.example.agileproject.Model.AnalyzerSettingNumber;
+import com.example.agileproject.Model.SettingNotificationReminder;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -41,13 +42,16 @@ public class AnalyzerConverter {
             String[] settings = s.split("###---###---###"); //Splitting up the different settings of one analyzer
             switch (Integer.parseInt(settings[1])) { //This finds the type
                 case 1: //Numbers
-                    AnalyzerSettingNumber numberSetting = new AnalyzerSettingNumber(Integer.parseInt(settings[0]), Integer.parseInt(settings[1]), Integer.parseInt(settings[2]), Integer.parseInt(settings[3]));
+                    AnalyzerSettingNumber numberSetting = new AnalyzerSettingNumber(Integer.parseInt(settings[0]), Integer.parseInt(settings[3]), Integer.parseInt(settings[4]), Integer.parseInt(settings[2]));
                     analyzerMap.put(numberSetting.getId(), numberSetting);
                     break;
                 case 2: //Booleans
-                    AnalyzerSettingBoolean booleanSetting = new AnalyzerSettingBoolean(Integer.parseInt(settings[0]), Boolean.parseBoolean(settings[1]), Integer.parseInt(settings[2]));
+                    AnalyzerSettingBoolean booleanSetting = new AnalyzerSettingBoolean(Integer.parseInt(settings[0]), Boolean.parseBoolean(settings[3]), Integer.parseInt(settings[2]));
                     analyzerMap.put(booleanSetting.getId(), booleanSetting);
                     break;
+                case 3: //Settings for reminders
+                    SettingNotificationReminder reminderSetting = new SettingNotificationReminder(Integer.parseInt(settings[0]), Integer.parseInt(settings[2]), Integer.parseInt(settings[3]));
+                    analyzerMap.put(reminderSetting.getId(), reminderSetting);
             }
         }
     }

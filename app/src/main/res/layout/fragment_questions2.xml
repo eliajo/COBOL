@@ -424,7 +424,7 @@ View for Navigation Graph
             android:id="@+id/radioButton1"
             android:layout_width="match_parent"
             android:layout_height="62dp"
-            android:text="Jag vaknade tidigt och kunde int somna om"
+            android:text="Jag vaknade tidigt och kunde inte somna om"
             android:textColor="@color/LightBlue" />
 
     </RadioGroup>

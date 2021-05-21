@@ -52,4 +52,10 @@ public class AnswerEntry extends PieEntry {
     public float getY() {
         return y;
     }
+
+    @Override
+    public void setLabel(String s){
+        this.label=s;
+        super.setLabel(label);
+    }
 }

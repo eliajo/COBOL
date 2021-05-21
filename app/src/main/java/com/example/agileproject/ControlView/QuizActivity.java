@@ -49,20 +49,12 @@ public class QuizActivity extends AppCompatActivity {
 
         //findViewById(R.id.chipNo).isSelected(
        // findViewById(R.id.chipYesSideEffects).isSelected()
-
-
     }
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
-
     }
-
-
 
     public static class AnswerHolder{
 
@@ -99,11 +91,9 @@ public class QuizActivity extends AppCompatActivity {
                 return QuizAnswers.stream().anyMatch(o -> o.getQuestionId()==10);
             }
             return false;
+        }
     }
 
-
-
-    }
 
 
 }
