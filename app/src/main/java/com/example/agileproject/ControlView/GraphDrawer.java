@@ -68,7 +68,7 @@ public class GraphDrawer {
                 holder.getMainLabel().setText("Hur din energinivå har varit");
                 break;
             case 2:
-                holder.getMainLabel().setText("Hur mycket hallucinationer du haft");
+                holder.getMainLabel().setText("Hur mycket Hallucinationer du haft");
                 break;
             case 3:
                 holder.getMainLabel().setText("Hur mycket vanföreställningar du haft");
