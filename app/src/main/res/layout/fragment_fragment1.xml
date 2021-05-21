@@ -99,7 +99,7 @@ View for Navigation Graph
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="20dp"
-        android:text="2.Har du haft Hallucinationer idag? *"
+        android:text="2.Har du haft hallucinationer idag? *"
         android:textColor="#176693"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"

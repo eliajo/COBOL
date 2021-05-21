@@ -193,7 +193,7 @@ View for Navigation Graph
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="20dp"
-        android:text="14. Har det hänt något allvarig? beskriv"
+        android:text="14. Har det hänt något allvarlig? beskriv"
         android:textColor="#176693"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
