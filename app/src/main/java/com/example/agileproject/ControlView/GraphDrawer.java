@@ -68,7 +68,7 @@ public class GraphDrawer {
                 holder.getMainLabel().setText("Hur din energinivå har varit");
                 break;
             case 2:
-                holder.getMainLabel().setText("Hur mycket hallucinationer du haft");
+                holder.getMainLabel().setText("Hur mycket Hallucinationer du haft");
                 break;
             case 3:
                 holder.getMainLabel().setText("Hur mycket vanföreställningar du haft");
@@ -461,7 +461,7 @@ public class GraphDrawer {
             pieDataSet.setValueLineColor(Color.parseColor("#4682b4"));
             pieDataSet.setValueLinePart1Length(0.6f);
             pieDataSet.setValueLinePart2Length(0.10f);
-            pieChart.setExtraOffsets(30.f, 5.f, 30.f, 5.f);
+            pieChart.setExtraOffsets(60.f, 5.f, 60.f, 5.f);
             pieChart.getLegend().setTextSize(10f);
             pieChart.setEntryLabelTextSize(10f);
 
