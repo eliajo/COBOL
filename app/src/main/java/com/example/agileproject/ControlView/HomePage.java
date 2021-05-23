@@ -100,10 +100,11 @@ public class HomePage extends Fragment {
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void setWarningText() {
+        AnswerDataAnalyzer ada = new AnswerDataAnalyzer();
         StringBuilder sb = new StringBuilder();
         sb.append("Varning: ");
 
-        boolean[] hallucinationWarning = new AnswerDataAnalyzer().analyzeBalance(2);
+        boolean[] hallucinationWarning = ada.analyzeBalance(2);
         if(hallucinationWarning[0]) {
             sb.append("låga hallucinationsvärden");
         } else if(hallucinationWarning[1]) {
@@ -114,7 +115,7 @@ public class HomePage extends Fragment {
             sb.append(", ");
         }
 
-        boolean[] delusionWarning = new AnswerDataAnalyzer().analyzeBalance(3);
+        boolean[] delusionWarning = ada.analyzeBalance(3);
         if(delusionWarning[0]) {
             sb.append("låga vanföreställningsvärden");
         } else if(delusionWarning[1]) {
@@ -125,7 +126,7 @@ public class HomePage extends Fragment {
             sb.append(", ");
         }
 
-        boolean[] anxietyWarning = new AnswerDataAnalyzer().analyzeBalance(4);
+        boolean[] anxietyWarning = ada.analyzeBalance(4);
         if(anxietyWarning[0]) {
             sb.append("låga ångestvärden");
         } else if(anxietyWarning[1]) {
@@ -136,7 +137,7 @@ public class HomePage extends Fragment {
             sb.append(", ");
         }
 
-        boolean[] irritationWarning = new AnswerDataAnalyzer().analyzeBalance(8);
+        boolean[] irritationWarning = ada.analyzeBalance(8);
         if(irritationWarning[0]) {
             sb.append("låga irritationsvärden");
         } else if(irritationWarning[1]) {
@@ -147,11 +148,15 @@ public class HomePage extends Fragment {
             sb.append(", ");
         }
 
-        boolean[] energyWarning = new AnswerDataAnalyzer().analyzeBalance(1);
+        boolean[] energyWarning = ada.analyzeBalance(1);
         if(energyWarning[0]) {
             sb.append("låga energivärden");
         } else if(energyWarning[1]) {
             sb.append("höga energivärden");
+        }
+
+        if(sb.toString().endsWith("n")) {
+            sb.append(", ");
         }
 
         if(!sb.toString().contentEquals("Varning: ")) {

@@ -18,12 +18,14 @@ import java.util.List;
  */
 public class AnswerDataAnalyzer {
 
-    boolean[] warning = {false, false};
+    private boolean[] warning = new boolean[2];
 
     public AnswerDataAnalyzer() {}
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public boolean[] analyzeBalance(int id) {
+        warning[0] = false;
+        warning[1] = false;
         if(AnalyzerConverter.getInstance().getAnalyzerSettings(id) != null) {
             List<Answerable> toAnalyze = timeFrameAdjust(id);
             AnalyzerSettable settings = AnalyzerConverter.getInstance().getAnalyzerSettings(id);
@@ -114,9 +116,9 @@ public class AnswerDataAnalyzer {
         AnalyzerSettable settings = AnalyzerConverter.getInstance().getAnalyzerSettings(id);
         int time = settings.getTimeFrame();
 
-        for(int i = 0; i > time; i++) {
+        for(int i = 0; i < time; i++) {
             for (Answerable a : allOfId) {
-                if(a.getDate().equals(LocalDate.now().minusDays(time).toString())) {
+                if(a.getDate().equals(LocalDate.now().minusDays(i).toString())) {
                     adjusted.add(a);
                 }
             }
