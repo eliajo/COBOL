@@ -90,7 +90,7 @@
             android:layout_height="231dp"
             android:layout_marginBottom="30dp"
             android:src="@drawable/image_9"
-            android:visibility="visible"
+            android:visibility="gone"
             app:layout_constraintBottom_toTopOf="@+id/stat_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/imageView4" />
