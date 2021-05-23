@@ -271,6 +271,10 @@ public class SettingsPage extends Fragment implements View.OnClickListener {
                 alarmHandler.setAlarm(getContext(), hour,minute, AlarmHandler.MEDICINE_TYPE, false);
             }
            }
+        if (!medBool){
+            AlarmHandler alarmHandler = new AlarmHandler();
+            alarmHandler.clearAlarm(getContext(),AlarmHandler.MEDICINE_TYPE);
+        }
 
 
         if(quizBool) {
@@ -291,6 +295,10 @@ public class SettingsPage extends Fragment implements View.OnClickListener {
             else {
                 alarmHandler.setAlarm(getContext(), hour,minute, AlarmHandler.REMINDER_TYPE, false);
             }
+        }
+        if (!quizBool){
+            AlarmHandler alarmHandler = new AlarmHandler();
+            alarmHandler.clearAlarm(getContext(),AlarmHandler.REMINDER_TYPE);
         }
 
         

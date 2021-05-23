@@ -43,4 +43,19 @@ public class AlarmHandler {
         long time = calendar.getTimeInMillis();
         alarmManager.setAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
     }
+    public void clearAlarm(Context context, int type){
+        Intent intent;
+        if (type == REMINDER_TYPE) {
+            intent = new Intent(context, QuizReminderReceiver.class);
+        }
+        else {
+            intent = new Intent(context,MedicineReminderReceiver.class);
+        }
+        //Might need to double check flags for different types of notifications. Right now only one Pending indent be created for one intend...
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, type, intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_ONE_SHOT);
+
+        AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+        alarmManager.cancel(pendingIntent);
+
+    }
 }
