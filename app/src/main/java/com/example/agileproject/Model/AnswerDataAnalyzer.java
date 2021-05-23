@@ -24,25 +24,27 @@ public class AnswerDataAnalyzer {
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public boolean[] analyzeBalance(int id) {
-        List<Answerable> toAnalyze = timeFrameAdjust(id);
-        AnalyzerSettable settings = AnalyzerConverter.getInstance().getAnalyzerSettings(id);
+        if(AnalyzerConverter.getInstance().getAnalyzerSettings(id) != null) {
+            List<Answerable> toAnalyze = timeFrameAdjust(id);
+            AnalyzerSettable settings = AnalyzerConverter.getInstance().getAnalyzerSettings(id);
 
-        if(settings != null) {
-            switch (settings.getType()) {
-                case 0: //The answer type is text
-                    System.out.println("Can't analyze text");
-                    break;
-                case 1: //The answer type is int
-                    AnalyzerSettingNumber numberSettings = (AnalyzerSettingNumber) AnalyzerConverter.getInstance().getAnalyzerSettings(id);
-                    numberAnalyze(toAnalyze, numberSettings);
-                    break;
-                case 2: //The answer type is boolean
-                    AnalyzerSettingBoolean booleanSettings = (AnalyzerSettingBoolean) AnalyzerConverter.getInstance().getAnalyzerSettings(id);
-                    booleanAnalyze(toAnalyze, booleanSettings);
-                    break;
-                default:
-                    System.out.println("No type represented by this id");
-                    break;
+            if (settings != null) {
+                switch (settings.getType()) {
+                    case 0: //The answer type is text
+                        System.out.println("Can't analyze text");
+                        break;
+                    case 1: //The answer type is int
+                        AnalyzerSettingNumber numberSettings = (AnalyzerSettingNumber) AnalyzerConverter.getInstance().getAnalyzerSettings(id);
+                        numberAnalyze(toAnalyze, numberSettings);
+                        break;
+                    case 2: //The answer type is boolean
+                        AnalyzerSettingBoolean booleanSettings = (AnalyzerSettingBoolean) AnalyzerConverter.getInstance().getAnalyzerSettings(id);
+                        booleanAnalyze(toAnalyze, booleanSettings);
+                        break;
+                    default:
+                        System.out.println("No type represented by this id");
+                        break;
+                }
             }
         }
         return warning;

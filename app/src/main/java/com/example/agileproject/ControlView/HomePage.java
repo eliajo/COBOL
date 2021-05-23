@@ -110,7 +110,7 @@ public class HomePage extends Fragment {
             sb.append("höga hallucinationsvärden");
         }
 
-        if(!sb.toString().contentEquals("Varning: ")) {
+        if(sb.toString().endsWith("n")) {
             sb.append(", ");
         }
 
@@ -121,7 +121,7 @@ public class HomePage extends Fragment {
             sb.append("höga vanföreställningsvärden");
         }
 
-        if(!sb.toString().contentEquals("Varning: ")) {
+        if(sb.toString().endsWith("n")) {
             sb.append(", ");
         }
 
@@ -132,7 +132,7 @@ public class HomePage extends Fragment {
             sb.append("höga ångestvärden");
         }
 
-        if(!sb.toString().contentEquals("Varning: ")) {
+        if(sb.toString().endsWith("n")) {
             sb.append(", ");
         }
 
@@ -143,7 +143,7 @@ public class HomePage extends Fragment {
             sb.append("höga irritationsvärden");
         }
 
-        if(!sb.toString().contentEquals("Varning: ")) {
+        if(sb.toString().endsWith("n")) {
             sb.append(", ");
         }
 
