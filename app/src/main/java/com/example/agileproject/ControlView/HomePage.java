@@ -155,7 +155,7 @@ public class HomePage extends Fragment {
         }
 
         if(!sb.toString().contentEquals("Varning: ")) {
-            sb.append(", kontakta läkare eller kontaktperson");
+            sb.append("kontakta läkare eller kontaktperson");
             warningText.setText(sb.toString());
         } else {
             warningText.setText("");
