@@ -18,31 +18,38 @@ import java.util.List;
  */
 public class AnswerDataAnalyzer {
 
+    private boolean[] warning = new boolean[2];
+
     public AnswerDataAnalyzer() {}
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public void analyzeBalance(int id) {
-        List<Answerable> toAnalyze = timeFrameAdjust(id);
-        AnalyzerSettable settings = AnalyzerConverter.getInstance().getAnalyzerSettings(id);
+    public boolean[] analyzeBalance(int id) {
+        warning[0] = false;
+        warning[1] = false;
+        if(AnalyzerConverter.getInstance().getAnalyzerSettings(id) != null) {
+            List<Answerable> toAnalyze = timeFrameAdjust(id);
+            AnalyzerSettable settings = AnalyzerConverter.getInstance().getAnalyzerSettings(id);
 
-        if(settings != null) {
-            switch (settings.getType()) {
-                case 0: //The answer type is text
-                    System.out.println("Can't analyze text");
-                    break;
-                case 1: //The answer type is int
-                    AnalyzerSettingNumber numberSettings = (AnalyzerSettingNumber) AnalyzerConverter.getInstance().getAnalyzerSettings(id);
-                    numberAnalyze(toAnalyze, numberSettings);
-                    break;
-                case 2: //The answer type is boolean
-                    AnalyzerSettingBoolean booleanSettings = (AnalyzerSettingBoolean) AnalyzerConverter.getInstance().getAnalyzerSettings(id);
-                    booleanAnalyze(toAnalyze, booleanSettings);
-                    break;
-                default:
-                    System.out.println("No type represented by this id");
-                    break;
+            if (settings != null) {
+                switch (settings.getType()) {
+                    case 0: //The answer type is text
+                        System.out.println("Can't analyze text");
+                        break;
+                    case 1: //The answer type is int
+                        AnalyzerSettingNumber numberSettings = (AnalyzerSettingNumber) AnalyzerConverter.getInstance().getAnalyzerSettings(id);
+                        numberAnalyze(toAnalyze, numberSettings);
+                        break;
+                    case 2: //The answer type is boolean
+                        AnalyzerSettingBoolean booleanSettings = (AnalyzerSettingBoolean) AnalyzerConverter.getInstance().getAnalyzerSettings(id);
+                        booleanAnalyze(toAnalyze, booleanSettings);
+                        break;
+                    default:
+                        System.out.println("No type represented by this id");
+                        break;
+                }
             }
         }
+        return warning;
     }
 
     private void booleanAnalyze(List<Answerable> toAnalyze, AnalyzerSettingBoolean settings) {
@@ -52,8 +59,8 @@ public class AnswerDataAnalyzer {
         }
 
         if(booleanWarning(booleanAnswers, settings)) {
-            //TODO send warning notification for boolean value
-            System.out.println("Warning");
+            warning[0] = true;
+            warning[1] = true;
         }
     }
 
@@ -74,11 +81,9 @@ public class AnswerDataAnalyzer {
         }
 
         if(aboveUpperLimit(numberAnswers, settings)) {
-            //TODO send warning notification for high value
-            System.out.println("Warning, value too high");//Test line, remove later
+            warning[1] = true;
         }else if(belowLowerLimit(numberAnswers, settings)) {
-            //TODO send warning notification for low value
-            System.out.println("Warning, value too low");//Test line, remove later
+            warning[0] = true;
         }
     }
 
@@ -111,9 +116,9 @@ public class AnswerDataAnalyzer {
         AnalyzerSettable settings = AnalyzerConverter.getInstance().getAnalyzerSettings(id);
         int time = settings.getTimeFrame();
 
-        for(int i = 0; i > time; i++) {
+        for(int i = 0; i < time; i++) {
             for (Answerable a : allOfId) {
-                if(a.getDate().equals(LocalDate.now().minusDays(time).toString())) {
+                if(a.getDate().equals(LocalDate.now().minusDays(i).toString())) {
                     adjusted.add(a);
                 }
             }
