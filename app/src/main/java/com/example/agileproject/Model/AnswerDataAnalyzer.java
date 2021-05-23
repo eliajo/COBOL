@@ -18,10 +18,12 @@ import java.util.List;
  */
 public class AnswerDataAnalyzer {
 
+    boolean[] warning = {false, false};
+
     public AnswerDataAnalyzer() {}
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public void analyzeBalance(int id) {
+    public boolean[] analyzeBalance(int id) {
         List<Answerable> toAnalyze = timeFrameAdjust(id);
         AnalyzerSettable settings = AnalyzerConverter.getInstance().getAnalyzerSettings(id);
 
@@ -43,6 +45,7 @@ public class AnswerDataAnalyzer {
                     break;
             }
         }
+        return warning;
     }
 
     private void booleanAnalyze(List<Answerable> toAnalyze, AnalyzerSettingBoolean settings) {
@@ -52,8 +55,8 @@ public class AnswerDataAnalyzer {
         }
 
         if(booleanWarning(booleanAnswers, settings)) {
-            //TODO send warning notification for boolean value
-            System.out.println("Warning");
+            warning[0] = true;
+            warning[1] = true;
         }
     }
 
@@ -74,11 +77,9 @@ public class AnswerDataAnalyzer {
         }
 
         if(aboveUpperLimit(numberAnswers, settings)) {
-            //TODO send warning notification for high value
-            System.out.println("Warning, value too high");//Test line, remove later
+            warning[1] = true;
         }else if(belowLowerLimit(numberAnswers, settings)) {
-            //TODO send warning notification for low value
-            System.out.println("Warning, value too low");//Test line, remove later
+            warning[0] = true;
         }
     }
 
