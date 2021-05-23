@@ -11,10 +11,22 @@ import androidx.annotation.RequiresApi;
 import java.util.Calendar;
 import java.util.TimeZone;
 
+/**
+ * Class that handles the setting of alarms for the notifications
+ * @author Elias Johansson
+ */
 public class AlarmHandler {
     public static final int REMINDER_TYPE = 0;
     public static final int MEDICINE_TYPE = 1;
 
+    /**
+     * Sets the alarm
+     * @param context the context of the app
+     * @param hour hour of the day
+     * @param minute minute of the day
+     * @param type the type of notification
+     * @param alreadyTriggered Has the alarm already been triggered today?
+     */
     @RequiresApi(api = Build.VERSION_CODES.M)
     public void setAlarm(Context context, int hour, int minute, int type,boolean alreadyTriggered) {
         Intent intent;
@@ -43,6 +55,12 @@ public class AlarmHandler {
         long time = calendar.getTimeInMillis();
         alarmManager.setAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
     }
+
+    /**
+     * Clears a specific alarm
+     * @param context the app context
+     * @param type the type of alarm to be cleared
+     */
     public void clearAlarm(Context context, int type){
         Intent intent;
         if (type == REMINDER_TYPE) {
