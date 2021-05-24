@@ -28,6 +28,9 @@ import com.example.agileproject.Utils.FileHandler;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.TimeZone;
+
+import hirondelle.date4j.DateTime;
 
 /** A class for the page where you can add your medicines and follow when you started taking them in the graphs.
  * Also, your doctor can log for which personal levels of different answers you should be notified to contact your doctor.
@@ -250,23 +253,55 @@ public class SettingsPage extends Fragment implements View.OnClickListener {
             settings.add(new AnalyzerSettingNumber(id, upper, lower, time));
         }
         if(medBool) {
+            DateTime dateTime = DateTime.now(TimeZone.getDefault());
+            int currentHour = dateTime.getHour();
+            int currentMinute = dateTime.getMinute();
             int id = 101,
                     hour = medicineTime.getHour(),
                     minute = medicineTime.getMinute();
             settings.add(new SettingNotificationReminder(id, hour, minute));
             AlarmHandler alarmHandler = new AlarmHandler();
-            alarmHandler.setAlarm(getContext(),hour,minute,AlarmHandler.MEDICINE_TYPE,false);}
+            int hourDiff = currentHour - hour;
+            int minDiff = currentMinute - minute;
+
+            if (hourDiff > 0 || (hourDiff == 0 && minDiff >= 0)) {
+                alarmHandler.setAlarm(getContext(), hour, minute, AlarmHandler.MEDICINE_TYPE, true);
+            }
+            else {
+                alarmHandler.setAlarm(getContext(), hour,minute, AlarmHandler.MEDICINE_TYPE, false);
+            }
+           }
+        if (!medBool){
+            AlarmHandler alarmHandler = new AlarmHandler();
+            alarmHandler.clearAlarm(getContext(),AlarmHandler.MEDICINE_TYPE);
+        }
 
 
         if(quizBool) {
+            DateTime dateTime = DateTime.now(TimeZone.getDefault());
+            int currentHour = dateTime.getHour();
+            int currentMinute = dateTime.getMinute();
             int id = 102,
                     hour = quizTime.getHour(),
                     minute = quizTime.getMinute();
             settings.add(new SettingNotificationReminder(id, hour, minute));
             AlarmHandler alarmHandler = new AlarmHandler();
-            alarmHandler.setAlarm(getContext(),hour,minute,AlarmHandler.REMINDER_TYPE,false);
+            int hourDiff = currentHour - hour;
+            int minDiff = currentMinute - minute;
 
+            if (hourDiff > 0 || (hourDiff == 0 && minDiff >= 0)) {
+                alarmHandler.setAlarm(getContext(), hour, minute, AlarmHandler.REMINDER_TYPE, true);
+            }
+            else {
+                alarmHandler.setAlarm(getContext(), hour,minute, AlarmHandler.REMINDER_TYPE, false);
+            }
         }
+        if (!quizBool){
+            AlarmHandler alarmHandler = new AlarmHandler();
+            alarmHandler.clearAlarm(getContext(),AlarmHandler.REMINDER_TYPE);
+        }
+
+        
 
         if(!settings.isEmpty()) {
             fileHandler.empty(getContext(), "Settings.txt");

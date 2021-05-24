@@ -1,0 +1,41 @@
+what do I want to learn or understand better?
+Like earlier weeks I want to get a better understanding of agile practices but I feel I have improved quite a bit in this regard during the last two sprints or so. 
+To continue doing this, if there were more sprints, I would continue looking through old lecture slides and look for resources online. I also feel I have become less stressed
+this sprint which I believe is the result of me saying no to doing certain tasks, which I have not really done before. It is not really what I said that I wanted to learn the previous week
+but it is a solution to a problem I have mentioned, namely being very stressed. This is something I definitely would work on more for the next project. 
+
+
+how can I help someone else, or the entire team, to learn something new?
+
+Like every week I spent some time on helping other team members with bugs and implementation details. Not as much as before though which makes me
+believe that some of my previous efforts to help the team improve at coding have been fruitful. Still I feel like there is still some improvements here to
+be made. For example I figured out this sprint that two members of the team did not understand how to use the debugger and I probably should have 
+asked about different concepts at the beginning of the course to see what they really knew to avoid these kinds of avoidable detriments to productivity.
+I also tried to explain some agile concepts, to the best of my ability to the team when they asked what something ment. I also spent some time pair programming with both
+Alva and William and I feel like I both learnt a few new things and helped them learn a few more things. In the next project I would definitely want to spend more
+time pair programming since it is a very useful tool to exchange knowledge. It is important though that you keep it at a resonable level since it can affect productivity negatively in my experience.
+
+what is my contribution towards the team’s use of Scrum?
+
+I spent some time reflecting about scrum related things we could have done better, for example effort estimation for user stories instead of just doing it for tasks, which I believe would have
+made the team think in more vertical terms.
+I have tried to share my reflections with the team aswell in a better capacity than the last sprints because I tend to forget to mention some things. Now I wrote them down to remember them.
+For example that the team  should have spent more time on task breakdown and general planning to avoid some of the pitfalls we have fallen into. 
+ The lack of planning made is so that some existing parts of the program had to be modified
+to support new functionality, which took unnessecary development time to fix. It is quite late now to fix this but the general knowledge of this I believe will 
+be quite helpful when it comes to learning. That is something I will take with me in to the next project.
+I also realised that that the goal from the previous individual reflection, to make documents up to date is not really that useful since it is frankly just a 
+waste of time if we won't use them, atleast this last sprint. Maybe we will update them to make the final team reflection clearer but that was definitely not something to prioritize this sprint.
+ Still I do believe we as a group has become better at doing non code related tasks since we brought it up at a meeting this sprint.
+ Apart from all these things I have attended the standups, sprint review, sprint 
+planning and done some code review and tried to contribute with my thoughts as well as I can.
+
+
+what is my contribution towards the team’s deliveries?
+I have spent a lot of time on this weeks team reflection to make sure that we don't forget anything before the final report. I also have spent quite some time
+just reflecting on about things we could have done better, something I wish I had spent more time on earlier but at the same time then I had to spend less time on
+something else. The reflections might also not have been that good since I lacked a good understanding of scrum early on. Apart from that I have fixed many bugs and
+finished the notifications system. It might need a little more touch up before the final presentation which makes it so I have to do some weekend work. It is really not
+what I wanted to do but I feel like I have to make sure there are no serious bugs. This is of course the result of less than stellar planning which is reflected on in our team reflection.
+Ironically I mentioned that my goal was to try to improve at planning in my last individual reflection to avoid weekend work
+ but I believe that in this case it is more due to how we as a team have worked than my individual planning. 

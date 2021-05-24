@@ -26,7 +26,11 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
+
+import hirondelle.date4j.DateTime;
 
 /**
  * @author William Hugo
@@ -45,11 +49,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         FileHandler fileHandler = new FileHandler();
 
-       String s =fileHandler.read(getApplicationContext(),"Answers.txt");
-       AnswerConverter.getInstance().convert(s);
-
-
-
+        String s = fileHandler.read(getApplicationContext(), "Answers.txt");
+        AnswerConverter.getInstance().convert(s);
 
 
         //This code connects the navigation bar to the fragment for our four main pages
@@ -57,22 +58,49 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.main_pages_fragment);
         NavigationUI.setupWithNavController(bottomNavigationView, navController);
 
-        String readAnswers = fileHandler.read(getApplicationContext(),"Answers.txt");
+        String readAnswers = fileHandler.read(getApplicationContext(), "Answers.txt");
         AnswerConverter.getInstance().convert(readAnswers);
 
 
-
-        String readData = fileHandler.read(getApplicationContext(),"Settings.txt");
+        String readData = fileHandler.read(getApplicationContext(), "Settings.txt");
         AnalyzerConverter.getInstance().convert(readData);
 
-        SettingNotificationReminder medicineSettings= (SettingNotificationReminder) AnalyzerConverter.getInstance().getAnalyzerSettings(101);
-        SettingNotificationReminder quizReminderSettings= (SettingNotificationReminder) AnalyzerConverter.getInstance().getAnalyzerSettings(102);
+        SettingNotificationReminder medicineSettings = (SettingNotificationReminder) AnalyzerConverter.getInstance().getAnalyzerSettings(101);
+        SettingNotificationReminder quizReminderSettings = (SettingNotificationReminder) AnalyzerConverter.getInstance().getAnalyzerSettings(102);
 
+        DateTime dateTime = DateTime.now(TimeZone.getDefault());
+        int currentHour = dateTime.getHour();
+        int currentMinute = dateTime.getMinute();
         AlarmHandler alarmHandler = new AlarmHandler();
-        if (medicineSettings !=null){
-        alarmHandler.setAlarm(getApplicationContext(),medicineSettings.getHour(),medicineSettings.getMinute(),AlarmHandler.MEDICINE_TYPE,false);}
-        if (quizReminderSettings!=null) {
-            alarmHandler.setAlarm(getApplicationContext(), quizReminderSettings.getHour(), quizReminderSettings.getMinute(), AlarmHandler.REMINDER_TYPE,false);
+        if (medicineSettings != null) {
+
+            int hourDiff = currentHour - medicineSettings.getHour();
+            int minDiff = currentMinute - medicineSettings.getMinute();
+
+            if (hourDiff > 0 || (hourDiff == 0 && minDiff >= 0)) {
+                alarmHandler.setAlarm(getApplicationContext(), medicineSettings.getHour(), medicineSettings.getMinute(), AlarmHandler.MEDICINE_TYPE, true);
+            }
+            else {
+                alarmHandler.setAlarm(
+
+                        getApplicationContext(), medicineSettings.
+
+                                getHour(), medicineSettings.
+
+                                getMinute(), AlarmHandler.MEDICINE_TYPE, false);
+            }}
+
+
+        if (quizReminderSettings != null) {
+            int hourDiff = currentHour - quizReminderSettings.getHour();
+            int minDiff = currentMinute - quizReminderSettings.getMinute();
+
+            if (hourDiff > 0 || (hourDiff == 0 && minDiff >= 0)) {
+                alarmHandler.setAlarm(getApplicationContext(), quizReminderSettings.getHour(), quizReminderSettings.getMinute(), AlarmHandler.REMINDER_TYPE, true);
+            }
+            else {
+                alarmHandler.setAlarm(getApplicationContext(), quizReminderSettings.getHour(), quizReminderSettings.getMinute(), AlarmHandler.REMINDER_TYPE, false);
+            }
         }
         createNotificationChannel();
 
@@ -104,9 +132,6 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
-
-
-
 
 
 }

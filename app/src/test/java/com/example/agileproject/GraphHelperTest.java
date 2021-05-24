@@ -1,5 +1,6 @@
 package com.example.agileproject;
 
+import com.example.agileproject.Model.AnswerEntry;
 import com.example.agileproject.Model.Answerable;
 import com.example.agileproject.Model.BooleanAnswer;
 import com.example.agileproject.Model.GraphHelper;
@@ -20,7 +21,7 @@ import static org.junit.Assert.assertEquals;
  * @author Elias Johansson
  */
 public class GraphHelperTest {
-/*    @Test
+   @Test
     public void checkIfGraphHelperReturnsCorrectElements() {
         NumberAnswer a = new NumberAnswer(3,20,"2021-04-19");
         TextAnswer b = new TextAnswer("Test if strings work",30,"2021-04-18");
@@ -29,7 +30,7 @@ public class GraphHelperTest {
         TextAnswer e = new TextAnswer("Hello!",30,"2021-04-17");
         BooleanAnswer f = new BooleanAnswer(true,40,"2021-04-18");
 
-        List<Storable> answers = new ArrayList<>();
+        List<Answerable> answers = new ArrayList<>();
 
         answers.add(a);
         answers.add(b);
@@ -43,15 +44,16 @@ public class GraphHelperTest {
         AnswerConverter fc = AnswerConverter.getInstance();
         fc.convert(res);
         GraphHelper g = new GraphHelper();
-        List<Answerable> answerableList =g.getDataFromDateToDate("2021-04-17","2021-04-19",20);
+        List<AnswerEntry> answerableList =g.getDataFromDateToDate("2021-04-17","2021-04-19",20);
         StringBuilder result = new StringBuilder();
-        for (Answerable ans:answerableList) {
-            result.append(ans.getData()+"###---###---###"+ans.getQuestionId() + "###---###---###" + ans.getDate() + "###---###---###" + ans.getType());
+        for (AnswerEntry ans:answerableList) {
+            result.append(  (int) ans.getY() + ans.getDateAdded());
         }
-        String expected = d.getInfoToWrite() + a.getInfoToWrite();
+        int tst = d.getData();
+        String expected = tst  +d.getDate() + a.getData() +a.getDate();
         assertEquals(expected, result.toString());
         }
 
- */
+
 }
 

@@ -27,9 +27,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * A simple {@link Fragment} subclass.
- * Use the {@link GraphPage#newInstance} factory method to
- * create an instance of this fragment.
+ * Class that handles the graph page in the app.
+ * @author Elias Johansson
  */
 
 public class GraphPage extends Fragment {
@@ -169,7 +168,6 @@ public class GraphPage extends Fragment {
         entries.add(graphHelper.getDataFromDateToDate(startDate, endDate, 3));
         entries.add(graphHelper.getDataFromDateToDate(startDate, endDate, 4));
         entries.add(graphHelper.getDataFromDateToDate(startDate, endDate, 5));
-        entries.add(graphHelper.getDataFromDateToDate(startDate, endDate, 6));
         entries.add(graphHelper.getDataFromDateToDate(startDate, endDate, 7));
         entries.add(graphHelper.getDataFromDateToDate(startDate, endDate, 8));
         entries.add(graphHelper.getDataFromDateToDate(startDate, endDate, 9));
@@ -177,6 +175,8 @@ public class GraphPage extends Fragment {
         entries.add(graphHelper.getDataFromDateToDate(startDate, endDate, 11));
         entries.add(graphHelper.getDataFromDateToDate(startDate, endDate, 12));
         entries.add(graphHelper.getDataFromDateToDate(startDate, endDate, 13));
+        //Imprtant that this one is last since it should not be shown.
+        entries.add(graphHelper.getDataFromDateToDate(startDate, endDate, 6));
 
         for (int i = 0; i < entries.size(); i++) {
             if (entries.get(i).isEmpty()) {
