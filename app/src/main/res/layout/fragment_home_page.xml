@@ -89,7 +89,7 @@
             android:visibility="gone"
             app:layout_constraintBottom_toTopOf="@+id/stat_button"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/imageView4" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/textView15"
