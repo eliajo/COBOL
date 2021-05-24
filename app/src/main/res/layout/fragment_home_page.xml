@@ -16,46 +16,42 @@
             android:id="@+id/imageView4"
             android:layout_width="392dp"
             android:layout_height="398dp"
-            android:layout_marginTop="52dp"
-            android:layout_marginBottom="81dp"
+            android:layout_marginTop="70dp"
+            android:layout_marginEnd="19dp"
+            android:layout_marginRight="19dp"
             android:src="@drawable/sun"
             android:visibility="visible"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.779" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textView17"
             android:layout_width="318dp"
             android:layout_height="108dp"
-            android:layout_marginTop="96dp"
+            android:layout_marginBottom="10dp"
             android:text="Hur är din dag?"
             android:textAppearance="@style/TextAppearance.AppCompat.Display2"
             android:textColor="#2D9CDB"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/imageView6"
+            app:layout_constraintBottom_toTopOf="@+id/quiz_Button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.493"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/quiz_Button"
             android:layout_width="266dp"
             android:layout_height="100dp"
+            android:layout_marginBottom="20dp"
             android:elevation="4dp"
             android:text="Starta Testet"
             android:textSize="24sp"
             app:backgroundTint="#2D9CDB"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/calendar_button"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.488"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.607" />
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/calendar_button"
