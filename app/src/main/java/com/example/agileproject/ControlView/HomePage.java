@@ -17,27 +17,24 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.agileproject.Model.Answerable;
+import com.example.agileproject.Model.AnswerDataAnalyzer;
 import com.example.agileproject.R;
 import com.example.agileproject.Utils.AnswerConverter;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
+
 /**
- * @author Pegah Amanzadeh, Edenia Isaac
+ * @author William Hugo, Pegah Amanzadeh, Edenia Isaac
  */
 
 public class HomePage extends Fragment {
-
-
-
 
     NavController navController;
 
     private Button quizButton;
     private Button statButton;
     private Button calendarButton;
+    private TextView warningText;
 
     public HomePage() {
         // Required empty public constructor
@@ -73,9 +70,12 @@ public class HomePage extends Fragment {
             view.findViewById(R.id.calendar_button).setVisibility(View.VISIBLE);
             view.findViewById(R.id.textView17).setVisibility(View.GONE);
             view.findViewById(R.id.imageView4).setVisibility(View.GONE);
-            view.findViewById(R.id.textView32).setVisibility(View.VISIBLE);
+            view.findViewById(R.id.warning_text).setVisibility(View.VISIBLE);
             view.findViewById(R.id.textView15).setVisibility(View.VISIBLE);
             view.findViewById(R.id.imageView6).setVisibility(View.VISIBLE);
+
+            warningText = view.findViewById(R.id.warning_text);
+            setWarningText();
         }
         return view;
     }
@@ -98,7 +98,73 @@ public class HomePage extends Fragment {
         startActivity(intent);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private void setWarningText() {
+        AnswerDataAnalyzer ada = new AnswerDataAnalyzer();
+        StringBuilder sb = new StringBuilder();
+        sb.append("Varning: ");
 
+        boolean[] hallucinationWarning = ada.analyzeBalance(2);
+        if(hallucinationWarning[0]) {
+            sb.append("låga hallucinationsvärden");
+        } else if(hallucinationWarning[1]) {
+            sb.append("höga hallucinationsvärden");
+        }
 
+        if(sb.toString().endsWith("n")) {
+            sb.append(", ");
+        }
+
+        boolean[] delusionWarning = ada.analyzeBalance(3);
+        if(delusionWarning[0]) {
+            sb.append("låga vanföreställningsvärden");
+        } else if(delusionWarning[1]) {
+            sb.append("höga vanföreställningsvärden");
+        }
+
+        if(sb.toString().endsWith("n")) {
+            sb.append(", ");
+        }
+
+        boolean[] anxietyWarning = ada.analyzeBalance(4);
+        if(anxietyWarning[0]) {
+            sb.append("låga ångestvärden");
+        } else if(anxietyWarning[1]) {
+            sb.append("höga ångestvärden");
+        }
+
+        if(sb.toString().endsWith("n")) {
+            sb.append(", ");
+        }
+
+        boolean[] irritationWarning = ada.analyzeBalance(8);
+        if(irritationWarning[0]) {
+            sb.append("låga irritationsvärden");
+        } else if(irritationWarning[1]) {
+            sb.append("höga irritationsvärden");
+        }
+
+        if(sb.toString().endsWith("n")) {
+            sb.append(", ");
+        }
+
+        boolean[] energyWarning = ada.analyzeBalance(1);
+        if(energyWarning[0]) {
+            sb.append("låga energivärden");
+        } else if(energyWarning[1]) {
+            sb.append("höga energivärden");
+        }
+
+        if(sb.toString().endsWith("n")) {
+            sb.append(", ");
+        }
+
+        if(!sb.toString().contentEquals("Varning: ")) {
+            sb.append("kontakta läkare eller kontaktperson");
+            warningText.setText(sb.toString());
+        } else {
+            warningText.setText("");
+        }
+    }
 
 }

@@ -15,6 +15,10 @@ import com.example.agileproject.ControlView.MainActivity;
 import com.example.agileproject.Model.SettingNotificationReminder;
 import com.example.agileproject.R;
 
+/**
+ * Class that handles what do to when the the quiz notification should be shown
+ * @author Elias Johansson
+ */
 public class QuizReminderReceiver extends BroadcastReceiver {
     private static final int notificationID =5000;
 

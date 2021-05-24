@@ -17,6 +17,7 @@ import com.example.agileproject.R;
 import com.example.agileproject.Utils.AnswerConverter;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.components.LegendEntry;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.data.Entry;
@@ -459,10 +460,11 @@ public class GraphDrawer {
             pieDataSet.setXValuePosition(PieDataSet.ValuePosition.OUTSIDE_SLICE); // labels outside of pie chart
             pieDataSet.setValueLinePart1OffsetPercentage(90f);
             pieDataSet.setValueLineColor(Color.parseColor("#4682b4"));
-            pieDataSet.setValueLinePart1Length(0.6f);
-            pieDataSet.setValueLinePart2Length(0.10f);
-            pieChart.setExtraOffsets(60.f, 5.f, 60.f, 5.f);
+            //pieDataSet.setValueLinePart1Length(0.6f);
+            //pieDataSet.setValueLinePart2Length(0.10f);
+           pieChart.setExtraOffsets(45.f, 5.f, 45.f, 5.f);
             pieChart.getLegend().setTextSize(10f);
+            pieChart.getLegend().setHorizontalAlignment(Legend.LegendHorizontalAlignment.CENTER);
             pieChart.setEntryLabelTextSize(10f);
 
         }

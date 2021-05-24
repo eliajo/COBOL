@@ -129,7 +129,9 @@ public class GraphAdapter extends RecyclerView.Adapter<GraphAdapter.GraphHolder>
 
     @Override
     public int getItemCount() {
-        return entries.size();
+
+        //Ignore last which should not be drawn
+        return entries.size()-1;
     }
 
     @Override
