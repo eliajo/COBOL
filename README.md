@@ -1,5 +1,6 @@
 # COBOL
-
+## Introduction
+This project is an app for Android that is for patients with a psychiatric psychosis diagnosis, specifically patients that live at home and are treated by “öppenvården”. The app would work like a diary where the patient can input data regarding different parameters that might be useful for the doctor and other personnel. This gives the opportunity to follow the patients habits and wellbeing under a period of  time. It might be sleeping habits, anxiety issues, delusions and other relevant parameters. The app is designed to function as a support for the patient and the treater to get a better overview of the patients well being since the last meeting and to follow up how well the treatment is working. 
 ## Who is who?
 
 eliajo - Elias Johansson  
