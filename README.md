@@ -11,7 +11,7 @@ klarajak - Klara Jakobsson
 
 alvaleufstedt - Alva Leufstedt
 
-Edenia97 - Edenia Isaac
+Edenia97 - Edenia Isaac Galan
 
 elinberthag - Elin Berthag
 
