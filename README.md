@@ -26,3 +26,4 @@ Google Drive: https://drive.google.com/drive/folders/1K6YpsIhc2ytINaebHtyPYp50Cq
 Trello: https://trello.com/b/ZCrVXsoZ/cobol
 
 ## Where to find things
+In trello all of our user stories, epics, tasks and Definition of Done can be found. Our efforts are found in the "Dagordning för scrum planering" documents in the sprint planning folder in drive. All the reflections can be found under the docs folder aswell as any other documentation.
